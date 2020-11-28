@@ -2,7 +2,6 @@
 
 🤩➰➰ master glitch project ➰🤩
 
-testing if glitch import works now that modules removed
 
 
 
@@ -16,4 +15,3 @@ Just remix the project, see [https://github.com/louischatriot/nedb](https://gith
 
 
 # Links to other tuts / code sources:
-[Tut for automating glitch to github workflow](https://dev.to/glitch/automating-my-deploys-from-github-to-glitch-2fpd)
