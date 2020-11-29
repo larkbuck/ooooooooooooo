@@ -15,57 +15,47 @@
 </head>
 
 <body>
-  <!-- Header -->
-  <!-- <header class="header-two-bars">
-
-    <div class="header-first-bar">
-
-      <div class="header-limiter">
-
-        <h1><a href="#">Company<span>logo</span></a></h1>
-
-        <nav>
-          <a href="#">Overview</a>
-          <a href="#" class="selected">Surveys</a>
-          <a href="#">Reports</a>
-          <a href="#">Roles</a>
-        </nav>
-
-        <a href="#" class="logout-button">Logout</a>
-      </div>
-
+  <header class="main-header">
+    <div class="width-max1200 flex-wrap-container">
+      <h1 class="mh-logo">
+        <!-- <img src="http://flexbox.ninja/assets/images/logo.svg" width="170" height="95" alt="Flexbox.ninja"> -->
+        ..o0o..
+      </h1>
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li>
+            <a href="#">░▒▓█</a>
+          </li>
+          <li>
+            <a href="#">☂˚｡、</a>
+          </li>
+          <li>
+            <a href="#">ヽ｀☽ヽ｀</a>
+          </li>
+          <li>
+            <a href="#">🌚 12.14.20</a>
+          </li>
+          <li>
+            <a href="#">🌝 12.29.20</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-
-    <div class="header-second-bar">
-
-      <div class="header-limiter">
-        <h2><a href="#">Survey name</a></h2>
-
-        <nav>
-          <a href="#"><i class="fa fa-comments-o"></i> Questions</a>
-          <a href="#"><i class="fa fa-file-text"></i> Results</a>
-          <a href="#"><i class="fa fa-group"></i> Participants</a>
-          <a href="#"><i class="fa fa-cogs"></i> Settings</a>
-        </nav>
-
-      </div>
-
-    </div>
-
-  </header> -->
+  </header>
 
 
   <!-- Main Content -->
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      Hero
+    <!-- Three JS Top -->
+    <section class="width-full">
+      Full width
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sumenda potius quam expetenda. Nihil opus est exemplis hoc facere longius.
       </p>
     </section>
 
-    <div class="flex-container wrapper">
+    <!-- for splitting content in browser w/ flexbox -->
+    <div class="flex-container width-max1200">
 
       <!-- Content -->
       <section class="content">
@@ -80,50 +70,46 @@
           condemnatus est rogatione, P. Quem ad modum quis ambulet, sedeat, qui ductus oris, qui vultus in quoque sit? Miserum hominem! Si dolor summum malum est, dici aliter non potest. Quo tandem modo? Ex rebus enim timiditas, non ex vocabulis
           nascitur. Deinde prima illa, quae in congressu solemus: Quid tu, inquit, huc? Quod eo liquidius faciet, si perspexerit rerum inter eas verborumne sit controversia.
         </p>
+
       </section>
 
       <!-- Sidebar -->
       <aside class="sidebar">
-        Sidebar
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sumenda potius quam expetenda. Nihil opus est exemplis hoc facere longius. At Zeno eum non beatum modo, sed etiam divitem dicere ausus est. Nunc ita separantur, ut disiuncta sint, quo
-          nihil potest esse perversius. Itaque quantum adiit periculum!
-        </p>
+        <div>
+          <p>Add a new user:</p>
+          <form>
+            <input id="fName" type="text" maxlength="100" placeholder="John"> <input id="lName" type="text" maxlength="100" placeholder="Hancock">
+            <button type="submit">Submit</button>
+          </form>
+          <p>Users:</p>
+          <section class="users">
+            <ul id="users">
+            </ul>
+          </section>
+          <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p>
+        </div>
       </aside>
 
     </div>
 
   </main>
 
-  <!-- Footer -->
-  <!-- in demno this was inside main -->
-  <footer class="footer">
-    Footer
-    <p>
-      Esse enim quam vellet iniquus iustus poterat inpune. Tu enim ista lenius, hic Stoicorum more nos vexat. Duo Reges: constructio interrete.
-    </p>
-  </footer>
+<canvas id="canvas-background"></canvas>
+
+  <!-- <footer class="foot">
+  </footer> -->
 
 
-
-  <div>
-    <p>Add a new user:</p>
-    <form>
-      <input id="fName" type="text" maxlength="100" placeholder="John"> <input id="lName" type="text" maxlength="100" placeholder="Hancock">
-      <button type="submit">Submit</button>
-    </form>
-    <p>Users:</p>
-    <section class="users">
-      <ul id="users">
-      </ul>
-    </section>
-    <p><a href="/reset">Reset</a> | <a href="/clear">Clear</a></p>
-  </div>
 
 
 
   <!-- Your web-app is https, so your scripts need to be too -->
+
   <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+
+
+
+  <script src="/aframe.js"></script>
   <script src="/client.js"></script>
 
 </body>
