@@ -8,8 +8,10 @@ var cam = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight
 const parent = document.querySelector('#threejsDiv');
 
 // const renderer = new THREE.WebGLRenderer();
-const renderer = new THREE.WebGLRenderer({parent,
-  alpha: true,});
+const renderer = new THREE.WebGLRenderer({
+  parent,
+  alpha: true,
+});
 
 // document.body.appendChild(renderer.domElement);
 
@@ -27,7 +29,8 @@ parent.append(renderer.domElement);
 
 var geometry = new THREE.BoxGeometry(1, 1, 1);
 var material = new THREE.MeshBasicMaterial({
-  color: 0x00ff00
+  color: 0x00ff00,
+  wireframe: true
 });
 var cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
@@ -46,10 +49,10 @@ var render = function() {
 // for resizing canvas
 // When window is resized
 var resizeRenderer = function() {
-    // Get width & height of parentDiv
-    var width = parent.clientWidth;
-    var height = parent.clientWidth * .66;
-    renderer.setSize(width, height);
+  // Get width & height of parentDiv
+  var width = parent.clientWidth;
+  var height = parent.clientWidth * .66;
+  renderer.setSize(width, height);
 }
 
 // Add window resize listener
