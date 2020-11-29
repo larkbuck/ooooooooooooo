@@ -8,7 +8,8 @@
 	},
 	"dependencies": {
 		"express": "^4.12.4",
-		"nedb": "*"
+		"nedb": "*",
+		"three": "^0.123.0"
 	},
 	"keywords": [
 		"node",
