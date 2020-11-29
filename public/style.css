@@ -13,7 +13,7 @@ html {
 
 body {
   margin: 0;
-  padding: 20px;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: #ffffff;
@@ -59,6 +59,17 @@ main {
   border: 1px solid #000000;
   background: #616161;
 }
+
+
+@media screen and (min-width: 600px) {
+
+  /* @media screen and (min-width: 480px){ */
+  .flex-container {
+    display: flex;
+  }
+}
+
+
 
 /* ~~~~~~~~ responsive header ~~~~~~~ */
 .header-two-bars {
@@ -176,14 +187,9 @@ main {
   margin: 0 4px 0 15px;
 }
 
-@media screen and (min-width: 600px) {
 
-  /* @media screen and (min-width: 480px){ */
-  .flex-container {
-    display: flex;
-  }
-
-  /* ~~~~~~~~ responsive header ~~~~~~~ */
+/* ~~~~~~~~ responsive header ~~~~~~~ */
+@media all and (max-width: 600px) {
   .header-two-bars .header-first-bar {
     padding: 20px 0;
   }
