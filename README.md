@@ -1,6 +1,6 @@
-# .o0o. virtual moon reverance for global ritual and connection
+# .o0o.
 
-🤩➰➰ master glitch project ➰🤩
+## 🤩➰➰ virtual moon reverance for global ritual and connection ➰🤩
 
 
 

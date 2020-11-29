@@ -1,3 +1,5 @@
+/* dark: #0d2121 rgb(13, 33, 33) */
+/* dark: #0d0d0d rgb(13, 13, 13) */
 * {
   margin: 0;
   padding: 0;
@@ -17,61 +19,65 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: #eeeeee;
-  background: #111f22;
+  background: #0d0d0d;
 }
 
- /* Images are now responsive */
+/* Images are now responsive */
 img {
- max-width: 100%;
- height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
-
-
+/* red boder to debug sizing */
+header, section, aside, footer, canvas {
+  border: 1px solid #ff0000;
+}
 
 header, section, aside, footer {
   display: block;
   margin: 0;
   padding: 1rem;
-  border: 1px solid #ff0000;
   color: #eeeeee;
 }
 
 main {
-  background: #111f22;
+  background: #0d0d0d;
   padding: 2rem;
 }
 
-
 /* ******* flex containers ******** */
-
 .flex-container {
   display: flex;
   flex-direction: row;
 }
 
 .flex-wrap-container {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-
 
 /**
  * Limit the container in
  * width for big screens
  */
+.width-max720 {
+  width: 720px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .width-max1200 {
-	width: 1200px;
-	max-width: 100%;
-	margin: 0 auto;
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .width-full {
-	width: 100%;
-	max-width: 100%;
-	margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .header {
@@ -99,9 +105,6 @@ main {
 }
 
 /* ****** header ******* */
-
-
-
 /**
  * By using display: flex
  * Logo and nav are in 2 cols
@@ -113,8 +116,6 @@ main {
  * things in two lines in
  * small screens
  */
-
-
 /**
  * The followings are to
  * make things more
@@ -122,34 +123,43 @@ main {
  * and contents centered
  */
 .main-nav ul {
-	margin: 1em 0 .5em;
-	text-align: center;
+  margin: 1em 0 .5em;
+  text-align: center;
 }
+
 .main-nav li {
-	display: inline;
+  display: inline;
 }
+
 .main-nav a {
-	display: inline-block;
-	padding: .5em 1.5em;
+  display: inline-block;
+  padding: .5em 1.5em;
   text-decoration: none;
   color: #eeeeee;
 }
 
-
 /* ******** Canvases ******** */
-
 #canvas-background {
   position: fixed;
   z-index: -1;
 }
 
-/* ********** media queries ********** */
+#p5Div, #threejsDiv {
+  /* position: absolute;
+  top: 0;
+  left: 0; */
+  width: 100%;
+  /* height: 400px; */
+}
 
+#p5Div {
+  z-index: 1;
+}
+
+/* ********** media queries ********** */
 @media screen and (max-width: 600px) {
 
   /* @media screen and (min-width: 480px){ */
-
-
   main {
     padding: .2rem;
   }

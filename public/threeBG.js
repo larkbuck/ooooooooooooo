@@ -1,47 +1,63 @@
 import * as THREE from '/build/three.module.js';
-import {OrbitControls} from '/jsm/controls/OrbitControls.js';
-import Stats from '/jsm/libs/stats.module.js';
 
-const scene = new THREE.Scene();
 
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.z = 2;
 
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+var scene = new THREE.Scene();
+var cam = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-const controls = new OrbitControls(camera, renderer.domElement);
+const parent = document.querySelector('#threejsDiv');
 
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({
-    color: 0x00ff00,
-    wireframe: true
+// const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGLRenderer({parent,
+  alpha: true,});
+
+// document.body.appendChild(renderer.domElement);
+
+// Append the output of the renderer to the html element
+// Save reference of the parentDiv to be used later
+// Save reference of the parentDiv to be used later
+
+
+// renderer.setSize(parent.clientWidth, parent.clientHeight);
+renderer.setSize(parent.clientWidth, parent.clientWidth * .66);
+
+parent.append(renderer.domElement);
+
+
+
+var geometry = new THREE.BoxGeometry(1, 1, 1);
+var material = new THREE.MeshBasicMaterial({
+  color: 0x00ff00
 });
-const cube = new THREE.Mesh(geometry, material);
+var cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    render();
-}, false);
+cam.position.z = 5;
 
-const stats = Stats();
-document.body.appendChild(stats.dom);
+var render = function() {
+  requestAnimationFrame(render);
 
-var animate = function () {
-    requestAnimationFrame(animate);
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-    controls.update();
-    render();
-    stats.update();
+  cube.rotation.x += 0.1;
+  cube.rotation.y += 0.1;
+
+  renderer.render(scene, cam);
 };
 
-function render() {
-    renderer.render(scene, camera);
+// for resizing canvas
+// When window is resized
+var resizeRenderer = function() {
+    // Get width & height of parentDiv
+    var width = parent.clientWidth;
+    var height = parent.clientWidth * .66;
+    renderer.setSize(width, height);
 }
 
-animate();
+// Add window resize listener
+window.addEventListener('resize', resizeRenderer);
+
+// Force renderer resizing once
+resizeRenderer();
+
+
+
+render();
