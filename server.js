@@ -9,7 +9,7 @@
 // 2) Do an npm install for installing all the project dependencies
 // >>> in terminal: npm install
 
-// 3) Then npm start OR node app.js
+// 3) Then npm start OR node server.js
 // >>> in terminal: npm start
 
 
