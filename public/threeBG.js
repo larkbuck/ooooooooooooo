@@ -7,10 +7,13 @@ function init() {
   let box = getBox(1, 1, 1);
   let plane = getPlane(5);
 
-  box.position.y = box.geometry.parameters.height/2; // get height of box through geometry!
+  // name object so you can grab it in update loop
+  plane.name = 'plane-1';
+
+  box.position.y = box.geometry.parameters.height / 2; // get height of box through geometry!
   plane.rotation.x = Math.PI / 2;
 
-  scene.add(box);
+  plane.add(box);
   scene.add(plane);
 
 
@@ -36,7 +39,7 @@ function init() {
     scene,
     camera
   );
-  update(renderer,scene, camera);
+  update(renderer, scene, camera);
   return scene;
 
 }
@@ -70,14 +73,25 @@ function getPlane(size) {
   return mesh;
 };
 
-function update(renderer, scene, camera){
+function update(renderer, scene, camera) {
   renderer.render(
     scene,
     camera
   );
-  requestAnimationFrame(function(){
+
+  // you can grab object after you name it
+  let plane = scene.getObjectByName('plane-1');
+  plane.rotation.y += 0.001;
+  plane.rotation.z += 0.001;
+
+  // to traverse all child elements of the scene
+  scene.traverse(function(child) {
+    child.scale.x += 0.001;
+  });
+
+  requestAnimationFrame(function() {
     update(renderer, scene, camera);
-  })
+  });
 }
 
 // init returns scene, so you can save scene object in variable when calling init
