@@ -6,7 +6,7 @@
   <title>o0o</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> -->
   <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
 
 
@@ -185,6 +185,15 @@
     <a-box src="#texturestand"  color="grey" depth="0.5" height="110" width="70" position="0 29 4" rotation="-90 0 90" shadow="receive: true"></a-box> -->
 
 
+
+    <!--- lily  --->
+    <a-assets>
+      <a-asset-item id="lily" src="scene.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-entity gltf-model="#lily" position="70 -.3 -100" rotation="0 0 0" scale=".1 .1 .1" shadow="cast: true" id="lily"></a-entity>
+
+    <a-entity gltf-model="#lily" position="-100 -.3 -110" rotation="0 45 0" scale=".1 .1 .1" shadow="cast: true" id="lily"></a-entity>
 
     <!--- rocks  --->
     <a-assets>
