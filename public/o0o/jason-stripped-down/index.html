@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parallax</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+
+
+          <!--- added code for mobile users --->
+
+  <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+  <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+  <script src="tap-to-teleport.js" type="text/javascript"></script>
+
+</head>
+<body>
+  <a-scene>
+
+
+       <a-assets>
+        <img id="texture" src="marble.png">
+        <img id="textureroc" src="Plaster17_COL_VAR1_3K.jpg">
+        <img id="texturestand" src="marble3.jpg">
+
+
+    </a-assets>
+
+    <a-assests>
+        <img id="marble-nrm" src="Marble062_NRM_3K.jpg">
+
+
+
+    </a-assests>
+
+     <!--- obsidian 3D stand --->
+
+    <a-box src="#texturestand"
+           depth="0.5"
+           height="25"
+           width="23"
+           position="-33 0 17"
+           rotation="-90 0 90"
+           shadow="cast: true"></a-box>
+
+     <!--- ultra 3D stand --->
+    <a-box src="#texturestand"
+           depth="0.5"
+           height="20"
+           width="23"
+           position="34 0 19"
+           rotation="-90 0 90"
+           shadow="receive: true"></a-box>
+
+     <!--- eternal 3D stand --->
+    <a-box src="#texturestand"
+           repeat="2 2"
+           depth="0.5"
+           height="20"
+           width="23"
+           position="9 0 -15"
+           rotation="-90  0"
+           normal-map="#marble-nrm"
+           normal-texture-repeat="1 1"
+           normal-scale="1 1"
+           shadow="cast: true">
+        </a-box>
+
+
+
+         <!--- floor --->
+
+
+            <a-box src="#texturestand"
+                   repeat="4 4"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   color="grey"
+                   depth="0.5"
+                   height="110"
+                   width="70"
+                   position="0 -.5 4"
+                   rotation="-90 0 90"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   color="grey"
+                   depth="0.5"
+                   height="15"
+                   width="25"
+                   position="0 -.5 51.5"
+                   rotation="-90 0 90"
+                   shadow="receive: true"></a-box>
+
+
+         <!--- walls --->
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="15"
+                   width="25"
+                   position="-7.7 7 51.5"
+                   rotation="0 90 0"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="15"
+                   width="25"
+                   position="7.7 7 51.5"
+                   rotation="0 90 0"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   repeat="1 1"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="15"
+                   width="15"
+                   position="0 7 64"
+                   rotation="0 0 0"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   repeat="1 1"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="110"
+                   width="30"
+                   position="0 14 -30.5"
+                   rotation="0 0 90"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="70"
+                   width="30"
+                   position="55.218 14 4.025"
+                   rotation="0 90 90"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="49"
+                   width="30"
+                   position="31.933 14 39.196"
+                   rotation="0 0 90"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="49"
+                   width="30"
+                   position="-31.876 14 39.196"
+                   rotation="0 0 90"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="70"
+                   width="30"
+                   position="-55.218 14 4.025"
+                   rotation="0 90 90"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   depth="0.5"
+                   height="15"
+                   width="25"
+                   position="0 22 39.196"
+                   rotation="0 0 90"
+                   shadow="receive: true"></a-box>
+
+        <!--- ceiling --->
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   color="grey"
+                   depth="0.5"
+                   height="26"
+                   width="15"
+                   position="0 14.5 52"
+                   rotation="90 0 0"
+                   shadow="receive: true"></a-box>
+
+            <a-box src="#texturestand"
+                   normal-map="#marble-nrm"
+                   normal-texture-repeat="1 1"
+                   normal-scale="1 1"
+                   color="grey"
+                   depth="0.5"
+                   height="110"
+                   width="70"
+                   position="0 29 4"
+                   rotation="-90 0 90"
+                   shadow="receive: true"></a-box>
+
+
+
+  
+
+        <!--- 3D wall text for description  --->
+
+
+        <a-assets>
+             <a-asset-item id="desc" src="description.gltf" ></a-asset-item>
+         </a-assets>
+
+        <a-entity gltf-model="#desc"
+                  animation-mixer="clip:"
+                  position="-7.45 5 55"
+                  rotation="0 90 0"
+                  scale=".5 .5 2"
+                  shadow="cast: true"
+                  id="parallax"
+
+           ></a-entity>
+
+
+
+
+        <!--- 3D wall text for controls  --->
+
+
+        <a-assets>
+             <a-asset-item id="cont" src="mobile_controls.gltf" ></a-asset-item>
+         </a-assets>
+
+        <a-entity gltf-model="#cont"
+                  animation-mixer="clip:"
+                  position="7.45 5 48"
+                  rotation="0 -90 0"
+                  scale=".5 .5 2"
+                  shadow="cast: true"
+                  id="parallax"
+
+           ></a-entity>
+
+
+
+      <!--- light source for scene --->
+
+         <a-entity light="type: ambient;
+                         intensity: 0.2">
+         </a-entity>
+
+<!--
+        <a-entity data-brackets-id="891"
+                  light="type: point;
+                         intensity: 3;
+                         distance: 20;
+                         castShadow: true;
+                         color: #e8664f"
+                  position="1 8.5 18"
+                  ></a-entity>
+
+-->
+
+
+      <!--- light source for parallax title --->
+
+
+<!--
+        <a-entity  light="type: point;
+                          distance: 10;
+                          castShadow: true;
+                          color: #7e7ab3"
+                  position="-5.70035 12.33112 45.03249"
+                  id="p_light">
+        </a-entity>
+
+        <a-entity  light="type: point;
+                          distance: 10;
+                          castShadow: true;
+                          color: #944c4c"
+                  position="5.70035 12.33112 45.03249"
+                  id="p_light">
+        </a-entity>
+
+-->
+<!--
+        <a-entity  light="type: point;
+                          distance: 15;
+                          castShadow: true;
+                          color: #7e7ab3"
+                  position="5.70035 12.33112 37"
+                  id="p_light2">
+        </a-entity>
+
+         <a-entity  light="type: point;
+                          distance: 15;
+                          castShadow: true;
+                          color: #944c4c"
+                  position="-5.70035 12.33112 37"
+                  id="p_light2">
+        </a-entity>
+-->
+
+
+        <!--- light source for description and control --->
+
+        <a-entity data-brackets-id="2258"
+                  light="type: point;
+                         distance: 15;
+                         castShadow:
+                         true;
+                         color: #7e7ab3"
+                  position="-4.82562 6.90639 47.55674"
+                  id="p_light">
+        </a-entity>
+
+        <a-entity data-brackets-id="2259"
+                  light="type: point;
+                         distance: 15;
+                         castShadow: true;
+                         color: #944c4c"
+                  position="6.04314 6.72045 47.30599"
+                  id="p_light 2">
+        </a-entity>
+
+
+       <!--- light source for eternal --->
+
+
+<!--
+        <a-entity data-brackets-id="1172"
+                  light="type: point;
+                         distance: 10;
+                         castShadow: true;
+                         color: #bf00e6"
+                  position="18.01475 8.77372 -20.25515"
+                  id="eternal light source 1">
+        </a-entity>
+
+         <a-entity light="type: point;
+                         intensity: 1;
+                         distance: 10"
+                  position="10 6 -4"
+                   id="eternal light source 2">
+        </a-entity>
+
+        <a-entity light="type: point;
+                         intensity: 1;
+                         distance: 10;
+                         castShadow: true"
+                  position="-4 6 -17"
+                  id="eternal light source 3"
+                  >
+        </a-entity>
+
+        <a-entity light="type: point;
+                         intensity: 1;
+                         distance: 10"
+                  position="10 6 -17"
+                  id="eternal light source 4">
+        </a-entity>
+-->
+
+        <a-entity data-brackets-id="1176"
+                  light="type: point;
+                         intensity: 2;
+                         distance: 20;
+                         color: #3241ae"
+                  position="-4.79894 6.91216 -12.40291"
+                  id="blue light">
+        </a-entity>
+
+        <a-entity data-brackets-id="1177"
+                  light="type: point;
+                         intensity: 2;
+                         distance: 20;
+                         color: #ef4e66"
+                  position="11.02725 6.4423 -7.76171"
+                  id="pink light">
+        </a-entity>
+
+        <a-entity data-brackets-id="1178"
+                  light="type: point;
+                         intensity: 2;
+                         distance: 20;
+                         color: #4f75e8"
+                  position="1.17987 14.13201 -10.03995"
+                  id="deep blue light">
+        </a-entity>
+
+
+        <!--- light source for obsidian --->
+
+<!--
+        <a-entity data-brackets-id="1291"
+                  light="type: point;
+                         distance: 10"
+                  position="-17.94704 8.6989 22.79798"
+                  id="obsidian light source 1">
+        </a-entity>
+
+        <a-entity data-brackets-id="1292"
+                  light="type: point;
+                         distance: 10"
+                  position="-21.97442 6 11"
+                  id="obsidian light source 2">
+        </a-entity>
+
+        <a-entity light="type: point;
+                         intensity: 1;
+                         distance: 10"
+                  position="-40 6 11"
+                  id="obsidian light source 3">
+        </a-entity>
+-->
+
+        <a-entity data-brackets-id="1404"
+                  light="type: point;
+                         intensity: 3;
+                         distance: 10;
+                         color: #ffffff"
+                  position="-26.46649 11.01655 18.69719"
+                  id="obsidian light source 4">
+        </a-entity>
+
+<!--
+        <a-entity light="type: point;
+                         intensity: 1;
+                         distance: 10"
+                  position="-35 10 18"
+                  id="obsidian light source 5">
+        </a-entity>
+-->
+
+         <a-entity data-brackets-id="1406"
+                   light="type: point;
+                          intensity: 2;
+                          distance: 20;
+                          color: #eb5200"
+                   position="-35.15145 11.32258 15.48328"
+                   id="orange light">
+        </a-entity>
+
+        <a-entity data-brackets-id="1407"
+                  light="type: point;
+                         intensity: 1.1;
+                         distance: 20;
+                         color: #ffa857"
+                  position="-25.15129 9.71269 23.96491"
+                  id="lighter orange light">
+        </a-entity>
+
+        <a-entity data-brackets-id="1408"
+                  light="type: point;
+                         distance: 30;
+                         color: #ff7070"
+                  position="-23.00528 12.84581 9.87823"
+                  id="light red light">
+        </a-entity>
+
+        <!--- light source for ultra --->
+<!--
+      <a-entity light="type: point;
+                         intensity: 2;
+                         distance: 10;
+                         castShadow: true;
+                         color: #d72823w"
+                  position="25 6 18"
+
+
+        ></a-entity>
+
+        <a-entity light="type: point;
+                         intensity: 1;
+                         distance: 10;
+                         castShadow: true"
+                  position="30 9 24"
+
+
+        ></a-entity>
+-->
+
+<!--
+        <a-entity data-brackets-id="1265"
+                  light="type: point;
+                         distance: 10;
+                         castShadow: true;
+                         color: #ff4242"
+                  position="24 5 14"
+                  id="ultra title"></a-entity>
+-->
+
+
+        <a-entity data-brackets-id="592"
+                  light="type: point;
+                         intensity: 2.42;
+                         distance: 20;
+                         color: #d72828"
+                  position="36.0108 9 8.42773"
+                  id="red light">
+        </a-entity>
+
+        <a-entity data-brackets-id="671"
+                  light="type: point;
+                         intensity: 2.43;
+                         distance: 20;
+                         color: #d72828"
+                  position="36.0108 9 25.47897"
+                  id="red 2 light">
+        </a-entity>
+
+        <a-entity data-brackets-id="2558"
+                  light="type: point;
+                         intensity: 4.06;
+                         distance: 20;
+                         color: #fb5b5b"
+                  position="31.63831 7.10611 18.70011"
+                  id="red 3 light">
+        </a-entity>
+
+
+    <a-entity id="cameraRig" position="0 3 62" >
+      <a-entity id="head" position="0 0 0" camera="userHeight:3" look-controls="pointerLockEnabled:true">
+        <a-entity position="0.1 -0.1 0"
+          touch-listener
+          teleport-controls=
+            "cameraRig: #cameraRig;
+             teleportOrigin: #head;
+             startEvents:starttouch;
+             endEvents:endtouch;
+             curveShootingSpeed:20;
+             hitCylinderRadius:1;
+             collisionEntities: [ground]"
+          >
+        </a-entity>
+      </a-entity>
+    </a-entity>
+
+
+
+
+
+
+
+
+
+  </a-scene>
+
+
+
+</body>
+</html>
