@@ -13,8 +13,8 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 	defaultComponents: {
 		geometry: {
 			primitive: 'plane',
-			height: 10000,
-			width: 10000
+			height: 5000,
+			width: 5000
 		},
 		rotation: '-90 0 0',
 		material: {
@@ -26,7 +26,7 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 			normalTextureRepeat: '50 50',
 			normalTextureOffset: '0 0',
 			normalScale: '0.5 0.5',
-			opacity: 0.8,
+			opacity: 0.6,
 		},
 		'wobble-normal': {}
 	},
@@ -37,8 +37,8 @@ AFRAME.registerPrimitive('a-moon', {
 	defaultComponents: {
 		geometry: {
 			primitive: 'plane',
-			height: 10000,
-			width: 10000
+			height: 5000,
+			width: 5000
 		},
 		rotation: '-90 0 0',
 		material: {
