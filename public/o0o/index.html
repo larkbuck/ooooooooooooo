@@ -11,13 +11,12 @@
 
 
   <!-- trying to import 3js objects + libs... -->
-  <script type="" src="threeComponents.js" type="text/javascript"></script>
-  <script type="module" src="stats.js" type="text/javascript"></script>
+  <script type="" src="js/threeComponents.js" type="text/javascript"></script>
 
-  <script type="" src="water.js" type="text/javascript"></script>
+  <script type="" src="js/water.js" type="text/javascript"></script>
 
   <!--- code for mobile users --->
-  <script src="tap-to-teleport.js" type="text/javascript"></script>
+  <script src="js/tap-to-teleport.js" type="text/javascript"></script>
   <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
 
 </head>
@@ -101,12 +100,12 @@
 
 
     <a-assets>
-      <img id="texture" src="marble.png">
-      <img id="texturestand" src="marble3.jpg">
-      <img id="water-normal" src="waternormals.jpg" />
-      <img id="milky-way" src="nasa-milkyWay.jpg" />
-      <img id="moon-texture" src="moon-texture.jpg" />
-      <img id="moon-dem" src="moon_DEM.jpg" />
+      <img id="texture" src="assets/marble.png">
+      <img id="texturestand" src="assets/marble3.jpg">
+      <img id="water-normal" src="assets/waternormals.jpg" />
+      <img id="milky-way" src="assets/nasa-milkyWay.jpg" />
+      <img id="moon-texture" src="assets/moon-texture.jpg" />
+      <img id="moon-dem" src="assets/moon_DEM.jpg" />
 
 
     </a-assets>
@@ -188,7 +187,7 @@
 
     <!--- lily  --->
     <a-assets>
-      <a-asset-item id="lily" src="scene.gltf"></a-asset-item>
+      <a-asset-item id="lily" src="assets/scene.gltf"></a-asset-item>
     </a-assets>
 
     <a-entity gltf-model="#lily" position="70 -.3 -100" rotation="0 0 0" scale=".1 .1 .1" shadow="cast: true" id="lily"></a-entity>
@@ -197,7 +196,7 @@
 
     <!--- rocks  --->
     <a-assets>
-      <a-asset-item id="rock" src="rock1.gltf"></a-asset-item>
+      <a-asset-item id="rock" src="assets/rock1.gltf"></a-asset-item>
     </a-assets>
 
     <a-entity gltf-model="#rock" position="0 0 0" rotation="120 0 0" scale="1.5 1.5 1.5" shadow="cast: true" id="rock"></a-entity>
@@ -209,7 +208,7 @@
 
     <!--- 3D wall text for controls  --->
     <a-assets>
-      <a-asset-item id="cont" src="mobile_controls.gltf"></a-asset-item>
+      <a-asset-item id="cont" src="assets/mobile_controls.gltf"></a-asset-item>
     </a-assets>
 
     <a-entity gltf-model="#cont" animation-mixer="clip:" position="7.45 5 48" rotation="0 -90 0" scale=".5 .5 2" shadow="cast: true" id="parallax"></a-entity>
