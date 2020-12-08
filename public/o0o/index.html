@@ -46,17 +46,10 @@
 
       // const radius = 1;
       // const geometry = new THREE.DodecahedronBufferGeometry(radius);
-
-
       // var geometry = new THREE.BoxGeometry(2, 2, 2);
 
       const radius = 7;
-
       const geometry = new THREE.OctahedronBufferGeometry(radius);
-
-
-
-
 
       this.el.setObject3D('mesh', new THREE.Mesh(geometry, material));
     },
@@ -71,7 +64,7 @@
   });
 
 
-
+// working here
   // media query event handler - use this to load mobile v. broswer HTML
   {
     if (matchMedia) {
@@ -106,8 +99,6 @@
       <img id="milky-way" src="assets/nasa-milkyWay.jpg" />
       <img id="moon-texture" src="assets/moon-texture.jpg" />
       <img id="moon-dem" src="assets/moon_DEM.jpg" />
-
-
     </a-assets>
 
 
