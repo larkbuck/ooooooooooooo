@@ -1,3 +1,46 @@
+AFRAME.registerComponent('octahedron', {
+  schema: {
+    bar: {
+      type: 'number'
+    }, // To declare your own attribute that can be customized when entity created
+    color: {
+      default: '#bbbfff'
+    },
+  },
+
+  init: function() {
+    // Do something when component first attached.
+  },
+
+  update: function() {
+    var material = new THREE.MeshPhongMaterial({
+      color: this.data.color,
+      wireframe: false,
+      shininess: 150,
+      specular: 0xffffff
+    });
+
+    // const radius = 1;
+    // const geometry = new THREE.DodecahedronBufferGeometry(radius);
+    // var geometry = new THREE.BoxGeometry(2, 2, 2);
+
+    const radius = 7;
+    const geometry = new THREE.OctahedronBufferGeometry(radius);
+
+    this.el.setObject3D('mesh', new THREE.Mesh(geometry, material));
+  },
+
+  tick: function(time, timeDelta) {
+    // Do something on every scene tick or frame.
+  },
+
+  remove: function() {
+    this.el.removeObject3D('mesh');
+  }
+});
+
+
+
 AFRAME.registerComponent('curves', {
   schema: {
     bar: {
@@ -76,7 +119,7 @@ AFRAME.registerComponent('curves', {
 
 
 
-// AFRAME.registerComponent('mythreejsthing', {
+// AFRAME.registerComponent('octahedron', {
 //   schema: {
 //      bar: {type: 'number'}, // To declare your own attribute that can be customized when entity created
 //     color: {

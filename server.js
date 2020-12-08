@@ -5,8 +5,9 @@
 // To launch the program in node:
 // 1) CD inside the project folder on terminal,
 // >>> in terminal: cd [dragDropRepoFolderHere]
+// >>> in bash windows: cd /mnt/a  << a is name of
 
-// 2) Do an npm install for installing all the project dependencies
+// 2) Do an npm install for installing all the project dependencies (you only have to do this once, unless someone has added more dependencies)
 // >>> in terminal: npm install
 
 // 3) Then npm start OR node server.js

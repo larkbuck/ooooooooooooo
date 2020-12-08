@@ -7,10 +7,8 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> -->
-  <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
+  <!-- <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script> -->
 
-
-  <!-- trying to import 3js objects + libs... -->
   <script type="" src="js/threeComponents.js" type="text/javascript"></script>
 
   <script type="" src="js/water.js" type="text/javascript"></script>
@@ -22,50 +20,7 @@
 </head>
 
 <script>
-  AFRAME.registerComponent('mythreejsthing', {
-    schema: {
-      bar: {
-        type: 'number'
-      }, // To declare your own attribute that can be customized when entity created
-      color: {
-        default: '#bbbfff'
-      },
-    },
-
-    init: function() {
-      // Do something when component first attached.
-    },
-
-    update: function() {
-      var material = new THREE.MeshPhongMaterial({
-        color: this.data.color,
-        wireframe: false,
-        shininess: 150,
-        specular: 0xffffff
-      });
-
-      // const radius = 1;
-      // const geometry = new THREE.DodecahedronBufferGeometry(radius);
-      // var geometry = new THREE.BoxGeometry(2, 2, 2);
-
-      const radius = 7;
-      const geometry = new THREE.OctahedronBufferGeometry(radius);
-
-      this.el.setObject3D('mesh', new THREE.Mesh(geometry, material));
-    },
-
-    tick: function(time, timeDelta) {
-      // Do something on every scene tick or frame.
-    },
-// working over here
-    remove: function() {
-      this.el.removeObject3D('mesh');
-    }
-  });
-
-
-// working here
-  // media query event handler - use this to load mobile v. broswer HTML
+  // media query event handler - use this to load different controls for mobile v. broswer
   {
     if (matchMedia) {
       const mq = window.matchMedia("(min-width: 500px) and (min-height: 500px)");
@@ -103,13 +58,13 @@
 
 
 
-    <a-entity mythreejsthing="" position="60 45 -150" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
+    <a-entity octahedron="" position="60 45 -150" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
 
-    <a-entity mythreejsthing="color: #bbff33;" position="20 66 -140" rotation="33 0 25" scale=".5 .5 .5" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
+    <a-entity octahedron="color: #bbff33;" position="20 66 -140" rotation="33 0 25" scale=".5 .5 .5" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
 
-    <a-entity mythreejsthing="color: #906edb;" position="-10 70 -120" scale=".8 .8 .8" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 11000; easing: easeInOutQuad;"> </a-entity>
+    <a-entity octahedron="color: #906edb;" position="-10 70 -120" scale=".8 .8 .8" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 11000; easing: easeInOutQuad;"> </a-entity>
 
-    <a-entity mythreejsthing="color: #518fe0;" position="-20 50 -133" scale="1 .5 .5" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 9000; easing: easeInOutQuad;"> </a-entity>
+    <a-entity octahedron="color: #518fe0;" position="-20 50 -133" scale="1 .5 .5" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 9000; easing: easeInOutQuad;"> </a-entity>
 
     <a-sky src="#moon-texture" theta-length="90" radius="3333"></a-sky>
     <!-- <a-sky color="#010001"></a-sky> -->
@@ -130,9 +85,9 @@
 
     <a-ocean-plane material="normalMap: #water-normal; sphericalEnvMap: #milky-way;" position="0 .5 0"></a-ocean-plane>
 
-    <!-- <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow="cast: true"></a-box>
-    <a-sphere position="0 -1.25 -5" radius="1.85" color="#EF2D5E" shadow="receive: true"></a-sphere>
-    <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder> -->
+    <a-ocean-plane material="normalMap: #water-normal; sphericalEnvMap: #milky-way;" position="0 3 0"></a-ocean-plane>
+
+
 
     <!-- J A S O N S R O O M -->
     <!--- obsidian 3D stand --->
