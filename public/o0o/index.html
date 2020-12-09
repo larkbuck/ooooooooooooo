@@ -160,20 +160,31 @@
 
     <!--- buidling facade --->
 
-    <a-entity position="0 0 0">
+    <!--- 3D Version --->
 
-     <a-sphere src="#moon-texture" position="0 4 20" scale="3 3 3" rotation="10 50 0"></a-sphere>
+   <a-entity position="0 19 46">
 
+    <a-sphere src="#moon-texture" position="0 4 20" scale="3 3 3" rotation="10 50 0"></a-sphere>
 
+    <a-entity obj-model="obj: #tri-obj; mtl: #tri-mtl" position="-0.5 4 20" scale="2 2 1"></a-entity>
 
+    <a-entity obj-model="obj: #tri-obj; mtl: #tri-mtl" position="0.5 4 20" scale="2 2 1" rotation="0 180 0"></a-entity>
 
+   </a-entity>
 
-      <a-entity octahedron="" position="1 1 1"> </a-entity>
+   <!-- 2D Version --->
 
+<!--
+    <a-entity position="0 19 46">
 
+    <a-cylinder src="#moon-texture" radius="3" height="1" position="0 4 20" rotation="90 0 0" shadow="receive: true"></a-cylinder>
 
-    </a-entity>
+    <a-entity obj-model="obj: #tri-obj; mtl: #tri-mtl" position="-0.5 4 20" scale="2 2 0.5"></a-entity>
 
+    <a-entity obj-model="obj: #tri-obj; mtl: #tri-mtl" position="0.5 4 20" scale="2 2 0.5" rotation="0 180 0"></a-entity>
+
+   </a-entity>
+-->
 
 
     <!--- moon/earth spheres inside altar --->
@@ -216,13 +227,13 @@
 
     <a-entity gltf-model="#rock" position="14 -1 90" rotation="120 10 0" scale="1.5 1.5 1.5" shadow="cast: true" id="rock"></a-entity>
 
-    <a-entity gltf-model="#rock" position="12.84 0.49 92.21" rotation="-71.84 -153.50 -9.88" scale="2 2 2" shadow="cast: truecast: truecast: truecast: true" id="rock" ></a-entity>
+    <a-entity gltf-model="#rock" position="12.84 0.49 92.21" rotation="-71.84 -153.50 -9.88" scale="2 2 2" shadow="cast: true" id="rock" ></a-entity>
 
 
     <!--- cluster 2 --->
-    <a-entity gltf-model="#rock" position="-20.44 1 97.96" rotation="67.47 31.14 142.33" scale="2.5 2.5 2.5" shadow="cast: truecast: truecast: true" id="rock2"></a-entity>
+    <a-entity gltf-model="#rock" position="-20.44 1 97.96" rotation="67.47 31.14 142.33" scale="2.5 2.5 2.5" shadow="cast: true" id="rock2"></a-entity>
 
-    <a-entity gltf-model="#rock" position="-20 0.5 93.55" rotation="49.10 -41.22 22.58" scale="1.5 1.5 1.5" shadow="cast: truecast: true" id="rock2"></a-entity>
+    <a-entity gltf-model="#rock" position="-20 0.5 93.55" rotation="49.10 -41.22 22.58" scale="1.5 1.5 1.5" shadow="cast: true" id="rock2"></a-entity>
 
     <a-entity gltf-model="#rock" position="-23 0.49 95" rotation="-71.84 -193.50 -9.88" scale="2 2 2" shadow="cast: true" id="rock2" ></a-entity>
 
