@@ -26,7 +26,7 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 			normalTextureRepeat: '50 50',
 			normalTextureOffset: '0 0',
 			normalScale: '0.5 0.5',
-			opacity: 0.6,
+			opacity: 0.7,
 		},
 		'wobble-normal': {}
 	},
