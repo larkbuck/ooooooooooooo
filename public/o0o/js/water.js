@@ -1,3 +1,6 @@
+// Adapted from https://glitch.com/~acute-proximal-dog by Dirk Krause
+
+
 AFRAME.registerComponent('wobble-normal', {
 	schema: {},
 	tick: function (t) {
@@ -33,7 +36,7 @@ normalMap: "src: url(assets/waternormals.jpg)",
 });
 
 
-AFRAME.registerPrimitive('a-moon', {
+AFRAME.registerPrimitive('a-ocean-floor', {
 	defaultComponents: {
 		geometry: {
 			primitive: 'plane',

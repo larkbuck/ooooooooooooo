@@ -21,7 +21,7 @@
 </head>
 
 <script>
-  // media query event handler - use this to load different controls for mobile v. broswer
+  // media query event handler
   {
     if (matchMedia) {
       const mq = window.matchMedia("(min-width: 500px) and (min-height: 500px)");
@@ -32,12 +32,10 @@
     function widthChange(mq) {
       if (mq.matches) { // matches browser
         // window width is at least 500px
-        // document.querySelector("#camera").innerHTML = `Sorry phone, to make a Traumagotchi you have to be on a computer.`;
         console.log('browser');
 
       } else { // matches mobile
-        // document.querySelector("#camera").innerHTML = `Sorry phone, to make a Traumagotchi you have to be on a computer.`;
-        console.log('momo');
+        console.log('mobile');
       }
     }
   }
@@ -96,19 +94,19 @@
 
 
 
+
     <!-- ☆✼★━━━━━━Water━━━━━━★✼☆｡  -->
 
-    <a-moon material="normalMap: #moon-texture; sphericalEnvMap: #milky-way;" position="0 -2 0"></a-moon>
+    <a-ocean-floor material="normalMap: #moon-texture; sphericalEnvMap: #milky-way;" position="0 -2 0">
+    </a-ocean-floor>
 
     <!-- <a-ocean-plane position="0 .5 0"></a-ocean-plane> -->
 
     <a-ocean-plane material="normalMap: #water-normal; sphericalEnvMap: #milky-way;" position="0 .5 0"></a-ocean-plane>
 
-    <!-- <a-ocean-plane material="normalMap: #water-normal; sphericalEnvMap: #milky-way;" position="0 3 0"></a-ocean-plane> -->
 
 
-
-    <!-- J A S O N S R O O M -->
+    <!-- ☆✼★━━━━━━Lilies━━━━━━★✼☆｡  -->
     <!--- lily  --->
     <a-assets>
       <a-asset-item id="lily" src="assets/scene.gltf"></a-asset-item>
