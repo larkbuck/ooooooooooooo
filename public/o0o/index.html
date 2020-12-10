@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>o0o</title>
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script> -->
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> -->
   <!-- <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script> -->
@@ -59,7 +60,14 @@
     </a-assets>
 
 
+    <!-- ☆✼★━━━━━━Sky━━━━━━★✼☆｡  -->
 
+    <a-sky src="#moon-texture" theta-length="90" radius="3333"></a-sky>
+    <!-- <a-sky color="#010001"></a-sky> -->
+    <!-- <a-entity star-system="count: 100; radius: 250; depth: 80; color: #b68fff;"></a-entity> -->
+
+
+    <!-- ☆✼★━━━━━━Sky objects━━━━━━★✼☆｡  -->
     <a-entity octahedron="" position="60 45 -150" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
 
     <a-entity octahedron="" position="60 45 -150" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
@@ -70,22 +78,29 @@
 
     <a-entity octahedron="color: #518fe0;" position="-20 50 -133" scale="1 .5 .5" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 9000; easing: easeInOutQuad;"> </a-entity>
 
-    <a-sky src="#moon-texture" theta-length="90" radius="3333"></a-sky>
-    <!-- <a-sky color="#010001"></a-sky> -->
-    <!-- <a-entity star-system="count: 100; radius: 250; depth: 80; color: #b68fff;"></a-entity> -->
 
+
+
+
+    <!-- ☆✼★━━━━━━underwater platforms━━━━━━★✼☆｡  -->
     <a-cylinder src="#moon-texture" radius="20" height="2" position="0 -2 0" shadow="receive: true"></a-cylinder>
-
-    <!-- moon ceiling -->
-    <!-- <a-cylinder  src="#moon-texture" radius="200" height="2" position="0 5 0"></a-cylinder> -->
 
     <!-- <a-cylinder id="ground" src="" radius="2000" height="2" position="0 -2 0"></a-cylinder> -->
 
     <!-- <a-cylinder id="ground" src="#moon-texture" radius="2000" height="2" position="0 -2 0"></a-cylinder> -->
 
+    <a-box src="#texturestand" depth="0.5" height="25" width="23" position="-50 0 17" rotation="-90 0 90" shadow="cast: true"></a-box>
+
+    <!--- ultra 3D stand --->
+    <a-box src="#texturestand" depth="0.5" height="20" width="23" position="34 0 19" rotation="-90 0 90" shadow="receive: true"></a-box>
+
+
+
+    <!-- ☆✼★━━━━━━Water━━━━━━★✼☆｡  -->
 
     <a-moon material="normalMap: #moon-texture; sphericalEnvMap: #milky-way;" position="0 -2 0"></a-moon>
 
+    <!-- <a-ocean-plane position="0 .5 0"></a-ocean-plane> -->
 
     <a-ocean-plane material="normalMap: #water-normal; sphericalEnvMap: #milky-way;" position="0 .5 0"></a-ocean-plane>
 
@@ -94,21 +109,18 @@
 
 
     <!-- J A S O N S R O O M -->
-    <!--- obsidian 3D stand --->
-    <a-box src="#texturestand" depth="0.5" height="25" width="23" position="-50 0 17" rotation="-90 0 90" shadow="cast: true"></a-box>
+    <!--- lily  --->
+    <a-assets>
+      <a-asset-item id="lily" src="assets/scene.gltf"></a-asset-item>
+    </a-assets>
 
-    <!--- ultra 3D stand --->
-    <a-box src="#texturestand" depth="0.5" height="20" width="23" position="34 0 19" rotation="-90 0 90" shadow="receive: true"></a-box>
+    <a-entity gltf-model="#lily" position="70 -.3 -100" rotation="0 0 0" scale=".1 .1 .1" shadow="cast: true" id="lily"></a-entity>
 
-    <!--- eternal 3D stand --->
-    <!-- <a-box src="#texturestand" repeat="2 2" depth="0.5" height="20" width="23" position="9 0 -15" rotation="-90  0"  shadow="cast: true"></a-box> -->
-
-    <!--- floor --->
-    <!-- <a-box src="#texturestand" repeat="4 4"  color="grey" depth="0.5" height="110" width="70" position="0 -.5 4" rotation="-90 0 90" shadow="receive: true"></a-box> -->
-
-    <!-- <a-box src="#texturestand"  color="grey" depth="0.5" height="15" width="25" position="0 -.5 51.5" rotation="-90 0 90" shadow="receive: true"></a-box> -->
+    <a-entity gltf-model="#lily" position="-100 -.3 -110" rotation="0 45 0" scale=".1 .1 .1" shadow="cast: true" id="lily"></a-entity>
 
 
+
+    <!-- ☆✼★━━━━━━Temple━━━━━━★✼☆｡  -->
 
     <!--- walls --->
 
@@ -134,13 +146,16 @@
 
 
       <!--- outside WALLS ----->
-      <a-triangle rotation="0 152.21415 0" position="36.63518 19.51043 58.54784" geometry="vertexA: -0.5 0.87 0; vertexC: 0.8 -0.5 0" scale="42.6174 11.01424 0.00001" material="side: double" id="outside left angled triangle" shadow="receive: true"></a-triangle>
 
-      <a-triangle rotation="0 27.699780000000004 0" position="-37.617 19.51043 58.61087" geometry="vertexA: -0.5 0.87 0; vertexC: 0.8 -0.5 0" scale="42.6174 11.01424 0.00001" material="side: double" id="outside right angled triangle" shadow="receive: true"></a-triangle>
+      <a-triangle rotation="0 152.21415 0" position="36.63518 19.51043 58.54784" geometry="vertexA: -0.5 0.87 0; vertexC: 0.8 -0.5 0" scale="42.6174 11.01424 0.00001" material="side: double" id="outside left angled triangle" shadow="receive: true">
+      </a-triangle>
+
+      <a-triangle rotation="0 27.699780000000004 0" position="-37.617 19.51043 58.61087" geometry="vertexA: -0.5 0.87 0; vertexC: 0.8 -0.5 0" scale="42.6174 11.01424 0.00001" material="side: double" id="outside right angled triangle"
+        shadow="receive: true"></a-triangle>
 
       <a-box src="#texturestand" depth="0.5" height="15" width="25" position="-31.92112 6.5 56.11337" rotation="0 27.77151 0" shadow="" id="outside angled wall right" scale="2.2 1 2"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="15" width="25" position="30.89489 6.5 56.15641" rotation="0 -27.77151 0" shadow="" id="outside angled wall left" scale="2.2 1 2" ></a-box>
+      <a-box src="#texturestand" depth="0.5" height="15" width="25" position="30.89489 6.5 56.15641" rotation="0 -27.77151 0" shadow="" id="outside angled wall left" scale="2.2 1 2"></a-box>
 
       <a-box src="#texturestand" depth="0.5" height="15" width="25" position="-7.5 6.5 56.5" rotation="0 90 0" shadow="receive: true" id="outside entrance wall right"></a-box>
 
@@ -158,32 +173,34 @@
 
       <a-box src="#texturestand" depth="0.5" height="14" width="14.9" position="-.5 21.57 68.76674" rotation="0 0 90" shadow="receive: true" id="outside front top panel"></a-box>
 
+
       <!--- corner columns--->
 
       <a-box depth="0.5" height="70" width="30" position="55.3101 14 68.5467" rotation="0 90 90" id="small column building border front left" scale="1 0.02 2" material="color: #ffffff" shadow="receive: true"></a-box>
 
-      <a-box depth="0.5" height="70" width="30" position="-56.31712 14 68.5467" rotation="0 90 90" id="small column building border front right" scale="1 0.02 2" material="color: #ffffff" shadow="receive: true" ></a-box>
+      <a-box depth="0.5" height="70" width="30" position="-56.31712 14 68.5467" rotation="0 90 90" id="small column building border front right" scale="1 0.02 2" material="color: #ffffff" shadow="receive: true"></a-box>
 
-      <a-box depth="0.5" height="70" width="30" position="55.3101 14 139.10664" rotation="0 90 90" id="small column building border back left" scale="1 0.02 2" material="color: #ffffff" shadow="receive: true" ></a-box>
+      <a-box depth="0.5" height="70" width="30" position="55.3101 14 139.10664" rotation="0 90 90" id="small column building border back left" scale="1 0.02 2" material="color: #ffffff" shadow="receive: true"></a-box>
 
-      <a-box depth="0.5" height="70" width="30" position="-56.21027 14 139.1746" rotation="0 90 90" id="small column building border back right" scale="1 0.02 2" material="color: #ffffff" shadow="receive: true" ></a-box>
+      <a-box depth="0.5" height="70" width="30" position="-56.21027 14 139.1746" rotation="0 90 90" id="small column building border back right" scale="1 0.02 2" material="color: #ffffff" shadow="receive: true"></a-box>
 
       <a-box depth="0.5" height="70" width="30" position="6.34976 6.54714 43.40707" rotation="0 90 90" id="small column building border entrance left" scale="0.51 -0.02 2.4" material="color: #ffffff" shadow="receive: true"></a-box>
 
-      <a-box depth="0.5" height="70" width="30" position="-7.25221 6.54714 43.40707" rotation="0 90 90" id="small column building border entrance right" scale="0.51 -0.02 2.4" material="color: #ffffff" shadow="receive: true" ></a-box>
+      <a-box depth="0.5" height="70" width="30" position="-7.25221 6.54714 43.40707" rotation="0 90 90" id="small column building border entrance right" scale="0.51 -0.02 2.4" material="color: #ffffff" shadow="receive: true"></a-box>
 
       <!--- ceiling --->
 
       <a-box src="#milky-way" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 29.05232 104.23512" rotation="90 0 90" shadow="receive: true" id="ceiling" scale="2.3 1 1"></a-box>
 
       <!-- relief --->
+
       <a-box src="#milky-way" depth="0.5" height="70" width="30" position="52.56989 26.04902 104.0378" rotation="-27.183 90 90" shadow="receive: true" id="1 inside left wall" scale="0.22 1 1"></a-box>
 
-     <a-box src="#milky-way" depth="0.5" height="70" width="30" position="-53.29511 26.049 104.025" rotation="27.183 90 90" shadow="receive: true" id="2 inside right wall" scale="0.22 1 1" ></a-box>
+      <a-box src="#milky-way" depth="0.5" height="70" width="30" position="-53.29511 26.049 104.025" rotation="27.183 90 90" shadow="receive: true" id="2 inside right wall" scale="0.22 1 1"></a-box>
 
       <a-box src="#milky-way" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 25.83524 70.64846" rotation="27.18283667439165 0 90.00021045914971" shadow="receive: true" id="3 inside back wall" scale="0.22 1 1"></a-box>
 
-      <a-box src="#milky-way" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 26.049 136.34761" rotation="-27.183 0 90" shadow="receive: true" id="4 inside front wall" scale="0.22 1 1" ></a-box>
+      <a-box src="#milky-way" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 26.049 136.34761" rotation="-27.183 0 90" shadow="receive: true" id="4 inside front wall" scale="0.22 1 1"></a-box>
 
 
 
@@ -210,14 +227,14 @@
 
    </a-entity> -->
 
-   <!-- 2D Version --->
+    <!-- 2D Version --->
     <a-entity position="0 28 68" scale="2.5 2.5 1.1">
 
       <a-cylinder src="#moon-texture" radius="3" height="1" position="0 0 0" rotation="90 0 0" shadow="receive: true"></a-cylinder>
 
       <a-triangle material="side: double; color: #000000" position="8 2 0" geometry="vertexA: -0.5 0.09 0; vertexC: 0.29 -0.5 0" scale="10 10 10" id="left triangle facade"></a-triangle>
 
-      <a-triangle material="side: double; color: #000000" position="-8 2 0" geometry="vertexA: -0.5 0.09 0; vertexC: 0.29 -0.5 0" scale="10 10 10" rotation="0 180 0"id="right triangle facade"></a-triangle>
+      <a-triangle material="side: double; color: #000000" position="-8 2 0" geometry="vertexA: -0.5 0.09 0; vertexC: 0.29 -0.5 0" scale="10 10 10" rotation="0 180 0" id="right triangle facade"></a-triangle>
 
     </a-entity>
 
@@ -230,24 +247,34 @@
 
     </a-entity>
 
-   <!--- big pink triangle --->
+    <!--- big pink triangle --->
 
-   <a-entity scale="1 1 1" position="1 1 1">
+    <a-entity scale="1 1 1" position="1 1 1">
 
-   <a-triangle position="-1 10 133" rotation="0 -180 180" material="color: #ff5d8c" scale="30 25 25"></a-triangle>
+      <a-triangle position="-1 10 133" rotation="0 -180 180" material="color: #ff5d8c" scale="30 25 25"></a-triangle>
 
-   </a-entity>
+    </a-entity>
 
-    <!--- lily  --->
-    <a-assets>
-      <a-asset-item id="lily" src="assets/scene.gltf"></a-asset-item>
-    </a-assets>
+    <!--- sacred geometry (ceiling) --->
+    <a-entity position="0 28 90" scale=".5 .5 .5">
 
-    <a-entity gltf-model="#lily" position="70 -.3 -100" rotation="0 0 0" scale=".1 .1 .1" shadow="cast: true" id="lily"></a-entity>
+      <a-cylinder color="#ffffff" radius="20" height="2" position="0 0 0" shadow="receive: true" id="earth"></a-cylinder>
 
-    <a-entity gltf-model="#lily" position="-100 -.3 -110" rotation="0 45 0" scale=".1 .1 .1" shadow="cast: true" id="lily"></a-entity>
+      <a-cylinder color="#ffffff" radius="5" height="2" position="0 0 25" shadow="receive: true" id="moon"></a-cylinder>
 
-    <!--- rocks  --->
+
+      <a-triangle material="side: double; color: #ffffff" position="-9.95849 -0.999 27.86696" geometry="vertexA: -0.5 0.09 0; vertexC: 1 -0.5 0" scale="10 17 10" rotation="-90 0 -180" id="left triangle facade"></a-triangle>
+
+      <a-triangle material="side: double; color: #ffffff" position="10.06108 -0.999 27.86696" geometry="vertexA: -0.5 0.09 0; vertexC: 1 -0.5 0" scale="10 17 10" rotation="90 180 180" id="right triangle facade"></a-triangle>
+
+    </a-entity>
+
+
+
+
+    <!-- ☆✼★━━━━━━Rocks━━━━━━★✼☆｡  -->
+
+    <!--- rocks  on landing platform--->
     <a-assets>
       <a-asset-item id="rock" src="assets/rock1.gltf"></a-asset-item>
     </a-assets>
@@ -263,57 +290,33 @@
 
     <!--- cluster 1 --->
 
-    <a-entity position="1 0 19" >
+    <a-entity position="1 0 19">
 
-    <a-entity gltf-model="#rock" position="15 0 90" rotation="120 -100 0" scale="2.5 2.5 2.5" shadow="cast: true" id="rock"></a-entity>
+      <a-entity gltf-model="#rock" position="15 0 90" rotation="120 -100 0" scale="2.5 2.5 2.5" shadow="cast: true" id="rock"></a-entity>
 
-    <a-entity gltf-model="#rock" position="14 -1 90" rotation="120 10 0" scale="1.5 1.5 1.5" shadow="cast: true" id="rock"></a-entity>
+      <a-entity gltf-model="#rock" position="14 -1 90" rotation="120 10 0" scale="1.5 1.5 1.5" shadow="cast: true" id="rock"></a-entity>
 
-    <a-entity gltf-model="#rock" position="12.84 0.49 92.21" rotation="-71.84 -153.50 -9.88" scale="2 2 2" shadow="cast: true" id="rock"></a-entity>
+      <a-entity gltf-model="#rock" position="12.84 0.49 92.21" rotation="-71.84 -153.50 -9.88" scale="2 2 2" shadow="cast: true" id="rock"></a-entity>
 
     </a-entity>
 
 
     <!--- cluster 2 --->
 
-    <a-entity position="1 0 17" >
+    <a-entity position="1 0 17">
 
-    <a-entity gltf-model="#rock" position="-20.44 1 97.96" rotation="67.47 31.14 142.33" scale="2.5 2.5 2.5" shadow="cast: true" id="rock2"></a-entity>
+      <a-entity gltf-model="#rock" position="-20.44 1 97.96" rotation="67.47 31.14 142.33" scale="2.5 2.5 2.5" shadow="cast: true" id="rock2"></a-entity>
 
-    <a-entity gltf-model="#rock" position="-20 0.5 93.55" rotation="49.10 -41.22 22.58" scale="1.5 1.5 1.5" shadow="cast: true" id="rock2"></a-entity>
+      <a-entity gltf-model="#rock" position="-20 0.5 93.55" rotation="49.10 -41.22 22.58" scale="1.5 1.5 1.5" shadow="cast: true" id="rock2"></a-entity>
 
-    <a-entity gltf-model="#rock" position="-23 0.49 95" rotation="-71.84 -193.50 -9.88" scale="2 2 2" shadow="cast: true" id="rock2"></a-entity>
-
-    </a-entity>
-
-    <!--- sacred geometry ---> 
-    <a-entity position="0 28 90" scale=".5 .5 .5">
-
-    <a-cylinder color="#ffffff" radius="20" height="2" position="0 0 0" shadow="receive: true" id="earth"></a-cylinder>
-
-    <a-cylinder color="#ffffff" radius="5" height="2" position="0 0 25" shadow="receive: true" id="moon"></a-cylinder>
-
-
-    <a-triangle material="side: double; color: #ffffff" position="-9.95849 -0.999 27.86696" geometry="vertexA: -0.5 0.09 0; vertexC: 1 -0.5 0" scale="10 17 10" rotation="-90 0 -180" id="left triangle facade"></a-triangle>
-
-    <a-triangle material="side: double; color: #ffffff" position="10.06108 -0.999 27.86696" geometry="vertexA: -0.5 0.09 0; vertexC: 1 -0.5 0" scale="10 17 10" rotation="90 180 180" id="right triangle facade"></a-triangle>
-
-
-
+      <a-entity gltf-model="#rock" position="-23 0.49 95" rotation="-71.84 -193.50 -9.88" scale="2 2 2" shadow="cast: true" id="rock2"></a-entity>
 
     </a-entity>
 
 
 
-    <!--- 3D wall text for controls  --->
-    <!-- <a-assets>
-      <a-asset-item id="cont" src="assets/mobile_controls.gltf"></a-asset-item>
-    </a-assets>
+    <!-- ☆✼★━━━━━━L I G H T S━━━━━━★✼☆｡  -->
 
-    <a-entity gltf-model="#cont" animation-mixer="clip:" position="7.45 5 48" rotation="0 -90 0" scale=".5 .5 2" shadow="cast: true" id="parallax"></a-entity> -->
-
-
-    <!-- L I G H T S -->
     <!--- light source for scene --->
     <a-entity light="type: ambient; intensity: 0.2">
     </a-entity>
@@ -339,7 +342,11 @@
     </a-entity> -->
 
 
-    <!-- C A M E R A -->
+
+
+
+    <!-- ☆✼★━━━━━━C A M E R A━━━━━━★✼☆｡  -->
+
 
     <!-- desktop camera / controls -->
     <a-entity camera look-controls wasd-controls="acceleration:2000" position="0 3 10"></a-entity>

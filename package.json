@@ -16,5 +16,6 @@
 		"express",
 		"nedb"
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"devDependencies": {}
 }

@@ -22,7 +22,7 @@ AFRAME.registerPrimitive('a-ocean-plane', {
 			color: '#8ab39f',
 			metalness: 1,
 			roughness: 0.2,
-			normalMap: 'waternormals.jpg', // not sure about this src
+normalMap: "src: url(assets/waternormals.jpg)",
 			normalTextureRepeat: '50 50',
 			normalTextureOffset: '0 0',
 			normalScale: '0.5 0.5',
@@ -46,7 +46,7 @@ AFRAME.registerPrimitive('a-moon', {
 			color: '#8ab39f',
 			metalness: 0,
 			roughness: 0,
-			normalMap: 'moon-texture.jpg', // not sure about this src
+			normalMap: "src: url(assets/moon-texture.jpg)",
 			// normalTextureRepeat: '50 50',
 			// normalTextureOffset: '0 0',
 			// normalScale: '0.5 0.5',
