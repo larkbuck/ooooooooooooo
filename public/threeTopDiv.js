@@ -6,21 +6,15 @@ import * as THREE from '/build/three.module.js';
 
 const scene = new THREE.Scene();
 // scene.background = new THREE.Color(0xFFBEE8);
+const parent = document.querySelector('#threejsDiv');
 
-let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+let camera = new THREE.PerspectiveCamera(75, 1/1.66, 0.1, 1000);
+// let camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // if square
+// let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 camera.position.z = 1000;
 
-const parent = document.querySelector('#threejsDiv');
-
-let image_radius = 20;
-const number_of_images = 8;
-let radius = 200; // reset to parent.clientWidth in resize function
-const radian_interval = (2.0 * Math.PI) / number_of_images;
-const center_of_wheel = {
-  x: 0,
-  y: 0
-}
 
 // const renderer = new THREE.WebGLRenderer();
 let renderer = new THREE.WebGLRenderer({
@@ -37,12 +31,22 @@ let renderer = new THREE.WebGLRenderer({
 
 
 // renderer.setSize(parent.clientWidth, parent.clientHeight);
-renderer.setSize(parent.clientWidth, parent.clientWidth * .66);
+// renderer.setSize(parent.clientWidth, parent.clientWidth * .66);
+renderer.setSize(parent.clientWidth, parent.clientWidth * 1.66);
 
 parent.append(renderer.domElement);
 // circle tut uses this syntax:
 // Add the canvas to the DOM
 //document.querySelector('body').appendChild(renderer.domElement);
+
+let image_radius = 60;
+const number_of_images = 29;
+let radius = 666; // reset to parent.clientWidth in resize function
+const radian_interval = (2.0 * Math.PI) / number_of_images;
+const center_of_wheel = {
+  x: 0,
+  y: 0
+}
 
 
 const group_cards = new THREE.Group();
@@ -71,6 +75,10 @@ for (let i = 0; i < number_of_images; i++) {
 
   mesh.material.side = THREE.DoubleSide;
 
+  // mesh.position.set(
+  //   center_of_wheel.x,
+  //   center_of_wheel.y,
+  //   0);
   mesh.position.set(
     center_of_wheel.x + (Math.cos(radian_interval * i) * radius),
     center_of_wheel.y + (Math.sin(radian_interval * i) * radius),
@@ -102,7 +110,7 @@ window.addEventListener('wheel', event => {
 // }
 
 
-var render = function() {
+const render = function() {
   requestAnimationFrame(render);
 
   renderer.render(scene, camera);
@@ -110,14 +118,17 @@ var render = function() {
 
 
 // for resizing canvas when window is resized
-var resizeRenderer = function() {
+const resizeRenderer = function() {
   // Get width & height of parentDiv
-  var width = parent.clientWidth;
-  var height = parent.clientWidth * .66;
+  let width = parent.clientWidth;
+  // let height = parent.clientWidth * .66;
+  let height = parent.clientWidth * 1.66;
+
   renderer.setSize(width, height);
 
-  radius = parent.clientWidth * 0.5;
-  image_radius = parent.clientWidth * 0.05;
+  radius = width;
+  console.log(width);
+  image_radius = width * 0.1;
 }
 
 // Add window resize listener
