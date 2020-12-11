@@ -45,7 +45,8 @@
   <div id="loading">
     <div class="btnDiv">
       <button onClick='document.querySelector("#loading").style.display = "none"; let entity = document.querySelector("#ambientSound");
-  entity.components.sound.playSound();'>
+  entity.components.sound.playSound(); let entity2 = document.querySelector("#templeSound");
+entity2.components.sound.playSound();'>
         (´◑ω◐`)(´◑ω◐`)(´◑ω◐`)(´◑ω◐`)
       </button>
     </div>
@@ -62,11 +63,18 @@
       <img id="milky-way" src="assets/nasa-milkyWay.jpg" />
       <img id="moon-texture" src="assets/moon-texture.jpg" />
       <img id="moon-dem" src="assets/moon_DEM.jpg" />
-      <audio id="expanseAudio" src="assets/audio/v3_ooOoo_majorchords.mp3" preload="auto"></audio>
+      <audio id="expanseAudio" src="assets/audio/v3_ooOoo_majorchords3.mp3" preload="auto"></audio>
+      <audio id="templeAudio" src="assets/audio/v4_ooOoo_altar_1.mp3" preload="auto"></audio>
+      <!-- <audio id="templeAudio" src="assets/audio/v4_ooOoo_altar3.mp3" preload="auto"></audio> -->
 
     </a-assets>
 
-    <a-entity sound="src: #expanseAudio" id="ambientSound" loop="true" volume="0.5" position="0 0 -50" rolloffFactor="1" distanceModel="linear"></a-entity>
+
+    <!-- ☆✼★━━━━━━Audio━━━━━━★✼☆｡  -->
+    <a-entity sound="src: #expanseAudio" id="ambientSound" loop="true" volume="1" position="0 0 -160" rolloffFactor="3" refDistance="5" distanceModel="exponential"></a-entity>
+    <a-entity sound="src: #templeAudio" id="templeSound" loop="true" volume="1" position="0 0 160" rolloffFactor="3" refDistance="5" distanceModel="exponential"></a-entity>
+
+
 
     <!-- ☆✼★━━━━━━Sky━━━━━━★✼☆｡  -->
 
