@@ -11,13 +11,12 @@
   <!-- <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script> -->
 
   <script type="" src="js/threeComponents.js" type="text/javascript"></script>
-
   <script type="" src="js/water.js" type="text/javascript"></script>
 
   <!--- code for mobile users --->
   <script src="js/tap-to-teleport.js" type="text/javascript"></script>
   <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
-
+  <link rel="stylesheet" href="main.css">
 </head>
 
 <script>
@@ -41,10 +40,20 @@
   }
 </script>
 
-
 <body>
-  <a-scene loading-screen="dotsColor: white; backgroundColor: black">
 
+  <div id="loading">
+    <div class="btnDiv">
+      <button onClick='document.querySelector("#loading").style.display = "none"; let entity = document.querySelector("#ambientSound");
+  entity.components.sound.playSound();'>
+        (´◑ω◐`)(´◑ω◐`)(´◑ω◐`)(´◑ω◐`)
+      </button>
+    </div>
+
+  </div>
+
+
+  <a-scene loading-screen="dotsColor: white; backgroundColor: black">
 
     <a-assets>
       <img id="texture" src="assets/marble.png">
@@ -53,10 +62,11 @@
       <img id="milky-way" src="assets/nasa-milkyWay.jpg" />
       <img id="moon-texture" src="assets/moon-texture.jpg" />
       <img id="moon-dem" src="assets/moon_DEM.jpg" />
-      <a-asset-item id="tri-obj" src="assets/facade.obj"></a-asset-item>
-      <a-asset-item id="tri-mtl" src="assets/facade.mtl"></a-asset-item>
+      <audio id="expanseAudio" src="assets/audio/v3_ooOoo_majorchords.mp3" preload="auto"></audio>
+
     </a-assets>
 
+    <a-entity sound="src: #expanseAudio" id="ambientSound" loop="true" volume="0.5" position="0 0 -50" rolloffFactor="1" distanceModel="linear"></a-entity>
 
     <!-- ☆✼★━━━━━━Sky━━━━━━★✼☆｡  -->
 
@@ -212,18 +222,6 @@
 
 
     <!--- buidling facade --->
-
-    <!--- 3D Version --->
-
-    <!-- <a-entity position="0 25 46">
-
-    <a-sphere src="#moon-texture" position="0 4 20" scale="3 3 3" rotation="10 50 0"></a-sphere>
-
-    <a-entity obj-model="obj: #tri-obj; mtl: #tri-mtl" position="-0.5 4 20" scale="2 2 1"></a-entity>
-
-    <a-entity obj-model="obj: #tri-obj; mtl: #tri-mtl" position="0.5 4 20" scale="2 2 1" rotation="0 180 0"></a-entity>
-
-   </a-entity> -->
 
     <!-- 2D Version --->
     <a-entity position="0 28 68" scale="2.5 2.5 1.1">

@@ -1,0 +1,30 @@
+#loading {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10000;
+  background-color: black;
+}
+
+.btnDiv {
+  margin: 40vh auto auto auto;
+  text-align: center;
+}
+
+button {
+  font-size: 1rem;
+  /* border-radius: 5px; */
+  padding: 1rem;
+  /* HOVER OFF */
+  /* -webkit-transition: padding .5s; */
+  -webkit-transition: font-size .5s;
+}
+
+button:hover {
+  font-size: 1.1rem;
+  padding: 1rem;
+  /* border-radius: 15px; */
+  /* HOVER ON */
+  /* -webkit-transition: padding .5s; */
+  -webkit-transition: font-size .5s;
+}
