@@ -63,6 +63,7 @@ entity2.components.sound.playSound();'>
       <img id="milky-way" src="assets/nasa-milkyWay.jpg" />
       <img id="moon-texture" src="assets/moon-texture.jpg" />
       <img id="moon-dem" src="assets/moon_DEM.jpg" />
+      <img id="earth-texture" src="assets/earth_specular_sm.jpg" />
       <audio id="expanseAudio" src="assets/audio/v3_ooOoo_majorchords3.mp3" preload="auto"></audio>
       <audio id="templeAudio" src="assets/audio/v4_ooOoo_altar_1.mp3" preload="auto"></audio>
       <!-- <audio id="templeAudio" src="assets/audio/v4_ooOoo_altar3.mp3" preload="auto"></audio> -->
@@ -71,8 +72,10 @@ entity2.components.sound.playSound();'>
 
 
     <!-- ☆✼★━━━━━━Audio━━━━━━★✼☆｡  -->
-    <a-entity sound="src: #expanseAudio" id="ambientSound" loop="true" volume="1" position="0 0 -160" rolloffFactor="3" refDistance="5" distanceModel="exponential"></a-entity>
-    <a-entity sound="src: #templeAudio" id="templeSound" loop="true" volume="1" position="0 0 160" rolloffFactor="3" refDistance="5" distanceModel="exponential"></a-entity>
+    <a-entity id="ambientSound" position="0 0 -80" sound="src: #expanseAudio; loop: true; volume: .5; rolloffFactor: 1.3; refDistance: 5; distanceModel: exponential;"></a-entity>
+    <a-entity id="templeSound" position="0 0 60" sound="src: #templeAudio; loop: true; volume: .5; rolloffFactor: 2; refDistance: 5; distanceModel: exponential;"></a-entity>
+
+
 
 
 
@@ -243,11 +246,11 @@ entity2.components.sound.playSound();'>
     </a-entity>
 
     <!--- moon/earth spheres inside altar --->
-    <a-entity scale=".8 .8 .8" position="0 3.2 120">
+    <a-entity scale=".7 .7 .7" position="0 3.2 120">
 
-      <a-sphere src="#moon-texture" position="0 15 0" scale="3 3 3" rotation="10 50 0"></a-sphere>
+      <a-sphere src="#moon-texture" position="0 15.5 0" scale="3 3 3" rotation="33 90 0"></a-sphere>
 
-      <a-sphere src="#moon-texture" position="0 0 0" scale="12 12 12" rotation="10 150 0" animation="property: rotation; from: -360 0 0 to: -360 0 0; loop: true; dur: 11000"></a-sphere>
+      <a-sphere src="#earth-texture" position="0 0 0" scale="12 12 12" rotation="10 150 0" animation="property: rotation; from: -360 0 0 to: -360 0 0; loop: true; dur: 33000; easing: linear;"></a-sphere>
 
     </a-entity>
 
@@ -255,7 +258,8 @@ entity2.components.sound.playSound();'>
 
     <a-entity scale="1 1 1" position="1 1 1">
 
-      <a-triangle position="-1 10 133" rotation="0 -180 180" material="color: #ff5d8c" scale="30 25 25"></a-triangle>
+      <a-triangle position="-1 10 133" rotation="0 -180 180" material="color: #4287f5" scale="30 25 25"></a-triangle>
+      <!-- <a-triangle position="-1 10 133" rotation="0 -180 180" material="color: #ff5d8c" scale="30 25 25"></a-triangle> -->
 
     </a-entity>
 
@@ -322,10 +326,12 @@ entity2.components.sound.playSound();'>
     <!-- ☆✼★━━━━━━L I G H T S━━━━━━★✼☆｡  -->
 
     <!--- light source for scene --->
-    <a-entity light="type: ambient; intensity: 0.2">
+    <a-entity light="type: ambient; intensity: 0.4">
     </a-entity>
 
-    <a-entity light="type: directional; castShadow: true; intensity: 0.8; shadowCameraVisible: false;" position="-5 3 1.5"></a-entity>
+    <!-- <a-entity light="type: directional; castShadow: true; intensity: 0.002; shadowCameraVisible: false;" position="8 3 -13"></a-entity> -->
+    <a-entity light="type: directional; castShadow: true; intensity: 0.2; shadowCameraVisible: false;" position="9 3 -3"></a-entity>
+    <a-entity light="type: directional; castShadow: true; intensity: 0.7; shadowCameraVisible: false;" position="-5 3 1.5"></a-entity>
 
     <!-- <a-light type="directional" position="0 0 0" rotation="-90 0 0" color="#ca7272" castShadow="true" target="#directionaltarget">
       <a-entity id="directionaltarget" position=".5 .5 -1"></a-entity>
