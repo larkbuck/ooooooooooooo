@@ -3,41 +3,10 @@
 import * as THREE from '/build/three.module.js';
 
 
-
 const scene = new THREE.Scene();
 // scene.background = new THREE.Color(0xFFBEE8);
 const parent = document.querySelector('#threejsDiv');
 
-
-let camera = new THREE.PerspectiveCamera(75, 1/1.66, 0.1, 1000);
-// let camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // if square
-// let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-
-camera.position.z = 1000;
-
-
-// const renderer = new THREE.WebGLRenderer();
-let renderer = new THREE.WebGLRenderer({
-  parent,
-  alpha: true,
-  antialias: true
-});
-
-// document.body.appendChild(renderer.domElement);
-
-// Append the output of the renderer to the html element
-// Save reference of the parentDiv to be used later
-// Save reference of the parentDiv to be used later
-
-
-// renderer.setSize(parent.clientWidth, parent.clientHeight);
-// renderer.setSize(parent.clientWidth, parent.clientWidth * .66);
-renderer.setSize(parent.clientWidth, parent.clientWidth * 1.66);
-
-parent.append(renderer.domElement);
-// circle tut uses this syntax:
-// Add the canvas to the DOM
-//document.querySelector('body').appendChild(renderer.domElement);
 
 let image_radius = 60;
 const number_of_images = 29;
@@ -48,13 +17,13 @@ const center_of_wheel = {
   y: 0
 }
 
-
 const group_cards = new THREE.Group();
 let loader = null;
 let texture = null;
 let material = null;
 let circle = null;
 let mesh = null;
+
 
 for (let i = 0; i < number_of_images; i++) {
   // Create a texture loader so we can load our image file
@@ -91,25 +60,78 @@ for (let i = 0; i < number_of_images; i++) {
 // add group to scene
 scene.add(group_cards);
 
-// cam.position.z = 5;
+
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ CAMERA ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
+let camera = new THREE.PerspectiveCamera(75, 1 / 1.66, 0.1, 1000);
+// let camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // if square
+// let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 1000;
+
+
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ RENDER & LISTEN ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
+const renderer = new THREE.WebGLRenderer({
+  parent,
+  alpha: true,
+  antialias: true
+});
+
+// renderer.setSize(parent.clientWidth, parent.clientHeight);
+// renderer.setSize(parent.clientWidth, parent.clientWidth * .66);
+renderer.setSize(parent.clientWidth, parent.clientWidth * 1.66);
+
+parent.append(renderer.domElement);
+
+
+// ***** snap back functionality ****
+let wheel_theta = 0.0; // keep track of where we’ve spun the wheel
+let spin_in_progress = false; // keep track of when the wheel is spinning
+let snap_in_progress = false; // keep track of when the wheel is automatically spinning to the snapping point
+const snap_point = { // used to calculate properties of our snapping point
+  x: 0,
+  y: 0,
+  theta: 0.0
+}
+
+
+function snapBack(){
+  console.log('snap')
+}
 
 let scroll_speed = 0.0;
 window.addEventListener('wheel', event => {
-  scroll_speed = event.deltaY * (Math.PI / 180) * 0.2;
-  group_cards.rotation.z += -1.0 * scroll_speed;
-  for (let i = 0; i < group_cards.children.length; i++) {
-    group_cards.children[i].rotation.z += scroll_speed;
+  if (!snap_in_progress) {
+    clearTimeout(spin_in_progress);
+    scroll_speed = event.deltaY * (Math.PI / 180) * 0.2;
+    group_cards.rotation.z += -1.0 * scroll_speed;
+    for (let i = 0; i < group_cards.children.length; i++) {
+      group_cards.children[i].scale.set(1, 1, 1);
+      group_cards.children[i].rotation.z +=
+        scroll_speed;
+    }
+    spin_in_progress = setTimeout(() => {
+      snapBack();
+    }, 100);
+  } else {
+    return;
   }
 });
 
-// requestAnimationFrame(animate);
-//
-// function animate() {
-//   requestAnimationFrame(animate);
-//   renderer.render(scene, camera);
-// }
+
+// ******* circle-spin event - from original ******
+// let scroll_speed = 0.0;
+// window.addEventListener('wheel', event => {
+//   scroll_speed = event.deltaY * (Math.PI / 180) * 0.2;
+//   group_cards.rotation.z += -1.0 * scroll_speed;
+//   for (let i = 0; i < group_cards.children.length; i++) {
+//     group_cards.children[i].rotation.z += scroll_speed;
+//   }
+// });
 
 
+
+// ******** animation loop *******
 const render = function() {
   requestAnimationFrame(render);
 
