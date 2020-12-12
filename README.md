@@ -3,15 +3,4 @@
 ## 🤩➰➰ virtual moon reverance for global ritual and connection ➰🤩
 
 
-
-
-## This project adapted from NeDB starter
-A simple list app that demonstrates creating and interacting with a [NeDB](https://github.com/louischatriot/nedb) database.
-
-
-### Getting Started w/ NeDB
-Just remix the project, see [https://github.com/louischatriot/nedb](https://github.com/louischatriot/nedb) for more info about working with NeDB.
-
-
-
-# Links to other tuts / code sources:
+Supported by Schloss Solitude Web Residency - [project description here](https://www.akademie-solitude.de/de/web-residencies/calls-2020/muntu-maxims/ooo-br-online-moon-altar-for-global-ritual-and-connection/)
