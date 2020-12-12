@@ -10,14 +10,15 @@ const parent = document.querySelector('#threejsDiv');
 
 let image_radius = 60;
 const number_of_images = 29;
-let radius = 666; // reset to parent.clientWidth in resize function
+let radius = 1200; // reset to parent.clientWidth in resize function
 const radian_interval = (2.0 * Math.PI) / number_of_images;
 const center_of_wheel = {
   x: 0,
-  y: 0
+  y: -600
 }
 
 const group_cards = new THREE.Group();
+group_cards.position.set(center_of_wheel.x, center_of_wheel.y)
 let loader = null;
 let texture = null;
 let material = null;
@@ -49,8 +50,10 @@ for (let i = 0; i < number_of_images; i++) {
   //   center_of_wheel.y,
   //   0);
   mesh.position.set(
-    center_of_wheel.x + (Math.cos(radian_interval * i) * radius),
-    center_of_wheel.y + (Math.sin(radian_interval * i) * radius),
+    // center_of_wheel.x + (Math.cos(radian_interval * i) * radius),
+    // center_of_wheel.y + (Math.sin(radian_interval * i) * radius),
+    (Math.cos(radian_interval * i) * radius),
+    (Math.sin(radian_interval * i) * radius),
     0);
 
   // add the image to the group
