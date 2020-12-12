@@ -8,17 +8,17 @@ const scene = new THREE.Scene();
 const parent = document.querySelector('#threejsDiv');
 
 
-let image_radius = 60;
-const number_of_images = 29;
-let radius = 1200; // reset to parent.clientWidth in resize function
-const radian_interval = (2.0 * Math.PI) / number_of_images;
-const center_of_wheel = {
+let imageRadius = 66;
+const numberImages = 29;
+let radius = 1500; // reset to parent.clientWidth in resize function
+const radianInterval = (2.0 * Math.PI) / numberImages;
+const centerWheel = {
   x: 0,
-  y: -600
+  y: -900
 }
 
-const group_cards = new THREE.Group();
-group_cards.position.set(center_of_wheel.x, center_of_wheel.y)
+const groupMoons = new THREE.Group();
+groupMoons.position.set(centerWheel.x, centerWheel.y)
 let loader = null;
 let texture = null;
 let material = null;
@@ -26,7 +26,7 @@ let circle = null;
 let mesh = null;
 
 
-for (let i = 0; i < number_of_images; i++) {
+for (let i = 0; i < numberImages; i++) {
   // Create a texture loader so we can load our image file
   loader = new THREE.TextureLoader();
   texture = loader.load('/assets-main/moon.jpg');
@@ -40,35 +40,30 @@ for (let i = 0; i < number_of_images; i++) {
     opacity: 1
   });
 
-  circle = new THREE.CircleGeometry(image_radius, 100);
+  circle = new THREE.CircleGeometry(imageRadius, 100);
   mesh = new THREE.Mesh(circle, material);
 
   mesh.material.side = THREE.DoubleSide;
 
-  // mesh.position.set(
-  //   center_of_wheel.x,
-  //   center_of_wheel.y,
-  //   0);
   mesh.position.set(
-    // center_of_wheel.x + (Math.cos(radian_interval * i) * radius),
-    // center_of_wheel.y + (Math.sin(radian_interval * i) * radius),
-    (Math.cos(radian_interval * i) * radius),
-    (Math.sin(radian_interval * i) * radius),
+    (Math.cos(radianInterval * i) * radius),
+    (Math.sin(radianInterval * i) * radius),
+    // (Math.sin(radianInterval * i) * radius) * .4, // Sol: I tried to make oval but then it did a CRAZY spin
     0);
 
   // add the image to the group
-  group_cards.add(mesh);
+  groupMoons.add(mesh);
 }
 
 // add group to scene
-scene.add(group_cards);
+scene.add(groupMoons);
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ CAMERA ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
-let camera = new THREE.PerspectiveCamera(75, 1 / 1.66, 0.1, 1000);
+// let camera = new THREE.PerspectiveCamera(75, 1 / 1.66, 0.1, 1000); // if super tall
 // let camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // if square
-// let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+let camera = new THREE.PerspectiveCamera(75, 1 / .66, 0.1, 1000);
 camera.position.z = 1000;
 
 
@@ -81,17 +76,17 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 // renderer.setSize(parent.clientWidth, parent.clientHeight);
-// renderer.setSize(parent.clientWidth, parent.clientWidth * .66);
-renderer.setSize(parent.clientWidth, parent.clientWidth * 1.66);
+renderer.setSize(parent.clientWidth, parent.clientWidth * .66);
+// renderer.setSize(parent.clientWidth, parent.clientWidth * 1.66);
 
 parent.append(renderer.domElement);
 
 
 // ***** snap back functionality ****
-let wheel_theta = 0.0; // keep track of where we’ve spun the wheel
-let spin_in_progress = false; // keep track of when the wheel is spinning
-let snap_in_progress = false; // keep track of when the wheel is automatically spinning to the snapping point
-const snap_point = { // used to calculate properties of our snapping point
+let wheelTheta = 0.0; // keep track of where we’ve spun the wheel
+let spinInProgress = false; // keep track of when the wheel is spinning
+let snapInProgress = false; // keep track of when the wheel is automatically spinning to the snapping point
+const snapPoint = { // used to calculate properties of our snapping point
   x: 0,
   y: 0,
   theta: 0.0
@@ -104,16 +99,16 @@ function snapBack(){
 
 let scroll_speed = 0.0;
 window.addEventListener('wheel', event => {
-  if (!snap_in_progress) {
-    clearTimeout(spin_in_progress);
+  if (!snapInProgress) {
+    clearTimeout(spinInProgress);
     scroll_speed = event.deltaY * (Math.PI / 180) * 0.2;
-    group_cards.rotation.z += -1.0 * scroll_speed;
-    for (let i = 0; i < group_cards.children.length; i++) {
-      group_cards.children[i].scale.set(1, 1, 1);
-      group_cards.children[i].rotation.z +=
+    groupMoons.rotation.z += -1.0 * scroll_speed;
+    for (let i = 0; i < groupMoons.children.length; i++) {
+      groupMoons.children[i].scale.set(1, 1, 1);
+      groupMoons.children[i].rotation.z +=
         scroll_speed;
     }
-    spin_in_progress = setTimeout(() => {
+    spinInProgress = setTimeout(() => {
       snapBack();
     }, 100);
   } else {
@@ -126,9 +121,9 @@ window.addEventListener('wheel', event => {
 // let scroll_speed = 0.0;
 // window.addEventListener('wheel', event => {
 //   scroll_speed = event.deltaY * (Math.PI / 180) * 0.2;
-//   group_cards.rotation.z += -1.0 * scroll_speed;
-//   for (let i = 0; i < group_cards.children.length; i++) {
-//     group_cards.children[i].rotation.z += scroll_speed;
+//   groupMoons.rotation.z += -1.0 * scroll_speed;
+//   for (let i = 0; i < groupMoons.children.length; i++) {
+//     groupMoons.children[i].rotation.z += scroll_speed;
 //   }
 // });
 
@@ -146,14 +141,14 @@ const render = function() {
 const resizeRenderer = function() {
   // Get width & height of parentDiv
   let width = parent.clientWidth;
-  // let height = parent.clientWidth * .66;
-  let height = parent.clientWidth * 1.66;
+  let height = parent.clientWidth * .66;
+  // let height = parent.clientWidth * 1.66;
 
   renderer.setSize(width, height);
 
   radius = width;
   console.log(width);
-  image_radius = width * 0.1;
+  imageRadius = width * 0.1;
 }
 
 // Add window resize listener

@@ -62,8 +62,8 @@ main {
  * Limit the container in
  * width for big screens
  */
-.width-max720 {
-  width: 720px;
+.width-max1000 {
+  width: 1000px;
   max-width: 100%;
   margin: 0 auto;
 }
