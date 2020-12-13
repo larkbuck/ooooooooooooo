@@ -29,7 +29,7 @@ let mesh = null;
 for (let i = 0; i < numberImages; i++) {
   // Create a texture loader so we can load our image file
   loader = new THREE.TextureLoader();
-  texture = loader.load('/assets-main/moon.jpg');
+  texture = loader.load('/assets-main/images/moon.jpg');
   texture.minFilter = THREE.LinearFilter;
 
 
