@@ -1,6 +1,7 @@
 // Circle spinner from: https://medium.com/swlh/create-a-three-js-object-wheel-638f04439bc4
 
 import * as THREE from '/build/three.module.js';
+import { OrbitControls } from '/jsm/controls/OrbitControls.js';
 
 // const TWEEN = require('@tweenjs/tween.js') >> installed TWEEN thru NPM but not recognizing "require" - prob need to import. For now, linking to TWEEN in index.html
 
@@ -200,14 +201,18 @@ function Background(scene){
     let  backgroundConf = {
         fov: 75,
         cameraZ: 1000,
-        xyCoef: 200,
+        xyCoef: 300,
         zCoef: 50,
         lightIntensity: 0.9,
-        ambientColor: 0x000000,
-        light1Color: 0x0E09DC
+        emissive: 0x31404,
+        light1Color: 0x844340
     };
+    //Blue
+    let light5 = new THREE.PointLight(backgroundConf.light1Color, backgroundConf.lightIntensity, 1000);
+    light5.position.set(10, 100, -400);
+    scene.add(light5);
 
-    let mat = new THREE.MeshLambertMaterial({ color: 0xfff0000, side: THREE.DoubleSide });
+    let mat = new THREE.MeshLambertMaterial({ color: 0xfffffff, side: THREE.DoubleSide, emissive: backgroundConf.emissive});
 
     const wsize = getRendererSize();
     const wWidth = wsize[0];
@@ -216,9 +221,9 @@ function Background(scene){
 
     let plane = new THREE.Mesh(geo, mat);
 
-    plane.rotation.x = Math.PI / 2.7;
-    plane.position.y = -200;
-    plane.position.z =0;
+    plane.rotation.x = -Math.PI / 2.9 -0.1;
+    plane.position.y = -320;
+    plane.position.z = -20;
 
     scene.add(plane);
 
@@ -241,7 +246,22 @@ function Background(scene){
      }
 }
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+function Triangle(parent,scene){
+    const geometry = new THREE.Geometry();
+    let scale= 1.15;
+    geometry.vertices.push(
+	    new THREE.Vector3( 0,  parent.clientHeight*scale, 0 ) ,
+	    new THREE.Vector3( -parent.clientWidth*scale, -parent.clientHeight*scale, 0 ),
+	    new THREE.Vector3( parent.clientWidth*scale, -parent.clientHeight*scale, 0)
+    );
 
+    geometry.faces.push( new THREE.Face3( 0, 1, 2 ) );
+
+    geometry.computeBoundingSphere();
+    var mesh= new THREE.Mesh( geometry, new THREE.MeshBasicMaterial() );
+
+    scene.add(mesh);
+}
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE,CAMERA AND RENDERER  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
@@ -253,7 +273,7 @@ const scene = new THREE.Scene();
 // scene.background = new THREE.Color(0xFFBEE8);
 
 let camera = new THREE.PerspectiveCamera(75, 1 / .66, 0.1, 1000);
-camera.position.z = conf.cameraZ;
+camera.position.z = 1000;
 
 const renderer = new THREE.WebGLRenderer({
     parent,
@@ -266,6 +286,7 @@ parent.append(renderer.domElement);
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+const triangle = new Triangle(parent, scene);
 const background = new Background(scene);
 const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent,scene);
@@ -337,3 +358,7 @@ render();
 //   renderer.render(scene, cam);
 // };
 // // ______________ Box demo code end
+
+
+//Add controls for debugging
+//const controls = new OrbitControls( camera, renderer.domElement );
