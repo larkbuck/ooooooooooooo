@@ -263,6 +263,31 @@ function Triangle(parent,scene){
     scene.add(mesh);
 }
 
+function Text(scene){
+	var canvas = document.createElement('canvas');
+	var context = canvas.getContext('2d');
+	context.font = "Bold 40px Arial";
+	context.fillStyle = "rgba(0,0,0,0.95)";
+    context.maxWidth= 300;
+    context.fillText('TEXT TEXT TEXT /n', 10, 90);
+
+	// canvas contents will be used for a texture
+	var texture = new THREE.Texture(canvas)
+	texture.needsUpdate = true;
+
+    var material = new THREE.MeshBasicMaterial( {map: texture, side:THREE.DoubleSide } );
+    material.transparent = true;
+
+    var mesh = new THREE.Mesh(
+        new THREE.PlaneGeometry(canvas.width, canvas.height),
+        material
+    );
+	mesh.position.set(0,100,0);
+	scene.add( mesh );
+
+}
+
+
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE,CAMERA AND RENDERER  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
 const parent = document.querySelector('#threejsDiv');
@@ -290,7 +315,7 @@ const triangle = new Triangle(parent, scene);
 const background = new Background(scene);
 const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent,scene);
-
+const infoText = new Text(scene);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ LISTEN ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
