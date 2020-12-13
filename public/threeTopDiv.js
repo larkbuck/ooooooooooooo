@@ -194,6 +194,52 @@ function Tide(scene){
         }
 }
 
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ BACKGROUND ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
+function Background(scene){
+    let  backgroundConf = {
+        fov: 75,
+        cameraZ: 1000,
+        xyCoef: 200,
+        zCoef: 50,
+        lightIntensity: 0.9,
+        ambientColor: 0x000000,
+        light1Color: 0x0E09DC
+    };
+
+    let mat = new THREE.MeshLambertMaterial({ color: 0xfff0000, side: THREE.DoubleSide });
+
+    const wsize = getRendererSize();
+    const wWidth = wsize[0];
+    const wHeight = wsize[1];
+    let geo = new THREE.PlaneBufferGeometry(wWidth, wHeight, wWidth / 2, wHeight / 2);
+
+    let plane = new THREE.Mesh(geo, mat);
+
+    plane.rotation.x = Math.PI / 2.7;
+    plane.position.y = -200;
+    plane.position.z =0;
+
+    scene.add(plane);
+
+    const simplex = new SimplexNoise();
+    const lightDistance = 500;
+    const y = 100;
+
+
+
+    let gArray = plane.geometry.attributes.position.array;
+
+    for (let i = 0; i < gArray.length; i += 3) {
+        gArray[i + 2] = simplex.noise3D(gArray[i] / backgroundConf.xyCoef *2, gArray[i + 1] / backgroundConf.xyCoef,0.001) * backgroundConf.zCoef;
+    }
+
+
+
+    this.update= function(){
+      //TODO: Update light with Moon phase
+     }
+}
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
 
@@ -220,8 +266,9 @@ parent.append(renderer.domElement);
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+const background = new Background(scene);
+const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent,scene);
-const tide = new Tide(scene,camera);
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ LISTEN ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
@@ -229,9 +276,10 @@ const tide = new Tide(scene,camera);
 // ******** animation loop *******
 const render = function() {
     requestAnimationFrame(render);
-
-    groupMoons.update();
+    background.update();
     tide.update();
+    groupMoons.update();
+
 
     renderer.render(scene, camera);
 };
@@ -247,6 +295,8 @@ const resizeRenderer = function() {
     renderer.setSize(width, height);
 }
 
+
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ UTILS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function getRendererSize() {
     const cam = new THREE.PerspectiveCamera(camera.fov, camera.aspect);
     const vFOV = cam.fov * Math.PI / 180;
@@ -256,15 +306,14 @@ function getRendererSize() {
 }
 
 
+
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ START ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
 // Add window resize listener
 window.addEventListener('resize', resizeRenderer);
-
 // Force renderer resizing once
 resizeRenderer();
-
 render();
-
-
 
 // // ______________ Box demo code start
 // var geometry = new THREE.BoxGeometry(1, 1, 1);
