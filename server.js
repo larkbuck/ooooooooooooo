@@ -58,6 +58,7 @@ db.count({}, function(err, count) {
 app.use(express.static('public'));
 app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')));
 app.use('/jsm/', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')));
+app.use('/noise/', express.static(path.join(__dirname, 'node_modules/simplex-noise/')));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function(request, response) {

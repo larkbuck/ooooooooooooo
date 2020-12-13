@@ -115,13 +115,95 @@ function GroupMoons(parent,scene){
 
 }
 
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ TIDE  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+let  conf = {
+    fov: 75,
+    cameraZ: 1000,
+    xyCoef: 50,
+    zCoef: 20,
+    lightIntensity: 0.9,
+    ambientColor: 0x000000,
+    light1Color: 0x0E09DC,
+    light2Color: 0x1CD1E1,
+    light3Color: 0x18C02C,
+    light4Color: 0xee3bcf,
+};
+
+function Tide(scene){
+    console.log(width,height);
+
+    const wsize = getRendererSize();
+    const wWidth = wsize[0];
+    const wHeight = wsize[1];
+
+    let mat = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+    console.log(wWidth, wHeight);
+    let geo = new THREE.PlaneBufferGeometry(wWidth, wHeight, wWidth / 2, wHeight / 2);
+
+
+    let plane = new THREE.Mesh(geo, mat);
+
+    plane.rotation.x = -Math.PI / 2 - .2;
+    plane.position.y = -180;
+    plane.position.z =300;
+
+    scene.add(plane);
+
+    const simplex = new SimplexNoise();
+    const lightDistance = 500;
+    const y = 100;
+
+    let light1, light2, light3, light4;
+    light1 = new THREE.PointLight(conf.light1Color, conf.lightIntensity, lightDistance);
+    light1.position.set(0, y, 1000);
+     scene.add(light1);
+    light2 = new THREE.PointLight(conf.light2Color, conf.lightIntensity, lightDistance);
+    light2.position.set(0, -y, 1000);
+    scene.add(light2);
+    light3 = new THREE.PointLight(conf.light3Color, conf.lightIntensity, lightDistance);
+    light3.position.set(10, y, 800);
+    scene.add(light3);
+    light4 = new THREE.PointLight(conf.light4Color, conf.lightIntensity, lightDistance);
+    light4.position.set(-10, y, 800);
+    scene.add(light4);
+
+
+    this.update= function(){
+        let gArray = plane.geometry.attributes.position.array;
+        let time = Date.now() * 0.0002;
+        for (let i = 0; i < gArray.length; i += 3) {
+
+                gArray[i + 2] = simplex.noise4D(gArray[i] / conf.xyCoef, gArray[i + 1] / conf.xyCoef, time, 1.) * conf.zCoef;
+            }
+
+        plane.geometry.attributes.position.needsUpdate = true;
+
+        time = Date.now() * 0.001;
+        light1.position.x = Math.sin(time * 0.1) * 100;
+        light1.position.z = 900 + Math.cos(time * 0.2) * 100;
+        light2.position.x = Math.cos(time * 0.3) * 100;
+        light2.position.z = 900 +Math.sin(time * 0.4) * 150;
+        light3.position.x = Math.sin(time * 0.5) * 100;
+        light3.position.z = 800+ Math.sin(time * 0.6) * 50;
+        light4.position.x = Math.sin(time * 0.7) * 100;
+        light4.position.z = 800 +Math.cos(time * 0.8) * 250;
+        }
+}
+
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
+
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE,CAMERA AND RENDERER  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
 const parent = document.querySelector('#threejsDiv');
+let width = parent.clientWidth;
+let height = parent.clientWidth * .66;
+
 const scene = new THREE.Scene();
 // scene.background = new THREE.Color(0xFFBEE8);
 
 let camera = new THREE.PerspectiveCamera(75, 1 / .66, 0.1, 1000);
-camera.position.z = 1000;
+camera.position.z = conf.cameraZ;
 
 const renderer = new THREE.WebGLRenderer({
     parent,
@@ -135,13 +217,18 @@ parent.append(renderer.domElement);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 const groupMoons = new GroupMoons(parent,scene);
+const tide = new Tide(scene,camera);
+
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ LISTEN ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
 // ******** animation loop *******
 const render = function() {
     requestAnimationFrame(render);
+
     groupMoons.update();
+    tide.update();
+
     renderer.render(scene, camera);
 };
 
@@ -149,15 +236,21 @@ const render = function() {
 // for resizing canvas when window is resized
 const resizeRenderer = function() {
   // Get width & height of parentDiv
-    let width = parent.clientWidth;
-    let height = parent.clientWidth * .66;
-
     console.log(`window resized: to ${width}px`);
 
     groupMoons.setRadius(width);
 
     renderer.setSize(width, height);
 }
+
+function getRendererSize() {
+    const cam = new THREE.PerspectiveCamera(camera.fov, camera.aspect);
+    const vFOV = cam.fov * Math.PI / 180;
+    const height = 2 * Math.tan(vFOV / 2) * Math.abs(conf.cameraZ);
+    const width = height * cam.aspect;
+    return [width, height];
+}
+
 
 // Add window resize listener
 window.addEventListener('resize', resizeRenderer);
