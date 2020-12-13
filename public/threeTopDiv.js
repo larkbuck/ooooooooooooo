@@ -1,6 +1,8 @@
 // Circle spinner from: https://medium.com/swlh/create-a-three-js-object-wheel-638f04439bc4
 
 import * as THREE from '/build/three.module.js';
+// const TWEEN = require('@tweenjs/tween.js') >> installed TWEEN thru NPM but not recognizing "require" - prob need to import. For now, linking to TWEEN in index.html
+
 
 
 const scene = new THREE.Scene();
@@ -8,7 +10,7 @@ const scene = new THREE.Scene();
 const parent = document.querySelector('#threejsDiv');
 
 
-let imageRadius = 66;
+let imageRadius = parent.clientWidth * .08;
 const numberImages = 29;
 let radius = 1500; // reset to parent.clientWidth in resize function
 const radianInterval = (2.0 * Math.PI) / numberImages;
@@ -61,8 +63,6 @@ scene.add(groupMoons);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ CAMERA ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
-// let camera = new THREE.PerspectiveCamera(75, 1 / 1.66, 0.1, 1000); // if super tall
-// let camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // if square
 let camera = new THREE.PerspectiveCamera(75, 1 / .66, 0.1, 1000);
 camera.position.z = 1000;
 
@@ -76,8 +76,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 // renderer.setSize(parent.clientWidth, parent.clientHeight);
-renderer.setSize(parent.clientWidth, parent.clientWidth * .66);
-// renderer.setSize(parent.clientWidth, parent.clientWidth * 1.66);
+renderer.setSize(parent.clientWidth, parent.clientWidth * .66); // set to be movie-screen ratio 1.33
 
 parent.append(renderer.domElement);
 
@@ -93,44 +92,43 @@ const snapPoint = { // used to calculate properties of our snapping point
 }
 
 
-function snapBack(){
-  console.log('snap')
-}
+// ******* circle-spin event - just a mouse click here ******
 
-let scroll_speed = 0.0;
-window.addEventListener('wheel', event => {
-  if (!snapInProgress) {
-    clearTimeout(spinInProgress);
-    scroll_speed = event.deltaY * (Math.PI / 180) * 0.2;
-    groupMoons.rotation.z += -1.0 * scroll_speed;
-    for (let i = 0; i < groupMoons.children.length; i++) {
-      groupMoons.children[i].scale.set(1, 1, 1);
-      groupMoons.children[i].rotation.z +=
-        scroll_speed;
-    }
-    spinInProgress = setTimeout(() => {
-      snapBack();
-    }, 100);
-  } else {
-    return;
+window.addEventListener('click', () => {
+
+  // groupMoons.rotation.z += radianInterval;
+  // ^ basically just doing this but using Tween to animate:
+
+  new TWEEN.Tween(groupMoons.rotation)
+    .to({
+      z: groupMoons.rotation.z + radianInterval
+    }, 600)
+    .easing(TWEEN.Easing.Cubic.InOut)
+    .start();
+
+  for (let i = 0; i < groupMoons.children.length; i++) {
+    // groupMoons.children[i].rotation.z += radianInterval;
+    // ^ animating with Tween
+    new TWEEN.Tween(groupMoons.children[i].rotation)
+      .to({
+        z: groupMoons.children[i].rotation.z + radianInterval
+      }, 600)
+      .easing(TWEEN.Easing.Cubic.InOut)
+      .start();
   }
 });
 
 
-// ******* circle-spin event - from original ******
-// let scroll_speed = 0.0;
-// window.addEventListener('wheel', event => {
-//   scroll_speed = event.deltaY * (Math.PI / 180) * 0.2;
-//   groupMoons.rotation.z += -1.0 * scroll_speed;
-//   for (let i = 0; i < groupMoons.children.length; i++) {
-//     groupMoons.children[i].rotation.z += scroll_speed;
-//   }
-// });
+
+
 
 
 
 // ******** animation loop *******
 const render = function() {
+
+  TWEEN.update();
+
   requestAnimationFrame(render);
 
   renderer.render(scene, camera);
@@ -147,8 +145,8 @@ const resizeRenderer = function() {
   renderer.setSize(width, height);
 
   radius = width;
-  console.log(width);
-  imageRadius = width * 0.1;
+  console.log(`window resized: to ${width}px`);
+  imageRadius = width * 0.08;
 }
 
 // Add window resize listener
