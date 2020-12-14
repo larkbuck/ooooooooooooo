@@ -117,25 +117,23 @@ function GroupMoons(parent,scene){
 }
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ TIDE  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-let  conf = {
+let  TideConf = {
     fov: 75,
     cameraZ: 1000,
     xyCoef: 50,
     zCoef: 20,
     lightIntensity: 0.9,
-    ambientColor: 0x000000,
     light1Color: 0x0E09DC,
     light2Color: 0x1CD1E1,
     light3Color: 0x18C02C,
     light4Color: 0xee3bcf,
+    velocity: 1
 };
 
 function Tide(scene){
     let mat = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide });
 
-    const wsize = getRendererSize();
-    const wWidth = wsize[0];
-    const wHeight = wsize[1];
+    const wsize = getRendererSize(); const wWidth = wsize[0]; const wHeight = wsize[1];
     let geo = new THREE.PlaneBufferGeometry(wWidth/2, wHeight/2, wWidth / 2, wHeight / 2);
 
     let plane = new THREE.Mesh(geo, mat);
@@ -146,52 +144,68 @@ function Tide(scene){
 
     scene.add(plane);
 
-    const simplex = new SimplexNoise();
-    const lightDistance = 500;
+    const simplex = new SimplexNoise(); const lightDistance = 500;
     const y = 100;
     //TODO: check lights  colors and positions
     let light1, light2, light3, light4;
 
     //Blue
-    light1 = new THREE.PointLight(conf.light1Color, conf.lightIntensity, lightDistance);
+    light1 = new THREE.PointLight(TideConf.light1Color, TideConf.lightIntensity, lightDistance);
     light1.position.set(0, 50, 900);
     scene.add(light1);
 
     //Cyan
-    light2 = new THREE.PointLight(conf.light2Color, conf.lightIntensity, lightDistance);
+    light2 = new THREE.PointLight(TideConf.light2Color, TideConf.lightIntensity, lightDistance);
     light2.position.set(10, -70, 800);
     scene.add(light2);
 
     //Green
-    light3 = new THREE.PointLight(conf.light3Color, conf.lightIntensity, lightDistance);
+    light3 = new THREE.PointLight(TideConf.light3Color, TideConf.lightIntensity, lightDistance);
     light3.position.set(30, 50, 700);
     scene.add(light3);
 
     //Magenta
-    light4 = new THREE.PointLight(conf.light4Color, conf.lightIntensity, lightDistance);
+    light4 = new THREE.PointLight(TideConf.light4Color, TideConf.lightIntensity, lightDistance);
     light4.position.set(-10, 50, 800);
     scene.add(light4);
 
-    this.update= function(){
+    this.update = function(){
         let gArray = plane.geometry.attributes.position.array;
-        let time = Date.now() * 0.0002;
+        let time = Date.now() * 0.0002 * TideConf.velocity; //CHECK: Scale constant factor for the `intensity`
         for (let i = 0; i < gArray.length; i += 3) {
-                gArray[i + 2] = simplex.noise4D(gArray[i] / conf.xyCoef, gArray[i + 1] / conf.xyCoef, time, 1.) * conf.zCoef;
+                gArray[i + 2] = simplex.noise4D(gArray[i] / TideConf.xyCoef, gArray[i + 1] / TideConf.xyCoef, time, 1.) * TideConf.zCoef;
             }
 
         plane.geometry.attributes.position.needsUpdate = true;
-        /* TODO: check if we dynamic lights
-        time = Date.now() * 0.001;
-        light1.position.x = Math.sin(time * 0.1) * 100;
-        light1.position.z = 900 + Math.cos(time * 0.2) * 100;
-        light2.position.x = Math.cos(time * 0.3) * 100;
-        light2.position.z = 800 +Math.sin(time * 0.4) * 150;
-        light3.position.x = Math.sin(time * 0.5) * 100;
-        light3.position.z = 700+ Math.sin(time * 0.6) * 50;
-        light4.position.x = Math.sin(time * 0.7) * 100;
-        light4.position.z = 800 +Math.cos(time * 0.8) * 250;
-        */
-        }
+    }
+
+    let preconfig = {
+        "H":{
+            z: 25, //CHECK: Could be changing dynamically according to time
+            xy:50,
+        },
+        "L":{
+            z: 10,
+            xy:100,
+        },
+    }
+
+    this.setTide = function(currentTide){
+        TideConf.velocity = Math.abs(currentTide.velocity);
+        TideConf.zCoef  = preconfig[currentTide.type].z;
+        TideConf.xyCoef = preconfig[currentTide.type].xy;
+
+        this.update();
+    }
+
+    this.setLight = function(intensity){
+        light1.intensity = intensity;
+        light2.intensity = intensity;
+        light3.intensity = intensity;
+        light4.intensity = intensity;
+    }
+
+
 }
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ BACKGROUND ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
@@ -216,16 +230,12 @@ function Background(scene){
     light2.position.set(-1000, -100, 0);
     scene.add(light2);
 
-    let mat = new THREE.MeshLambertMaterial({ color: 0xab6733, side: THREE.DoubleSide, emissive: backgroundConf.emissive,combine: THREE.MixOperation,
-                                              emissiveIntensity: 0.9});
+    let mat = new THREE.MeshLambertMaterial({ color: 0xab6733, side: THREE.DoubleSide, emissive: backgroundConf.emissive,combine: THREE.MixOperation, emissiveIntensity: 0.9});
 
-    const wsize = getRendererSize();
-    const wWidth = wsize[0];
-    const wHeight = wsize[1];
+    const wsize = getRendererSize(); const wWidth = wsize[0]; const wHeight = wsize[1];
+
     let geo = new THREE.PlaneBufferGeometry(wWidth *1.8, wHeight/3., wWidth / 2, wHeight / 2);
-
     let plane = new THREE.Mesh(geo, mat);
-
     plane.rotation.x = -Math.PI / 3.8;
     plane.position.y = -220;
     plane.position.z = -300;
@@ -234,21 +244,19 @@ function Background(scene){
 
     const simplex = new SimplexNoise();
     const lightDistance = 500;
-    const y = 0;
-
-
 
     let gArray = plane.geometry.attributes.position.array;
-
     for (let i = 0; i < gArray.length; i += 3) {
         gArray[i + 2] = simplex.noise3D(gArray[i] / backgroundConf.xyCoef *2, gArray[i + 1] / backgroundConf.xyCoef,0.001) * backgroundConf.zCoef;
     }
 
-    this.update= function(){
-      //TODO: Update light with Moon phase
+    this.setLight = function(intensity){
+        light1.intensity = value;
+        light2.intensity = value;
      }
 }
-// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INFORMATION TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function Button(scene, x1, x2, y, invert=false){
     const button = new THREE.Geometry();
     ( invert ?
@@ -359,16 +367,17 @@ const triangle = new Triangle(parent, scene);
 const background = new Background(scene);
 const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent,scene);
+const tidePredictor = new TidePredictor(tide);
+const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ LISTEN ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
 // ******** animation loop *******
 const render = function() {
     requestAnimationFrame(render);
-    background.update();
+
     tide.update();
     groupMoons.update();
-
 
     renderer.render(scene, camera);
 };
@@ -380,16 +389,44 @@ const resizeRenderer = function() {
     console.log(`window resized: to ${width}px`);
 
     groupMoons.setRadius(width);
-
     renderer.setSize(width, height);
 }
 
+
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ START ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+// Utility functions for gettins files
+async function getText(path,onSuccess){
+    fetch(path).then(function(response) {
+        return response.text()
+    })
+        .then( (text) => onSuccess(text))
+        .catch(function(error) {
+            console.log("Failed!", error);
+        })
+}
+
+//Initialize current moon
+//const loadMoonPhase = (data) => moonPhaseAdmin.init(data);
+//getText('/data/moonPhase_13_Dec-Jan.JSON', loadMoonPhase)
+//Initialize current tide
+const loadTide = (data) => tidePredictor.init(data);
+getText('/data/tides_hi-lo.JSON', loadTide)
+
+// Add window resize listener
+window.addEventListener('resize', resizeRenderer);
+
+// Force renderer resizing once
+resizeRenderer();
+render();
+
+//Add controls for debugging
+const controls = new OrbitControls( camera, renderer.domElement );
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ UTILS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function getRendererSize() {
     const cam = new THREE.PerspectiveCamera(camera.fov, camera.aspect);
     const vFOV = cam.fov * Math.PI / 180;
-    const height = 2 * Math.tan(vFOV / 2) * Math.abs(conf.cameraZ);
+    const height = 2 * Math.tan(vFOV / 2) * Math.abs(TideConf.cameraZ);
     const width = height * cam.aspect;
     return [width, height];
 }
@@ -397,36 +434,97 @@ function getRendererSize() {
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ START ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ HELPERS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+function TidePredictor(tide){
+    let predictions;
+    let currentTide ={idx: 0, date: null, velocity: null, type: null};
 
-// Add window resize listener
-window.addEventListener('resize', resizeRenderer);
-// Force renderer resizing once
-resizeRenderer();
-render();
-
-// // ______________ Box demo code start
-// var geometry = new THREE.BoxGeometry(1, 1, 1);
-// var material = new THREE.MeshBasicMaterial({
-//   color: 0x00ff00,
-//   wireframe: true
-// });
-// var cube = new THREE.Mesh(geometry, material);
-// scene.add(cube);
-//
-// cam.position.z = 5;
-//
-// var render = function() {
-//   requestAnimationFrame(render);
-//
-//   cube.rotation.x += 0.01;
-//   cube.rotation.y += 0.01;
-//   console.log(radius)
-//
-//
-//   renderer.render(scene, cam);
-// };
-// // ______________ Box demo code end
+    this.init = function(json){
+        predictions = JSON.parse(json).predictions;
+        this.updateCurrentTide(null);
 
 
-//Add controls for debugging
-//const controls = new OrbitControls( camera, renderer.domElement );
+    }
+
+    this.updateCurrentTide = function(date){
+        var idx = ( date ? (
+            predictions.findIndex( element => Date.parse(element.t) > Date.parse(date))
+        ):(
+            predictions.findIndex( element => Date.parse(element.t) > Date.now())
+        ));
+
+        currentTide.idx = ( !isNaN(idx) ? idx - 1 : predictions.length -1);
+
+        currentTide.date = predictions[currentTide.idx].t;
+        currentTide.velocity = predictions[currentTide.idx].v;
+        currentTide.type = predictions[currentTide.idx].type;
+
+        tide.setTide(currentTide);
+
+    }
+
+   /* this.nextTideState = function(){
+        //TODO: check ranges
+        currenTide.idx ++;
+        currentTide.date = predictions[currentTide.idx].t;
+        currentTide.value = predictions[currentTide.idx].v;
+        currentTide.type = predictions[currentTide.idx].type;
+
+        tide.setTide(currentTide);
+    }*/
+}
+
+
+function MoonPhaseAdmin(background, tide, triangle){
+    let days;
+    let currentMoon;
+
+    // Start with discrete transitions
+    let lightIntensity = {
+        "waxingcrescent":0.25,
+        "firstquarter":0.5,
+        "waxinggibbous":0.5,
+        "fullmoon":1.,
+        "waninggibbous":0.75,
+        "thirdquarter":0.5,
+        "waningcrescent": 0.25,
+        "newmoon": 0.,
+    }
+
+    this.init = function(json){
+        var obj = JSON.parse(json)
+        days = obj.locations[0].astronomy.objects[0].days;
+        this.updateCurrentMoon(Date.now());
+    }
+
+    this.updateCurrentMoon = function(date){
+        let idx = predictions.findIndex( element => element.date > Date.parse(date));
+
+        if (isNaN(currentMoon.idx)){
+            currentMoond.idx = idx - 1;
+        }else{
+            currentMoon.idx = days.length - 1;
+        }
+
+        currentMoon.date = days[currentMoon.idx].date;
+        currentMoon.events = days[currentMoon.idx].events;
+        currentMoon.moonphase = days[currentMoon.idx].moonphase;
+        console.log(days,currentMoon);
+    }
+
+    this.nextTideState = function(){
+
+        currentMoon.idx = (currentMoon.idx + 1) % days.length;
+
+        currentMoon.date = days[currentMoon.idx].date;
+        currentMoon.events = days[currentMoon.idx].events;
+        currentMoon.moonphase = days[currentMoon.idx].moonphase;
+
+        let intensity = lightIntensity[currentMoon.moonphase];
+
+        tide.setLight(intensity);
+        background.setLight(intensity);
+        triangle.setDate(currentMoon.date);
+        //TODO: Update Moon texture
+    }
+}
