@@ -287,9 +287,10 @@ function Button(scene, x1, x2, y, invert=false){
 
 function Text(scene,y){
 	var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
 
     this.generateText = function(text){
-        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
 	    context.font = "Bold 40px Courier";
 	    context.fillStyle = "#FFFFFF";
         context.maxWidth= 300;
@@ -309,7 +310,6 @@ function Text(scene,y){
 	scene.add( mesh );
 
     this.update = function(newText){
-        console.log(newText)
         this.generateText(newText);
         texture.needsUpdate = true;
     }
@@ -343,10 +343,8 @@ function Triangle(parent,scene){
     const infoText = new Text(scene,300);
 
     this.setDate = function(newText) {
-        console.log(newText);
         infoText.update(newText);
     }
-
 }
 
 
@@ -383,7 +381,6 @@ const tidePredictor = new TidePredictor(tide);
 const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ LISTEN ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-
 // ******** animation loop *******
 const render = function() {
     requestAnimationFrame(render);
@@ -403,6 +400,15 @@ const resizeRenderer = function() {
     groupMoons.setRadius(width);
     renderer.setSize(width, height);
 }
+
+// Add window resize listener
+window.addEventListener('resize', resizeRenderer);
+
+
+window.addEventListener('click', () => {
+    let currentMoon = moonPhaseAdmin.nextMoon();
+    tidePredictor.updateCurrentTide(currentMoon.date);
+});
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ START ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
@@ -425,18 +431,17 @@ getText('/data/moonPhase_13_Dec-Jan.JSON', loadMoonPhase)
 const loadTide = (data) => tidePredictor.init(data);
 getText('/data/tides_hi-lo.JSON', loadTide)
 
-// Add window resize listener
-window.addEventListener('resize', resizeRenderer);
-
 // Force renderer resizing once
 resizeRenderer();
 render();
 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
 const controls = new OrbitControls( camera, renderer.domElement );
 
-// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ UTILS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-function getRendererSize() {
+// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ UTILS  & HELPERS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+function getRendererSize() { //Used for plane size of tide and background
     const cam = new THREE.PerspectiveCamera(camera.fov, camera.aspect);
     const vFOV = cam.fov * Math.PI / 180;
     const height = 2 * Math.tan(vFOV / 2) * Math.abs(TideConf.cameraZ);
@@ -445,9 +450,6 @@ function getRendererSize() {
 }
 
 
-
-
-// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ HELPERS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function TidePredictor(tide){
     let predictions;
     let currentTide ={idx: 0, date: null, velocity: null, type: null};
@@ -455,7 +457,6 @@ function TidePredictor(tide){
     this.init = function(json){
         predictions = JSON.parse(json).predictions;
         this.updateCurrentTide(null);
-
 
     }
 
@@ -466,7 +467,11 @@ function TidePredictor(tide){
             predictions.findIndex( element => Date.parse(element.t) > Date.now())
         ));
 
-        currentTide.idx = ( !isNaN(idx) ? idx - 1 : predictions.length -1);
+        if (idx != 0){
+            currentTide.idx = ( idx != -1? idx - 1 : predictions.length -1);
+        }else{
+          currentTide.idx = idx;
+        }
 
         currentTide.date = predictions[currentTide.idx].t;
         currentTide.velocity = predictions[currentTide.idx].v;
@@ -476,14 +481,6 @@ function TidePredictor(tide){
 
     }
 
-   /* this.nextTideState = function(){
-   //TODO: Add listener on click
-        currenTide.idx ++;
-        currentTide.date = predictions[currentTide.idx].t;
-        currentTide.value = predictions[currentTide.idx].v;
-        currentTide.type = predictions[currentTide.idx].type;
-        tide.setTide(currentTide);
-    }*/
 }
 
 
@@ -506,7 +503,6 @@ function MoonPhaseAdmin(background, tide, triangle){
     this.init = function(json){
         var obj = JSON.parse(json)
         days = obj.locations[0].astronomy.objects[0].days;
-        console.log(Date.parse(days[0].date));
         this.updateCurrentMoon();
     }
 
@@ -517,11 +513,11 @@ function MoonPhaseAdmin(background, tide, triangle){
         ):(
             days.findIndex( element => Date.parse(element.date) > Date.now())
         ));
-        if (idx){
-            currentMoon.idx = ( !isNaN(idx) ? idx - 1 : days.length -1);
+        if (idx!=0){
+            currentMoon.idx = ( idx != -1 ? idx - 1 : days.length -1);
+        }else{
+            currentMoon.idx = idx;
         }
-        currentMoon.idx = idx;
-
         currentMoon.date = days[currentMoon.idx].date;
         currentMoon.events = days[currentMoon.idx].events;
         currentMoon.moonphase = days[currentMoon.idx].moonphase;
@@ -534,19 +530,21 @@ function MoonPhaseAdmin(background, tide, triangle){
         //TODO: Update Moon texture
     }
 
-   /* this.nextTideState = function(){
-        //TODO: Add listener on click
-        currentMoon.idx = (currentMoon.idx + 1) % days.length;
+   this.nextMoon= function(){
+       let newidx = (currentMoon.idx + 1) % days.length;
 
-        currentMoon.date = days[currentMoon.idx].date;
-        currentMoon.events = days[currentMoon.idx].events;
-        currentMoon.moonphase = days[currentMoon.idx].moonphase;
+       currentMoon.idx = newidx;
+       currentMoon.date = days[currentMoon.idx].date;
+       currentMoon.events = days[currentMoon.idx].events;
+       currentMoon.moonphase = days[currentMoon.idx].moonphase;
 
-        let intensity = lightIntensity[currentMoon.moonphase];
+       let intensity = lightIntensity[currentMoon.moonphase];
 
-        tide.setLight(intensity);
-        background.setLight(intensity);
-        triangle.setDate(currentMoon.date);
-        //TODO: Update Moon texture
-    }*/
+       tide.setLight(intensity);
+       background.setLight(intensity);
+       triangle.setDate(currentMoon.date);
+       //TODO: Update Moon texture
+
+       return currentMoon;
+    }
 }
