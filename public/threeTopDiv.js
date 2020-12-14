@@ -425,7 +425,7 @@ async function getText(path,onSuccess){
 
 //Initialize current moon
 const loadMoonPhase = (data) => moonPhaseAdmin.init(data);
-getText('/data/moonPhase_13_Dec-Jan.JSON', loadMoonPhase)
+getText('/data/moonPhase_1_Dec-Jan.JSON', loadMoonPhase)
 
 //Initialize current tide
 const loadTide = (data) => tidePredictor.init(data);
