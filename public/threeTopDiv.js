@@ -14,9 +14,10 @@ function GroupMoons(parent,scene){
     let imageRadius = parent.clientWidth * .08;
     const numberImages = 29;
     const radianInterval = (2.0 * Math.PI) / numberImages;
+
     const centerWheel = {
-        x: 0,
-        y: -900
+        x: -imageRadius, //temporal fix for display moon in center of triangle
+        y: -900 -imageRadius
     }
 
     const group = new THREE.Group();
@@ -36,8 +37,6 @@ function GroupMoons(parent,scene){
         texture = loader.load('/assets-main/images/moon.jpg');
         texture.minFilter = THREE.LinearFilter;
 
-
-        // Load an image file into a custom material
         material = new THREE.MeshBasicMaterial({
             map: texture,
             transparent: true,
@@ -137,13 +136,13 @@ function Tide(scene){
     const wsize = getRendererSize();
     const wWidth = wsize[0];
     const wHeight = wsize[1];
-    let geo = new THREE.PlaneBufferGeometry(wWidth, wHeight, wWidth / 2, wHeight / 2);
+    let geo = new THREE.PlaneBufferGeometry(wWidth/2, wHeight/2, wWidth / 2, wHeight / 2);
 
     let plane = new THREE.Mesh(geo, mat);
 
     plane.rotation.x = -Math.PI / 2 - .2;
     plane.position.y = -180;
-    plane.position.z =300;
+    plane.position.z =600;
 
     scene.add(plane);
 
@@ -201,35 +200,41 @@ function Background(scene){
     let  backgroundConf = {
         fov: 75,
         cameraZ: 1000,
-        xyCoef: 300,
-        zCoef: 50,
+        xyCoef: 1000,
+        zCoef: 100,
         lightIntensity: 0.9,
-        emissive: 0x31404,
-        light1Color: 0x844340
+        emissive: 0x270d0d,
+        light1Color: 0xd7a682,
+        light2Color: 0x9ad782,
+        light3Color: 0x844340
     };
-    //Blue
-    let light5 = new THREE.PointLight(backgroundConf.light1Color, backgroundConf.lightIntensity, 1000);
-    light5.position.set(10, 100, -400);
-    scene.add(light5);
 
-    let mat = new THREE.MeshLambertMaterial({ color: 0xfffffff, side: THREE.DoubleSide, emissive: backgroundConf.emissive});
+    let light1 = new THREE.PointLight(backgroundConf.light1Color, backgroundConf.lightIntensity, 1000);
+    light1.position.set(1000, -100, 0);
+    scene.add(light1);
+    let light2 = new THREE.PointLight(backgroundConf.light2Color, backgroundConf.lightIntensity, 1000);
+    light2.position.set(-1000, -100, 0);
+    scene.add(light2);
+
+    let mat = new THREE.MeshLambertMaterial({ color: 0xab6733, side: THREE.DoubleSide, emissive: backgroundConf.emissive,combine: THREE.MixOperation,
+                                              emissiveIntensity: 0.9});
 
     const wsize = getRendererSize();
     const wWidth = wsize[0];
     const wHeight = wsize[1];
-    let geo = new THREE.PlaneBufferGeometry(wWidth, wHeight, wWidth / 2, wHeight / 2);
+    let geo = new THREE.PlaneBufferGeometry(wWidth *1.8, wHeight/3., wWidth / 2, wHeight / 2);
 
     let plane = new THREE.Mesh(geo, mat);
 
-    plane.rotation.x = -Math.PI / 2.9 -0.1;
-    plane.position.y = -320;
-    plane.position.z = -20;
+    plane.rotation.x = -Math.PI / 3.8;
+    plane.position.y = -220;
+    plane.position.z = -300;
 
     scene.add(plane);
 
     const simplex = new SimplexNoise();
     const lightDistance = 500;
-    const y = 100;
+    const y = 0;
 
 
 
@@ -239,13 +244,61 @@ function Background(scene){
         gArray[i + 2] = simplex.noise3D(gArray[i] / backgroundConf.xyCoef *2, gArray[i + 1] / backgroundConf.xyCoef,0.001) * backgroundConf.zCoef;
     }
 
-
-
     this.update= function(){
       //TODO: Update light with Moon phase
      }
 }
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+function Button(scene, x1, x2, y, invert=false){
+    const button = new THREE.Geometry();
+    ( invert ?
+     button.vertices.push(
+	     new THREE.Vector3( x1, y-50, 0),
+         new THREE.Vector3( x1, y+50, 0 ),
+         new THREE.Vector3( x2, y, 0 )
+
+     ):
+     button.vertices.push(
+         new THREE.Vector3( x1, y-50, 0),
+	     new THREE.Vector3( x2, y, 0 ),
+         new THREE.Vector3( x1, y+50, 0 ),
+     ))
+
+    button.faces.push( new THREE.Face3( 0, 1, 2 ) );
+
+    button.computeBoundingSphere();
+    var meshButton= new THREE.Mesh( button, new THREE.MeshBasicMaterial({color: 0xaf0000, transparent:true}) );
+    meshButton.position.z = 0;
+    scene.add(meshButton);
+
+    const edges = new THREE.EdgesGeometry( button );
+    const line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0xff0000 } ) );
+    scene.add( line );
+
+}
+function Text(scene,y){
+	var canvas = document.createElement('canvas');
+	var context = canvas.getContext('2d');
+	context.font = "Bold 40px Courier";
+	context.fillStyle = "#FFFFFF";
+    context.maxWidth= 300;
+    context.fillText('12-13-2020', 10, 90);
+
+	var texture = new THREE.Texture(canvas)
+	texture.needsUpdate = true;
+
+    var material = new THREE.MeshBasicMaterial( {map: texture, side:THREE.DoubleSide } );
+    material.transparent = true;
+
+    var mesh = new THREE.Mesh(
+        new THREE.PlaneGeometry(canvas.width, canvas.height),
+        material
+    );
+	mesh.position.set(20,300,0);
+	scene.add( mesh );
+
+}
+
 function Triangle(parent,scene){
     const geometry = new THREE.Geometry();
     let scale= 1.15;
@@ -258,34 +311,25 @@ function Triangle(parent,scene){
     geometry.faces.push( new THREE.Face3( 0, 1, 2 ) );
 
     geometry.computeBoundingSphere();
-    var mesh= new THREE.Mesh( geometry, new THREE.MeshBasicMaterial() );
-
+    var mesh= new THREE.Mesh( geometry, new THREE.MeshBasicMaterial({color: 0x000000, transparent:true}) );
+    mesh.position.z = 0;
     scene.add(mesh);
-}
 
-function Text(scene){
-	var canvas = document.createElement('canvas');
-	var context = canvas.getContext('2d');
-	context.font = "Bold 40px Arial";
-	context.fillStyle = "rgba(0,0,0,0.95)";
-    context.maxWidth= 300;
-    context.fillText('TEXT TEXT TEXT /n', 10, 90);
+    const edges = new THREE.EdgesGeometry( geometry );
+    const line = new THREE.LineSegments( edges, new THREE.LineBasicMaterial( { color: 0xff0000 } ) );
+    scene.add( line );
 
-	// canvas contents will be used for a texture
-	var texture = new THREE.Texture(canvas)
-	texture.needsUpdate = true;
+    //--------------------
+    // Buttons
+    const buttonR = new Button(scene, 200, 250,300);
 
-    var material = new THREE.MeshBasicMaterial( {map: texture, side:THREE.DoubleSide } );
-    material.transparent = true;
+    const buttonL = new Button(scene, -200, -250,300,true);
 
-    var mesh = new THREE.Mesh(
-        new THREE.PlaneGeometry(canvas.width, canvas.height),
-        material
-    );
-	mesh.position.set(0,100,0);
-	scene.add( mesh );
+    const infoText = new Text(scene,300);
 
 }
+
+
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE,CAMERA AND RENDERER  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
@@ -297,7 +341,7 @@ let height = parent.clientWidth * .66;
 const scene = new THREE.Scene();
 // scene.background = new THREE.Color(0xFFBEE8);
 
-let camera = new THREE.PerspectiveCamera(75, 1 / .66, 0.1, 1000);
+let camera = new THREE.PerspectiveCamera(75, 1 / .66, 0.1, 2000);
 camera.position.z = 1000;
 
 const renderer = new THREE.WebGLRenderer({
@@ -315,7 +359,6 @@ const triangle = new Triangle(parent, scene);
 const background = new Background(scene);
 const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent,scene);
-const infoText = new Text(scene);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ LISTEN ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
