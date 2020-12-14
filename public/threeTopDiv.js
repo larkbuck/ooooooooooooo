@@ -5,7 +5,6 @@ import { OrbitControls } from '/jsm/controls/OrbitControls.js';
 
 // const TWEEN = require('@tweenjs/tween.js') >> installed TWEEN thru NPM but not recognizing "require" - prob need to import. For now, linking to TWEEN in index.html
 
-
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ MOONS  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function GroupMoons(parent,scene){
 
@@ -49,8 +48,8 @@ function GroupMoons(parent,scene){
         mesh.material.side = THREE.DoubleSide;
 
         mesh.position.set(
-            (Math.cos(radianInterval * i) * radius),
-            (Math.sin(radianInterval * i) * radius),
+            (Math.cos(radianInterval * i) * (radius)),
+            (Math.sin(radianInterval * i) * (radius)),
             // (Math.sin(radianInterval * i) * radius) * .4, // Sol: I tried to make oval but then it did a CRAZY spin
             0);
 
@@ -251,8 +250,8 @@ function Background(scene){
     }
 
     this.setLight = function(intensity){
-        light1.intensity = value;
-        light2.intensity = value;
+        light1.intensity = intensity;
+        light2.intensity = intensity;
      }
 }
 
@@ -284,16 +283,20 @@ function Button(scene, x1, x2, y, invert=false){
     scene.add( line );
 
 }
+
+
 function Text(scene,y){
 	var canvas = document.createElement('canvas');
-	var context = canvas.getContext('2d');
-	context.font = "Bold 40px Courier";
-	context.fillStyle = "#FFFFFF";
-    context.maxWidth= 300;
-    context.fillText('12-13-2020', 10, 90);
+
+    this.generateText = function(text){
+        var context = canvas.getContext('2d');
+	    context.font = "Bold 40px Courier";
+	    context.fillStyle = "#FFFFFF";
+        context.maxWidth= 300;
+        context.fillText(text, 10, 90);
+    }
 
 	var texture = new THREE.Texture(canvas)
-	texture.needsUpdate = true;
 
     var material = new THREE.MeshBasicMaterial( {map: texture, side:THREE.DoubleSide } );
     material.transparent = true;
@@ -304,6 +307,12 @@ function Text(scene,y){
     );
 	mesh.position.set(20,300,0);
 	scene.add( mesh );
+
+    this.update = function(newText){
+        console.log(newText)
+        this.generateText(newText);
+        texture.needsUpdate = true;
+    }
 
 }
 
@@ -330,10 +339,13 @@ function Triangle(parent,scene){
     //--------------------
     // Buttons
     const buttonR = new Button(scene, 200, 250,300);
-
     const buttonL = new Button(scene, -200, -250,300,true);
-
     const infoText = new Text(scene,300);
+
+    this.setDate = function(newText) {
+        console.log(newText);
+        infoText.update(newText);
+    }
 
 }
 
@@ -406,8 +418,9 @@ async function getText(path,onSuccess){
 }
 
 //Initialize current moon
-//const loadMoonPhase = (data) => moonPhaseAdmin.init(data);
-//getText('/data/moonPhase_13_Dec-Jan.JSON', loadMoonPhase)
+const loadMoonPhase = (data) => moonPhaseAdmin.init(data);
+getText('/data/moonPhase_13_Dec-Jan.JSON', loadMoonPhase)
+
 //Initialize current tide
 const loadTide = (data) => tidePredictor.init(data);
 getText('/data/tides_hi-lo.JSON', loadTide)
@@ -433,7 +446,7 @@ function getRendererSize() {
 
 
 
-// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ START ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ HELPERS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function TidePredictor(tide){
     let predictions;
@@ -464,12 +477,11 @@ function TidePredictor(tide){
     }
 
    /* this.nextTideState = function(){
-        //TODO: check ranges
+   //TODO: Add listener on click
         currenTide.idx ++;
         currentTide.date = predictions[currentTide.idx].t;
         currentTide.value = predictions[currentTide.idx].v;
         currentTide.type = predictions[currentTide.idx].type;
-
         tide.setTide(currentTide);
     }*/
 }
@@ -477,7 +489,7 @@ function TidePredictor(tide){
 
 function MoonPhaseAdmin(background, tide, triangle){
     let days;
-    let currentMoon;
+    let currentMoon= {idx: null, date: null, events: null, moonphase: null};
 
     // Start with discrete transitions
     let lightIntensity = {
@@ -494,27 +506,21 @@ function MoonPhaseAdmin(background, tide, triangle){
     this.init = function(json){
         var obj = JSON.parse(json)
         days = obj.locations[0].astronomy.objects[0].days;
-        this.updateCurrentMoon(Date.now());
+        console.log(Date.parse(days[0].date));
+        this.updateCurrentMoon();
     }
 
     this.updateCurrentMoon = function(date){
-        let idx = predictions.findIndex( element => element.date > Date.parse(date));
-
-        if (isNaN(currentMoon.idx)){
-            currentMoond.idx = idx - 1;
-        }else{
-            currentMoon.idx = days.length - 1;
+        //PRECONDITION: sorted dates
+        var idx = ( date ? (
+            days.findIndex( element => Date.parse(element.date) > Date.parse(date))
+        ):(
+            days.findIndex( element => Date.parse(element.date) > Date.now())
+        ));
+        if (idx){
+            currentMoon.idx = ( !isNaN(idx) ? idx - 1 : days.length -1);
         }
-
-        currentMoon.date = days[currentMoon.idx].date;
-        currentMoon.events = days[currentMoon.idx].events;
-        currentMoon.moonphase = days[currentMoon.idx].moonphase;
-        console.log(days,currentMoon);
-    }
-
-    this.nextTideState = function(){
-
-        currentMoon.idx = (currentMoon.idx + 1) % days.length;
+        currentMoon.idx = idx;
 
         currentMoon.date = days[currentMoon.idx].date;
         currentMoon.events = days[currentMoon.idx].events;
@@ -527,4 +533,20 @@ function MoonPhaseAdmin(background, tide, triangle){
         triangle.setDate(currentMoon.date);
         //TODO: Update Moon texture
     }
+
+   /* this.nextTideState = function(){
+        //TODO: Add listener on click
+        currentMoon.idx = (currentMoon.idx + 1) % days.length;
+
+        currentMoon.date = days[currentMoon.idx].date;
+        currentMoon.events = days[currentMoon.idx].events;
+        currentMoon.moonphase = days[currentMoon.idx].moonphase;
+
+        let intensity = lightIntensity[currentMoon.moonphase];
+
+        tide.setLight(intensity);
+        background.setLight(intensity);
+        triangle.setDate(currentMoon.date);
+        //TODO: Update Moon texture
+    }*/
 }
