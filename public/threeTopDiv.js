@@ -59,6 +59,35 @@ function GroupMoons(parent, scene) {
 
     scene.add(group);
 
+    const shape  = new THREE.Shape()
+          .moveTo(0,-200)
+		  .lineTo(-800, -200 )
+		  .lineTo(-800,400)
+          .lineTo(800,400)
+          .lineTo(800,-200)
+
+    const moonEye = new THREE.Path()
+		  .moveTo( 0, -100 )
+		  .absellipse( 0, 250, 55, 55, 0, Math.PI * 2, true );
+
+    shape.holes.push(moonEye)
+    //TODO: Remove triangle from veil
+    /*const triangle  = new THREE.Shape()
+      shape.holes.push(triangle)*/
+
+    material = new THREE.MeshBasicMaterial({
+        color: "0xff000f",
+        transparent: true,
+        opacity: 0.2,
+        side: THREE.DoubleSide
+    });
+
+    const veilGeom = new THREE.ShapeBufferGeometry(shape);
+    mesh = new THREE.Mesh( veilGeom, material);
+	mesh.position.set( 0, 0, 0);
+    mesh.scale.set(2,2,2)
+    scene.add(mesh)
+
     this.setCenter= function(idx){
         let origin = 8;
         var bigStep = (origin + idx - 1) * radianInterval //Check if the -1 is always necsarry or if because the testing phase has 31 days
@@ -549,7 +578,7 @@ function MoonPhaseAdmin(background, tide, triangle) {
   };
 
     const  getLightIntensity = function(){
-        console.log(currentMoon)
+
       let res = (currentMoon.moonAge > 1 ?
                  1.-(currentMoon.moonAge - 1)  :
                  currentMoon.moonAge);
@@ -610,7 +639,7 @@ function MoonPhaseAdmin(background, tide, triangle) {
         currentMoon.moonphase = days[currentMoon.idx].moonphase;
         currentMoon.moonAge = newidx/fullmoon_idx;
         let intensity = getLightIntensity();
-
+        console.log(intensity);
         tide.setLight(intensity);
         background.setLight(intensity);
         triangle.setDate(currentMoon.date);
