@@ -60,9 +60,8 @@ function GroupMoons(parent, scene) {
     scene.add(group);
 
     this.setCenter= function(idx){
-
         let origin = 8;
-        var bigStep = (origin + idx) * radianInterval
+        var bigStep = (origin + idx - 1) * radianInterval //Check if the -1 is always necsarry or if because the testing phase has 31 days
         new TWEEN.Tween(group.rotation)
             .to({
                 z: group.rotation.z + bigStep
@@ -538,53 +537,40 @@ function TidePredictor(tide) {
 
 
 function MoonPhaseAdmin(background, tide, triangle) {
-  let all_data; let current_phase_idx = null;
+  let all_data; let current_phase_idx = null; let fullmoon_idx;
 
   let currentMoon = {
       idx: null,
       date: null,
       events: null,
       moonphase: null,
-      img: null
+      img: null,
+      moonAge: null,
   };
 
-
-  // Start with smaller intervals
-  // moon cycle is 29.5 days = sometimes it's 30 days someting 29
-  // moon cycle starts with new moon
-  // let lightIntensity = {
-  //   "cycleLength": fullMoonDate - newMoonDate, // return number of days in the cycle
-  //   "moonAge": (date - newMoonDate) / (fullMoonDate - newMoonDate), // fraction of 1 >
-  // }
-
-  // let lightIntensity =
-  // moonAge 0 = 0 ligght = new moon
-  // moonAge .5 = 1 max light = full moon
-  // moonAge 1 = 0 = new moon
-
-  // moonAge = painting moon phase
-
-  // Start with discrete transitions
-  let lightIntensity = {
-    "waxingcrescent": 0.25,
-    "firstquarter": 0.5,
-    "waxinggibbous": 0.5,
-    "fullmoon": 1.,
-    "waninggibbous": 0.75,
-    "thirdquarter": 0.5,
-    "waningcrescent": 0.25,
-    "newmoon": 0.,
+    const  getLightIntensity = function(){
+        console.log(currentMoon)
+      let res = (currentMoon.moonAge > 1 ?
+                 1.-(currentMoon.moonAge - 1)  :
+                 currentMoon.moonAge);
+      return res;
   }
 
   this.init = function(json) {
-      var obj = JSON.parse(json)
-      const day = Date.now();
+      var obj = JSON.parse(json);
+      //Store locally all data
       all_data = obj;
+
+      const day = Date.now();
       //Look for current phase
       var idx = obj.findIndex(({data}) =>
                               (Date.parse(data[0]["newmoon 0"]["utctime"]) <= day &&
                                day <= Date.parse(data[1]["newmoon 30"]["utctime"])))
+      console.log("fillmon",all_data[idx].data[2]["fullmoon"]["utctime"])
       current_phase_idx = idx; //Starts in 0
+
+      //Get full moon index in array of days
+      fullmoon_idx = all_data[idx].data[2]["fullmoon"].idx;
 
       //Look for current day
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
@@ -602,9 +588,10 @@ function MoonPhaseAdmin(background, tide, triangle) {
         currentMoon.date = days[idx].date;
         currentMoon.events = days[idx].events;
         currentMoon.moonphase = days[idx].moonphase;
-        currentMoon.image=days[idx].image;
+        currentMoon.img =days[idx].image;
+        currentMoon.moonAge = idx/fullmoon_idx;
 
-        let intensity = lightIntensity[currentMoon.moonphase];
+        let intensity = getLightIntensity();
 
         tide.setLight(intensity);
         background.setLight(intensity);
@@ -621,13 +608,12 @@ function MoonPhaseAdmin(background, tide, triangle) {
         currentMoon.date = days[currentMoon.idx].date;
         currentMoon.events = days[currentMoon.idx].events;
         currentMoon.moonphase = days[currentMoon.idx].moonphase;
-
-        let intensity = lightIntensity[currentMoon.moonphase];
+        currentMoon.moonAge = newidx/fullmoon_idx;
+        let intensity = getLightIntensity();
 
         tide.setLight(intensity);
         background.setLight(intensity);
         triangle.setDate(currentMoon.date);
-        //TODO: Update Moon texture
 
         return currentMoon;
     }
