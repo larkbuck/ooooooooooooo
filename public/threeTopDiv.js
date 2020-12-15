@@ -30,36 +30,55 @@ function GroupMoons(parent, scene) {
   let mesh = null;
   let radius = 1500; // reset to parent.clientWidth in resize function
 
+    // Not loading the image 30 when it is initialize
+    for (let i = 1; i < (numberImages+1); i++) {
+        // Create a texture loader so we can load our image file
+        loader = new THREE.TextureLoader();
+        texture = loader.load('/assets-main/images/moon-128/'+i+'.png');
+        texture.minFilter = THREE.LinearFilter;
 
+        material = new THREE.MeshBasicMaterial({
+            map: texture,
+            transparent: true,
+            opacity: 1,
 
-  for (let i = 0; i < numberImages; i++) {
-    // Create a texture loader so we can load our image file
-    loader = new THREE.TextureLoader();
-    texture = loader.load('/assets-main/images/moon.jpg');
-    texture.minFilter = THREE.LinearFilter;
+        });
 
-    material = new THREE.MeshBasicMaterial({
-      map: texture,
-      transparent: true,
-      opacity: 1
-    });
+        circle = new THREE.CircleGeometry(imageRadius, 100);
+        mesh = new THREE.Mesh(circle, material);
 
-    circle = new THREE.CircleGeometry(imageRadius, 100);
-    mesh = new THREE.Mesh(circle, material);
+        mesh.position.set(
+            (Math.cos(radianInterval * i) * (radius)),
+            (Math.sin(-radianInterval * i) * (radius)),
+            // (Math.sin(radianInterval * i) * radius) * .4, // Sol: I tried to make oval but then it did a CRAZY spin
+            0);
 
-    mesh.material.side = THREE.DoubleSide;
+        // add the image to the group
+        group.add(mesh);
+    }
 
-    mesh.position.set(
-      (Math.cos(radianInterval * i) * (radius)),
-      (Math.sin(radianInterval * i) * (radius)),
-      // (Math.sin(radianInterval * i) * radius) * .4, // Sol: I tried to make oval but then it did a CRAZY spin
-      0);
+    scene.add(group);
 
-    // add the image to the group
-    group.add(mesh);
-  }
+    this.setCenter= function(idx){
 
-  scene.add(group);
+        let origin = 8;
+        var bigStep = (origin + idx) * radianInterval
+        new TWEEN.Tween(group.rotation)
+            .to({
+                z: group.rotation.z + bigStep
+            }, 600)
+            .easing(TWEEN.Easing.Cubic.InOut)
+            .start();
+
+        for (let i = 0; i < group.children.length; i++) {
+            new TWEEN.Tween(group.children[i].rotation)
+                .to({
+                    z: group.children[i].rotation.z - bigStep
+                }, 600)
+                .easing(TWEEN.Easing.Cubic.InOut)
+                .start();
+        }
+    }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Event Listeners
@@ -94,7 +113,7 @@ function GroupMoons(parent, scene) {
       // ^ animating with Tween
       new TWEEN.Tween(group.children[i].rotation)
         .to({
-          z: group.children[i].rotation.z + radianInterval
+         z: group.children[i].rotation.z - radianInterval
         }, 600)
         .easing(TWEEN.Easing.Cubic.InOut)
         .start();
@@ -454,7 +473,7 @@ async function getText(path, onSuccess) {
 
 //Initialize current moon
 const loadMoonPhase = (data) => moonPhaseAdmin.init(data);
-getText('/data/moonPhase_1_Dec-Jan.JSON', loadMoonPhase)
+getText('/data/moonPhases.JSON', loadMoonPhase)
 
 //Initialize current tide
 const loadTide = (data) => tidePredictor.init(data);
@@ -519,13 +538,16 @@ function TidePredictor(tide) {
 
 
 function MoonPhaseAdmin(background, tide, triangle) {
-  let days;
+  let all_data; let current_phase_idx = null;
+
   let currentMoon = {
-    idx: null,
-    date: null,
-    events: null,
-    moonphase: null
+      idx: null,
+      date: null,
+      events: null,
+      moonphase: null,
+      img: null
   };
+
 
   // Start with smaller intervals
   // moon cycle is 29.5 days = sometimes it's 30 days someting 29
@@ -555,50 +577,58 @@ function MoonPhaseAdmin(background, tide, triangle) {
   }
 
   this.init = function(json) {
-    var obj = JSON.parse(json)
-    days = obj.locations[0].astronomy.objects[0].days;
-    this.updateCurrentMoon();
+      var obj = JSON.parse(json)
+      const day = Date.now();
+      all_data = obj;
+      //Look for current phase
+      var idx = obj.findIndex(({data}) =>
+                              (Date.parse(data[0]["newmoon 0"]["utctime"]) <= day &&
+                               day <= Date.parse(data[1]["newmoon 30"]["utctime"])))
+      current_phase_idx = idx; //Starts in 0
+
+      //Look for current day
+      idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
+      this.updateMoon(idx);
+      groupMoons.setCenter(idx);
+
+      //console.log("Phase Idx: ", current_phase_idx)
+      //console.log("Day idx:", idx)
   }
 
-  this.updateCurrentMoon = function(date) {
-    //PRECONDITION: sorted dates
-    var idx = (date ? (
-      days.findIndex(element => Date.parse(element.date) > Date.parse(date))
-    ) : (
-      days.findIndex(element => Date.parse(element.date) > Date.now())
-    ));
-    if (idx != 0) {
-      currentMoon.idx = (idx != -1 ? idx - 1 : days.length - 1);
-    } else {
-      currentMoon.idx = idx;
+    this.updateMoon = function(idx) {
+        var days = all_data[current_phase_idx].data[3].days;
+        currentMoon.idx= idx;
+
+        currentMoon.date = days[idx].date;
+        currentMoon.events = days[idx].events;
+        currentMoon.moonphase = days[idx].moonphase;
+        currentMoon.image=days[idx].image;
+
+        let intensity = lightIntensity[currentMoon.moonphase];
+
+        tide.setLight(intensity);
+        background.setLight(intensity);
+        triangle.setDate(currentMoon.date);
+
     }
-    currentMoon.date = days[currentMoon.idx].date;
-    currentMoon.events = days[currentMoon.idx].events;
-    currentMoon.moonphase = days[currentMoon.idx].moonphase;
 
-    let intensity = lightIntensity[currentMoon.moonphase];
+    this.nextMoon = function() {
 
-    tide.setLight(intensity);
-    background.setLight(intensity);
-    triangle.setDate(currentMoon.date);
-    //TODO: Update Moon texture
-  }
+        var days = all_data[current_phase_idx].data[3].days;
+        let newidx = (currentMoon.idx + 1) % days.length;
 
-  this.nextMoon = function() {
-    let newidx = (currentMoon.idx + 1) % days.length;
+        currentMoon.idx = newidx;
+        currentMoon.date = days[currentMoon.idx].date;
+        currentMoon.events = days[currentMoon.idx].events;
+        currentMoon.moonphase = days[currentMoon.idx].moonphase;
 
-    currentMoon.idx = newidx;
-    currentMoon.date = days[currentMoon.idx].date;
-    currentMoon.events = days[currentMoon.idx].events;
-    currentMoon.moonphase = days[currentMoon.idx].moonphase;
+        let intensity = lightIntensity[currentMoon.moonphase];
 
-    let intensity = lightIntensity[currentMoon.moonphase];
+        tide.setLight(intensity);
+        background.setLight(intensity);
+        triangle.setDate(currentMoon.date);
+        //TODO: Update Moon texture
 
-    tide.setLight(intensity);
-    background.setLight(intensity);
-    triangle.setDate(currentMoon.date);
-    //TODO: Update Moon texture
-
-    return currentMoon;
-  }
+        return currentMoon;
+    }
 }
