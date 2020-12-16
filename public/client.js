@@ -30,12 +30,12 @@ $(function() {
 
 // long css shadow
 let shadowString = '';
-let shadowColor = 33;
+let shadowColor = 60;
 
 for (let i = 0; i < 100; i++) {
   shadowColor+=5;
-  shadowString += `${i*5}px ${i*5}px rgba(${255 - shadowColor}, ${200 - shadowColor}, ${shadowColor}, ${((200 - i) / 800)}), `;
-  shadowString += `${-i*5}px ${i*5}px rgba(${255 - shadowColor}, ${200 - shadowColor}, ${shadowColor}, ${((200 - i) / 800)}), `;
+  shadowString += `${i*5}px ${i*5}px rgba(${255 - shadowColor}, ${200 - shadowColor}, ${shadowColor}, ${((60 - i) / 800)}), `;
+  shadowString += `${-i*5}px ${i*5}px rgba(${255 - shadowColor}, ${200 - shadowColor}, ${shadowColor}, ${((60 - i) / 800)}), `;
   // shadowString += i + 'px ' + i + 'px rgba(128,55,128,' + ((200 - i) / 800) + '), ';
 }
 shadowString = shadowString.substr(0, shadowString.length - 2);

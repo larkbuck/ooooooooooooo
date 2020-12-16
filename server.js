@@ -41,16 +41,12 @@ var app = express();
 
 // default user list
 var users = [{
-    "firstName": "John",
-    "lastName": "Hancock"
+    "firstName": "💻",
+    "lastName": "🌸"
   },
   {
-    "firstName": "Liz",
-    "lastName": "Smith"
-  },
-  {
-    "firstName": "Ahmed",
-    "lastName": "Khan"
+    "firstName": "+",
+    "lastName": "-"
   }
 ];
 
