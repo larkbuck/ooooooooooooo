@@ -130,33 +130,36 @@ function GroupMoons(parent, scene) {
     y: 0,
     theta: 0.0
   }
-
-
   // ******* circle-spin event - just a mouse click here ******
+    this.spin = function(val=1){
+        // groupMoons.rotation.z += radianInterval;
+        // ^ basically just doing this but using Tween to animate:
 
-  window.addEventListener('click', () => {
+        new TWEEN.Tween(group.rotation)
+            .to({
+                z: group.rotation.z + (radianInterval * val)
+            }, 600)
+            .easing(TWEEN.Easing.Cubic.InOut)
+            .start();
 
-    // groupMoons.rotation.z += radianInterval;
-    // ^ basically just doing this but using Tween to animate:
-
-    new TWEEN.Tween(group.rotation)
-      .to({
-        z: group.rotation.z + radianInterval
-      }, 600)
-      .easing(TWEEN.Easing.Cubic.InOut)
-      .start();
-
-    for (let i = 0; i < group.children.length; i++) {
-      // group.children[i].rotation.z += radianInterval;
-      // ^ animating with Tween
-      new TWEEN.Tween(group.children[i].rotation)
-        .to({
-         z: group.children[i].rotation.z - radianInterval
-        }, 600)
-        .easing(TWEEN.Easing.Cubic.InOut)
-        .start();
+        for (let i = 0; i < group.children.length; i++) {
+            // group.children[i].rotation.z += radianInterval;
+            // ^ animating with Tween
+            new TWEEN.Tween(group.children[i].rotation)
+                .to({
+                    z: group.children[i].rotation.z - (radianInterval * val)
+                }, 600)
+                .easing(TWEEN.Easing.Cubic.InOut)
+                .start();
+        }
     }
-  });
+
+    this.next = function(){
+        this.spin();
+    }
+    this.prev = function(){
+        this.spin(-1);
+    }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Methods
@@ -368,6 +371,7 @@ function Button(scene, x1, x2, y, invert = false) {
   }));
   scene.add(line);
 
+  return meshButton;//event listeners should be binded to mesh
 }
 
 
@@ -424,12 +428,7 @@ function Triangle(parent, scene) {
   mesh.position.z = 0;
   scene.add(mesh);
 
-  //--------------------
-  // Buttons
-  const buttonR = new Button(scene, 200, 250, 300);
-  const buttonL = new Button(scene, -200, -250, 300, true);
-  const infoText = new Text(scene, 300);
-
+   const infoText = new Text(scene, 300);
   this.setDate = function(newText) {
     infoText.update(newText);
   }
@@ -460,15 +459,36 @@ renderer.setSize(parent.clientWidth, parent.clientWidth * .66); // set to be mov
 parent.append(renderer.domElement);
 
 
+const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
+
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-const triangle = new Triangle(parent, scene);
+const triangle = new Triangle(parent, scene,domEvents);
+
+const nextMoonBtn = new Button(scene, 200, 250, 300);
+const prevMoonBtn = new Button(scene, -200, -250, 300, true);
+
+
 const background = new Background(scene);
 const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent, scene);
 const tidePredictor = new TidePredictor(tide);
 const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle);
 
+
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ LISTEN ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+domEvents.bind(nextMoonBtn, 'click', () => {
+    let currentMoon = moonPhaseAdmin.nextMoon();
+    groupMoons.next();
+    tidePredictor.updateCurrentTide(currentMoon.date);
+}, false)
+
+domEvents.bind(prevMoonBtn, 'click', () => {
+    let currentMoon = moonPhaseAdmin.prevMoon();
+    groupMoons.prev();
+    tidePredictor.updateCurrentTide(currentMoon.date);
+}, false)
+
+
 // ******** animation loop *******
 const render = function() {
   requestAnimationFrame(render);
@@ -492,11 +512,6 @@ const resizeRenderer = function() {
 // Add window resize listener
 window.addEventListener('resize', resizeRenderer);
 
-
-window.addEventListener('click', () => {
-  let currentMoon = moonPhaseAdmin.nextMoon();
-  tidePredictor.updateCurrentTide(currentMoon.date);
-});
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ START ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
@@ -527,6 +542,8 @@ render();
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
 const controls = new OrbitControls(camera, renderer.domElement);
+
+
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ UTILS  & HELPERS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function getRendererSize() { //Used for plane size of tide and background
@@ -641,21 +658,18 @@ function MoonPhaseAdmin(background, tide, triangle) {
     }
 
     this.nextMoon = function() {
-
         var days = all_data[current_phase_idx].data[3].days;
         let newidx = (currentMoon.idx + 1) % days.length;
-
-        currentMoon.idx = newidx;
-        currentMoon.date = days[currentMoon.idx].date;
-        currentMoon.events = days[currentMoon.idx].events;
-        currentMoon.moonphase = days[currentMoon.idx].moonphase;
-        currentMoon.moonAge = newidx/fullmoon_idx;
-        let intensity = getLightIntensity();
-        console.log(intensity);
-        tide.setLight(intensity);
-        background.setLight(intensity);
-        triangle.setDate(currentMoon.date);
+        this.updateMoon(newidx); //TODO: fix bounding conditions
 
         return currentMoon;
+    }
+    this.prevMoon = function() {
+        var days = all_data[current_phase_idx].data[3].days
+        var newidx = (currentMoon.idx - 1)
+        newidx = (newidx < 0 ? days.length - 1 : newidx) //TODO: fix bounding conditions
+        this.updateMoon(newidx)
+
+        return currentMoon
     }
 }
