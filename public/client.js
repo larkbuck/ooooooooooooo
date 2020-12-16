@@ -18,6 +18,7 @@ $(function() {
     var fName = $('input#fName').val();
     var lName = $('input#lName').val();
     $.post('/users?' + $.param({fName:fName, lName:lName}), function() {
+      // $('<span></span>').text(fName + " " + lName).appendTo('p#users');
       $('<li></li>').text(fName + " " + lName).appendTo('ul#users');
       $('input#fName').val('');
       $('input#lName').val('');
