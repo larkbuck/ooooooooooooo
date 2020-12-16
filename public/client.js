@@ -1,3 +1,5 @@
+// NEDB >>> get rid of the jquery, blegh!
+
 // client-side js
 // run by the browser each time your view template is loaded
 
@@ -23,3 +25,23 @@ $(function() {
     });
   });
 });
+
+
+
+// long css shadow
+let shadowString = '';
+let shadowColor = 33;
+
+for (let i = 0; i < 100; i++) {
+  shadowColor+=5;
+  shadowString += `${i*5}px ${i*5}px rgba(${255 - shadowColor}, ${200 - shadowColor}, ${shadowColor}, ${((200 - i) / 800)}), `;
+  shadowString += `${-i*5}px ${i*5}px rgba(${255 - shadowColor}, ${200 - shadowColor}, ${shadowColor}, ${((200 - i) / 800)}), `;
+  // shadowString += i + 'px ' + i + 'px rgba(128,55,128,' + ((200 - i) / 800) + '), ';
+}
+shadowString = shadowString.substr(0, shadowString.length - 2);
+
+let longShadowEls = document.querySelectorAll(".longShadow");
+
+for (let i = 0; i < longShadowEls.length; i++) {
+  longShadowEls[i].style.boxShadow = shadowString;
+}
