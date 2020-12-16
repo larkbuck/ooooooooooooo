@@ -168,6 +168,8 @@ main {
   border-left: 2px solid #1f1f1f;
 }
 
+
+/* ************* Contributions *************  */
 .crosshatch {
    /* width: 500px;
    height: 200px; */
@@ -186,6 +188,9 @@ main {
    border: 2px solid rgba(99, 99, 99,0.5);
 }
 
+.speakButton:hover{
+  background-color: #000;
+}
 .users li {
   display: inline;
 }
