@@ -1,0 +1,603 @@
+{
+  "info" : [{
+    "info": "Month by month (free) querys from timeanddate.com querybuilder (!) - parameters: moon phases and 'setrise' https://services.timeanddate.com/api/querybuilder/astronomy.html?accesskey=7sqs0TYs7z&expires=2020-12-13T05%3A13%3A13%2B00%3A00&signature=ToyGUe4i2WkiTOIBEcLXLypb%2F6c%3D",
+    "query": "basically this but with different dates - api.xmltime.com/astronomy?accesskey=7sqs0TYs7z&expires=2020-12-13T05%3A13%3A13%2B00%3A00&signature=ToyGUe4i2WkiTOIBEcLXLypb%2F6c%3D&version=3&out=js&prettyprint=1&object=moon&placeid=16&startdt=2021-12-05&enddt=2022-01-02&types=phase%2Csetrise"
+    }],
+  "version": 3,
+  "billing": {
+    "credits": 1
+  },
+  "locations": [{
+    "id": "16",
+    "geo": {
+      "name": "Amsterdam",
+      "country": {
+        "id": "nl",
+        "name": "Netherlands"
+      },
+      "latitude": 52.373,
+      "longitude": 4.894
+    },
+    "matchparam": "16",
+    "astronomy": {
+      "objects": [{
+        "name": "moon",
+        "days": [{
+          "date": "2020-12-14",
+          "events": [{
+            "type": "rise",
+            "utctime": "2020-12-14T07:26:04",
+            "hour": 8,
+            "min": 26,
+            "sec": 4,
+            "azimuth": 129.4
+          },{
+            "type": "set",
+            "utctime": "2020-12-14T15:14:16",
+            "hour": 16,
+            "min": 14,
+            "sec": 16,
+            "azimuth": 229.0
+          },{
+            "type": "newmoon",
+            "utctime": "2020-12-14T16:16:35",
+            "hour": 17,
+            "min": 16,
+            "sec": 35
+          }],
+          "moonphase": "newmoon"
+        },{
+          "date": "2020-12-15",
+          "events": [{
+            "type": "rise",
+            "utctime": "2020-12-15T08:43:26",
+            "hour": 9,
+            "min": 43,
+            "sec": 26,
+            "azimuth": 133.3
+          },{
+            "type": "set",
+            "utctime": "2020-12-15T16:05:38",
+            "hour": 17,
+            "min": 5,
+            "sec": 38,
+            "azimuth": 226.3
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2020-12-16",
+          "events": [{
+            "type": "rise",
+            "utctime": "2020-12-16T09:45:45",
+            "hour": 10,
+            "min": 45,
+            "sec": 45,
+            "azimuth": 133.4
+          },{
+            "type": "set",
+            "utctime": "2020-12-16T17:10:21",
+            "hour": 18,
+            "min": 10,
+            "sec": 21,
+            "azimuth": 227.2
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2020-12-17",
+          "events": [{
+            "type": "rise",
+            "utctime": "2020-12-17T10:31:58",
+            "hour": 11,
+            "min": 31,
+            "sec": 58,
+            "azimuth": 130.2
+          },{
+            "type": "set",
+            "utctime": "2020-12-17T18:24:18",
+            "hour": 19,
+            "min": 24,
+            "sec": 18,
+            "azimuth": 231.3
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2020-12-18",
+          "events": [{
+            "type": "rise",
+            "utctime": "2020-12-18T11:05:14",
+            "hour": 12,
+            "min": 5,
+            "sec": 14,
+            "azimuth": 124.6
+          },{
+            "type": "set",
+            "utctime": "2020-12-18T19:41:30",
+            "hour": 20,
+            "min": 41,
+            "sec": 30,
+            "azimuth": 237.7
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2020-12-19",
+          "events": [{
+            "type": "rise",
+            "utctime": "2020-12-19T11:29:42",
+            "hour": 12,
+            "min": 29,
+            "sec": 42,
+            "azimuth": 117.6
+          },{
+            "type": "set",
+            "utctime": "2020-12-19T20:57:39",
+            "hour": 21,
+            "min": 57,
+            "sec": 39,
+            "azimuth": 245.4
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2020-12-20",
+          "events": [{
+            "type": "rise",
+            "utctime": "2020-12-20T11:48:38",
+            "hour": 12,
+            "min": 48,
+            "sec": 38,
+            "azimuth": 109.7
+          },{
+            "type": "set",
+            "utctime": "2020-12-20T22:11:03",
+            "hour": 23,
+            "min": 11,
+            "sec": 3,
+            "azimuth": 253.7
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2020-12-21",
+          "events": [{
+            "type": "rise",
+            "utctime": "2020-12-21T12:04:17",
+            "hour": 13,
+            "min": 4,
+            "sec": 17,
+            "azimuth": 101.5
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2020-12-22",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-21T23:21:42",
+            "hour": 0,
+            "min": 21,
+            "sec": 42,
+            "azimuth": 262.3
+          },{
+            "type": "rise",
+            "utctime": "2020-12-22T12:18:14",
+            "hour": 13,
+            "min": 18,
+            "sec": 14,
+            "azimuth": 93.2
+          },{
+            "type": "firstquarter",
+            "utctime": "2020-12-21T23:41:13",
+            "hour": 0,
+            "min": 41,
+            "sec": 13
+          }],
+          "moonphase": "firstquarter"
+        },{
+          "date": "2020-12-23",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-23T00:30:31",
+            "hour": 1,
+            "min": 30,
+            "sec": 31,
+            "azimuth": 270.9
+          },{
+            "type": "rise",
+            "utctime": "2020-12-23T12:31:37",
+            "hour": 13,
+            "min": 31,
+            "sec": 37,
+            "azimuth": 85.0
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2020-12-24",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-24T01:38:37",
+            "hour": 2,
+            "min": 38,
+            "sec": 37,
+            "azimuth": 279.4
+          },{
+            "type": "rise",
+            "utctime": "2020-12-24T12:45:29",
+            "hour": 13,
+            "min": 45,
+            "sec": 29,
+            "azimuth": 76.9
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2020-12-25",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-25T02:47:03",
+            "hour": 3,
+            "min": 47,
+            "sec": 3,
+            "azimuth": 287.7
+          },{
+            "type": "rise",
+            "utctime": "2020-12-25T13:00:55",
+            "hour": 14,
+            "min": 0,
+            "sec": 55,
+            "azimuth": 69.1
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2020-12-26",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-26T03:56:27",
+            "hour": 4,
+            "min": 56,
+            "sec": 27,
+            "azimuth": 295.4
+          },{
+            "type": "rise",
+            "utctime": "2020-12-26T13:19:15",
+            "hour": 14,
+            "min": 19,
+            "sec": 15,
+            "azimuth": 61.8
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2020-12-27",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-27T05:06:39",
+            "hour": 6,
+            "min": 6,
+            "sec": 39,
+            "azimuth": 302.4
+          },{
+            "type": "rise",
+            "utctime": "2020-12-27T13:42:14",
+            "hour": 14,
+            "min": 42,
+            "sec": 14,
+            "azimuth": 55.5
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2020-12-28",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-28T06:16:14",
+            "hour": 7,
+            "min": 16,
+            "sec": 14,
+            "azimuth": 308.1
+          },{
+            "type": "rise",
+            "utctime": "2020-12-28T14:12:16",
+            "hour": 15,
+            "min": 12,
+            "sec": 16,
+            "azimuth": 50.4
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2020-12-29",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-29T07:22:16",
+            "hour": 8,
+            "min": 22,
+            "sec": 16,
+            "azimuth": 312.0
+          },{
+            "type": "rise",
+            "utctime": "2020-12-29T14:52:04",
+            "hour": 15,
+            "min": 52,
+            "sec": 4,
+            "azimuth": 47.3
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2020-12-30",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-30T08:20:55",
+            "hour": 9,
+            "min": 20,
+            "sec": 55,
+            "azimuth": 313.3
+          },{
+            "type": "rise",
+            "utctime": "2020-12-30T15:43:52",
+            "hour": 16,
+            "min": 43,
+            "sec": 52,
+            "azimuth": 46.8
+          },{
+            "type": "fullmoon",
+            "utctime": "2020-12-30T03:28:13",
+            "hour": 4,
+            "min": 28,
+            "sec": 13
+          }],
+          "moonphase": "fullmoon"
+        },{
+          "date": "2020-12-31",
+          "events": [{
+            "type": "set",
+            "utctime": "2020-12-31T09:09:22",
+            "hour": 10,
+            "min": 9,
+            "sec": 22,
+            "azimuth": 311.8
+          },{
+            "type": "rise",
+            "utctime": "2020-12-31T16:47:40",
+            "hour": 17,
+            "min": 47,
+            "sec": 40,
+            "azimuth": 49.2
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-01-01",
+          "events": [{
+            "type": "set",
+            "utctime": "2021-01-01T09:47:18",
+            "hour": 10,
+            "min": 47,
+            "sec": 18,
+            "azimuth": 307.7
+          },{
+            "type": "rise",
+            "utctime": "2021-01-01T18:00:41",
+            "hour": 19,
+            "min": 0,
+            "sec": 41,
+            "azimuth": 54.2
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-01-02",
+          "events": [{
+            "type": "set",
+            "utctime": "2021-01-02T10:16:36",
+            "hour": 11,
+            "min": 16,
+            "sec": 36,
+            "azimuth": 301.4
+          },{
+            "type": "rise",
+            "utctime": "2021-01-02T19:18:58",
+            "hour": 20,
+            "min": 18,
+            "sec": 58,
+            "azimuth": 61.3
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-01-03",
+          "events": [{
+            "type": "set",
+            "utctime": "2021-01-03T10:39:42",
+            "hour": 11,
+            "min": 39,
+            "sec": 42,
+            "azimuth": 293.6
+          },{
+            "type": "rise",
+            "utctime": "2021-01-03T20:39:18",
+            "hour": 21,
+            "min": 39,
+            "sec": 18,
+            "azimuth": 69.9
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-01-04",
+          "events": [{
+            "type": "set",
+            "utctime": "2021-01-04T10:58:54",
+            "hour": 11,
+            "min": 58,
+            "sec": 54,
+            "azimuth": 284.8
+          },{
+            "type": "rise",
+            "utctime": "2021-01-04T22:00:10",
+            "hour": 23,
+            "min": 0,
+            "sec": 10,
+            "azimuth": 79.4
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-01-05",
+          "events": [{
+            "type": "set",
+            "utctime": "2021-01-05T11:15:58",
+            "hour": 12,
+            "min": 15,
+            "sec": 58,
+            "azimuth": 275.4
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-01-06",
+          "events": [{
+            "type": "rise",
+            "utctime": "2021-01-05T23:21:28",
+            "hour": 0,
+            "min": 21,
+            "sec": 28,
+            "azimuth": 89.5
+          },{
+            "type": "set",
+            "utctime": "2021-01-06T11:32:27",
+            "hour": 12,
+            "min": 32,
+            "sec": 27,
+            "azimuth": 265.6
+          },{
+            "type": "thirdquarter",
+            "utctime": "2021-01-06T09:37:14",
+            "hour": 10,
+            "min": 37,
+            "sec": 14
+          }],
+          "moonphase": "thirdquarter"
+        },{
+          "date": "2021-01-07",
+          "events": [{
+            "type": "rise",
+            "utctime": "2021-01-07T00:43:53",
+            "hour": 1,
+            "min": 43,
+            "sec": 53,
+            "azimuth": 99.7
+          },{
+            "type": "set",
+            "utctime": "2021-01-07T11:49:47",
+            "hour": 12,
+            "min": 49,
+            "sec": 47,
+            "azimuth": 255.9
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-01-08",
+          "events": [{
+            "type": "rise",
+            "utctime": "2021-01-08T02:08:05",
+            "hour": 3,
+            "min": 8,
+            "sec": 5,
+            "azimuth": 109.6
+          },{
+            "type": "set",
+            "utctime": "2021-01-08T12:09:41",
+            "hour": 13,
+            "min": 9,
+            "sec": 41,
+            "azimuth": 246.6
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-01-09",
+          "events": [{
+            "type": "rise",
+            "utctime": "2021-01-09T03:33:58",
+            "hour": 4,
+            "min": 33,
+            "sec": 58,
+            "azimuth": 118.9
+          },{
+            "type": "set",
+            "utctime": "2021-01-09T12:34:21",
+            "hour": 13,
+            "min": 34,
+            "sec": 21,
+            "azimuth": 238.2
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-01-10",
+          "events": [{
+            "type": "rise",
+            "utctime": "2021-01-10T04:59:26",
+            "hour": 5,
+            "min": 59,
+            "sec": 26,
+            "azimuth": 126.6
+          },{
+            "type": "set",
+            "utctime": "2021-01-10T13:06:50",
+            "hour": 14,
+            "min": 6,
+            "sec": 50,
+            "azimuth": 231.4
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-01-11",
+          "events": [{
+            "type": "rise",
+            "utctime": "2021-01-11T06:19:40",
+            "hour": 7,
+            "min": 19,
+            "sec": 40,
+            "azimuth": 131.9
+          },{
+            "type": "set",
+            "utctime": "2021-01-11T13:50:43",
+            "hour": 14,
+            "min": 50,
+            "sec": 43,
+            "azimuth": 227.2
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-01-12",
+          "events": [{
+            "type": "rise",
+            "utctime": "2021-01-12T07:28:28",
+            "hour": 8,
+            "min": 28,
+            "sec": 28,
+            "azimuth": 133.8
+          },{
+            "type": "set",
+            "utctime": "2021-01-12T14:48:24",
+            "hour": 15,
+            "min": 48,
+            "sec": 24,
+            "azimuth": 226.3
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-01-13",
+          "events": [{
+            "type": "rise",
+            "utctime": "2021-01-13T08:22:05",
+            "hour": 9,
+            "min": 22,
+            "sec": 5,
+            "azimuth": 132.2
+          },{
+            "type": "set",
+            "utctime": "2021-01-13T15:58:24",
+            "hour": 16,
+            "min": 58,
+            "sec": 24,
+            "azimuth": 229.0
+          },{
+            "type": "newmoon",
+            "utctime": "2021-01-13T05:00:07",
+            "hour": 6,
+            "min": 0,
+            "sec": 7
+          }],
+          "moonphase": "newmoon"
+        }]
+      }]
+    }
+  }]
+}

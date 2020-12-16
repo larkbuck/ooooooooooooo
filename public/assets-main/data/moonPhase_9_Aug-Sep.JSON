@@ -1,0 +1,513 @@
+{
+  "version": 3,
+  "billing": {
+    "credits": 1
+  },
+  "locations": [{
+    "id": "16",
+    "geo": {
+      "name": "Amsterdam",
+      "country": {
+        "id": "nl",
+        "name": "Netherlands"
+      },
+      "latitude": 52.373,
+      "longitude": 4.894
+    },
+    "matchparam": "16",
+    "astronomy": {
+      "objects": [{
+        "name": "moon",
+        "days": [{
+          "date": "2021-08-09",
+          "events": [{
+            "type": "rise",
+            "hour": 6,
+            "min": 43,
+            "sec": 30,
+            "azimuth": 59.8
+          },{
+            "type": "set",
+            "hour": 22,
+            "min": 14,
+            "sec": 20,
+            "azimuth": 295.1
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2021-08-10",
+          "events": [{
+            "type": "rise",
+            "hour": 8,
+            "min": 3,
+            "sec": 24,
+            "azimuth": 68.4
+          },{
+            "type": "set",
+            "hour": 22,
+            "min": 32,
+            "sec": 4,
+            "azimuth": 286.2
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2021-08-11",
+          "events": [{
+            "type": "rise",
+            "hour": 9,
+            "min": 23,
+            "sec": 54,
+            "azimuth": 78.1
+          },{
+            "type": "set",
+            "hour": 22,
+            "min": 47,
+            "sec": 39,
+            "azimuth": 276.6
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2021-08-12",
+          "events": [{
+            "type": "rise",
+            "hour": 10,
+            "min": 44,
+            "sec": 45,
+            "azimuth": 88.3
+          },{
+            "type": "set",
+            "hour": 23,
+            "min": 2,
+            "sec": 30,
+            "azimuth": 266.7
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2021-08-13",
+          "events": [{
+            "type": "rise",
+            "hour": 12,
+            "min": 6,
+            "sec": 31,
+            "azimuth": 98.7
+          },{
+            "type": "set",
+            "hour": 23,
+            "min": 17,
+            "sec": 57,
+            "azimuth": 256.8
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2021-08-14",
+          "events": [{
+            "type": "rise",
+            "hour": 13,
+            "min": 30,
+            "sec": 1,
+            "azimuth": 108.9
+          },{
+            "type": "set",
+            "hour": 23,
+            "min": 35,
+            "sec": 33,
+            "azimuth": 247.2
+          }],
+          "moonphase": "waxingcrescent"
+        },{
+          "date": "2021-08-15",
+          "events": [{
+            "type": "rise",
+            "hour": 14,
+            "min": 55,
+            "sec": 30,
+            "azimuth": 118.5
+          },{
+            "type": "set",
+            "hour": 23,
+            "min": 57,
+            "sec": 20,
+            "azimuth": 238.4
+          },{
+            "type": "firstquarter",
+            "hour": 17,
+            "min": 19,
+            "sec": 32
+          }],
+          "moonphase": "firstquarter"
+        },{
+          "date": "2021-08-16",
+          "events": [{
+            "type": "rise",
+            "hour": 16,
+            "min": 21,
+            "sec": 31,
+            "azimuth": 126.8
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2021-08-17",
+          "events": [{
+            "type": "set",
+            "hour": 0,
+            "min": 26,
+            "sec": 16,
+            "azimuth": 231.0
+          },{
+            "type": "rise",
+            "hour": 17,
+            "min": 43,
+            "sec": 56,
+            "azimuth": 132.8
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2021-08-18",
+          "events": [{
+            "type": "set",
+            "hour": 1,
+            "min": 6,
+            "sec": 20,
+            "azimuth": 226.0
+          },{
+            "type": "rise",
+            "hour": 18,
+            "min": 56,
+            "sec": 14,
+            "azimuth": 135.6
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2021-08-19",
+          "events": [{
+            "type": "set",
+            "hour": 2,
+            "min": 1,
+            "sec": 11,
+            "azimuth": 224.3
+          },{
+            "type": "rise",
+            "hour": 19,
+            "min": 53,
+            "sec": 16,
+            "azimuth": 134.5
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2021-08-20",
+          "events": [{
+            "type": "set",
+            "hour": 3,
+            "min": 11,
+            "sec": 3,
+            "azimuth": 226.5
+          },{
+            "type": "rise",
+            "hour": 20,
+            "min": 34,
+            "sec": 49,
+            "azimuth": 130.0
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2021-08-21",
+          "events": [{
+            "type": "set",
+            "hour": 4,
+            "min": 30,
+            "sec": 57,
+            "azimuth": 232.0
+          },{
+            "type": "rise",
+            "hour": 21,
+            "min": 4,
+            "sec": 31,
+            "azimuth": 123.1
+          }],
+          "moonphase": "waxinggibbous"
+        },{
+          "date": "2021-08-22",
+          "events": [{
+            "type": "set",
+            "hour": 5,
+            "min": 54,
+            "sec": 8,
+            "azimuth": 239.7
+          },{
+            "type": "rise",
+            "hour": 21,
+            "min": 26,
+            "sec": 25,
+            "azimuth": 114.9
+          },{
+            "type": "fullmoon",
+            "hour": 14,
+            "min": 1,
+            "sec": 55
+          }],
+          "moonphase": "fullmoon"
+        },{
+          "date": "2021-08-23",
+          "events": [{
+            "type": "set",
+            "hour": 7,
+            "min": 15,
+            "sec": 57,
+            "azimuth": 248.7
+          },{
+            "type": "rise",
+            "hour": 21,
+            "min": 43,
+            "sec": 33,
+            "azimuth": 105.9
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-08-24",
+          "events": [{
+            "type": "set",
+            "hour": 8,
+            "min": 34,
+            "sec": 37,
+            "azimuth": 258.2
+          },{
+            "type": "rise",
+            "hour": 21,
+            "min": 58,
+            "sec": 0,
+            "azimuth": 96.7
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-08-25",
+          "events": [{
+            "type": "set",
+            "hour": 9,
+            "min": 50,
+            "sec": 8,
+            "azimuth": 267.8
+          },{
+            "type": "rise",
+            "hour": 22,
+            "min": 11,
+            "sec": 12,
+            "azimuth": 87.5
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-08-26",
+          "events": [{
+            "type": "set",
+            "hour": 11,
+            "min": 3,
+            "sec": 22,
+            "azimuth": 277.2
+          },{
+            "type": "rise",
+            "hour": 22,
+            "min": 24,
+            "sec": 16,
+            "azimuth": 78.7
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-08-27",
+          "events": [{
+            "type": "set",
+            "hour": 12,
+            "min": 15,
+            "sec": 19,
+            "azimuth": 286.2
+          },{
+            "type": "rise",
+            "hour": 22,
+            "min": 38,
+            "sec": 18,
+            "azimuth": 70.3
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-08-28",
+          "events": [{
+            "type": "set",
+            "hour": 13,
+            "min": 26,
+            "sec": 45,
+            "azimuth": 294.6
+          },{
+            "type": "rise",
+            "hour": 22,
+            "min": 54,
+            "sec": 29,
+            "azimuth": 62.5
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-08-29",
+          "events": [{
+            "type": "set",
+            "hour": 14,
+            "min": 37,
+            "sec": 49,
+            "azimuth": 302.1
+          },{
+            "type": "rise",
+            "hour": 23,
+            "min": 14,
+            "sec": 23,
+            "azimuth": 55.6
+          }],
+          "moonphase": "waninggibbous"
+        },{
+          "date": "2021-08-30",
+          "events": [{
+            "type": "set",
+            "hour": 15,
+            "min": 47,
+            "sec": 40,
+            "azimuth": 308.4
+          },{
+            "type": "rise",
+            "hour": 23,
+            "min": 40,
+            "sec": 4,
+            "azimuth": 49.9
+          },{
+            "type": "thirdquarter",
+            "hour": 9,
+            "min": 13,
+            "sec": 14
+          }],
+          "moonphase": "thirdquarter"
+        },{
+          "date": "2021-08-31",
+          "events": [{
+            "type": "set",
+            "hour": 16,
+            "min": 54,
+            "sec": 9,
+            "azimuth": 313.0
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-09-01",
+          "events": [{
+            "type": "rise",
+            "hour": 0,
+            "min": 14,
+            "sec": 11,
+            "azimuth": 46.1
+          },{
+            "type": "set",
+            "hour": 17,
+            "min": 54,
+            "sec": 0,
+            "azimuth": 315.3
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-09-02",
+          "events": [{
+            "type": "rise",
+            "hour": 0,
+            "min": 59,
+            "sec": 25,
+            "azimuth": 44.6
+          },{
+            "type": "set",
+            "hour": 18,
+            "min": 44,
+            "sec": 18,
+            "azimuth": 314.8
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-09-03",
+          "events": [{
+            "type": "rise",
+            "hour": 1,
+            "min": 57,
+            "sec": 2,
+            "azimuth": 45.9
+          },{
+            "type": "set",
+            "hour": 19,
+            "min": 24,
+            "sec": 4,
+            "azimuth": 311.6
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-09-04",
+          "events": [{
+            "type": "rise",
+            "hour": 3,
+            "min": 5,
+            "sec": 46,
+            "azimuth": 49.9
+          },{
+            "type": "set",
+            "hour": 19,
+            "min": 54,
+            "sec": 35,
+            "azimuth": 306.0
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-09-05",
+          "events": [{
+            "type": "rise",
+            "hour": 4,
+            "min": 22,
+            "sec": 10,
+            "azimuth": 56.4
+          },{
+            "type": "set",
+            "hour": 20,
+            "min": 18,
+            "sec": 11,
+            "azimuth": 298.5
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-09-06",
+          "events": [{
+            "type": "rise",
+            "hour": 5,
+            "min": 42,
+            "sec": 35,
+            "azimuth": 64.7
+          },{
+            "type": "set",
+            "hour": 20,
+            "min": 37,
+            "sec": 12,
+            "azimuth": 289.8
+          }],
+          "moonphase": "waningcrescent"
+        },{
+          "date": "2021-09-07",
+          "events": [{
+            "type": "rise",
+            "hour": 7,
+            "min": 4,
+            "sec": 39,
+            "azimuth": 74.3
+          },{
+            "type": "set",
+            "hour": 20,
+            "min": 53,
+            "sec": 30,
+            "azimuth": 280.2
+          },{
+            "type": "newmoon",
+            "hour": 2,
+            "min": 51,
+            "sec": 44
+          }],
+          "moonphase": "newmoon"
+        }]
+      }]
+    }
+  }]
+}

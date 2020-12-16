@@ -16,6 +16,18 @@
 
 // init project
 var express = require('express');
+
+var app = express();
+
+// express-sslify (not working)
+// // Use enforce.HTTPS({ trustProtoHeader: true }) in case you are behind
+// // a load balancer (e.g. Heroku). See further comments below
+// app.use(enforce.HTTPS());
+//
+// http.createServer(app).listen(app.get('port'), function() {
+// 	console.log('Express server listening on port ' + app.get('port'));
+// });
+
 // setup a new database
 var Datastore = require('nedb'),
   // Security note: the database is saved to the file `datafile` on the local filesystem. It's deliberately placed in the `.data` directory
@@ -58,7 +70,8 @@ db.count({}, function(err, count) {
 app.use(express.static('public'));
 app.use('/build/', express.static(path.join(__dirname, 'node_modules/three/build')));
 app.use('/jsm/', express.static(path.join(__dirname, 'node_modules/three/examples/jsm')));
-
+app.use('/noise/', express.static(path.join(__dirname, 'node_modules/simplex-noise/')));
+app.use('/data/', express.static(path.join(__dirname, 'public/assets-main/data')));
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
