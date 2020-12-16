@@ -66,27 +66,37 @@ function GroupMoons(parent, scene) {
           .lineTo(800,400)
           .lineTo(800,-200)
 
-    const moonEye = new THREE.Path()
+    /*Maybe usefull for other veil?
+      const moonEye = new THREE.Path()
 		  .moveTo( 0, -100 )
 		  .absellipse( 0, 250, 55, 55, 0, Math.PI * 2, true );
 
-    shape.holes.push(moonEye)
-    //TODO: Remove triangle from veil
-    /*const triangle  = new THREE.Shape()
-      shape.holes.push(triangle)*/
+    shape.holes.push(moonEye)*/
+    const triangle  = new THREE.Shape()
+          .moveTo(-430,-200)
+          .lineTo(0, 380)
+          .lineTo(430,-200)
+    shape.holes.push(triangle)
 
-    material = new THREE.MeshBasicMaterial({
-        color: "0xff000f",
+    loader = new THREE.TextureLoader();
+    texture = loader.load('/assets-main/images/veil.jpg');
+    texture.minFilter = THREE.LinearFilter;
+
+
+    var material2 = new THREE.MeshBasicMaterial({
+        map: texture,
         transparent: true,
-        opacity: 0.2,
-        side: THREE.DoubleSide
+        side: THREE.DoubleSide,
+        opacity: .3
     });
-
+    //material2.side = THREE.BackSide
     const veilGeom = new THREE.ShapeBufferGeometry(shape);
-    mesh = new THREE.Mesh( veilGeom, material);
-	mesh.position.set( 0, 0, 0);
+    mesh = new THREE.Mesh( veilGeom, material2);
+
+    mesh.position.set( 0, 0, 0);
     mesh.scale.set(2,2,2)
     scene.add(mesh)
+
 
     this.setCenter= function(idx){
         let origin = 8;
@@ -180,22 +190,26 @@ let TideConf = {
 
 function Tide(scene) {
   let mat = new THREE.MeshLambertMaterial({
-    color: 0xffffff,
-    side: THREE.DoubleSide
+      color: 0xffffff,
+      wireframe:true,
+     transparent:true,
+      //side: THREE.DoubleSide,
+      combine: THREE.MultiplyOpacity,
+      //envMaps: refraction,
+   //   wireframeLine = 10
   });
 
   const wsize = getRendererSize();
   const wWidth = wsize[0];
   const wHeight = wsize[1];
-  let geo = new THREE.PlaneBufferGeometry(wWidth / 2, wHeight / 2, wWidth / 2, wHeight / 2);
+    let geo = new THREE.PlaneBufferGeometry(wWidth / 2, wHeight / 2, wWidth / 2, wHeight / 2);
+    let plane = new THREE.Mesh(geo, mat);
+    plane.rotation.x = -Math.PI / 2 - .2;
+    plane.position.y = -180;
+    plane.position.z = 600;
 
-  let plane = new THREE.Mesh(geo, mat);
 
-  plane.rotation.x = -Math.PI / 2 - .2;
-  plane.position.y = -180;
-  plane.position.z = 600;
-
-  scene.add(plane);
+    scene.add(plane);
 
   const simplex = new SimplexNoise();
   const lightDistance = 500;
@@ -338,15 +352,19 @@ function Button(scene, x1, x2, y, invert = false) {
 
   button.computeBoundingSphere();
   var meshButton = new THREE.Mesh(button, new THREE.MeshBasicMaterial({
-    color: 0xaf0000,
-    transparent: true
+      color: 0xd4af37,
+      wireframe:true,
+      side: THREE.DoubleSide
   }));
   meshButton.position.z = 0;
   scene.add(meshButton);
 
   const edges = new THREE.EdgesGeometry(button);
   const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
-    color: 0xff0000
+      color: 0xd4af37,
+      transparent: true,
+      wireframe:true,
+      side: THREE.DoubleSide
   }));
   scene.add(line);
 
@@ -406,12 +424,6 @@ function Triangle(parent, scene) {
   mesh.position.z = 0;
   scene.add(mesh);
 
-  const edges = new THREE.EdgesGeometry(geometry);
-  const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
-    color: 0xff0000
-  }));
-  scene.add(line);
-
   //--------------------
   // Buttons
   const buttonR = new Button(scene, 200, 250, 300);
@@ -461,7 +473,7 @@ const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle);
 const render = function() {
   requestAnimationFrame(render);
 
-  tide.update();
+ // tide.update();
   groupMoons.update();
 
   renderer.render(scene, camera);
