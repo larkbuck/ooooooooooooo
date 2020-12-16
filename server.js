@@ -22,13 +22,15 @@ var enforce = require('express-sslify');
 
 var app = express();
 
-// Use enforce.HTTPS({ trustProtoHeader: true }) in case you are behind
-// a load balancer (e.g. Heroku). See further comments below
-app.use(enforce.HTTPS());
+// express-sslify (not working)
+// // Use enforce.HTTPS({ trustProtoHeader: true }) in case you are behind
+// // a load balancer (e.g. Heroku). See further comments below
+// app.use(enforce.HTTPS());
+//
+// http.createServer(app).listen(app.get('port'), function() {
+// 	console.log('Express server listening on port ' + app.get('port'));
+// });
 
-http.createServer(app).listen(app.get('port'), function() {
-	console.log('Express server listening on port ' + app.get('port'));
-});
 // setup a new database
 var Datastore = require('nedb'),
   // Security note: the database is saved to the file `datafile` on the local filesystem. It's deliberately placed in the `.data` directory
