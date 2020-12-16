@@ -30,7 +30,7 @@ img {
 
 /* red boder to debug sizing */
 header, section, aside, footer, canvas {
-  /* border: 1px solid #eeeeee; */
+  /* border: 1px solid #223001; */
   /* border: 1px solid #ff0000; */
 }
 
@@ -155,8 +155,17 @@ main {
   border: .1 solid #eeeeee;
 }
 
+#threejsDiv{
+  border-top: 8px solid #1f1f1f;
+  border-right: 8px solid #1f1f1f;
+  border-left: 8px solid #1f1f1f;
+}
+
 #p5Div {
   z-index: 1;
+  border-bottom: 8px solid #1f1f1f;
+  border-right: 8px solid #1f1f1f;
+  border-left: 8px solid #1f1f1f;
 }
 
 /* ************* select dropdown style ********* */
