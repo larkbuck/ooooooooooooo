@@ -16,9 +16,6 @@
 
 // init project
 var express = require('express');
-var express = require('express');
-var http = require('http');
-var enforce = require('express-sslify');
 
 var app = express();
 
