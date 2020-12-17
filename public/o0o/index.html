@@ -119,7 +119,6 @@ entity2.components.sound.playSound();'>
 
 
 
-
     <!-- ☆✼★━━━━━━Sky━━━━━━★✼☆｡  -->
 
     <a-sky src="#moon-texture" theta-length="90" radius="3333"></a-sky>
@@ -128,22 +127,50 @@ entity2.components.sound.playSound();'>
 
 
     <!-- ☆✼★━━━━━━Sky objects━━━━━━★✼☆｡  -->
-    <a-entity octahedron="" position="60 45 -150" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
 
     <a-entity octahedron="" position="60 45 -150" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
 
     <a-entity octahedron="color: #bbff33;" position="20 66 -140" rotation="33 0 25" scale=".5 .5 .5" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
 
-    <a-entity octahedron="color: #906edb;" position="-10 70 -120" scale=".8 .8 .8" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 11000; easing: easeInOutQuad;"> </a-entity>
+    <a-entity octahedron="color: #906edb;" position="0 70 -120" scale=".8 .8 .8" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 11000; easing: easeInOutQuad;"> </a-entity>
 
     <a-entity octahedron="color: #518fe0;" position="-20 50 -133" scale="1 .5 .5" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 9000; easing: easeInOutQuad;"> </a-entity>
+
+
+    <!-- cluster at the top of temple --->
+
+      <!-- left cluster at the top of temple --->
+    <a-entity data-brackets-id="518" position="65 20 230">
+
+    <a-entity data-brackets-id="4105" octahedron="" position="-5.45651 56.03938 -116.8713" rotation="-138.2683626918592 158.3875684542116 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad"> </a-entity>
+
+    <a-entity data-brackets-id="3878" octahedron="color: #bbff33" position="9.80802 68.86842 -131.01947" rotation="-148.04315554598875 181.04315554598875 25" scale="0.5 0.5 0.5" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad"> </a-entity>
+
+    <a-entity data-brackets-id="3879" octahedron="color: #906edb" position="45.62012 68.54944 -106.78611" scale="0.8 0.8 0.8" rotation="-118.81396616464872 151.81396616464872 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 11000; easing: easeInOutQuad"> </a-entity>
+
+    <a-entity data-brackets-id="4065" octahedron="color: #518fe0" position="-29.10949 71.97412 -133" scale="1 0.5 0.5" rotation="-183.2926518431638 216.29265184316378 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 9000; easing: easeInOutQuad"> </a-entity>
+
+    </a-entity>
+
+      <!-- right cluster at the top of temple --->
+    <a-entity data-brackets-id="518" position="105 10 120" rotation="0 90 0">
+
+    <a-entity data-brackets-id="5004" octahedron="" position="33.35554 45 -173.35466" rotation="-124.1997567740097 200.0131414550521 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad"> </a-entity>
+
+    <a-entity octahedron="color: #bbff33;" position="20 80 -140" rotation="33 0 25" scale=".5 .5 .5" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;"> </a-entity>
+
+    <a-entity data-brackets-id="3434" octahedron="color: #906edb" position="-10 106.52026 -190.42897" scale="0.8 0.8 0.8" rotation="-319.3140464580832 352.3140464580832 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 11000; easing: easeInOutQuad"> </a-entity>
+
+    <a-entity data-brackets-id="3435" octahedron="color: #518fe0" position="-35.03754 90 -189.39261" scale="1 1 0.5" rotation="31.728657507211622 1.2713424927883807 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 9000; easing: easeInOutQuad"> </a-entity>
+
+    </a-entity>
 
 
 
 
 
     <!-- ☆✼★━━━━━━underwater platforms━━━━━━★✼☆｡  -->
-    <a-cylinder src="#moon-texture" radius="20" height="2" position="0 -2 0" shadow="receive: true"></a-cylinder>
+    <a-cylinder src="#moon-texture" radius="20" height="2" position="0 -2 -14" shadow="receive: true"></a-cylinder>
 
     <!-- <a-cylinder id="ground" src="" radius="2000" height="2" position="0 -2 0"></a-cylinder> -->
 
@@ -152,10 +179,15 @@ entity2.components.sound.playSound();'>
     <!--- right platform --->
     <a-entity data-brackets-id="5467" position="-50 -2 19">
 
-      <a-box data-brackets-id="5468" src="#moon-texture" depth="2" height="25" width="23" position="" rotation="-90 0 90" shadow="" id="right platform" material="" geometry=""></a-box>
+      <a-box data-brackets-id="5468" src="#moon-texture" depth="2" height="25" width="30" position="" rotation="-90 0 90" shadow="" id="right platform" material="" geometry=""></a-box>
+
+    </a-entity>
 
       <!--- rock cluster 1 --->
-      <a-entity data-brackets-id="5612" gltf-model="assets/rock5.gltf" position="-0.0958 2.83613 -1.14731" rotation="-50.52456429022626 -83.96410008744648 -65.56012275004932" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
+
+    <a-entity position="-55 -4 15" scale="2 2 2">
+
+      <a-entity data-brackets-id="5612" gltf-model="assets/rock5.gltf" position="-0.0958 2.83613 -1.14731" rotation="-50.52456429022626 -83.96410008744648 -65.56012275004932" scale="2.5 2.5 2" shadow="receive: true" id="rock1"></a-entity>
 
       <a-entity data-brackets-id="5613" gltf-model="assets/rock3.gltf" position="0.71126 3.96001 -2.54444" rotation="10.336158624160051 -21.112921792775705 158.88062363198216" scale="1 2 1" shadow="" id="rock2"></a-entity>
 
@@ -170,11 +202,15 @@ entity2.components.sound.playSound();'>
     </a-entity>
 
     <!--- left platform --->
-    <a-entity data-brackets-id="6387" position="50 -2 19">
+    <a-entity data-brackets-id="6387" position="60 -2 19">
 
-      <a-box data-brackets-id="6239" src="#moon-texture" depth="2" height="25" width="23" position="" rotation="-90 0 90" shadow="" id="left platform" material="" geometry=""></a-box>
+      <a-box data-brackets-id="6239" src="#moon-texture" depth="2" height="25" width="30" position="" rotation="-90 0 90" shadow="" id="left platform" material="" geometry=""></a-box>
+      </a-entity>
 
       <!--- rock cluster 2 --->
+
+    <a-entity position="55 -4 19" scale="2.5 2.5 2.5" >
+
       <a-entity data-brackets-id="6240" gltf-model="assets/rock5.gltf" position="1.03619 0.94191 0.67273" rotation="-50.52456429022626 55.602689228470744 -65.56012275004932" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
 
       <a-entity data-brackets-id="6241" gltf-model="assets/rock3.gltf" position="2.89094 3.98322 -2.00726" rotation="40.97908742334674 -50.247252717382935 103.55753780753525" scale="" shadow="" id="rock2"></a-entity>
@@ -224,21 +260,21 @@ entity2.components.sound.playSound();'>
 
       <!--- INSIDE WALLS ----->
       <!-- commented out: ( src="#milky-way" ) --->
-      <a-box material="color: #f1d5fb" depth="0.5" height="15" width="25" position="-7.12 6.5 56.5" rotation="0 90 0" shadow="receive: true" id="inside entrance wall right"></a-box>
+      <a-box material="color: #e6e6fa" depth="0.5" height="15" width="25" position="-7.12 6.5 56.5" rotation="0 90 0" shadow="receive: true" id="inside entrance wall right"></a-box>
 
-      <a-box material="color: #f1d5fb" depth="0.5" height="15" width="25" position="6.21 6.5 56.52" rotation="0 90 0" shadow="receive: true" id="inside entrance wall left"></a-box>
+      <a-box material="color: #e6e6fa" depth="0.5" height="15" width="25" position="6.21 6.5 56.52" rotation="0 90 0" shadow="receive: true" id="inside entrance wall left"></a-box>
 
-      <a-box material="color: #f1d5fb" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 14 138" rotation="0 0 90" shadow="receive: true" id="inside back wall"></a-box>
+      <a-box material="color: #191970" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 14 138" rotation="0 0 90" shadow="receive: true" id="inside back wall"></a-box>
 
-      <a-box material="color: #f1d5fb" depth="0.5" height="70" width="30" position="29.594 14 104.025" rotation="0 90 90" shadow="receive: true" id="inside left wall"></a-box>
+      <a-box material="color: #cc7722" depth="0.5" height="70" width="30" position="29.594 14 104.025" rotation="0 90 90" shadow="receive: true" id="inside left wall"></a-box>
 
-      <a-box material="color: #f1d5fb" depth="0.5" height="49" width="30" position="30.46 14 69.2" rotation="0 0 90" shadow="receive: true" id="inside front left wall"></a-box>
+      <a-box material="color: #9c51b6" depth="0.5" height="49" width="30" position="30.46 14 69.2" rotation="0 0 90" shadow="receive: true" id="inside front left wall"></a-box>
 
-      <a-box material="color: #f1d5fb" depth="0.5" height="49" width="30" position="-31.37 14 69.2" rotation="0 0 90" shadow="receive: true" id="inside front right wall"></a-box>
+      <a-box material="color: #9c51b6" depth="0.5" height="49" width="30" position="-31.37 14 69.2" rotation="0 0 90" shadow="receive: true" id="inside front right wall"></a-box>
 
-      <a-box material="color: #f1d5fb" depth="0.5" height="70" width="30" position="-29.8 14 104.025" rotation="0 90 90" shadow="receive: true" id="inside right wall"></a-box>
+      <a-box material="color: #cc7722" depth="0.5" height="70" width="30" position="-29.8 14 104.025" rotation="0 90 90" shadow="receive: true" id="inside right wall"></a-box>
 
-      <a-box material="color: #f1d5fb" depth="0.5" height="13" width="14.9" position="-.5 21.57 69.2" rotation="0 0 90" shadow="receive: true" id="inside front top panel"></a-box>
+      <a-box material="color: #9c51b6" depth="0.5" height="13" width="14.9" position="-.5 21.57 69.2" rotation="0 0 90" shadow="receive: true" id="inside front top panel"></a-box>
 
       <!--- INSIDE ROOM DETAILS --->
 
@@ -248,40 +284,59 @@ entity2.components.sound.playSound();'>
 
         <a-box data-brackets-id="3111" material="color: #f1d5fb" depth="10" height="5" width="25" position="26 -0.665 104.07056" rotation="0 90 0" shadow="receive: true" id="rigth bottom column inside" geometry="depth: 7" scale="2.79 1 1"></a-box>
 
-        <a-box data-brackets-id="3351" material="color: #f1d5fb" depth="10" height="5" width="25" position="-21.99038 28.28023 104.07056" rotation="0 90 0" shadow="receive: true" id="right top bottom column inside" geometry="depth: 7"
-          scale="2.85 0.26 2.31"></a-box>
+        <a-box data-brackets-id="3351" material="color: #232325" depth="10" height="5" width="25" position="-21.99038 28.28023 104.07056" rotation="0 90 0" shadow="receive: true" id="right top bottom column inside" geometry="depth: 7" scale="2.85 0.26 2.31"></a-box>
 
-        <a-box data-brackets-id="3591" material="color: #f1d5fb" depth="10" height="5" width="25" position="22 28.28023 104.07056" rotation="0 90 0" shadow="receive: true" id="left top bottom column inside" geometry="depth: 7" scale="2.85 0.26 2.31">
+        <a-box data-brackets-id="3591" material="color: #232325" depth="10" height="5" width="25" position="22 28.28023 104.07056" rotation="0 90 0" shadow="receive: true" id="left top bottom column inside" geometry="depth: 7" scale="2.85 0.26 2.31">
         </a-box>
 
-        <a-box data-brackets-id="3713" material="color: #f1d5fb" depth="10" height="5" width="25" position="-0.03583 28.28023 132.54125" rotation="" shadow="receive: true" id="back top bottom column inside" geometry="depth: 7" scale="1.14 0.26 1.74">
+        <a-box data-brackets-id="3713" material="color: #232325" depth="10" height="5" width="25" position="-0.03583 28.28023 132.54125" rotation="" shadow="receive: true" id="back top bottom column inside" geometry="depth: 7" scale="1.14 0.26 1.74">
         </a-box>
 
-        <a-box data-brackets-id="4461" material="color: #f1d5fb" depth="10" height="5" width="25" position="-0.03583 28.28023 73.0003" rotation="" shadow="receive: true" id="front top bottom column inside" geometry="depth: 7" scale="1.14 0.26 1.18">
+        <a-box data-brackets-id="4461" material="color: #232325" depth="10" height="5" width="25" position="-0.03583 28.28023 73.0003" rotation="" shadow="receive: true" id="front top bottom column inside" geometry="depth: 7" scale="1.14 0.26 1.18">
         </a-box>
 
-        <a-box data-brackets-id="2874" material="color: #f1d5fb" depth="10" height="5" width="25" position="22.978 13.51625 133.49274" rotation="" shadow="receive: true" id="left back column" geometry="depth: 5" scale="0.2 6.24 1.84"></a-box>
+        <!-- colored columns #cb4154 --->
 
-        <a-box data-brackets-id="3234" material="color: #f1d5fb" depth="10" height="5" width="25" position="27.348 13.51625 130" rotation="" shadow="receive: true" id="2 left back column" geometry="" scale="0.2 6.24 1.84"></a-box>
+        <a-box data-brackets-id="8530" material="color: #2a52be" depth="10" height="5" width="25" position="20.46181 13.51625 133.33426" rotation="" shadow="receive: true" id="left back column" geometry="depth: 5" scale="0.011 6.06 1.89"></a-box>
 
-        <a-box data-brackets-id="3235" material="color: #f1d5fb" depth="10" height="5" width="25" position="-27.348 13.51625 130" rotation="" shadow="receive: true" id="right back column" geometry="" scale="0.2 6.24 1.84"></a-box>
+        <a-box data-brackets-id="8531" material="color: #40e0d0" depth="10" height="5" width="25" position="23.46772 13.51625 128.57498" rotation="" shadow="receive: true" id="turquoise left column" geometry="depth: 0.24" scale="0.25 6.47 0.9"></a-box>
 
-        <a-box data-brackets-id="2877" material="color: #f1d5fb" depth="10" height="5" width="25" position="-22.978 13.51625 133.49274" rotation="" shadow="receive: true" id="2 right back column" geometry="depth: 5" scale="0.2 6.24 1.84"></a-box>
+        <a-box data-brackets-id="8531" material="color: #40e0d0" depth="10" height="5" width="25" position="-23.46772 13.51625 128.57498" rotation="" shadow="receive: true" id="turquoise right column" geometry="depth: 0.24" scale="0.25 6.47 0.9"></a-box>
 
-        <a-box data-brackets-id="3905" material="color: #f1d5fb" depth="10" height="5" width="25" position="-25.814 13.51625 74.54728" rotation="" shadow="receive: true" id="front right column" geometry="" scale="0.34 5.96 0.68"></a-box>
+        <a-box data-brackets-id="3234" material="color: #808000" depth="10" height="5" width="25" position="27.348 13.51625 130" rotation="" shadow="receive: true" id="2 left back column" geometry="" scale="0.2 6.24 1.84"></a-box>
 
-        <a-box data-brackets-id="3964" material="color: #f1d5fb" depth="10" height="5" width="25" position="-20.534 13.51625 70.89571" rotation="" shadow="receive: true" id="2 front right column" geometry="depth: 5" scale="0.34 6.24 0.96"></a-box>
+        <a-box data-brackets-id="9221" material="color: #e0f0c0" depth="10" height="5" width="25" position="27.38 13.1625 120.777" rotation="" shadow="receive: true" id="pale yellow green left column" geometry="depth: 0.17" scale="0.2 6.24 1.84"></a-box>
 
-        <a-box data-brackets-id="4218" material="color: #f1d5fb" depth="10" height="5" width="25" position="25.814 13.51625 74.547" rotation="" shadow="receive: true" id="left front column" geometry="depth: 5" scale="0.34 5.96 0.68"></a-box>
+        <a-box data-brackets-id="9221" material="color: #e0f0c0" depth="10" height="5" width="25" position="-27.38 13.1625 120.777" rotation="" shadow="receive: true" id="pale yellow green right column" geometry="depth: 0.17" scale="0.2 6.24 1.84"></a-box>
 
-        <a-box data-brackets-id="4086" material="color: #f1d5fb" depth="10" height="5" width="25" position="20 13.51625 70.896" rotation="" shadow="receive: true" id="2 left front column" geometry="depth: 5" scale="0.34 6.24 0.94"></a-box>
+        <a-box data-brackets-id="3235" material="color: #808000" depth="10" height="5" width="25" position="-27.348 13.51625 130" rotation="" shadow="receive: true" id="right back column" geometry="" scale="0.2 6.24 1.84"></a-box>
+
+        <a-box data-brackets-id="2877" material="color: #2a52be" depth="10" height="5" width="25" position="-22.978 13.51625 133.49274" rotation="" shadow="receive: true" id="2 right back column" geometry="depth: 5" scale="0.2 6.24 1.84"></a-box>
+
+        <a-box data-brackets-id="8765" material="color: #fadadd" depth="10" height="5" width="25" position="-26.96153 13.51625 74.54728" rotation="" shadow="receive: true" id="pale pink left column" geometry="" scale="0.2 5.96 0.68"></a-box>
+
+
+        <a-box data-brackets-id="8765" material="color: #fadadd" depth="10" height="5" width="25" position="26.96153 13.51625 74.54728" rotation="" shadow="receive: true" id="pale pink right column" geometry="" scale="0.2 5.96 0.68"></a-box>
+
+        <a-box data-brackets-id="10377" material="color: #ff7518" depth="10" height="5" width="25" position="27.00791 13.51625 77.8013" rotation="" shadow="receive: true" id="pumpkin column" geometry="" scale="0.2 5.9 0.04"></a-box>
+
+        <a-box data-brackets-id="10377" material="color: #ff7518" depth="10" height="5" width="25" position="-27.00791 13.51625 77.8013" rotation="" shadow="receive: true" id="pumpkin column" geometry="" scale="0.2 5.9 0.04"></a-box>
+
+        <a-box data-brackets-id="12459" material="color: #ff00ff" depth="10" height="5" width="25" position="-23.71633 13.51625 70.89571" rotation="" shadow="receive: true" id="magenta right column" geometry="depth: 5; height: 4.82" scale="0.25 6.24 1.09"></a-box>
+
+
+        <a-box data-brackets-id="12460" material="color: #ff00ff" depth="10" height="5" width="25" position="23.71633 13.51625 70.896" rotation="" shadow="receive: true" id="magenta left front column" geometry="depth: 5; height: 4.82" scale="0.25 6.24 1.1"></a-box>
+
+        <a-box data-brackets-id="10746" material="color: #cb4154" depth="10" height="5" width="25" position="23.74 13.51625 73.52341" rotation="" shadow="receive: true" id="brick red column" geometry="" scale="0.25 6.24 0.04"></a-box>
+
+        <a-box data-brackets-id="10746" material="color: #cb4154" depth="10" height="5" width="25" position="-23.74 13.51625 73.52341" rotation="" shadow="receive: true" id="brick red column" geometry="" scale="0.25 6.24 0.04"></a-box>
 
         <!-- inside trimming --->
 
-        <a-box data-brackets-id="874" material="color: #4b404f" depth="10" height="5" width="25" position="22.26375 1.59503 102.72195" rotation="0 90 0" shadow="receive: true" id="bottom left trimming" geometry="depth: 7" scale="2.16 0.09 0.07">
+        <a-box data-brackets-id="8769" material="color: #4b404f" depth="10" height="5" width="25" position="22.26375 1.59503 101.25479" rotation="0 90 0" shadow="receive: true" id="bottom left trimming" geometry="depth: 7" scale="2.24 0.09 0.07">
         </a-box>
 
-        <a-box data-brackets-id="7480" material="color: #4b404f" depth="10" height="5" width="25" position="29.04046 27.32946 102.72195" rotation="0 90 0" shadow="" id="top left trimming" geometry="height: 9.5" scale="2.16 0.09 0.07"></a-box>
+        <a-box data-brackets-id="7480" material="color: #4b404f" depth="10" height="5" width="25" position="29.04046 27.32946 102.72195" rotation="0 90 0" shadow="receive: true" id="top left trimming" geometry="height: 9.5" scale="2.16 0.09 0.07"></a-box>
 
         <a-box data-brackets-id="5505" material="color: #4b404f" depth="10" height="10" width="25" position="29.687 27.299 124.88702" rotation="" shadow="receive: true" id="left back column trimming" geometry="depth: 5; height: 9"
           scale="0.42 0.09 1.85"></a-box>
@@ -301,37 +356,38 @@ entity2.components.sound.playSound();'>
         <a-box data-brackets-id="5308" material="color: #4b404f" depth="10" height="10" width="25" position="25.100 2.171 133.65177" rotation="" shadow="receive: true" id="2 left back column trimming" geometry="depth: 6; height: 9"
           scale="0.42 0.09 1.85"></a-box>
 
-        <a-box data-brackets-id="881" material="color: #4b404f" depth="10" height="5" width="25" position="-22.26375 1.59503 103.02715" rotation="0 90 0" shadow="receive: true" id="bottom right trimming" geometry="depth: 7" scale="2.16 0.09 0.07">
+        <a-box data-brackets-id="11313" material="color: #4b404f" depth="10" height="5" width="25" position="-22.26375 1.59503 101.59786" rotation="0 90 0" shadow="receive: true" id="bottom right trimming" geometry="depth: 7" scale="2.29 0.09 0.07">
         </a-box>
 
-        <a-box data-brackets-id="7480" material="color: #4b404f" depth="10" height="5" width="25" position="-29.2 27.32946 102.72195" rotation="0 90 0" shadow="" id="top right trimming" geometry="height: 9.5" scale="2.16 0.09 0.07"></a-box>
+        <a-box data-brackets-id="7480" material="color: #4b404f" depth="10" height="5" width="25" position="-29.2 27.32946 102.72195" rotation="0 90 0" shadow="receive: true" id="top right trimming" geometry="height: 9.5" scale="2.16 0.09 0.07"></a-box>
 
         <a-box data-brackets-id="4981" material="color: #4b404f" depth="10" height="10" width="25" position="-29.400 2.2388 124.88702" rotation="" shadow="receive: true" id="right column trimming" geometry="depth: 5; height: 9"
           scale="0.42 0.09 1.85"></a-box>
 
-        <a-box data-brackets-id="5308" material="color: #4b404f" depth="10" height="10" width="25" position="-25.100 2.171 133.65177" rotation="" shadow="receive: true" id="right back column trimming" geometry="depth: 6; height: 9"
+        <a-box data-brackets-id="5308" material="color: #4b404f" depth="10" height="10" width="25" position="-25.100 2.239 133.65177" rotation="" shadow="receive: true" id="right back column trimming" geometry="depth: 6; height: 9"
           scale="0.42 0.09 1.85"></a-box>
 
-        <a-box data-brackets-id="8207" material="color: #4b404f" depth="10" height="10" width="25" position="-26.38361 2.2388 73.71232" rotation="" shadow="" id="front right column trimming" geometry="depth: 3.31" scale="0.42 0.09 1.85"></a-box>
+        <a-box data-brackets-id="12707" material="color: #4b404f" depth="10" height="10" width="25" position="-23.79073 2.239 71.77891" rotation="" shadow="receive: true" id="2 front right column trimming" geometry="depth: 2.18" scale="0.29 0.09 2.22"></a-box>
 
-        <a-box data-brackets-id="7999" material="color: #4b404f" depth="10" height="10" width="25" position="-19.4931 2.2388 71.58597" rotation="" shadow="" id="2 front right column trimming" geometry="depth: 2.18" scale="0.29 0.09 2.12"></a-box>
+        <a-box data-brackets-id="10857" material="color: #4b404f" depth="10" height="10" width="25" position="-29.12745 27.299 75.71232" rotation="" shadow="receive: true" id="top front right column trimming" geometry="depth: 3.31" scale="0.42 0.09 1.85"></a-box>
 
-        <a-box data-brackets-id="8207" material="color: #4b404f" depth="10" height="10" width="25" position="-26.38361 27.299 73.71232" rotation="" shadow="" id="top front right column trimming" geometry="depth: 3.31" scale="0.42 0.09 1.85"></a-box>
+        <a-box data-brackets-id="12246" material="color: #4b404f" depth="10" height="10" width="25" position="-23.57214 27.299 71.39071" rotation="" shadow="receive: true" id="top 2 front right column trimming" geometry="depth: 2.18" scale="0.28 0.09 3.01"></a-box>
 
-        <a-box data-brackets-id="7999" material="color: #4b404f" depth="10" height="10" width="25" position="-19.4931 27.299 71.58597" rotation="" shadow="" id="top 2 front right column trimming" geometry="depth: 2.18" scale="0.29 0.09 2.12"></a-box>
+        <a-box data-brackets-id="10859" material="color: #4b404f" depth="10" height="10" width="25" position="-29.19682 2.2388 75.27737" rotation="" shadow="receive: true" id="front right column trimming" geometry="depth: 3.31" scale="0.42 0.09 1.85"></a-box>
 
-        <a-box data-brackets-id="8207" material="color: #4b404f" depth="10" height="10" width="25" position="-26.38361 2.2388 75.27737" rotation="" shadow="" id="front right column trimming" geometry="depth: 3.31" scale="0.42 0.09 1.85"></a-box>
+        <a-box data-brackets-id="10054" material="color: #4b404f" depth="10" height="10" width="25" position="23.54681 27.299 71.58597" rotation="" shadow="receive: true" id="top 2 front left column trimming" geometry="" scale="0.28 0.09 0.6"></a-box>
 
-        <a-box data-brackets-id="7999" material="color: #4b404f" depth="10" height="10" width="25" position="18.8931 27.299 71.58597" rotation="" shadow="" id="top 2 front left column trimming" geometry="depth: 2.18" scale="0.29 0.09 2.12"></a-box>
 
-        <a-box data-brackets-id="8207" material="color: #4b404f" depth="10" height="10" width="25" position="26.38361 2.2388 73.71232" rotation="" shadow="" id="front left column trimming" geometry="depth: 3.31" scale="0.42 0.09 1.85"></a-box>
 
-        <a-box data-brackets-id="7999" material="color: #4b404f" depth="10" height="10" width="25" position="18.8931 2.2388 71.58597" rotation="" shadow="" id="2 front left column trimming" geometry="depth: 2.18" scale="0.29 0.09 2.12"></a-box>
+        <a-box data-brackets-id="8788" material="color: #4b404f" depth="10" height="10" width="25" position="29.15468 2.2388 75.403" rotation="" shadow="receive: true" id="front left column trimming" geometry="depth: 3.31" scale="0.42 0.09 1.85"></a-box>
 
-        <a-box data-brackets-id="5308" material="color: #4b404f" depth="10" height="10" width="25" position="-25.100 2.171 133.65177" rotation="" shadow="receive: true" id="right back column trimming" geometry="depth: 6; height: 9"
-          scale="0.42 0.09 1.85"></a-box>
+        <a-box data-brackets-id="10050" material="color: #4b404f" depth="10" height="10" width="25" position="24.82889 2.2388 68.99861" rotation="" shadow="receive: true" id="2 front left column trimming" geometry="" scale="0.37 0.09 1"></a-box>
+
+        <a-box data-brackets-id="6491" material="color: #4b404f" depth="10" height="10" width="25" position="29.061 27.299 75.5" rotation="" shadow="receive: true" id="top front right column trimming" geometry="depth: 3.31" scale="0.42 0.09 1.85"></a-box>
 
       </a-entity>
+
+
 
       <!--- outside WALLS ----->
 
@@ -393,7 +449,7 @@ entity2.components.sound.playSound();'>
       <!--- ceiling --->
 
       <!-- commented out: ( src="#milky-way" ) --->
-      <a-box material="color: #f1d5fb" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 29.05232 104.23512" rotation="90 0 90" shadow="receive: true" id="ceiling" scale="2.3 1 1"></a-box>
+      <a-box material="color: #e6e6fa" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 29.05232 104.23512" rotation="90 0 90" shadow="receive: true" id="ceiling" scale="2.3 1 1"></a-box>
 
       <!-- relief --->
 
@@ -461,7 +517,7 @@ entity2.components.sound.playSound();'>
 
     <a-entity scale="1 1 1" position="1 1 1">
 
-      <a-triangle position="-1 10 133" rotation="0 -180 180" material="color: #4287f5" scale="30 25 25" shadow="receive: true" material="side: double"></a-triangle>
+      <a-triangle position="-1 10 133" rotation="0 -180 180" material="color: #e6e6fa" scale="30 25 25" shadow="receive: true" material="side: double"></a-triangle>
       <!-- <a-triangle position="-1 10 133" rotation="0 -180 180" material="color: #ff5d8c" scale="30 25 25"></a-triangle> -->
 
     </a-entity>
@@ -530,18 +586,23 @@ entity2.components.sound.playSound();'>
 
     <!--- rock cluster at spawn --->
 
+    <a-entity position="0 2.5 -15" scale="3 3.5 3">
+
     <a-entity gltf-model="#rock" position="0 0 0" rotation="120 0 0" scale="1.5 1.5 1.5" shadow="cast: true" id="rock"></a-entity>
 
     <a-entity gltf-model="#rock" position="2 0 0" rotation="120 0 0" scale="1.5 -1.5 1.5" shadow="cast: true" id="rock"></a-entity>
 
     <a-entity gltf-model="#rock" position="-2 -.8 -1" rotation="120 0 0" scale=".8 .8 .8" shadow="cast: true" id="rock"></a-entity>
 
+    </a-entity>
+
+
 
     <!--- rocks inside room --->
 
     <!--- cluster 1 --->
 
-    <a-entity position="1 0 19">
+    <a-entity position="1 0 19" scale="1 1 1">
 
       <a-entity gltf-model="#rock" position="15 0 90" rotation="120 -100 0" scale="2.5 2.5 2.5" shadow="cast: true" id="rock"></a-entity>
 
@@ -566,96 +627,96 @@ entity2.components.sound.playSound();'>
 
     <!--- cluster 3 --->
 
-    <a-entity position="11.5 0 120" scale="1 1 1">
+    <a-entity position="11.5 0 120" scale="1.2 1.2 1.2">
 
-      <a-entity data-brackets-id="4272" gltf-model="assets/rock3.gltf" position="1.61 0.8 -2.5" rotation="67.47 31.14 142.33" scale="2 2 2" shadow="" id="rock1"></a-entity>
+      <a-entity data-brackets-id="4272" gltf-model="assets/rock3.gltf" position="1.61 0.8 -2.5" rotation="67.47 31.14 142.33" scale="2 2 2" shadow="cast: true" id="rock1"></a-entity>
 
-      <a-entity data-brackets-id="4121" gltf-model="assets/rock6.gltf" position="0.32 3.8 -0.29" rotation="21.5 69.35 -168.72" scale="2 2 2" shadow="" id="rock2"></a-entity>
+      <a-entity data-brackets-id="4121" gltf-model="assets/rock6.gltf" position="0.32 3.8 -0.29" rotation="21.5 69.35 -168.72" scale="2 2 2" shadow="cast: true" id="rock2"></a-entity>
 
-      <a-entity data-brackets-id="3742" gltf-model="assets/rock5.gltf" position="2.64623 0.14307 -4.49365" rotation="65.64835825049947 -18.335222401981476 -84.15890573779097" scale="2 2 2" shadow="" id="rock1"></a-entity>
+      <a-entity data-brackets-id="3742" gltf-model="assets/rock5.gltf" position="2.64623 0.14307 -4.49365" rotation="65.64835825049947 -18.335222401981476 -84.15890573779097" scale="2 2 2" shadow="cast: true" id="rock1"></a-entity>
 
     </a-entity>
 
     <!--- cluster 4 --->
 
-    <a-entity position="-11.5 0 120" scale="1 1 1">
+    <a-entity position="-11.5 0 120" scale="1.2 1.2 1.2">
 
-      <a-entity data-brackets-id="4428" gltf-model="assets/rock5.gltf" position="-5.90 0.73 -3.65" rotation="81.03 139.81 103.8" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
+      <a-entity data-brackets-id="4428" gltf-model="assets/rock5.gltf" position="-5.90 0.73 -3.65" rotation="81.03 139.81 103.8" scale="2.5 2.5 2" shadow="cast: true" id="rock1"></a-entity>
 
-      <a-entity data-brackets-id="4429" gltf-model="assets/rock3.gltf" position="-1.44351 2.96403 0.53205" rotation="45.74 2.44 139.96" scale="1 1.5 1" shadow="" id="rock2"></a-entity>
+      <a-entity data-brackets-id="4429" gltf-model="assets/rock3.gltf" position="-1.44351 2.96403 0.53205" rotation="45.74 2.44 139.96" scale="1 1.5 1" shadow="cast: true" id="rock2"></a-entity>
 
-      <a-entity data-brackets-id="3217" gltf-model="assets/rock4.gltf" position="2.78866 2.72754 -5.18095" rotation="1.96 61.377 151.30" scale="2.5 2.5 2.5" shadow="" id="rock3"></a-entity>
+      <a-entity data-brackets-id="3217" gltf-model="assets/rock4.gltf" position="2.78866 2.72754 -5.18095" rotation="1.96 61.377 151.30" scale="2.5 2.5 2.5" shadow="cast: true" id="rock3"></a-entity>
 
-      <a-entity data-brackets-id="4278" gltf-model="assets/rock3.gltf" position="-1.54179 0.98863 -4.55654" rotation="0.31 19.58 47.10" scale="2 2 1.51" shadow="" id="rock4"></a-entity>
+      <a-entity data-brackets-id="4278" gltf-model="assets/rock3.gltf" position="-1.54179 0.98863 -4.55654" rotation="0.31 19.58 47.10" scale="2 2 1.51" shadow="cast: true" id="rock4"></a-entity>
 
     </a-entity>
 
     <!--- cluster 5 --->
 
-    <a-entity position="11.5 0 85" scale=".8 .8 .8">
+    <a-entity position="17 0 90" scale="1.2 1.2 1.2">
 
-      <a-entity data-brackets-id="4428" gltf-model="assets/rock5_low.gltf" position="-5.90116 0.73688 -3.65738" rotation="81.033 139.81 103.81" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
+      <a-entity data-brackets-id="4428" gltf-model="assets/rock5_low.gltf" position="-5.90116 0.73688 -3.65738" rotation="81.033 139.81 103.81" scale="2.5 2.5 2" shadow="cast: true" id="rock1"></a-entity>
 
-      <a-entity data-brackets-id="4429" gltf-model="assets/rock3_low.gltf" position="-1.44351 2.96403 0.53205" rotation="45.74 2.4499675319794 139.96" scale="1 1.5 1" shadow="" id="rock2"></a-entity>
+      <a-entity data-brackets-id="4429" gltf-model="assets/rock3_low.gltf" position="-1.44351 2.96403 0.53205" rotation="45.74 2.4499675319794 139.96" scale="1 1.5 1" shadow="cast: true" id="rock2"></a-entity>
 
-      <a-entity data-brackets-id="6855" gltf-model="assets/rock4_low.gltf" position="0.69658 2.72 0.98365" rotation="1.9600000000000002 61.37 151.3" scale="2.5 2.5 2.5" shadow="" id="rock3"></a-entity>
+      <a-entity data-brackets-id="6855" gltf-model="assets/rock4_low.gltf" position="0.69658 2.72 0.98365" rotation="1.9600000000000002 61.37 151.3" scale="2.5 2.5 2.5" shadow="cast: true" id="rock3"></a-entity>
 
-      <a-entity data-brackets-id="4278" gltf-model="assets/rock3_low.gltf" position="-1.54 0.98 -4.55" rotation="0.31 19.588854057727715 47.10" scale="2 2 1.51" shadow="" id="rock4"></a-entity>
+      <a-entity data-brackets-id="4278" gltf-model="assets/rock3_low.gltf" position="-1.54 0.98 -4.55" rotation="0.31 19.588854057727715 47.10" scale="2 2 1.51" shadow="cast: true" id="rock4"></a-entity>
 
-      <a-entity data-brackets-id="5059" gltf-model="assets/rock3_low.gltf" position="0.46651 4.48132 1.2183" rotation="22.34 -7.958383774367134 60.77" scale="2 1.5 1" shadow="" id="rock5"></a-entity>
+      <a-entity data-brackets-id="5059" gltf-model="assets/rock3_low.gltf" position="0.46651 4.98132 2.2183" rotation="22.34 -7.958383774367134 60.77" scale="2 1.5 1" shadow="cast: true" id="rock5"></a-entity>
 
     </a-entity>
 
 
     <!--- cluster 6 --->
 
-    <a-entity position="-11.5 0 85" scale=".8 .8 .8" rotation="0 -180 0">
+    <a-entity position="-17 0 90" scale="1.2 1.2 1.2" rotation="0 -180 0">
 
-      <a-entity data-brackets-id="2890" gltf-model="assets/rock5_low.gltf" position="-1.54121 0.73688 -1.92117" rotation="81.0328480075572 68.82483626670475 103.81021219518794" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
+      <a-entity data-brackets-id="2890" gltf-model="assets/rock5_low.gltf" position="-1.54121 0.73688 -1.92117" rotation="81.0328480075572 68.82483626670475 103.81021219518794" scale="2.5 2.5 2" shadow="cast: true" id="rock1"></a-entity>
 
-      <a-entity data-brackets-id="3389" gltf-model="assets/rock3_low.gltf" position="-3.34989 3.08227 -0.25759" rotation="-24.966635922825624 42.7220250361347 118.12556270653157" scale="1 1.5 1" shadow="" id="rock2"></a-entity>
+      <a-entity data-brackets-id="3389" gltf-model="assets/rock3_low.gltf" position="-3.34989 3.08227 -0.25759" rotation="-24.966635922825624 42.7220250361347 118.12556270653157" scale="1 1.5 1" shadow="cast: true" id="rock2"></a-entity>
 
-      <a-entity data-brackets-id="6644" gltf-model="assets/rock4_Low.gltf" position="-0.74198 3.2454 -0.80771" rotation="1.960088617142546 -119.22850646215839 151.29981904460624" scale="2.5 2.5 2.5" shadow="" id="rock3"></a-entity>
+      <a-entity data-brackets-id="6644" gltf-model="assets/rock4_Low.gltf" position="-0.74198 3.2454 -0.80771" rotation="1.960088617142546 -119.22850646215839 151.29981904460624" scale="2.5 2.5 2.5" shadow="cast: true" id="rock3"></a-entity>
 
-      <a-entity data-brackets-id="3059" gltf-model="assets/rock3_low.gltf" position="-1.84904 0.68491 4.06748" rotation="-37.74359475424298 101.58656299228522 -47.49705530075499" scale="2 2 1.51" shadow="" id="rock4"></a-entity>
+      <a-entity data-brackets-id="3059" gltf-model="assets/rock3_low.gltf" position="-1.84904 0.68491 4.06748" rotation="-37.74359475424298 101.58656299228522 -47.49705530075499" scale="2 2 1.51" shadow="cast: true" id="rock4"></a-entity>
 
-      <a-entity data-brackets-id="3397" gltf-model="assets/rock3_Low.gltf" position="-2.26707 4.65529 -0.94081" rotation="-20.58694653684561 7.018160032557454 -118.36677793828164" scale="2 1.5 1" shadow="" id="rock5"></a-entity>
+      <a-entity data-brackets-id="3397" gltf-model="assets/rock3_Low.gltf" position="-2.26707 4.65529 -0.94081" rotation="-20.58694653684561 7.018160032557454 -118.36677793828164" scale="2 1.5 1" shadow="cast: true" id="rock5"></a-entity>
 
     </a-entity>
 
     <!--- cluster 7 --->
 
-    <a-entity position="13 0 125" scale="1 1 1">
+    <a-entity position="13 0 125" scale="1.2 1.2 1.2">
 
-      <a-entity data-brackets-id="3565" gltf-model="assets/rock5.gltf" position="-0.16728 5.37214 -4.04302" rotation="65.64835825049947 -112.02699993515908 -84.15890573779097" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
+      <a-entity data-brackets-id="3565" gltf-model="assets/rock5.gltf" position="-0.16728 5.37214 -4.04302" rotation="65.64835825049947 -112.02699993515908 -84.15890573779097" scale="2.5 2.5 2" shadow="cast: true" id="rock1"></a-entity>
 
-      <a-entity data-brackets-id="3566" gltf-model="assets/rock3.gltf" position="-3.90587 3.19546 -1.59365" rotation="10.336158624160051 -21.112921792775705 158.88062363198216" scale="1 2 1" shadow="" id="rock2"></a-entity>
+      <a-entity data-brackets-id="3566" gltf-model="assets/rock3.gltf" position="-3.90587 3.19546 -1.59365" rotation="10.336158624160051 -21.112921792775705 158.88062363198216" scale="1 2 1" shadow="cast: true" id="rock2"></a-entity>
 
-      <a-entity data-brackets-id="3567" gltf-model="assets/rock4.gltf" position="8.25911 -4.4949 1.45146" rotation="-42.16740189044806 144.02325504644477 -3.668648762222661" scale="2.5 3 2.5" shadow="" id="rock3"></a-entity>
+      <a-entity data-brackets-id="3567" gltf-model="assets/rock4.gltf" position="8.25911 -4.4949 1.45146" rotation="-42.16740189044806 144.02325504644477 -3.668648762222661" scale="2.5 3 2.5" shadow="cast: true" id="rock3"></a-entity>
 
-      <a-entity data-brackets-id="3568" gltf-model="assets/rock3.gltf" position="-0.95423 3.58615 -3.87992" rotation="55.50012978314232 173.0441403276161 128.46802386643805" scale="2 2 1.51" shadow="" id="rock4"></a-entity>
+      <a-entity data-brackets-id="3568" gltf-model="assets/rock3.gltf" position="-0.95423 3.58615 -3.87992" rotation="55.50012978314232 173.0441403276161 128.46802386643805" scale="2 2 1.51" shadow="cast: true" id="rock4"></a-entity>
 
-      <a-entity data-brackets-id="4313" gltf-model="assets/rock4.gltf" position="5.02653 1.33016 -11.95181" rotation="-49.708672389959965 -62.36301825321933 -78.75362189852677" scale="2 3 2.5" shadow="" id="rock5"></a-entity>
+      <a-entity data-brackets-id="4313" gltf-model="assets/rock4.gltf" position="5.02653 1.33016 -11.95181" rotation="-49.708672389959965 -62.36301825321933 -78.75362189852677" scale="2 3 2.5" shadow="cast: true" id="rock5"></a-entity>
 
-      <a-entity data-brackets-id="4660" gltf-model="assets/rock4.gltf" position="8.30256 0.17903 -0.59108" rotation="-49.029717402729936 152.68293916205204 -12.092274266236023" scale="2 2 2" shadow="" id="rock6"></a-entity>
+      <a-entity data-brackets-id="4660" gltf-model="assets/rock4.gltf" position="8.30256 0.17903 -0.59108" rotation="-49.029717402729936 152.68293916205204 -12.092274266236023" scale="2 2 2" shadow="cast: true" id="rock6"></a-entity>
 
     </a-entity>
 
     <!--- cluster 8 --->
 
-    <a-entity position="-13.39641 -0.58398 126.89241" scale="" rotation="0 -93.97138093720145 0" data-brackets-id="3920">
+    <a-entity position="-13.39641 -0.58398 126.89241" scale="1.2 1.2 1.2" rotation="0 -93.97138093720145 0" data-brackets-id="3920">
 
-      <a-entity data-brackets-id="4842" gltf-model="assets/rock5.gltf" position="-3.65578 5.46395 2.59302" rotation="41.373282386396745 167.75631283635374 -157.11476770738898" scale="2 3 2" shadow="" id="rock1"></a-entity>
+      <a-entity data-brackets-id="4842" gltf-model="assets/rock5.gltf" position="-3.65578 5.46395 2.59302" rotation="41.373282386396745 167.75631283635374 -157.11476770738898" scale="2 3 2" shadow="cast: true" id="rock1"></a-entity>
 
-      <a-entity data-brackets-id="4123" gltf-model="assets/rock3.gltf" position="-1.54255 3.08227 -4.59028" rotation="-22.55677543650538 50.53430457274348 -147.69763338661875" scale="2 3 2" shadow="" id="rock2"></a-entity>
+      <a-entity data-brackets-id="4123" gltf-model="assets/rock3.gltf" position="-1.54255 3.08227 -4.59028" rotation="-22.55677543650538 50.53430457274348 -147.69763338661875" scale="2 3 2" shadow="cast: true" id="rock2"></a-entity>
 
-      <a-entity data-brackets-id="4124" gltf-model="assets/rock4.gltf" position="-2.85649 3.2454 8.35165" rotation="1.960088617142546 -119.22850646215839 151.29981904460624" scale="3 2.5 2.5" shadow="" id="rock3"></a-entity>
+      <a-entity data-brackets-id="4124" gltf-model="assets/rock4.gltf" position="-2.85649 3.2454 8.35165" rotation="1.960088617142546 -119.22850646215839 151.29981904460624" scale="3 2.5 2.5" shadow="cast: true" id="rock3"></a-entity>
 
-      <a-entity data-brackets-id="4125" gltf-model="assets/rock3.gltf" position="-3.1001 4.44549 -1.23875" rotation="-37.74359475424298 101.58656299228522 -47.49705530075499" scale="2 2 1.51" shadow="" id="rock4"></a-entity>
+      <a-entity data-brackets-id="4125" gltf-model="assets/rock3.gltf" position="-3.1001 4.44549 -1.23875" rotation="-37.74359475424298 101.58656299228522 -47.49705530075499" scale="2 2 1.51" shadow="cast: true" id="rock4"></a-entity>
 
-      <a-entity data-brackets-id="4126" gltf-model="assets/rock3.gltf" position="-1.31421 5.72559 -1.16223" rotation="-20.58694653684561 7.018160032557454 -118.36677793828164" scale="2 1.5 1" shadow="" id="rock5"></a-entity>
+      <a-entity data-brackets-id="4126" gltf-model="assets/rock3.gltf" position="-1.31421 5.72559 -1.16223" rotation="-20.58694653684561 7.018160032557454 -118.36677793828164" scale="2 1.5 1" shadow="cast: true" id="rock5"></a-entity>
 
-      <a-entity data-brackets-id="4847" gltf-model="assets/rock3.gltf" position="-2.67821 3.65324 3.75306" rotation="60.07233298828629 159.60140453825673 12.433184154338864" scale="2 2 2" shadow="" id="rock6"></a-entity>
+      <a-entity data-brackets-id="4847" gltf-model="assets/rock3.gltf" position="-2.67821 3.65324 3.75306" rotation="60.07233298828629 159.60140453825673 12.433184154338864" scale="2 2 2" shadow="cast: true" id="rock6"></a-entity>
 
     </a-entity>
 
@@ -682,34 +743,7 @@ entity2.components.sound.playSound();'>
     <!-- test point light angled on earth/moon--->
     <!--      <a-entity data-brackets-id="1237" position="9.91105 5.86097 98.9746" light="angle: 17.44; color: #3c19be; type: point; castShadow: true; decay: 0.27; intensity: 0.46; penumbra: 1" id="temple light" rotation="5.9455830400725524 171.791081629665 4.014715270481678" visible=""></a-entity>-->
 
-    <a-entity data-brackets-id="1514" position="-11.27 13.14 70.13" light="angle: 30; color: #3c19be; type: spot; castShadow: true; decay: 0.27; intensity: 0.98; penumbra: 1" id="3 temple light" rotation="-7.144 -168.86 1.44" visible=""></a-entity>
-
-
-
-
-
-
-
-
-
-
-    <!-- <a-light type="directional" position="0 0 0" rotation="-90 0 0" color="#ca7272" castShadow="true" target="#directionaltarget">
-      <a-entity id="directionaltarget" position=".5 .5 -1"></a-entity>
-    </a-light> -->
-
-    <!--- light source for description and control --->
-    <!-- <a-entity data-brackets-id="2258" light="type: point;
-                         distance: 15;
-                         castShadow:
-                         true;
-                         color: #7e7ab3" position="-4.82562 6.90639 47.55674" id="p_light">
-    </a-entity>
-
-    <a-entity data-brackets-id="2259" light="type: point;
-                         distance: 15;
-                         castShadow: true;
-                         color: #944c4c" position="6.04314 6.72045 47.30599" id="p_light 2">
-    </a-entity> -->
+    <a-entity data-brackets-id="1514" position="-11.27 13.14 70.13" light="angle: 30; color: #ffffff; type: spot; castShadow: true; decay: 0.27; intensity: 0.98; penumbra: 1" id="3 temple light" rotation="-7.144 -168.86 1.44" visible=""></a-entity>
 
 
 
