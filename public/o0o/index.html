@@ -130,7 +130,7 @@ entity2.components.sound.playSound();'>
 
 
     <!-- ☆✼★━━━━━━underwater platforms━━━━━━★✼☆｡  -->
-    <a-cylinder src="#moon-texture" radius="20" height="2" position="0 -2 0" shadow="receive: true"></a-cylinder>
+    <a-cylinder src="#moon-texture" radius="20" height="2" position="0 -2 -14" shadow="receive: true"></a-cylinder>
 
     <!-- <a-cylinder id="ground" src="" radius="2000" height="2" position="0 -2 0"></a-cylinder> -->
 
@@ -139,10 +139,15 @@ entity2.components.sound.playSound();'>
     <!--- right platform --->
     <a-entity data-brackets-id="5467" position="-50 -2 19">
 
-      <a-box data-brackets-id="5468" src="#moon-texture" depth="2" height="25" width="23" position="" rotation="-90 0 90" shadow="" id="right platform" material="" geometry=""></a-box>
+      <a-box data-brackets-id="5468" src="#moon-texture" depth="2" height="25" width="30" position="" rotation="-90 0 90" shadow="" id="right platform" material="" geometry=""></a-box>
+
+    </a-entity>
 
       <!--- rock cluster 1 --->
-      <a-entity data-brackets-id="5612" gltf-model="assets/rock5.gltf" position="-0.0958 2.83613 -1.14731" rotation="-50.52456429022626 -83.96410008744648 -65.56012275004932" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
+
+    <a-entity position="-55 -4 15" scale="2 2 2">
+
+      <a-entity data-brackets-id="5612" gltf-model="assets/rock5.gltf" position="-0.0958 2.83613 -1.14731" rotation="-50.52456429022626 -83.96410008744648 -65.56012275004932" scale="2.5 2.5 2" shadow="receive: true" id="rock1"></a-entity>
 
       <a-entity data-brackets-id="5613" gltf-model="assets/rock3.gltf" position="0.71126 3.96001 -2.54444" rotation="10.336158624160051 -21.112921792775705 158.88062363198216" scale="1 2 1" shadow="" id="rock2"></a-entity>
 
@@ -157,14 +162,14 @@ entity2.components.sound.playSound();'>
     </a-entity>
 
     <!--- left platform --->
-    <a-entity data-brackets-id="6387" position="50 -2 19">
+    <a-entity data-brackets-id="6387" position="60 -2 19">
 
       <a-box data-brackets-id="6239" src="#moon-texture" depth="2" height="25" width="30" position="" rotation="-90 0 90" shadow="" id="left platform" material="" geometry=""></a-box>
       </a-entity>
 
       <!--- rock cluster 2 --->
 
-    <a-entity position="50 -2 19" scale >
+    <a-entity position="55 -4 19" scale="2.5 2.5 2.5" >
 
       <a-entity data-brackets-id="6240" gltf-model="assets/rock5.gltf" position="1.03619 0.94191 0.67273" rotation="-50.52456429022626 55.602689228470744 -65.56012275004932" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
 
@@ -541,7 +546,7 @@ entity2.components.sound.playSound();'>
 
     <!--- rock cluster at spawn --->
 
-    <a-entity position="0 2 0" scale="2.5 3 2.5">
+    <a-entity position="0 4 -15" scale="4.5 5 4.5">
 
     <a-entity gltf-model="#rock" position="0 0 0" rotation="120 0 0" scale="1.5 1.5 1.5" shadow="cast: true" id="rock"></a-entity>
 
@@ -557,7 +562,7 @@ entity2.components.sound.playSound();'>
 
     <!--- cluster 1 --->
 
-    <a-entity position="1 0 19">
+    <a-entity position="1 0 19" scale="1 1 1">
 
       <a-entity gltf-model="#rock" position="15 0 90" rotation="120 -100 0" scale="2.5 2.5 2.5" shadow="cast: true" id="rock"></a-entity>
 
@@ -582,7 +587,7 @@ entity2.components.sound.playSound();'>
 
     <!--- cluster 3 --->
 
-    <a-entity position="11.5 0 120" scale="1 1 1">
+    <a-entity position="11.5 0 120" scale="1.2 1.2 1.2">
 
       <a-entity data-brackets-id="4272" gltf-model="assets/rock3.gltf" position="1.61 0.8 -2.5" rotation="67.47 31.14 142.33" scale="2 2 2" shadow="" id="rock1"></a-entity>
 
@@ -594,7 +599,7 @@ entity2.components.sound.playSound();'>
 
     <!--- cluster 4 --->
 
-    <a-entity position="-11.5 0 120" scale="1 1 1">
+    <a-entity position="-11.5 0 120" scale="1.2 1.2 1.2">
 
       <a-entity data-brackets-id="4428" gltf-model="assets/rock5.gltf" position="-5.90 0.73 -3.65" rotation="81.03 139.81 103.8" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
 
@@ -608,7 +613,7 @@ entity2.components.sound.playSound();'>
 
     <!--- cluster 5 --->
 
-    <a-entity position="11.5 0 85" scale=".8 .8 .8">
+    <a-entity position="17 0 90" scale="1.2 1.2 1.2">
 
       <a-entity data-brackets-id="4428" gltf-model="assets/rock5_low.gltf" position="-5.90116 0.73688 -3.65738" rotation="81.033 139.81 103.81" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
 
@@ -618,14 +623,14 @@ entity2.components.sound.playSound();'>
 
       <a-entity data-brackets-id="4278" gltf-model="assets/rock3_low.gltf" position="-1.54 0.98 -4.55" rotation="0.31 19.588854057727715 47.10" scale="2 2 1.51" shadow="" id="rock4"></a-entity>
 
-      <a-entity data-brackets-id="5059" gltf-model="assets/rock3_low.gltf" position="0.46651 4.48132 1.2183" rotation="22.34 -7.958383774367134 60.77" scale="2 1.5 1" shadow="" id="rock5"></a-entity>
+      <a-entity data-brackets-id="5059" gltf-model="assets/rock3_low.gltf" position="0.46651 4.98132 2.2183" rotation="22.34 -7.958383774367134 60.77" scale="2 1.5 1" shadow="" id="rock5"></a-entity>
 
     </a-entity>
 
 
     <!--- cluster 6 --->
 
-    <a-entity position="-11.5 0 85" scale=".8 .8 .8" rotation="0 -180 0">
+    <a-entity position="-17 0 90" scale="1.2 1.2 1.2" rotation="0 -180 0">
 
       <a-entity data-brackets-id="2890" gltf-model="assets/rock5_low.gltf" position="-1.54121 0.73688 -1.92117" rotation="81.0328480075572 68.82483626670475 103.81021219518794" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
 
@@ -641,7 +646,7 @@ entity2.components.sound.playSound();'>
 
     <!--- cluster 7 --->
 
-    <a-entity position="13 0 125" scale="1 1 1">
+    <a-entity position="13 0 125" scale="1.2 1.2 1.2">
 
       <a-entity data-brackets-id="3565" gltf-model="assets/rock5.gltf" position="-0.16728 5.37214 -4.04302" rotation="65.64835825049947 -112.02699993515908 -84.15890573779097" scale="2.5 2.5 2" shadow="" id="rock1"></a-entity>
 
@@ -659,7 +664,7 @@ entity2.components.sound.playSound();'>
 
     <!--- cluster 8 --->
 
-    <a-entity position="-13.39641 -0.58398 126.89241" scale="" rotation="0 -93.97138093720145 0" data-brackets-id="3920">
+    <a-entity position="-13.39641 -0.58398 126.89241" scale="1.2 1.2 1.2" rotation="0 -93.97138093720145 0" data-brackets-id="3920">
 
       <a-entity data-brackets-id="4842" gltf-model="assets/rock5.gltf" position="-3.65578 5.46395 2.59302" rotation="41.373282386396745 167.75631283635374 -157.11476770738898" scale="2 3 2" shadow="" id="rock1"></a-entity>
 
