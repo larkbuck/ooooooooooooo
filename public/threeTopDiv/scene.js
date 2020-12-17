@@ -40,7 +40,7 @@ function TidePredictor(tide) {
 
 
 function MoonPhaseAdmin(background, tide, triangle,sky) {
-  let all_data; let current_phase_idx = null; let fullmoon_idx;
+    let all_data; let current_phase_idx = null; let fullmoon_idx, fullmoon_hour;
     const tidePredictor = new TidePredictor(tide);
     //Initialize current tide
     const loadTide = (data) => tidePredictor.init(data);
@@ -73,19 +73,26 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       var idx = obj.findIndex(({data}) =>
                               (Date.parse(data[0]["newmoon 0"]["utctime"]) <= day &&
                                day <= Date.parse(data[1]["newmoon 30"]["utctime"])))
-      console.log("fillmon",all_data[idx].data[2]["fullmoon"]["utctime"])
+
+      console.log("fullmon",all_data[idx].data[2]["fullmoon"]["utctime"])
       current_phase_idx = idx; //Starts in 0
 
       //Get full moon index in array of days
       fullmoon_idx = all_data[idx].data[2]["fullmoon"].idx;
+      fullmoon_hour = all_data[idx].data[2]["fullmoon"].hour+":"
+          + all_data[idx].data[2]["fullmoon"].min +":"
+          + all_data[idx].data[2]["fullmoon"].sec;
 
       //Look for current day
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
+      idx --;
       this.updateMoon(idx);
       groupMoons.setCenter(idx);
 
       //console.log("Phase Idx: ", current_phase_idx)
       //console.log("Day idx:", idx)
+
+
       tidePredictor.update(idx);
   }
 
@@ -94,6 +101,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         currentMoon.idx= idx;
 
         currentMoon.date = days[idx].date;
+
         currentMoon.events = days[idx].events;
         currentMoon.moonphase = days[idx].moonphase;
         currentMoon.img =days[idx].image;
@@ -104,6 +112,12 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         tide.setLight(intensity);
         background.setLight(intensity);
         triangle.setDate(currentMoon.date);
+
+
+        (idx == fullmoon_idx ?
+         triangle.setFullMoonText(fullmoon_hour) :
+         triangle.clearFullMoonText() )
+
         sky.setLight(intensity);
     }
 
@@ -115,6 +129,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
         return currentMoon;
     }
+
     this.prevMoon = function() {
         var days = all_data[current_phase_idx].data[3].days
         var newidx = (currentMoon.idx - 1)
