@@ -9,7 +9,7 @@
 	"dependencies": {
 		"@tweenjs/tween.js": "^18.6.4",
 		"express": "^4.12.4",
-		"nedb": "*",
+		"nedb": "^1.8.0",
 		"simplex-noise": "^2.4.0",
 		"three": "^0.123.0"
 	},
