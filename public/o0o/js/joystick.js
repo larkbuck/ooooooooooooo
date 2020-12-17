@@ -534,38 +534,38 @@
 
 // media query event handler
 
-  let deviceType;
+let deviceType;
 
-  if (matchMedia) {
-    const mq = window.matchMedia("(min-width: 500px) and (min-height: 500px)");
-    mq.addListener(widthChange);
-    widthChange(mq);
+if (matchMedia) {
+  const mq = window.matchMedia("(min-width: 500px) and (min-height: 500px)");
+  mq.addListener(widthChange);
+  widthChange(mq);
+}
+
+
+
+function widthChange(mq) {
+  if (mq.matches) { // matches browser
+    // window width is at least 500px
+    console.log('browser');
+    deviceType = 'browser';
+
+
+  } else { // matches mobile
+    console.log('mobile');
+
+    deviceType = 'mobile'
   }
-
-
-
-  function widthChange(mq) {
-    if (mq.matches) { // matches browser
-      // window width is at least 500px
-      console.log('browser');
-      deviceType = 'browser';
-
-
-    } else { // matches mobile
-      console.log('mobile');
-
-      deviceType = 'mobile'
-    }
-  }
+}
 
 
 // LARK CHANGE HERE
 let style;
 
 if (deviceType === "mobile") {
-  style = "position:fixed;display:block;width:64px;height:128px;border-radius:8px;right:10px;bottom:10px;background-color:#00C26780;z-index:20"
+  style = "position:fixed;display:block;width:64px;height:128px;border-radius:8px;right:10px;bottom:10px;background-color:#00C26700;z-index:20"
 } else {
-  style = "position:fixed;display:block;width:64px;height:128px;border-radius:8px;right:20px;bottom:20px;background-color:#00C26780;z-index:20"
+  style = "position:fixed;display:block;width:100px;height:200px;border-radius:8px;right:20px;bottom:20px;background-color:#00C26700;z-index:20"
 }
 
 function initJoystick() {
@@ -577,8 +577,8 @@ function initJoystick() {
 
   // create text overlay
   var controlImg = document.createElement("img")
-  controlImg.setAttribute("src", "assets/joystickControls.png");
-  controlImg.setAttribute("style", "max-width:100%;height:auto;padding-left:15px");
+  controlImg.setAttribute("src", "assets/joystickControls-wCircle.png");
+  controlImg.setAttribute("style", "max-width:100%;height:auto;");
   // controlImg.innerHTML = "hold and drag to move"
   d.appendChild(controlImg)
 
