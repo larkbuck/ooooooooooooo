@@ -175,6 +175,11 @@ main {
   border: .1 solid #eeeeee;
 }
 
+#threeContainer {
+  min-height: 66vh;
+
+}
+
 #threejsDiv {
   border-top: 2px solid #1f1f1f;
   border-right: 2px solid #1f1f1f;
@@ -304,5 +309,10 @@ main {
 
   .md-font {
     font-size: 1rem;
+  }
+
+  #threeContainer {
+    min-height: 30vh;
+
   }
 }
