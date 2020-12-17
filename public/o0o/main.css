@@ -6,6 +6,14 @@
   background-color: black;
 }
 
+#bgDiv {
+  position: fixed;
+  z-index: -1;
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+}
+
 .btnDiv {
   margin: 40vh auto auto auto;
   text-align: center;
@@ -31,7 +39,7 @@ button:hover {
 
 @keyframes roundandround {
   to {
-    transform: scale(1000px);
+    transform: width(1000px);
     /* transform: rotateX(360deg); */
   }
 }
