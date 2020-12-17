@@ -1,5 +1,9 @@
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INFORMATION TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-export function Button(scene, x1, x2, y, invert = false) {
+export function Button(scene, x1, x2, y, invert = false,path="button") {
+    let loader  = new THREE.TextureLoader()
+    let texture = loader.load('/assets-main/images/'+path+'.png');
+    texture.minFilter = THREE.LinearFilter;
+
   const button = new THREE.Geometry();
   (invert ?
     button.vertices.push(
@@ -17,23 +21,24 @@ export function Button(scene, x1, x2, y, invert = false) {
   button.faces.push(new THREE.Face3(0, 1, 2));
 
   button.computeBoundingSphere();
-  var meshButton = new THREE.Mesh(button, new THREE.MeshBasicMaterial({
-      color: 0xd4af37,
-      wireframe:true,
-      side: THREE.DoubleSide
-  }));
+    var meshButton = new THREE.Mesh(button,  new THREE.MeshBasicMaterial({
+        map:texture,
+        opacity: 1,
+        transparent: true,
+        side: THREE.DoubleSide
+    }));
+
 
   meshButton.position.z = 0;
   scene.add(meshButton);
-
+/*Debug line
   const edges = new THREE.EdgesGeometry(button);
   const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
-      color: 0xd4af37,
+      color: 0xff0000,
       transparent: true,
-      wireframe:true,
       side: THREE.DoubleSide
   }));
-  scene.add(line);
+  scene.add(line);*/
 
   return meshButton;//event listeners should be binded to mesh
 }
@@ -141,5 +146,6 @@ export function Triangle(parent, scene) {
 
     this.clearFullMoonText = function(){
         fullmoonText.clear();
+        hourText.clear();
     }
 }

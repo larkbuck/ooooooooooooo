@@ -74,7 +74,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
                               (Date.parse(data[0]["newmoon 0"]["utctime"]) <= day &&
                                day <= Date.parse(data[1]["newmoon 30"]["utctime"])))
 
-      console.log("fullmon",all_data[idx].data[2]["fullmoon"]["utctime"])
+     // console.log("fullmon",all_data[idx].data[2]["fullmoon"]["utctime"])
       current_phase_idx = idx; //Starts in 0
 
       //Get full moon index in array of days
