@@ -24,7 +24,7 @@
         ..o0o..
       </h1>
       <nav class="main-nav">
-        <ul class="main-nav-list">
+        <ul class="main-nav-list" style="font-size: 1.3rem;">
           <li>
             <a href="/o0o/">░▒▓█</a>
           </li>
@@ -84,19 +84,58 @@
 
   <!-- Main Content -->
   <main>
+    <!-- for splitting content in browser w/ flexbox -->
+    <div class="flex-container width-max1200">
+      <section class="content">
+        <div class="">
+          <!-- <p>🤩🌗🌚🌓🤩 </p> -->
+          <p style="font-size: 2.3rem">🌊🌊 💤🎶 ⚖️ <span style="font-size: 1.2rem"> Øø°%†
+              ∞⧝⧞⧜</span></p>
+          <p style="font-size: 2.3rem; color: #0053D0;">🌍🌏🌎¡!¡!¡ <span style="color: #eeeeee;">±¼</span></p>
+          </p>
+        </div>
+      </section>
+
+      <aside class="sidebar crosshatch contribution">
+        <div style="text-align: center;">
+          <p style="font-size: 1.2rem">💭&nbsp;&nbsp;&nbsp;&nbsp;💭💭&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;💭&nbsp;💭&nbsp;&nbsp;&nbsp;&nbsp;💭&nbsp;&nbsp;&nbsp;💭</p>
+          <p style="font-size: 1.2rem">🐙🦑🦐🦞🦀🐡🐠🐟🐬🐳🐋🦈</p>
+          <form>
+            <!-- for email-style -->
+            <!-- <input id="lName" type="text" maxlength="13" size="26" placeholder="oooooo@ooo.ooo" style="font-size: 1rem; padding: .2rem;"> -->
+            <input id="fName" type="text" maxlength="13" size="13" placeholder="????" style="font-size: 1rem; padding: .2rem"> <input id="lName" type="text" maxlength="13" size="13" placeholder="¿¿¿¿" style="font-size: 1rem; padding: .2rem">
+            <p style="padding: .5rem;">+💭 💭+</p>
+            <button class="speakButton" type="submit" style="font-size: 1.2rem; background-color: #eee; padding: .1rem;">..🎙🗣..</button>
+            <!-- <button type="submit" style="font-size: 1.5rem; padding: .3rem; background-color: #0097C1;">➡📨⬅</button> -->
+          </form>
+
+          <section class="users">
+            <ul id="users" style="list-style: none;">
+            </ul>
+          </section>
+          <!-- <p><a href="/reset">♺</a> | <a href="/clear">⌫</a></p> -->
+        </div>
+      </aside>
+
+    </div>
     <!-- Three JS Top -->
     <section class="width-full">
       <div class="width-max1000">
-        <div id='threejsDiv'></div>
-        <div id='p5Div'></div>
+
+        <!-- <div id='threejsDiv' class=""> -->
+        <div id='threejsDiv' class="longShadow">
+          <!-- <img src="assets-main/images/tide4moon.jpg" alt="" style=""> -->
+        </div>
+        <!-- <div id='p5Div' class=""></div> -->
+        <div id='p5Div' class="longShadow">
+          <img src="assets-main/images/tide4moon.jpg" alt="" style="">
+        </div>
       </div>
 
     </section>
 
     <!-- for splitting content in browser w/ flexbox -->
-    <div class="flex-container width-max1200">
-
-      <!-- Content -->
+    <!-- <div class="flex-container width-max1200">
       <section class="content">
         Content
         <p>
@@ -112,7 +151,6 @@
 
       </section>
 
-      <!-- Sidebar -->
       <aside class="sidebar">
         <div>
           <p>Add a new user:</p>
@@ -129,7 +167,7 @@
         </div>
       </aside>
 
-    </div>
+    </div> -->
 
   </main>
 
@@ -151,8 +189,11 @@
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.4/Tween.min.js"></script> -->
 
   <!-- <script src="/aframe.js"></script> -->
+  <script src="/build/three.min.js"></script>
+  <script src="/lib/threex.domevents.js"></script>
+
   <script src="/sketch.js"></script>
-  <script type="module" src="/threeTopDiv.js"></script>
+  <script type="module" src="/threeTopDiv/scene.js"></script>
   <script src="/client.js"></script>
   <script src="/noise/simplex-noise.js"></script>
 </body>
