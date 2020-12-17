@@ -561,23 +561,14 @@
 
 // LARK CHANGE HERE
 let style;
-let controlImgStyle;
 
 if (deviceType === "mobile") {
-  style = "position:fixed;display:block;width:100px;height:100px;border-radius:8px;right:10px;bottom:10px;background-color:#eeeeee80;z-index:20"
-  controlImgStyle = "position:fixed;display:block;width:50px;height:100px;border-radius:8px;right:10px;bottom:10px;background-color:#eeeeee80;z-index:20"
-
+  style = "position:fixed;display:block;width:64px;height:128px;border-radius:8px;right:10px;bottom:10px;background-color:#00C26780;z-index:20"
 } else {
-  style = "position:fixed;display:block;width:50px;height:100px;border-radius:8px;right:20px;bottom:20px;background-color:#eeeeee80;z-index:20"
+  style = "position:fixed;display:block;width:64px;height:128px;border-radius:8px;right:20px;bottom:20px;background-color:#00C26780;z-index:20"
 }
 
 function initJoystick() {
-  // create element
-  let controls = document.createElement("DIV");
-  d.setAttribute("id", "np");
-  d.setAttribute("style", style)
-  document.querySelector("body").appendChild(d)
-
   // create element
   let d = document.createElement("DIV");
   d.setAttribute("id", "np");
@@ -587,15 +578,15 @@ function initJoystick() {
   // create text overlay
   var controlImg = document.createElement("img")
   controlImg.setAttribute("src", "assets/joystickControls.png");
-  controlImg.setAttribute("style", "max-width:100%;height:auto;padding-left:15px;");
+  controlImg.setAttribute("style", "max-width:100%;height:auto;padding-left:15px");
   // controlImg.innerHTML = "hold and drag to move"
-  controls.appendChild(controlImg)
+  d.appendChild(controlImg)
 
   // create text overlay
-  // var p = document.createElement("p")
-  // p.setAttribute("style", "text-align: center;margin-top:40px;font-size:12px Roboto; opacity:.5;");
-  // p.innerHTML = "hold and drag to move"
-  // d.appendChild(p)
+  var p = document.createElement("p")
+  p.setAttribute("style", "text-align: center;margin-top:40px;font-size:12px Roboto; opacity:.5;");
+  p.innerHTML = "hold and drag to move"
+  d.appendChild(p)
 }
 
 var moveData = "";
