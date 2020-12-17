@@ -11,41 +11,40 @@ function TidePredictor(tide) {
   let currentTide = {
     idx: 0,
     date: null,
-    velocity: null,
+      h1: null,
+      h2:null,
+      l1: null,
+      l2: null,
     type: null
   };
 
   this.init = function(json) {
     predictions = JSON.parse(json).predictions;
-    this.updateCurrentTide(null);
-
   }
 
-  this.updateCurrentTide = function(date) {
-    var idx = (date ? (
-      predictions.findIndex(element => Date.parse(element.t) > Date.parse(date))
-    ) : (
-      predictions.findIndex(element => Date.parse(element.t) > Date.now())
-    ));
+    this.update = function(phaseDayIdx) {
+        console.log(phaseDayIdx)
+        currentTide.idx = phaseDayIdx*4;
 
-    if (idx != 0) {
-      currentTide.idx = (idx != -1 ? idx - 1 : predictions.length - 1);
-    } else {
-      currentTide.idx = idx;
+        currentTide.date = predictions[currentTide.idx].t;
+        currentTide.h1 = predictions[currentTide.idx].v;
+        currentTide.l1 = predictions[currentTide.idx + 1].v;
+        currentTide.h2 = predictions[currentTide.idx + 2].v;
+        currentTide.l2 = predictions[currentTide.idx + 3].v;
+        currentTide.type = predictions[currentTide.idx].type;
+
+        tide.setTide(currentTide);
     }
-
-    currentTide.date = predictions[currentTide.idx].t;
-    currentTide.velocity = predictions[currentTide.idx].v;
-    currentTide.type = predictions[currentTide.idx].type;
-
-    tide.setTide(currentTide);
-  }
 
 }
 
 
 function MoonPhaseAdmin(background, tide, triangle) {
   let all_data; let current_phase_idx = null; let fullmoon_idx;
+    const tidePredictor = new TidePredictor(tide);
+    //Initialize current tide
+    const loadTide = (data) => tidePredictor.init(data);
+    getText('/data/tides_hi-lo.JSON', loadTide)
 
   let currentMoon = {
       idx: null,
@@ -87,6 +86,7 @@ function MoonPhaseAdmin(background, tide, triangle) {
 
       //console.log("Phase Idx: ", current_phase_idx)
       //console.log("Day idx:", idx)
+      tidePredictor.update(idx);
   }
 
     this.updateMoon = function(idx) {
@@ -111,6 +111,7 @@ function MoonPhaseAdmin(background, tide, triangle) {
         var days = all_data[current_phase_idx].data[3].days;
         let newidx = (currentMoon.idx + 1) % days.length;
         this.updateMoon(newidx); //TODO: fix bounding conditions
+        tidePredictor.update(newidx);
 
         return currentMoon;
     }
@@ -119,6 +120,7 @@ function MoonPhaseAdmin(background, tide, triangle) {
         var newidx = (currentMoon.idx - 1)
         newidx = (newidx < 0 ? days.length - 1 : newidx) //TODO: fix bounding conditions
         this.updateMoon(newidx)
+        tidePredictor.update(newidx);
 
         return currentMoon
     }
@@ -158,7 +160,6 @@ const background = new Background(scene);
 const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent, scene);
 
-const tidePredictor = new TidePredictor(tide);
 const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle);
 
 
@@ -166,13 +167,11 @@ const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle);
 domEvents.bind(nextMoonBtn, 'click', () => {
     let currentMoon = moonPhaseAdmin.nextMoon();
     groupMoons.next();
-    tidePredictor.updateCurrentTide(currentMoon.date);
 }, false)
 
 domEvents.bind(prevMoonBtn, 'click', () => {
     let currentMoon = moonPhaseAdmin.prevMoon();
     groupMoons.prev();
-    tidePredictor.updateCurrentTide(currentMoon.date);
 }, false)
 
 
@@ -213,10 +212,6 @@ async function getText(path, onSuccess) {
 //Initialize current moon
 const loadMoonPhase = (data) => moonPhaseAdmin.init(data);
 getText('/data/moonPhases.JSON', loadMoonPhase)
-
-//Initialize current tide
-const loadTide = (data) => tidePredictor.init(data);
-getText('/data/tides_hi-lo.JSON', loadTide)
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ START ANIMATION ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 scene.clock = new THREE.Clock();
