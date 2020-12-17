@@ -4,6 +4,7 @@ import { Triangle, Button, Text} from '/threeTopDiv/infoTriangle.js';
 import { Tide } from '/threeTopDiv/Tide.js';
 import { Background } from '/threeTopDiv/Background.js';
 import { GroupMoons } from '/threeTopDiv/GroupMoons.js';
+import { Sky } from '/threeTopDiv/Sky.js';
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ DEFINE SCENE HELPERS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function TidePredictor(tide) {
@@ -23,7 +24,6 @@ function TidePredictor(tide) {
   }
 
     this.update = function(phaseDayIdx) {
-        console.log(phaseDayIdx)
         currentTide.idx = phaseDayIdx*4;
 
         currentTide.date = predictions[currentTide.idx].t;
@@ -39,7 +39,7 @@ function TidePredictor(tide) {
 }
 
 
-function MoonPhaseAdmin(background, tide, triangle) {
+function MoonPhaseAdmin(background, tide, triangle,sky) {
   let all_data; let current_phase_idx = null; let fullmoon_idx;
     const tidePredictor = new TidePredictor(tide);
     //Initialize current tide
@@ -104,7 +104,7 @@ function MoonPhaseAdmin(background, tide, triangle) {
         tide.setLight(intensity);
         background.setLight(intensity);
         triangle.setDate(currentMoon.date);
-
+        sky.setLight(intensity);
     }
 
     this.nextMoon = function() {
@@ -151,6 +151,8 @@ parent.append(renderer.domElement);
 const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+const sky = new Sky(scene);
+
 const triangle = new Triangle(parent, scene,domEvents);
 
 const nextMoonBtn = new Button(scene, 200, 250, 300);
@@ -160,7 +162,7 @@ const background = new Background(scene);
 const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent, scene);
 
-const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle);
+const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle,sky);
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ EVENTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
