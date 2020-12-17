@@ -2,14 +2,6 @@
 export function Background(scene) {
     let backgroundConf = {
         fov: 75,
-        cameraZ: 1000,
-        xyCoef: 1000,
-        zCoef: 100,
-        lightIntensity: 0.9,
-        emissive: 0x270d0d,
-        light1Color: 0xd7a682,
-        light2Color: 0x9ad782,
-        light3Color: 0x844340
     };
 
 
@@ -125,13 +117,12 @@ void main() {
   vUv = uv;
 
   vec3 pos = position;
-  float noiseFreq = 2.9;
-  float noiseAmp = 3.*length(uv);
+  float noiseFreq = 3.9;
+  float noiseAmp = pos.z+length(uv);
   vec3 noisePos = vec3(pos.x * noiseFreq + uTime, pos.y, pos.z);
 float shore = smoothstep(0.,0.5,vUv.y);
   pos.z += shore*(snoise(noisePos)-0.5*sin(noisePos.x*0.2*noisePos.y) * noiseAmp);
-
-gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
 }`;
 
     let fragmentShaderStr=`precision mediump float;
@@ -156,15 +147,15 @@ vec3 color = vec3(length(vUv*20.-1.),.4*vUv.y,b);
         uniforms: {
             uTime: { value: 0.0 },
             lightIntensity: {value: 0.5}
-        }
+        },
     });
     //TODO: see values according to parentdiv
-    let geo = new THREE.PlaneBufferGeometry(30,30,30,20);
+    let geo = new THREE.PlaneBufferGeometry(30,20,30,10);
     let plane = new THREE.Mesh(geo, material);
-    plane.rotation.x = -Math.PI / 2.7;
-    plane.position.y = -170;
-    plane.position.z = -500;
-    plane.scale.set(140,100,120);
+    plane.rotation.x = -Math.PI / 3.1;
+    plane.position.y = -220;
+    plane.position.z = -300;
+    plane.scale.set(130,50,130);
 
     scene.add(plane);
 
