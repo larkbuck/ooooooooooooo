@@ -1,7 +1,7 @@
-import * as THREE from '/build/three.module.js';
+import {Shape}  from '/build/three.module.js';
 import { OrbitControls } from '/jsm/controls/OrbitControls.js';
 import { Triangle, Button, Text} from '/threeTopDiv/infoTriangle.js';
-import { Tide } from '/threeTopDiv/Tide.js';
+import { Tide,LightTideFlow} from '/threeTopDiv/Tide.js';
 import { Background } from '/threeTopDiv/Background.js';
 import { GroupMoons } from '/threeTopDiv/GroupMoons.js';
 
@@ -156,6 +156,7 @@ const prevMoonBtn = new Button(scene, -200, -250, 300, true);
 console.log(nextMoonBtn)
 const background = new Background(scene);
 const tide = new Tide(scene);
+const frontTide = new LightTideFlow(scene);
 const groupMoons = new GroupMoons(parent, scene);
 
 const tidePredictor = new TidePredictor(tide);
@@ -180,11 +181,21 @@ domEvents.bind(prevMoonBtn, 'click', () => {
 const render = function() {
   requestAnimationFrame(render);
 
-  tide.update();
+    tide.update();
+    frontTide.update();
   groupMoons.update();
 
   renderer.render(scene, camera);
 };
+
+const tick = function(){
+    fronTide.stats.begin()
+    fronTide.update()
+    render()
+    fronTide.stats.end()
+
+    requestAnimationFrame(tick);
+}
 
 // for resizing canvas when window is resized
 const resizeRenderer = function() {
