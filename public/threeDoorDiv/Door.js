@@ -37,6 +37,7 @@ export function Door(scene,domEvents){
 		door.position.z = Math.cos( time * 0.3 ) * 90;
 
         door.rotation.x += 0.02;
+
     }
 
     scene.add(sphere);
@@ -49,12 +50,10 @@ export function Door(scene,domEvents){
     }, false)
 
     domEvents.addEventListener(sphere, 'mouseover', function (event) {
-        console.log("yey")
         door.visible = true;
         sphere.material.color.setHex( 0x00ffff );
     }, false)
     domEvents.addEventListener(sphere, 'mouseout', function (event) {
-        console.log("yey")
         door.visible = false;
         sphere.material.color.setHex( 0xff0000);
     }, false)

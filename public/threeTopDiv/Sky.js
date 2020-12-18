@@ -1,6 +1,6 @@
 export function Sky(scene){
     let loader  = new THREE.TextureLoader()
-    let texture = loader.load('/assets-main/images/sky.png');
+    let texture = loader.load('/assets-main/images/sky.jpg');
     texture.minFilter = THREE.LinearFilter;
 
 
