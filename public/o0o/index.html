@@ -118,7 +118,7 @@ entity2.components.sound.playSound();'>
 
     <!-- ☆✼★━━━━━━Audio━━━━━━★✼☆｡  -->
     <a-entity id="ambientSound" position="0 0 -80" sound="src: #expanseAudio; loop: true; volume: .5; rolloffFactor: 1.3; refDistance: 5; distanceModel: exponential;"></a-entity>
-    <a-entity id="templeSound" position="0 0 60" sound="src: #templeAudio; loop: true; volume: .5; rolloffFactor: 2; refDistance: 5; distanceModel: exponential;"></a-entity>
+    <a-entity id="templeSound" position="0 0 110" sound="src: #templeAudio; loop: true; volume: .5; rolloffFactor: 1; refDistance: 5; distanceModel: exponential;"></a-entity>
 
 
 
@@ -441,25 +441,25 @@ entity2.components.sound.playSound();'>
       <a-triangle rotation="0 27.699780000000004 0" position="-37.617 19.51043 58.61087" geometry="vertexA: -0.5 0.87 0; vertexC: 0.8 -0.5 0" scale="42.6174 11.01424 0.00001" material="side: double" id="outside right angled triangle"
         shadow="receive: true"></a-triangle>
 
-      <a-box src="#texturestand" depth="0.5" height="15" width="25" position="-31.92112 6.5 56.11337" rotation="0 27.77151 0" shadow="receive: true" id="outside angled wall right" scale="2.2 1 2"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="15" width="25" position="-31.92112 6.5 56.11337" rotation="0 27.77151 0" shadow="receive: true" id="outside angled wall right" scale="2.2 1 2"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="15" width="25" position="30.89489 6.5 56.15641" rotation="0 -27.77151 0" shadow="receive: true" id="outside angled wall left" scale="2.2 1 2"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="15" width="25" position="30.89489 6.5 56.15641" rotation="0 -27.77151 0" shadow="receive: true" id="outside angled wall left" scale="2.2 1 2"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="15" width="25" position="-7.5 6.5 56.5" rotation="0 90 0" shadow="receive: true" id="outside entrance wall right"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="15" width="25" position="-7.5 6.5 56.5" rotation="0 90 0" shadow="receive: true" id="outside entrance wall right"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="15" width="25" position="6.5 6.5 56.52" rotation="0 90 0" shadow="receive: true" id="outside entrance wall left"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="15" width="25" position="6.5 6.5 56.52" rotation="0 90 0" shadow="receive: true" id="outside entrance wall left"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="111.8" width="30" position="-0.48 14 139.2" rotation="0 0 90" shadow="receive: true" id="outside back wall"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="111.8" width="30" position="-0.48 14 139.2" rotation="0 0 90" shadow="receive: true" id="outside back wall"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="70" width="30" position="55.218 14 104.025" rotation="0 90 90" shadow="receive: true" id="outside left wall"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="70" width="30" position="55.218 14 104.025" rotation="0 90 90" shadow="receive: true" id="outside left wall"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="70" width="30" position="-56.123 14 104.025" rotation="0 90 90" shadow="receive: true" id="outside right wall"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="70" width="30" position="-56.123 14 104.025" rotation="0 90 90" shadow="receive: true" id="outside right wall"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="49" width="30" position="30.95417 14 68.76525" rotation="0 0 90" shadow="receive: true" id="outside front left wall"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="49" width="30" position="30.95417 14 68.76525" rotation="0 0 90" shadow="receive: true" id="outside front left wall"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="49" width="30" position="-31.876 14 68.76525" rotation="0 0 90" shadow="receive: true" id="outside front right wall"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="49" width="30" position="-31.876 14 68.76525" rotation="0 0 90" shadow="receive: true" id="outside front right wall"></a-box>
 
-      <a-box src="#texturestand" depth="0.5" height="14" width="14.9" position="-.5 21.57 68.76674" rotation="0 0 90" shadow="receive: true" id="outside front top panel"></a-box>
+      <a-box material="color: #0d0d0d;" depth="0.5" height="14" width="14.9" position="-.5 21.57 68.76674" rotation="0 0 90" shadow="receive: true" id="outside front top panel"></a-box>
 
 
       <!--- corner columns--->
@@ -479,7 +479,7 @@ entity2.components.sound.playSound();'>
       <!--- ceiling --->
 
       <!-- commented out: ( src="#milky-way" ) --->
-      <a-box material="color: #e6e6fa" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 29.05232 104.23512" rotation="90 0 90" shadow="receive: true" id="ceiling" scale="2.3 1 1"></a-box>
+      <a-box material="color: #333333" repeat="1 1" depth="0.5" height="111" width="30" position="-0.5 29.05232 104.23512" rotation="90 0 90" shadow="receive: true" id="ceiling" scale="2.3 1 1"></a-box>
 
       <!-- relief --->
 
@@ -540,6 +540,14 @@ entity2.components.sound.playSound();'>
 
 
 
+      <!-- <a-entity octahedron="" position="60 55 -150" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;" id="light purple"> </a-entity>
+
+      <a-entity octahedron="color: #bbff33;" position="20 76 -140" rotation="33 0 25" scale=".5 .5 .5" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;" id="green"> </a-entity>
+
+      <a-entity octahedron="color: #906edb;" position="0 80 -120" scale=".8 .8 .8" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 11000; easing: easeInOutQuad;" id="purple"> </a-entity>
+
+      <a-entity octahedron="color: #518fe0;" position="-20 60 -133" scale="1 .5 .5" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 9000; easing: easeInOutQuad;" id="blue"> </a-entity> -->
+
 
     </a-entity>
 
@@ -555,14 +563,14 @@ entity2.components.sound.playSound();'>
     <!--- sacred geometry (ceiling) --->
     <a-entity position="0 28 125" scale=".5 .5 .5">
 
-      <a-cylinder color="#ffffff" radius="20" height="2" position="0 0 0" shadow="receive: true" id="earth"></a-cylinder>
+      <a-cylinder color="#e6e6fa" radius="20" height="2" position="0 0 0" shadow="receive: true" id="earth"></a-cylinder>
 
-      <a-cylinder color="#ffffff" radius="5" height="2" position="0 0 25" shadow="receive: true" id="moon"></a-cylinder>
+      <a-cylinder color="#e6e6fa" radius="5" height="2" position="0 0 25" shadow="receive: true" id="moon"></a-cylinder>
 
 
-      <a-triangle material="side: double; color: #ffffff" position="-9.95849 -0.999 27.86696" geometry="vertexA: -0.5 0.09 0; vertexC: 1 -0.5 0" scale="10 17 10" rotation="-90 0 -180" id="left triangle facade"></a-triangle>
+      <a-triangle material="side: double; color: #e6e6fa" position="-9.95849 -0.999 27.86696" geometry="vertexA: -0.5 0.09 0; vertexC: 1 -0.5 0" scale="10 17 10" rotation="-90 0 -180" id="left triangle facade"></a-triangle>
 
-      <a-triangle material="side: double; color: #ffffff" position="10.06108 -0.999 27.86696" geometry="vertexA: -0.5 0.09 0; vertexC: 1 -0.5 0" scale="10 17 10" rotation="90 180 180" id="right triangle facade"></a-triangle>
+      <a-triangle material="side: double; color: #e6e6fa" position="10.06108 -0.999 27.86696" geometry="vertexA: -0.5 0.09 0; vertexC: 1 -0.5 0" scale="10 17 10" rotation="90 180 180" id="right triangle facade"></a-triangle>
 
     </a-entity>
 
@@ -773,7 +781,7 @@ entity2.components.sound.playSound();'>
     <!-- test point light angled on earth/moon--->
     <!--      <a-entity data-brackets-id="1237" position="9.91105 5.86097 98.9746" light="angle: 17.44; color: #3c19be; type: point; castShadow: true; decay: 0.27; intensity: 0.46; penumbra: 1" id="temple light" rotation="5.9455830400725524 171.791081629665 4.014715270481678" visible=""></a-entity>-->
 
-    <a-entity data-brackets-id="1514" position="-11.27 13.14 105.13" light="angle: 30; color: #d6d7d9; type: spot; castShadow: true; decay: 0.27; intensity: 0.68; penumbra: 1" id="3 temple light" rotation="-7.144 -168.86 1.44" visible=""></a-entity>
+    <a-entity data-brackets-id="1514" position="-11.27 13.14 105.13" light="angle: 30; color: #d6d7d9; type: spot; castShadow: true; decay: 0.27; intensity: 0.3; penumbra: 1" id="3 temple light" rotation="-7.144 -168.86 1.44" visible=""></a-entity>
 
 
 
