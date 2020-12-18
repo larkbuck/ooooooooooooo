@@ -1,14 +1,8 @@
-// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ BACKGROUND ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-export function Background(scene) {
-    let backgroundConf = {
-        fov: 75,
-    };
-
-
+export function Water(scene){
 
     let vertexShaderStr = `precision mediump float;
-
 varying vec2 vUv;
+varying float vWave;
 uniform float uTime;
 
 //
@@ -117,50 +111,55 @@ void main() {
   vUv = uv;
 
   vec3 pos = position;
-  float noiseFreq = 3.9;
-  float noiseAmp = pos.z+length(uv);
+  float noiseFreq = 3.5;
+  float noiseAmp = 0.15;
   vec3 noisePos = vec3(pos.x * noiseFreq + uTime, pos.y, pos.z);
-float shore = smoothstep(0.,0.5,vUv.y);
-  pos.z += shore*(snoise(noisePos)-0.5*sin(noisePos.x*0.2*noisePos.y) * noiseAmp);
+  pos.y += snoise(noisePos) * noiseAmp*2.;
+ pos.x -= snoise(noisePos) * noiseAmp*20.;
+  vWave = pos.z;
+
   gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
 }`;
 
     let fragmentShaderStr=`precision mediump float;
 varying vec2 vUv;
+varying float vWave;
+uniform sampler2D uTexture;
 uniform float uTime;
-uniform float lightIntensity;
 
 void main() {
- float r = 1.;
-float g = 1.;
-float b = 0.;
-vec3 color = vec3(length(vUv*20.-1.),.4*vUv.y,b);
-  gl_FragColor = vec4(color*vec3(1./(0.2+(1.-lightIntensity))),1.);
-}`
+  float wave = vWave * 0.25;
+  float r = texture2D(uTexture, vUv + vec2(cos(uTime)*.2)).r;
+  float g = texture2D(uTexture, vUv + vec2(sin(uTime*0.2)*.2)).g;
+  float b = texture2D(uTexture, vUv - vec2(sin(uTime)*.2)).b;
+  vec3 texture = vec3(r, g, b);
+  texture/= vec3(1./1.2);
+  gl_FragColor = vec4(texture, 1.);
+}`;
+    let loader = new THREE.TextureLoader();
+    let texture = loader.load('/assets-main/images/water.jpg');
 
     let material = new THREE.ShaderMaterial({
         vertexShader:vertexShaderStr,
         fragmentShader: fragmentShaderStr,
-        color: 0xab6733,
-        emissiveIntensity: 0.9,
-        wireframe:true,
         uniforms: {
             uTime: { value: 0.0 },
-            lightIntensity: {value: 0.5}
+            lightIntensity: {value: 0.5},
+            uTexture: {value: texture},
+
         },
+        side: THREE.DoubleSide,
     });
-    //TODO: see values according to parentdiv
-    let geo = new THREE.PlaneBufferGeometry(30,20,30,10);
-    let plane = new THREE.Mesh(geo, material);
-    plane.rotation.x = -Math.PI / 3.1;
-    plane.position.y = -220;
-    plane.position.z = -300;
-    plane.scale.set(130,50,130);
 
-    scene.add(plane);
+    let geometry = new THREE.SphereBufferGeometry(30,30,30,20);
 
-    this.setLight = function(intensity) {
-        material.uniforms.lightIntensity.value = intensity;
+    const water = new THREE.Mesh( geometry, material );
+    water.scale.set(10,10,10);
+    water.position.set(0,0,0);
 
+
+    this.update = function() {
+        material.uniforms.uTime.value = scene.clock.getElapsedTime()*0.05;
     }
+    scene.add(water)
 }

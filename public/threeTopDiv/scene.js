@@ -4,6 +4,7 @@ import { Triangle, Button, Text} from '/threeTopDiv/infoTriangle.js';
 import { Tide } from '/threeTopDiv/Tide.js';
 import { Background } from '/threeTopDiv/Background.js';
 import { GroupMoons } from '/threeTopDiv/GroupMoons.js';
+import { Sky } from '/threeTopDiv/Sky.js';
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ DEFINE SCENE HELPERS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 function TidePredictor(tide) {
@@ -11,41 +12,39 @@ function TidePredictor(tide) {
   let currentTide = {
     idx: 0,
     date: null,
-    velocity: null,
+      h1: null,
+      h2:null,
+      l1: null,
+      l2: null,
     type: null
   };
 
   this.init = function(json) {
     predictions = JSON.parse(json).predictions;
-    this.updateCurrentTide(null);
-
   }
 
-  this.updateCurrentTide = function(date) {
-    var idx = (date ? (
-      predictions.findIndex(element => Date.parse(element.t) > Date.parse(date))
-    ) : (
-      predictions.findIndex(element => Date.parse(element.t) > Date.now())
-    ));
+    this.update = function(phaseDayIdx) {
+        currentTide.idx = phaseDayIdx*4;
 
-    if (idx != 0) {
-      currentTide.idx = (idx != -1 ? idx - 1 : predictions.length - 1);
-    } else {
-      currentTide.idx = idx;
+        currentTide.date = predictions[currentTide.idx].t;
+        currentTide.h1 = predictions[currentTide.idx].v;
+        currentTide.l1 = predictions[currentTide.idx + 1].v;
+        currentTide.h2 = predictions[currentTide.idx + 2].v;
+        currentTide.l2 = predictions[currentTide.idx + 3].v;
+        currentTide.type = predictions[currentTide.idx].type;
+
+        tide.setTide(currentTide);
     }
-
-    currentTide.date = predictions[currentTide.idx].t;
-    currentTide.velocity = predictions[currentTide.idx].v;
-    currentTide.type = predictions[currentTide.idx].type;
-
-    tide.setTide(currentTide);
-  }
 
 }
 
 
-function MoonPhaseAdmin(background, tide, triangle) {
-  let all_data; let current_phase_idx = null; let fullmoon_idx;
+function MoonPhaseAdmin(background, tide, triangle,sky) {
+    let all_data; let current_phase_idx = null; let fullmoon_idx, fullmoon_hour;
+    const tidePredictor = new TidePredictor(tide);
+    //Initialize current tide
+    const loadTide = (data) => tidePredictor.init(data);
+    getText('/data/tides_hi-lo.JSON', loadTide)
 
   let currentMoon = {
       idx: null,
@@ -74,19 +73,27 @@ function MoonPhaseAdmin(background, tide, triangle) {
       var idx = obj.findIndex(({data}) =>
                               (Date.parse(data[0]["newmoon 0"]["utctime"]) <= day &&
                                day <= Date.parse(data[1]["newmoon 30"]["utctime"])))
-      console.log("fillmon",all_data[idx].data[2]["fullmoon"]["utctime"])
+
+     // console.log("fullmon",all_data[idx].data[2]["fullmoon"]["utctime"])
       current_phase_idx = idx; //Starts in 0
 
       //Get full moon index in array of days
       fullmoon_idx = all_data[idx].data[2]["fullmoon"].idx;
+      fullmoon_hour = all_data[idx].data[2]["fullmoon"].hour+":"
+          + all_data[idx].data[2]["fullmoon"].min +":"
+          + all_data[idx].data[2]["fullmoon"].sec;
 
       //Look for current day
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
+      idx --;
       this.updateMoon(idx);
       groupMoons.setCenter(idx);
 
       //console.log("Phase Idx: ", current_phase_idx)
       //console.log("Day idx:", idx)
+
+
+      tidePredictor.update(idx);
   }
 
     this.updateMoon = function(idx) {
@@ -94,6 +101,7 @@ function MoonPhaseAdmin(background, tide, triangle) {
         currentMoon.idx= idx;
 
         currentMoon.date = days[idx].date;
+
         currentMoon.events = days[idx].events;
         currentMoon.moonphase = days[idx].moonphase;
         currentMoon.img =days[idx].image;
@@ -105,20 +113,29 @@ function MoonPhaseAdmin(background, tide, triangle) {
         background.setLight(intensity);
         triangle.setDate(currentMoon.date);
 
+
+        (idx == fullmoon_idx ?
+         triangle.setFullMoonText(fullmoon_hour) :
+         triangle.clearFullMoonText() )
+
+        sky.setLight(intensity);
     }
 
     this.nextMoon = function() {
         var days = all_data[current_phase_idx].data[3].days;
         let newidx = (currentMoon.idx + 1) % days.length;
         this.updateMoon(newidx); //TODO: fix bounding conditions
+        tidePredictor.update(newidx);
 
         return currentMoon;
     }
+
     this.prevMoon = function() {
         var days = all_data[current_phase_idx].data[3].days
         var newidx = (currentMoon.idx - 1)
         newidx = (newidx < 0 ? days.length - 1 : newidx) //TODO: fix bounding conditions
         this.updateMoon(newidx)
+        tidePredictor.update(newidx);
 
         return currentMoon
     }
@@ -149,6 +166,8 @@ parent.append(renderer.domElement);
 const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+const sky = new Sky(scene);
+
 const triangle = new Triangle(parent, scene,domEvents);
 
 const nextMoonBtn = new Button(scene, 200, 250, 300);
@@ -158,21 +177,18 @@ const background = new Background(scene);
 const tide = new Tide(scene);
 const groupMoons = new GroupMoons(parent, scene);
 
-const tidePredictor = new TidePredictor(tide);
-const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle);
+const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle,sky);
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ EVENTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 domEvents.bind(nextMoonBtn, 'click', () => {
     let currentMoon = moonPhaseAdmin.nextMoon();
     groupMoons.next();
-    tidePredictor.updateCurrentTide(currentMoon.date);
 }, false)
 
 domEvents.bind(prevMoonBtn, 'click', () => {
     let currentMoon = moonPhaseAdmin.prevMoon();
     groupMoons.prev();
-    tidePredictor.updateCurrentTide(currentMoon.date);
 }, false)
 
 
@@ -214,10 +230,6 @@ async function getText(path, onSuccess) {
 const loadMoonPhase = (data) => moonPhaseAdmin.init(data);
 getText('/data/moonPhases.JSON', loadMoonPhase)
 
-//Initialize current tide
-const loadTide = (data) => tidePredictor.init(data);
-getText('/data/tides_hi-lo.JSON', loadTide)
-
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ START ANIMATION ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 scene.clock = new THREE.Clock();
 
@@ -228,4 +240,4 @@ render();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
-const controls = new OrbitControls(camera, renderer.domElement);
+//const controls = new OrbitControls(camera, renderer.domElement);

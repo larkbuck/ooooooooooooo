@@ -28,7 +28,8 @@ export function GroupMoons(parent, scene) {
     for (let i = 1; i < (numberImages+1); i++) {
         // Create a texture loader so we can load our image file
         loader = new THREE.TextureLoader();
-        texture = loader.load('/assets-main/images/moon-128/'+i+'.png');
+        texture = loader.load('/assets-main/images/moon-fuzzy/'+i+'.png');
+
         texture.minFilter = THREE.LinearFilter;
 
         material = new THREE.MeshBasicMaterial({
