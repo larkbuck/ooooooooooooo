@@ -22,7 +22,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   color: #eeeeee;
-  background: #0d0d0d;
+  background: #000;
 }
 
 /* Images are now responsive */
@@ -52,7 +52,7 @@ section, aside {
 }
 
 main {
-  background: #0d0d0d;
+  background: #000;
   padding: 2rem;
 }
 
@@ -239,7 +239,7 @@ main {
 /* https://www.w3schools.com/css/css_dropdowns.asp */
 /* Style The Dropdown Button */
 .dropbtn {
-  background-color: #0d0d0d;
+  background-color: #000;
   color: #eeeeee;
   /* padding: 1rem; */
   font-size: 1rem;
@@ -257,7 +257,7 @@ main {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #0d0d0d;
+  background-color: #000;
   min-width: 160px;
   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   z-index: 1;
@@ -276,7 +276,7 @@ main {
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   /* background-color: #eeeeee
-  color: #0d0d0d; */
+  color: #000; */
 }
 
 /* Show the dropdown menu on hover */
@@ -286,7 +286,7 @@ main {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-  background-color: #0d0d0d;
+  background-color: #000;
 }
 
 /* ********** media queries ********** */
