@@ -17,7 +17,7 @@ export function Door(scene,domEvents){
         wireframe: true,
         opacity: 1,
         side: THREE.DoubleSide,
-        color: 0xff0000
+        color: 0xfaff73
     }) );
     const door = new THREE.Mesh( geometry, material );
 
@@ -51,11 +51,11 @@ export function Door(scene,domEvents){
 
     domEvents.addEventListener(sphere, 'mouseover', function (event) {
         door.visible = true;
-        sphere.material.color.setHex( 0x00ffff );
+        sphere.material.color.setHex( 0x73ffce );
     }, false)
     domEvents.addEventListener(sphere, 'mouseout', function (event) {
         door.visible = false;
-        sphere.material.color.setHex( 0xff0000);
+        sphere.material.color.setHex( 0xfaff73);
     }, false)
 
 
