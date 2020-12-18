@@ -185,9 +185,16 @@ main {
 }
 
 #threejsDiv {
-  border-top: 2px solid #1f1f1f;
+  /* border-top: 2px solid #1f1f1f;
   border-right: 2px solid #1f1f1f;
-  border-left: 2px solid #1f1f1f;
+  border-left: 2px solid #1f1f1f; */
+}
+
+#threejsDivBottom {
+}
+
+#threejsDivBottom canvas{
+  border-radius: 47%;
 }
 
 #p5Div {
