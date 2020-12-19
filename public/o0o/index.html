@@ -7,20 +7,12 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <!-- <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script> -->
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
-
-  <!-- <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script> -->
-  <!-- <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script> -->
 
   <script type="" src="js/threeComponents.js" type="text/javascript"></script>
   <script type="" src="js/water.js" type="text/javascript"></script>
 
   <script src="js/joystick.js"></script>
   <!-- <script src="https://cdn.rawgit.com/mrturck/aframe-joystick/master/joystick.min.js"></script> -->
-  <script src="js/sketch.js"></script>
-
-  <!-- <script src="js/tap-to-teleport.js" type="text/javascript"></script>
-  <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
   <link rel="stylesheet" href="main.css">
 </head>
 
@@ -49,62 +41,55 @@
   //     }
   //   }
   // }
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('a-assets').addEventListener('loaded', function() {
+      console.log('loaded')
+      document.querySelector("#buttonCoverDiv").style.display = "none";
+      // document.querySelector("#animationDiv").style.display = "none";
+      // document.querySelector("#button").style.display = "visible";
+
+    })
+  });
 </script>
 
 <body>
 
 
-  <div id="loading">
-    <div id="button" class="btnDiv">
-      <button onClick='document.querySelector("#loading").style.display = "none"; let entity = document.querySelector("#ambientSound");
-  entity.components.sound.playSound(); let entity2 = document.querySelector("#templeSound");
-entity2.components.sound.playSound();'>
-        💙💦🩸🚪🕳
-        <!-- 💙💦🩸→→→ 🕳 -->
-        <!-- 💙→→→ .o0o. 🕳 -->
-        <!-- (´◑◐`)(´◑◐`)(´◑◐`)(´◑◐`) -->
-      </button>
-    </div>
-    <!-- <div class="scene">
-      <div class="wrapper">
-        <ul class="tunnel">
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-          <li class="ring"></li>
-        </ul>
+  <div id="loadingDiv">
+
+    <div class="" id="buttonCoverDiv">
+      <div class="psoload">
+        <!-- <div class="straight"></div>
+        <div class="curve"></div> -->
+        <div class="center"></div>
+        <div class="inner"></div>
       </div>
     </div>
+    <div id="button" class="btnDiv">
+      <button onClick='document.querySelector("#loadingDiv").style.display = "none"; let entity = document.querySelector("#ambientSound");
+  entity.components.sound.playSound(); let entity2 = document.querySelector("#templeSound");
+entity2.components.sound.playSound();'>
+        🎬 <br />  ✨🚪✨<br /> 🕳
+      </button>
+    </div>
 
-    <div id='bgCanvas'></div> -->
+    <head>
+      <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
+    </head>
 
   </div>
+
+
+
 
 
   <!-- ++++++ JOYSTICK ++++++++ -->
   <!-- <a-scene loading-screen="dotsColor: white; backgroundColor: black"> -->
   <a-scene joystick vr-mode-ui="enabled: false" loading-screen="dotsColor: white; backgroundColor: black">
 
-    <a-assets>
+    <a-assets id="assets" timeout="10000">
       <img id="texture" src="assets/marble.png">
       <img id="texturestand" src="assets/marble3.jpg">
       <img id="water-normal" src="assets/waternormals.jpg" />
@@ -115,8 +100,22 @@ entity2.components.sound.playSound();'>
       <audio id="expanseAudio" src="assets/audio/majorchords3-90s.mp3" preload="auto"></audio>
       <audio id="templeAudio" src="assets/audio/altar1-60s.mp3" preload="auto"></audio>
       <!-- <audio id="templeAudio" src="assets/audio/v4_ooOoo_altar3.mp3" preload="auto"></audio> -->
+      <a-asset-item id="lily" src="assets/scene.gltf"></a-asset-item>
+      <!--- rocks  on landing platform--->
+      <a-asset-item id="rock" src="assets/rock1.gltf"></a-asset-item>
+      <a-asset-item id="rock3" src="assets/rock3.gltf"></a-asset-item>
+      <a-asset-item id="rock4" src="assets/rock4.gltf"></a-asset-item>
+      <a-asset-item id="rock5" src="assets/rock5.gltf"></a-asset-item>
+      <a-asset-item id="rock6" src="assets/rock6.gltf"></a-asset-item>
+      <!--- low poly rocks --->
 
+      <a-asset-item id="rock_low" src="assets/rock1_low.gltf"></a-asset-item>
+      <a-asset-item id="rock3_low" src="assets/rock3_low.gltf"></a-asset-item>
+      <a-asset-item id="rock4_low" src="assets/rock4_low.gltf"></a-asset-item>
+      <a-asset-item id="rock5_low" src="assets/rock5_low.gltf"></a-asset-item>
+      <a-asset-item id="rock6_low" src="assets/rock6_low.gltf"></a-asset-item>
     </a-assets>
+
 
 
     <!-- ☆✼★━━━━━━Audio━━━━━━★✼☆｡  -->
@@ -183,7 +182,7 @@ entity2.components.sound.playSound();'>
     </a-entity>
 
     <!-- right cluster at the top of temple --->
-    <a-entity data-brackets-id="518" position="0 80 300" >
+    <a-entity data-brackets-id="518" position="0 80 300">
 
       <a-entity octahedron="" position="33.35554 70 -133.35466" rotation="33 0 25" animation="property: rotation; to: -327 360 25; loop: true; dur: 10000; easing: easeInOutQuad;" id="light purple"> </a-entity>
 
@@ -272,9 +271,6 @@ entity2.components.sound.playSound();'>
 
     <!-- ☆✼★━━━━━━Lilies━━━━━━★✼☆｡  -->
     <!--- lily  --->
-    <a-assets>
-      <a-asset-item id="lily" src="assets/scene.gltf"></a-asset-item>
-    </a-assets>
 
     <a-entity gltf-model="#lily" position="70 -.3 -100" rotation="0 0 0" scale=".1 .1 .1" shadow="cast: true" id="lily"></a-entity>
 
@@ -595,48 +591,7 @@ entity2.components.sound.playSound();'>
 
     <!-- ☆✼★━━━━━━Rocks━━━━━━★✼☆｡  -->
 
-    <!--- rocks  on landing platform--->
-    <a-assets>
-      <a-asset-item id="rock" src="assets/rock1.gltf"></a-asset-item>
-    </a-assets>
 
-    <a-assets>
-      <a-asset-item id="rock3" src="assets/rock3.gltf"></a-asset-item>
-    </a-assets>
-
-    <a-assets>
-      <a-asset-item id="rock4" src="assets/rock4.gltf"></a-asset-item>
-    </a-assets>
-
-    <a-assets>
-      <a-asset-item id="rock5" src="assets/rock5.gltf"></a-asset-item>
-    </a-assets>
-
-    <a-assets>
-      <a-asset-item id="rock6" src="assets/rock6.gltf"></a-asset-item>
-    </a-assets>
-
-    <!--- low poly rocks --->
-
-    <a-assets>
-      <a-asset-item id="rock_low" src="assets/rock1_low.gltf"></a-asset-item>
-    </a-assets>
-
-    <a-assets>
-      <a-asset-item id="rock3_low" src="assets/rock3_low.gltf"></a-asset-item>
-    </a-assets>
-
-    <a-assets>
-      <a-asset-item id="rock4_low" src="assets/rock4_low.gltf"></a-asset-item>
-    </a-assets>
-
-    <a-assets>
-      <a-asset-item id="rock5_low" src="assets/rock5_low.gltf"></a-asset-item>
-    </a-assets>
-
-    <a-assets>
-      <a-asset-item id="rock6_low" src="assets/rock6_low.gltf"></a-asset-item>
-    </a-assets>
 
     <!--- rock cluster at spawn --->
 
