@@ -87,11 +87,11 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
       idx --;
       this.updateMoon(idx);
-      groupMoons.setCenter(idx);
+      groupMoons.load(all_data,current_phase_idx, idx);
+
 
       //console.log("Phase Idx: ", current_phase_idx)
       //console.log("Day idx:", idx)
-
 
       tidePredictor.update(idx);
   }

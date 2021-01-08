@@ -3,7 +3,7 @@ import json
 import re
 
 DIRECTORY = 'original/'
-IMG_PATH = '/assets-main/images/moon-128/'
+IMG_PATH = '/assets-main/images/moon-fuzzy/'
 
 def write_json(data, filename='moonPhases.JSON'):
     with open(filename,'w') as f:

@@ -17,21 +17,16 @@ export function GroupMoons(parent, scene) {
 
   const group = new THREE.Group();
   group.position.set(centerWheel.x, centerWheel.y)
-  let loader = null;
+  let loader = new THREE.TextureLoader();
   let texture = null;
   let material = null;
   let circle = null;
   let mesh = null;
   let radius = 1500; // reset to parent.clientWidth in resize function
 
-    // Not loading the image 30 when it is initialize
-    for (let i = 1; i < (numberImages+1); i++) {
-        // Create a texture loader so we can load our image file
-        loader = new THREE.TextureLoader();
-        texture = loader.load('/assets-main/images/moon-fuzzy/'+i+'.png');
-
-        texture.minFilter = THREE.LinearFilter;
-
+    //-------------------------------------------------------------------
+    // Initialize moons with empty texture
+    for (let i = 0; i < (numberImages+1); i++) {
         material = new THREE.MeshBasicMaterial({
             map: texture,
             transparent: true,
@@ -40,19 +35,22 @@ export function GroupMoons(parent, scene) {
         });
 
         circle = new THREE.CircleGeometry(imageRadius, 100);
+
         mesh = new THREE.Mesh(circle, material);
+        mesh.name = "circle "+ i;
 
         mesh.position.set(
             (Math.cos(radianInterval * i) * (radius)),
             (Math.sin(-radianInterval * i) * (radius)),
-            // (Math.sin(radianInterval * i) * radius) * .4, // Sol: I tried to make oval but then it did a CRAZY spin
+            //(Math.sin(radianInterval * i) * radius) * .4, // Sol: I tried to make oval but then it did a CRAZY spin
             0);
-
-        // add the image to the group
         group.add(mesh);
     }
 
     scene.add(group);
+
+    //----------------------------------------------------------------
+    //Add moons veil
 
     const shape  = new THREE.Shape()
           .moveTo(0,-200)
@@ -75,7 +73,6 @@ export function GroupMoons(parent, scene) {
 
     loader = new THREE.TextureLoader();
     texture = loader.load('/assets-main/images/veil.jpg');
-    texture.minFilter = THREE.LinearFilter;
 
 
     var material2 = new THREE.MeshBasicMaterial({
@@ -91,26 +88,138 @@ export function GroupMoons(parent, scene) {
     mesh.position.set( 0, 0, 0);
     mesh.scale.set(2,2,2)
     scene.add(mesh)
+    //-------------------------------------------------------------------
+    // Auxiliars
+    let firstPhaseIdx, firstMoonIdx;
+    let lastPhaseIdx, lastMoonIdx;
 
-
-    this.setCenter= function(idx){
-        let origin = 8;
-        var bigStep = (origin + idx - 1) * radianInterval //Check if the -1 is always necsarry or if because the testing phase has 31 days
-        new TWEEN.Tween(group.rotation)
-            .to({
-                z: group.rotation.z + bigStep
-            }, 600)
-            .easing(TWEEN.Easing.Cubic.InOut)
-            .start();
-
-        for (let i = 0; i < group.children.length; i++) {
-            new TWEEN.Tween(group.children[i].rotation)
-                .to({
-                    z: group.children[i].rotation.z - bigStep
-                }, 600)
-                .easing(TWEEN.Easing.Cubic.InOut)
-                .start();
+    this.updateFirst = function(all_data){
+        let idx = firstMoonIdx + 1;
+        if (idx > all_data[firstPhaseIdx].data[3].days.length - 1){ //TODO; check boundary
+            idx = 0;
+            firstPhaseIdx ++;
         }
+        firstMoonIdx = idx;
+    }
+
+    this.updateLast = function(all_data){
+        let idx = lastMoonIdx - 1;
+        if (idx < 0){
+            lastPhaseIdx --;
+            idx = all_data[lastPhaseIdx].data[3].days.length - 1;
+        }
+        lastMoonIdx = idx;
+    }
+
+    this.initIdx = function(currentPhaseIdx,idx){
+        firstPhaseIdx = currentPhaseIdx;
+        lastPhaseIdx = currentPhaseIdx;
+        firstMoonIdx = idx;
+        lastMoonIdx = idx;
+    }
+
+    //////////////////////////////////////////////////////////////
+    this.load = function(all_data, currentPhaseIdx, idx){
+        let days, moon, moonData, newMaterial, texture;
+        this.initIdx(currentPhaseIdx, idx);
+
+        //Central Moon
+        moon =  group.children[22];
+        days = all_data[lastPhaseIdx].data[3].days;
+
+        moonData = days[lastMoonIdx];
+        texture = loader.load(moonData.image);
+        texture.minFilter = THREE.LinearFilter;
+        newMaterial = new THREE.MeshBasicMaterial({
+            map: texture,
+            transparent: true,
+            side: THREE.DoubleSide,
+
+        })
+
+        moon.material = newMaterial;
+        moon.material.map.needsUpdate = true
+
+        // Fill left mid - anticlockwise
+        for (var i = 21; i > 7; i--) {
+            this.updateLast(all_data);
+
+            moon =  group.children[i];
+            days = all_data[lastPhaseIdx].data[3].days;
+            moonData = days[lastMoonIdx];
+           // console.log("new last", lastMoonIdx, moonData.image);
+
+           
+            texture = loader.load(moonData.image);
+            texture.minFilter = THREE.LinearFilter;
+            newMaterial = new THREE.MeshBasicMaterial({
+                map: texture,
+                transparent: true,
+                side: THREE.DoubleSide,
+
+            })
+
+            moon.material = newMaterial;
+            moon.material.map.needsUpdate = true
+
+        }
+
+
+        // Fill upper right quater
+        for (var i = 23; i < group.children.length; i++) {
+            this.updateFirst(all_data);
+
+            moon =  group.children[i];
+            days = all_data[firstPhaseIdx].data[3].days;
+            moonData = days[firstMoonIdx];
+          //  console.log("new first", firstMoonIdx, moonData.image);
+
+            texture = loader.load(moonData.image);
+            texture.minFilter = THREE.LinearFilter;
+            newMaterial = new THREE.MeshBasicMaterial({
+                map: texture,
+                transparent: true,
+                side: THREE.DoubleSide,
+
+            })
+
+            moon.material = newMaterial;
+            moon.material.map.needsUpdate = true
+
+        }
+
+        // Fill lower right quater
+        for (var i = 0; i < 7; i++) {
+            this.updateFirst(all_data);
+
+            moon =  group.children[i];
+            days = all_data[firstPhaseIdx].data[3].days;
+            moonData = days[firstMoonIdx];
+           // console.log("new first", firstMoonIdx, moonData.image);;
+
+            texture = loader.load(moonData.image);
+            texture.minFilter = THREE.LinearFilter;
+            newMaterial = new THREE.MeshBasicMaterial({
+                map: texture,
+                transparent: true,
+                side: THREE.DoubleSide,
+
+            })
+
+            moon.material = newMaterial;
+            moon.material.map.needsUpdate = true
+        }
+        /*
+        //Debug
+        moon =  group.children[24];
+        newMaterial = new THREE.MeshBasicMaterial( {
+            color: 0xff0000,
+            transparent: true,
+            side: THREE.DoubleSide,
+            opacity: 10.3
+        } );
+        moon.material = newMaterial;
+        */
     }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
