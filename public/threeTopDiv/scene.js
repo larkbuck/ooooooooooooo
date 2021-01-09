@@ -42,6 +42,9 @@ function TidePredictor(tide) {
 function MoonPhaseAdmin(background, tide, triangle,sky) {
     let all_data; let current_phase_idx = null; let fullmoon_idx, fullmoon_hour;
     const tidePredictor = new TidePredictor(tide);
+    let firstPhaseIdx, firstMoonIdx;
+    let lastPhaseIdx, lastMoonIdx;
+
     //Initialize current tide
     const loadTide = (data) => tidePredictor.init(data);
     getText('/data/tides_hi-lo.JSON', loadTide)
@@ -61,7 +64,25 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
                  1.-(currentMoon.moonAge - 1)  :
                  currentMoon.moonAge);
       return res;
-  }
+    }
+
+    const updateFirst = function(){
+        let idx = firstMoonIdx + 1;
+        if (idx > all_data[firstPhaseIdx].data[3].days.length - 1){ //TODO; check boundary
+            idx = 0;
+            firstPhaseIdx ++;
+        }
+        firstMoonIdx = idx;
+    }
+
+    const updateLast = function(){
+        let idx = lastMoonIdx - 1;
+        if (idx < 0){
+            lastPhaseIdx --;
+            idx = all_data[lastPhaseIdx].data[3].days.length - 1;
+        }
+        lastMoonIdx = idx;
+    }
 
   this.init = function(json) {
       var obj = JSON.parse(json);
@@ -86,12 +107,56 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       //Look for current day
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
       idx --;
+
       this.updateMoon(idx);
-      groupMoons.load(all_data,current_phase_idx, idx);
-
-
       //console.log("Phase Idx: ", current_phase_idx)
       //console.log("Day idx:", idx)
+
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      // Load all Moon images
+      // Set pointers to `on-load` moons
+      firstPhaseIdx = current_phase_idx;
+      lastPhaseIdx = current_phase_idx;
+      firstMoonIdx = idx;
+      lastMoonIdx = idx;
+
+
+        //Fill Central Moon
+        var centralIdx = 22;
+        groupMoons.loadNewTexture(all_data, centralIdx, current_phase_idx, idx);
+
+        // Fill left mid - anticlockwise
+        for (var i = 21; i > 7; i--) {
+            updateLast();
+            groupMoons.loadNewTexture(all_data, i, lastPhaseIdx, lastMoonIdx);
+        }
+
+
+        // Fill upper right quater
+      for (var i = 23; i < 30; i++) {
+          updateFirst();
+          console.log("first", firstMoonIdx);
+            groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
+
+        }
+
+        // Fill lower right quater
+        for (var i = 0; i < 8; i++) {
+           updateFirst();
+            groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
+        }
+
+        /*
+        //Debug
+        moon =  group.children[24];
+        newMaterial = new THREE.MeshBasicMaterial( {
+            color: 0xff0000,
+            transparent: true,
+            side: THREE.DoubleSide,
+            opacity: 10.3
+        } );
+        moon.material = newMaterial;
+        */
 
       tidePredictor.update(idx);
   }
@@ -120,26 +185,61 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
         sky.setLight(intensity);
     }
-
+    this.loadFirst = function(all_data,current_phase_idx){
+        //Fill first Moon
+        var idx = 6;
+        this.updateFirst(all_data);
+        this.loadNewTexture(all_data, idx, currentPhaseIdx, idx);
+    }
+    const loadFirst = function(){
+        //Fill first Moon
+        var idx = 6;
+        updateFirst();
+        groupMoons.loadNewTexture(all_data, idx, current_phase_idx, idx);
+    }
     this.nextMoon = function() {
         var days = all_data[current_phase_idx].data[3].days;
-        let newidx = (currentMoon.idx + 1) % days.length;
-        this.updateMoon(newidx); //TODO: fix bounding conditions
+        let newidx = currentMoon.idx + 1;
+        if( newidx > days.length - 1 && current_phase_idx < 13){
+            current_phase_idx ++;
+            days = all_data[current_phase_idx].data[3].days;
+            newidx = 0;
+        }
+
+        this.updateMoon(newidx);
+        //TODO;
+        //i- maybe show popup/warning for first?
+        //ii- assets 29|30 days
+
         tidePredictor.update(newidx);
 
-        groupMoons.loadFirst(all_data);
+        loadFirst();
 
         return currentMoon;
     }
 
+
+    const loadLast = function(){
+        //Fill last Moon
+        var idx = 7;
+        updateLast();
+        groupMoons.loadNewTexture(all_data, idx, current_phase_idx, idx);
+    }
     this.prevMoon = function() {
         var days = all_data[current_phase_idx].data[3].days
         var newidx = (currentMoon.idx - 1)
-        newidx = (newidx < 0 ? days.length - 1 : newidx) //TODO: fix bounding conditions
-        this.updateMoon(newidx)
+
+        if( newidx > days.length - 1 && current_phase_idx > 0){
+            current_phase_idx --;
+            days = all_data[current_phase_idx].data[3].days;
+            newidx = days.length - 1;
+        }
+
+
+        this.updateMoon(newidx);
         tidePredictor.update(newidx);
 
-        groupMoons.loadLast(all_data);
+        loadLast();
 
         return currentMoon
     }

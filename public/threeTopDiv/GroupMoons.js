@@ -95,35 +95,8 @@ export function GroupMoons(parent, scene) {
     mesh.position.set( 0, 0, 0);
     mesh.scale.set(2,2,2)
     scene.add(mesh)
+
     //-------------------------------------------------------------------
-    // Auxiliars
-    let firstPhaseIdx, firstMoonIdx;
-    let lastPhaseIdx, lastMoonIdx;
-
-    this.initIdx = function(currentPhaseIdx,idx){
-        firstPhaseIdx = currentPhaseIdx;
-        lastPhaseIdx = currentPhaseIdx;
-        firstMoonIdx = idx;
-        lastMoonIdx = idx;
-    }
-
-    this.updateFirst = function(all_data){
-        let idx = firstMoonIdx + 1;
-        if (idx > all_data[firstPhaseIdx].data[3].days.length - 1){ //TODO; check boundary
-            idx = 0;
-            firstPhaseIdx ++;
-        }
-        firstMoonIdx = idx;
-    }
-
-    this.updateLast = function(all_data){
-        let idx = lastMoonIdx - 1;
-        if (idx < 0){
-            lastPhaseIdx --;
-            idx = all_data[lastPhaseIdx].data[3].days.length - 1;
-        }
-        lastMoonIdx = idx;
-    }
 
     this.loadNewTexture = function(all_data, idx, phaseIdx, dataIdx) {
         let moon, days, moonData,newMaterial,texture;
@@ -146,43 +119,6 @@ export function GroupMoons(parent, scene) {
 
     }
     //////////////////////////////////////////////////////////////
-    this.load = function(all_data, currentPhaseIdx, idx){
-        this.initIdx(currentPhaseIdx, idx);
-        //Fill Central Moon
-        var centralIdx = 22;
-        this.loadNewTexture(all_data, centralIdx, currentPhaseIdx, idx);
-
-        // Fill left mid - anticlockwise
-        for (var i = 21; i > 7; i--) {
-            this.updateLast(all_data);
-            this.loadNewTexture(all_data, i, lastPhaseIdx, lastMoonIdx);
-        }
-
-
-        // Fill upper right quater
-        for (var i = 23; i < group.children.length; i++) {
-            this.updateFirst(all_data);
-            this.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
-
-        }
-
-        // Fill lower right quater
-        for (var i = 0; i < 7; i++) {
-            this.updateFirst(all_data);
-            this.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
-        }
-        /*
-        //Debug
-        moon =  group.children[24];
-        newMaterial = new THREE.MeshBasicMaterial( {
-            color: 0xff0000,
-            transparent: true,
-            side: THREE.DoubleSide,
-            opacity: 10.3
-        } );
-        moon.material = newMaterial;
-        */
-    }
 
     this.loadFirst = function(all_data,currentPhaseIdx){
         //Fill first Moon
@@ -253,4 +189,8 @@ export function GroupMoons(parent, scene) {
     radius = width;
     imageRadius = width * 0.08;
   }
+
+    this.group = function(){
+        return group;
+    }
 }
