@@ -1,4 +1,26 @@
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INFORMATION TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
+
+
 export function Button(scene, x1, x2, y, delta, invert = false,path="button") {
     let loader  = new THREE.TextureLoader()
     let texture = loader.load('/assets-main/images/'+path+'.png');
@@ -21,7 +43,7 @@ export function Button(scene, x1, x2, y, delta, invert = false,path="button") {
   button.faces.push(new THREE.Face3(0, 1, 2));
 
     var meshButton = new THREE.Mesh(button,  new THREE.MeshBasicMaterial({
-        map:texture,
+        wireframe:true,
         opacity: 1,
         transparent: true,
         side: THREE.DoubleSide
@@ -43,10 +65,16 @@ export function Button(scene, x1, x2, y, delta, invert = false,path="button") {
 }
 
 
-export function Text(scene, x, y, width,height) {
+export function Text(scene, x, y, width,height,fontSize) {
     var canvas = document.createElement('canvas');
     canvas.height = height;
+    var scaleFactorM=0.0357;
+    var scaleFactorT=-0.01;
   var context = canvas.getContext('2d');
+    if (isMobile.any()) {
+        scaleFactorM = 0.7
+        scaleFactorT = 0.7
+    }
 
     this.generateMoon = function(){
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -58,27 +86,29 @@ export function Text(scene, x, y, width,height) {
         l5=`  °☆.。.: * °☆  `
         l6=`    °☆ .。*☆    `
 
-        context.font = " Bold 30px Courier";
+        context.font = " Bold "+fontSize+"px Courier";
         context.fillStyle = "#FFFFFF";
         context.maxHeight= height;
-        context.fillText(l1, 10, 20);
-        context.fillText(l2, 10, 45);
-        context.fillText(l3, 10, 60);
-        context.fillText(l4, 10, 85);
-        context.fillText(l5, 10, 110);
-        context.fillText(l6, 10, 135);
-        context.fillText(`＊~.full moon.~＊`, 0, 200);
+        context.fillText(l1, width * scaleFactorM, height * 0.140);
+        context.fillText(l2, width * scaleFactorM, height * 0.1975);
+        context.fillText(l3, width * scaleFactorM, height * 0.275625);
+        context.fillText(l4, width * scaleFactorM, height * 0.3537);
+        context.fillText(l5, width * scaleFactorM, height * 0.431);
+        context.fillText(l6, width * scaleFactorM, height * 0.47875);
+        context.font = " Bold "+fontSize*1.2+"px Courier";
+        context.fillText(`*~.full moon.°`, scaleFactorT*width,  width * 0.85);
 
         texture.needsUpdate = true;
     }
 
   this.generateText = function(text) {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.font = "Bold 40px Courier";
-    context.fillStyle = "#FFFFFF";
-    context.maxWidth = width;
-    context.maxHeight= width;
-    context.fillText(text, 10, 90);
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      console.log(width)
+      context.font = "Bold "+fontSize+"px Courier";
+      context.fillStyle = "#FFFFFF";
+      context.maxWidth = width;
+      context.maxHeight= width;
+      context.fillText(text,scaleFactorT*width, 0.42*width);
   }
 
   var texture = new THREE.Texture(canvas)
@@ -94,7 +124,7 @@ export function Text(scene, x, y, width,height) {
     material
   );
     mesh.position.set(x,y, 0);
-  scene.add(mesh);
+    scene.add(mesh);
 
   this.update = function(newText) {
     this.generateText(newText);
@@ -133,10 +163,9 @@ export function Triangle(parent, scene) {
     let w = parent.clientWidth;
     let h = parent.clientHeight;
 
-    const dateText = new Text(scene, w * 0.03, h * 0.3, w*0.35, w*0.3 );
-    const fullmoonText = new Text(scene,  w * 0.01, 0.,  w*0.35, w*0.4);
-    const hourText = new Text(scene, w * 0.08, -h * 0.32, w*0.35, w*0.3);
-
+    const dateText = new Text(scene, w * 0.03, h * 0.3, w*0.35, w*0.3,w*0.0625);
+    const fullmoonText = new Text(scene,  w * 0.01, 0.,  w*0.35, w*0.4,w*0.0375);
+    const hourText = new Text(scene, w * 0.08, -h * 0.32, w*0.35, w*0.3,w*0.0625);
 
     this.setDate = function(newText) {
       dateText.update(newText);
@@ -144,9 +173,9 @@ export function Triangle(parent, scene) {
 
 
     this.setFullMoonText = function(hour){
-        fullmoonText.clear();
-        fullmoonText.generateMoon();
-        hourText.update(hour);
+       fullmoonText.clear();
+       fullmoonText.generateMoon();
+       hourText.update(hour);
     }
 
     this.clearFullMoonText = function(){

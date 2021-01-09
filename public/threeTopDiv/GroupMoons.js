@@ -3,7 +3,6 @@
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ MOONS  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
-
 export function GroupMoons(parent, scene) {
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -16,7 +15,7 @@ export function GroupMoons(parent, scene) {
     x: -imageRadius*0.8, //temporal fix for display moon in center of triangle
     y: -parent.clientHeight * 2.8 - imageRadius
   }
-
+ //Geometric Structure
   const group = new THREE.Group();
   group.position.set(centerWheel.x, centerWheel.y)
   let loader = new THREE.TextureLoader();
@@ -25,14 +24,13 @@ export function GroupMoons(parent, scene) {
   let circle = null;
   let mesh = null;
   let radius = parent.clientWidth * 2.5;
+ // Array showing current moons information
+  var groupData = new Array(29);
 
     //-------------------------------------------------------------------
     // Initialize moons with empty texture
     for (let i = 0; i < (numberImages+1); i++) {
         material = new THREE.MeshBasicMaterial({
-            map: texture,
-            transparent: true,
-            opacity: 1,
 
         });
 
@@ -99,6 +97,7 @@ export function GroupMoons(parent, scene) {
         moon =  group.children[idx];
         days = all_data[phaseIdx].data[3].days;
         moonData = days[dataIdx];
+        groupData[idx] = moonData;
 
         texture = loader.load(moonData.image);
         texture.minFilter = THREE.LinearFilter;
@@ -112,6 +111,23 @@ export function GroupMoons(parent, scene) {
         moon.material = newMaterial;
         moon.material.map.needsUpdate = true
 
+    }
+    this.showChild = function(idx){
+        console.log(groupData[idx], group.children[idx])
+    }
+
+    this.debugMoon = function(all_data,idx,phaseIdx){
+        let moon =  group.children[idx];
+        let old = moon.material;
+        let days = all_data[phaseIdx].data[3].days;
+
+        let newMat = new THREE.MeshBasicMaterial({
+            color: 0xff0000,
+            transparent: true,
+            side: THREE.DoubleSide,
+        });
+
+        moon.material = newMat;
     }
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

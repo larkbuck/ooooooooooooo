@@ -24,6 +24,8 @@ function TidePredictor(tide) {
   }
 
     this.update = function(phaseDayIdx) {
+        if(phaseDayIdx>29) phaseDayIdx=29;
+
         currentTide.idx = phaseDayIdx*4;
 
         currentTide.date = predictions[currentTide.idx].t;
@@ -114,49 +116,37 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       // Load all Moon images
-      // Set pointers to `on-load` moons
+
+      // Initialize pointers to `pre-load` moons
       firstPhaseIdx = current_phase_idx;
       lastPhaseIdx = current_phase_idx;
       firstMoonIdx = idx;
       lastMoonIdx = idx;
 
 
-        //Fill Central Moon
-        var centralIdx = 22;
-        groupMoons.loadNewTexture(all_data, centralIdx, current_phase_idx, idx);
+      //Fill Central Moon
+      var centralIdx = 7;
+      groupMoons.loadNewTexture(all_data, centralIdx, current_phase_idx, idx);
 
         // Fill left mid - anticlockwise
-        for (var i = 21; i > 7; i--) {
-            updateLast();
-            groupMoons.loadNewTexture(all_data, i, lastPhaseIdx, lastMoonIdx);
-        }
-
+      for (var i = centralIdx + 1 ; i < 22; i++) {
+          updateLast();
+          groupMoons.loadNewTexture(all_data, i, lastPhaseIdx, lastMoonIdx);
+      }
 
         // Fill upper right quater
-      for (var i = 23; i < 30; i++) {
+      for (var i = centralIdx - 1; i >= 0; i--) {
           updateFirst();
-          console.log("first", firstMoonIdx);
-            groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
+          groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
 
-        }
+      }
 
         // Fill lower right quater
-        for (var i = 0; i < 8; i++) {
+        for (var i = 29; i > 21; i--) {
            updateFirst();
-            groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
+           groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
         }
-
-        /*
-        //Debug
-        moon =  group.children[24];
-        newMaterial = new THREE.MeshBasicMaterial( {
-            color: 0xff0000,
-            transparent: true,
-            side: THREE.DoubleSide,
-            opacity: 10.3
-        } );
-        moon.material = newMaterial;
-        */
+      groupMoons.showChild(22);
 
       tidePredictor.update(idx);
   }
@@ -185,18 +175,14 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
         sky.setLight(intensity);
     }
-    this.loadFirst = function(all_data,current_phase_idx){
+
+   const loadFirst = function(){
         //Fill first Moon
-        var idx = 6;
-        this.updateFirst(all_data);
-        this.loadNewTexture(all_data, idx, currentPhaseIdx, idx);
-    }
-    const loadFirst = function(){
-        //Fill first Moon
-        var idx = 6;
+        var idx = 22;
         updateFirst();
         groupMoons.loadNewTexture(all_data, idx, current_phase_idx, idx);
-    }
+   }
+
     this.nextMoon = function() {
         var days = all_data[current_phase_idx].data[3].days;
         let newidx = currentMoon.idx + 1;
@@ -221,10 +207,11 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
     const loadLast = function(){
         //Fill last Moon
-        var idx = 7;
+        var idx = 21;
         updateLast();
         groupMoons.loadNewTexture(all_data, idx, current_phase_idx, idx);
     }
+
     this.prevMoon = function() {
         var days = all_data[current_phase_idx].data[3].days
         var newidx = (currentMoon.idx - 1)
@@ -273,9 +260,8 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 const sky = new Sky(scene);
 
 const triangle = new Triangle(parent,scene,domEvents);
-console.log(width,height)
-const nextMoonBtn = new Button(scene, width*0.25, width*0.3, height*0.3,width*0.05);
-const prevMoonBtn = new Button(scene, -width*0.25, -width*0.3, height*0.3,width*0.05, true);
+const nextMoonBtn = new Button(scene, width*0.25, width*0.32, height*0.3,width*0.05);
+const prevMoonBtn = new Button(scene, -width*0.25, -width*0.32, height*0.3,width*0.05, true);
 
 const background = new Background(scene,width, height);
 const tide = new Tide(scene,width, height);
