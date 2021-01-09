@@ -250,7 +250,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
 const parent = document.querySelector('#threejsDiv');
 let width = parent.clientWidth;
-let height = parent.clientWidth * .66;
+let height = parent.clientWidth * 1.2;
 
 const scene = new THREE.Scene();
 
