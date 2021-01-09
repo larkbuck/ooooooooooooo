@@ -2,6 +2,13 @@
 // const TWEEN = require('@tweenjs/tween.js') >> installed TWEEN thru NPM but not recognizing "require" - prob need to import. For now, linking to TWEEN in index.html
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ MOONS  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
+
+function Moon(){
+
+
+}
+
+
 export function GroupMoons(parent, scene) {
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -93,6 +100,13 @@ export function GroupMoons(parent, scene) {
     let firstPhaseIdx, firstMoonIdx;
     let lastPhaseIdx, lastMoonIdx;
 
+    this.initIdx = function(currentPhaseIdx,idx){
+        firstPhaseIdx = currentPhaseIdx;
+        lastPhaseIdx = currentPhaseIdx;
+        firstMoonIdx = idx;
+        lastMoonIdx = idx;
+    }
+
     this.updateFirst = function(all_data){
         let idx = firstMoonIdx + 1;
         if (idx > all_data[firstPhaseIdx].data[3].days.length - 1){ //TODO; check boundary
@@ -111,23 +125,13 @@ export function GroupMoons(parent, scene) {
         lastMoonIdx = idx;
     }
 
-    this.initIdx = function(currentPhaseIdx,idx){
-        firstPhaseIdx = currentPhaseIdx;
-        lastPhaseIdx = currentPhaseIdx;
-        firstMoonIdx = idx;
-        lastMoonIdx = idx;
-    }
+    this.loadNewTexture = function(all_data, idx, phaseIdx, dataIdx) {
+        let moon, days, moonData,newMaterial,texture;
 
-    //////////////////////////////////////////////////////////////
-    this.load = function(all_data, currentPhaseIdx, idx){
-        let days, moon, moonData, newMaterial, texture;
-        this.initIdx(currentPhaseIdx, idx);
+        moon =  group.children[idx];
+        days = all_data[phaseIdx].data[3].days;
+        moonData = days[dataIdx];
 
-        //Central Moon
-        moon =  group.children[22];
-        days = all_data[lastPhaseIdx].data[3].days;
-
-        moonData = days[lastMoonIdx];
         texture = loader.load(moonData.image);
         texture.minFilter = THREE.LinearFilter;
         newMaterial = new THREE.MeshBasicMaterial({
@@ -140,74 +144,32 @@ export function GroupMoons(parent, scene) {
         moon.material = newMaterial;
         moon.material.map.needsUpdate = true
 
+    }
+    //////////////////////////////////////////////////////////////
+    this.load = function(all_data, currentPhaseIdx, idx){
+        this.initIdx(currentPhaseIdx, idx);
+        //Fill Central Moon
+        var centralIdx = 22;
+        this.loadNewTexture(all_data, centralIdx, currentPhaseIdx, idx);
+
         // Fill left mid - anticlockwise
         for (var i = 21; i > 7; i--) {
             this.updateLast(all_data);
-
-            moon =  group.children[i];
-            days = all_data[lastPhaseIdx].data[3].days;
-            moonData = days[lastMoonIdx];
-           // console.log("new last", lastMoonIdx, moonData.image);
-
-           
-            texture = loader.load(moonData.image);
-            texture.minFilter = THREE.LinearFilter;
-            newMaterial = new THREE.MeshBasicMaterial({
-                map: texture,
-                transparent: true,
-                side: THREE.DoubleSide,
-
-            })
-
-            moon.material = newMaterial;
-            moon.material.map.needsUpdate = true
-
+            this.loadNewTexture(all_data, i, lastPhaseIdx, lastMoonIdx);
         }
 
 
         // Fill upper right quater
         for (var i = 23; i < group.children.length; i++) {
             this.updateFirst(all_data);
-
-            moon =  group.children[i];
-            days = all_data[firstPhaseIdx].data[3].days;
-            moonData = days[firstMoonIdx];
-          //  console.log("new first", firstMoonIdx, moonData.image);
-
-            texture = loader.load(moonData.image);
-            texture.minFilter = THREE.LinearFilter;
-            newMaterial = new THREE.MeshBasicMaterial({
-                map: texture,
-                transparent: true,
-                side: THREE.DoubleSide,
-
-            })
-
-            moon.material = newMaterial;
-            moon.material.map.needsUpdate = true
+            this.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
 
         }
 
         // Fill lower right quater
         for (var i = 0; i < 7; i++) {
             this.updateFirst(all_data);
-
-            moon =  group.children[i];
-            days = all_data[firstPhaseIdx].data[3].days;
-            moonData = days[firstMoonIdx];
-           // console.log("new first", firstMoonIdx, moonData.image);;
-
-            texture = loader.load(moonData.image);
-            texture.minFilter = THREE.LinearFilter;
-            newMaterial = new THREE.MeshBasicMaterial({
-                map: texture,
-                transparent: true,
-                side: THREE.DoubleSide,
-
-            })
-
-            moon.material = newMaterial;
-            moon.material.map.needsUpdate = true
+            this.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
         }
         /*
         //Debug
@@ -220,6 +182,20 @@ export function GroupMoons(parent, scene) {
         } );
         moon.material = newMaterial;
         */
+    }
+
+    this.loadFirst = function(all_data,currentPhaseIdx){
+        //Fill first Moon
+        var idx = 6;
+        this.updateFirst(all_data);
+        this.loadNewTexture(all_data, idx, currentPhaseIdx, idx);
+    }
+
+    this.loadLast = function(all_data,currentPhaseIdx){
+        //Fill last Moon
+        var idx = 7;
+        this.updateLast(all_data);
+        this.loadNewTexture(all_data, idx, currentPhaseIdx, idx);
     }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

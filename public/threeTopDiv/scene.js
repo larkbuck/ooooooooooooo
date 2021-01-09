@@ -127,6 +127,8 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         this.updateMoon(newidx); //TODO: fix bounding conditions
         tidePredictor.update(newidx);
 
+        groupMoons.loadFirst(all_data);
+
         return currentMoon;
     }
 
@@ -136,6 +138,8 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         newidx = (newidx < 0 ? days.length - 1 : newidx) //TODO: fix bounding conditions
         this.updateMoon(newidx)
         tidePredictor.update(newidx);
+
+        groupMoons.loadLast(all_data);
 
         return currentMoon
     }
@@ -240,4 +244,4 @@ render();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
-//const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
