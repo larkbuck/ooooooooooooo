@@ -92,7 +92,7 @@ vec3 color = mix(vec3(r,g,b)/vec3(1./1.8), lines, 0.);
     plane.rotation.x = -Math.PI / 2 -0.2;
     plane.position.y = -height *0.1;
     plane.position.z = width * 0.62;
-    plane.scale.set(50,50,50)
+    plane.scale.set(width* 0.0625,width* 0.0625,width* 0.0625)
     scene.add(plane);
 
 

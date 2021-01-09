@@ -155,7 +155,7 @@ vec3 color = vec3(length(vUv*20.-1.),.4*vUv.y,b);
     plane.rotation.x = -Math.PI / 3.1;
     plane.position.y = -height*0.15;
     plane.position.z = -width*0.3;
-    plane.scale.set(130,50,130);
+    plane.scale.set(width*.163,width*0.0625,width*.163);
 
     scene.add(plane);
 

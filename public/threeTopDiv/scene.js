@@ -273,9 +273,9 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 const sky = new Sky(scene);
 
 const triangle = new Triangle(parent,scene,domEvents);
-
-const nextMoonBtn = new Button(scene, 200, 250, 300);
-const prevMoonBtn = new Button(scene, -200, -250, 300, true);
+console.log(width,height)
+const nextMoonBtn = new Button(scene, width*0.25, width*0.3, height*0.3,width*0.05);
+const prevMoonBtn = new Button(scene, -width*0.25, -width*0.3, height*0.3,width*0.05, true);
 
 const background = new Background(scene,width, height);
 const tide = new Tide(scene,width, height);

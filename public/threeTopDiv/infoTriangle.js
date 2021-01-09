@@ -1,5 +1,5 @@
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INFORMATION TRIANGLE ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-export function Button(scene, x1, x2, y, invert = false,path="button") {
+export function Button(scene, x1, x2, y, delta, invert = false,path="button") {
     let loader  = new THREE.TextureLoader()
     let texture = loader.load('/assets-main/images/'+path+'.png');
     texture.minFilter = THREE.LinearFilter;
@@ -7,20 +7,19 @@ export function Button(scene, x1, x2, y, invert = false,path="button") {
   const button = new THREE.Geometry();
   (invert ?
     button.vertices.push(
-      new THREE.Vector3(x1, y - 50, 0),
-      new THREE.Vector3(x1, y + 50, 0),
+      new THREE.Vector3(x1, y - delta, 0),
+      new THREE.Vector3(x1, y + delta, 0),
       new THREE.Vector3(x2, y, 0)
 
     ) :
     button.vertices.push(
-      new THREE.Vector3(x1, y - 50, 0),
+      new THREE.Vector3(x1, y - delta, 0),
       new THREE.Vector3(x2, y, 0),
-      new THREE.Vector3(x1, y + 50, 0),
+      new THREE.Vector3(x1, y + delta, 0),
     ))
 
   button.faces.push(new THREE.Face3(0, 1, 2));
 
-  button.computeBoundingSphere();
     var meshButton = new THREE.Mesh(button,  new THREE.MeshBasicMaterial({
         map:texture,
         opacity: 1,
