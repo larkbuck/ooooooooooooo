@@ -255,7 +255,7 @@ let height = parent.clientWidth * 1.2;
 const scene = new THREE.Scene();
 
 let camera = new THREE.PerspectiveCamera(75, 1 / .66, 0.1, 2000);
-camera.position.z = 1000;
+camera.position.z = width;
 
 const renderer = new THREE.WebGLRenderer({
   parent,
@@ -272,13 +272,13 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 const sky = new Sky(scene);
 
-const triangle = new Triangle(parent, scene,domEvents);
+const triangle = new Triangle(parent,scene,domEvents);
 
 const nextMoonBtn = new Button(scene, 200, 250, 300);
 const prevMoonBtn = new Button(scene, -200, -250, 300, true);
-console.log(nextMoonBtn)
-const background = new Background(scene);
-const tide = new Tide(scene);
+
+const background = new Background(scene,width, height);
+const tide = new Tide(scene,width, height);
 const groupMoons = new GroupMoons(parent, scene);
 
 const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle,sky);

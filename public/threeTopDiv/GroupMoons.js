@@ -3,23 +3,18 @@
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ MOONS  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
-function Moon(){
-
-
-}
-
 
 export function GroupMoons(parent, scene) {
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Initialization
-  let imageRadius = parent.clientWidth * .08;
+  let imageRadius = parent.clientWidth * .15;
   const numberImages = 29;
   const radianInterval = (2.0 * Math.PI) / numberImages;
 
   const centerWheel = {
-    x: -imageRadius, //temporal fix for display moon in center of triangle
-    y: -900 - imageRadius
+    x: -imageRadius*0.8, //temporal fix for display moon in center of triangle
+    y: -parent.clientHeight * 2.8 - imageRadius
   }
 
   const group = new THREE.Group();
@@ -29,7 +24,7 @@ export function GroupMoons(parent, scene) {
   let material = null;
   let circle = null;
   let mesh = null;
-  let radius = 1500; // reset to parent.clientWidth in resize function
+  let radius = parent.clientWidth * 2.5;
 
     //-------------------------------------------------------------------
     // Initialize moons with empty texture
@@ -44,12 +39,12 @@ export function GroupMoons(parent, scene) {
         circle = new THREE.CircleGeometry(imageRadius, 100);
 
         mesh = new THREE.Mesh(circle, material);
+        mesh.scale.setY(parent.clientHeight/parent.clientWidth)
         mesh.name = "circle "+ i;
 
         mesh.position.set(
-            (Math.cos(radianInterval * i) * (radius)),
-            (Math.sin(-radianInterval * i) * (radius)),
-            //(Math.sin(radianInterval * i) * radius) * .4, // Sol: I tried to make oval but then it did a CRAZY spin
+            (Math.cos(radianInterval * i) * radius),
+            (Math.sin(radianInterval * i) * radius),
             0);
         group.add(mesh);
     }
@@ -58,7 +53,7 @@ export function GroupMoons(parent, scene) {
 
     //----------------------------------------------------------------
     //Add moons veil
-
+    /*
     const shape  = new THREE.Shape()
           .moveTo(0,-200)
 		  .lineTo(-800, -200 )
@@ -66,12 +61,12 @@ export function GroupMoons(parent, scene) {
           .lineTo(800,400)
           .lineTo(800,-200)
 
-    /*Maybe usefull for other veil?
+    //Maybe usefull for other veil?
       const moonEye = new THREE.Path()
 		  .moveTo( 0, -100 )
 		  .absellipse( 0, 250, 55, 55, 0, Math.PI * 2, true );
 
-    shape.holes.push(moonEye)*/
+    shape.holes.push(moonEye)
     const triangle  = new THREE.Shape()
           .moveTo(-430,-200)
           .lineTo(0, 380)
@@ -95,7 +90,7 @@ export function GroupMoons(parent, scene) {
     mesh.position.set( 0, 0, 0);
     mesh.scale.set(2,2,2)
     scene.add(mesh)
-
+    */
     //-------------------------------------------------------------------
 
     this.loadNewTexture = function(all_data, idx, phaseIdx, dataIdx) {
@@ -118,23 +113,8 @@ export function GroupMoons(parent, scene) {
         moon.material.map.needsUpdate = true
 
     }
-    //////////////////////////////////////////////////////////////
 
-    this.loadFirst = function(all_data,currentPhaseIdx){
-        //Fill first Moon
-        var idx = 6;
-        this.updateFirst(all_data);
-        this.loadNewTexture(all_data, idx, currentPhaseIdx, idx);
-    }
-
-    this.loadLast = function(all_data,currentPhaseIdx){
-        //Fill last Moon
-        var idx = 7;
-        this.updateLast(all_data);
-        this.loadNewTexture(all_data, idx, currentPhaseIdx, idx);
-    }
-
-  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Event Listeners
 
   // ***** snap back functionality ****

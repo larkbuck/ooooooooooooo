@@ -1,5 +1,5 @@
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ TIDE  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-export function Tide(scene) {
+export function Tide(scene,width, height) {
 
     let TideConf = {
         lightIntensity: 0.9,
@@ -90,8 +90,8 @@ vec3 color = mix(vec3(r,g,b)/vec3(1./1.8), lines, 0.);
     let geo = new THREE.PlaneBufferGeometry(20,20,20,20);
     let plane = new THREE.Mesh(geo, material);
     plane.rotation.x = -Math.PI / 2 -0.2;
-    plane.position.y = -180;
-    plane.position.z = 500;
+    plane.position.y = -height *0.1;
+    plane.position.z = width * 0.62;
     plane.scale.set(50,50,50)
     scene.add(plane);
 

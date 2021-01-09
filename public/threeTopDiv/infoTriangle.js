@@ -44,7 +44,7 @@ export function Button(scene, x1, x2, y, invert = false,path="button") {
 }
 
 
-export function Text(scene, x=20,y=300,width=300,height=350) {
+export function Text(scene, x, y, width,height) {
     var canvas = document.createElement('canvas');
     canvas.height = height;
   var context = canvas.getContext('2d');
@@ -52,14 +52,14 @@ export function Text(scene, x=20,y=300,width=300,height=350) {
     this.generateMoon = function(){
         context.clearRect(0, 0, canvas.width, canvas.height);
         let l1,l2,l3,l4,l5,l6;
-        l1=`      . :*・°☆     `
-        l2=`    °☆ ☆.:.: °☆  `
-        l3=`   °☆.。.::*・° ☆ `
-        l4=`   °☆.。.:...・°☆ `
-        l5=`    °☆.。.: * °☆  `
-        l6=`      °☆ .。*☆    `
+        l1=`    . :*・°☆     `
+        l2=`  °☆ ☆.:.: °☆  `
+        l3=` °☆.。.::*・° ☆ `
+        l4=` °☆.。.:...・°☆ `
+        l5=`  °☆.。.: * °☆  `
+        l6=`    °☆ .。*☆    `
 
-        context.font = " Bold 20px Courier";
+        context.font = " Bold 30px Courier";
         context.fillStyle = "#FFFFFF";
         context.maxHeight= height;
         context.fillText(l1, 10, 20);
@@ -68,14 +68,14 @@ export function Text(scene, x=20,y=300,width=300,height=350) {
         context.fillText(l4, 10, 85);
         context.fillText(l5, 10, 110);
         context.fillText(l6, 10, 135);
-        context.fillText(`*＊~.+.full moon.+.~＊*`, 5, 185);
+        context.fillText(`＊~.full moon.~＊`, 0, 200);
 
         texture.needsUpdate = true;
     }
 
   this.generateText = function(text) {
     context.clearRect(0, 0, canvas.width, canvas.height);
-      context.font = "Bold 40px Courier";
+    context.font = "Bold 40px Courier";
     context.fillStyle = "#FFFFFF";
     context.maxWidth = width;
     context.maxHeight= width;
@@ -111,11 +111,12 @@ export function Text(scene, x=20,y=300,width=300,height=350) {
 
 export function Triangle(parent, scene) {
     const geometry = new THREE.Geometry();
-    let scale = 1.15;
+    let scaleX = 1.5;
+    let scaleY = 1.8
     geometry.vertices.push(
-        new THREE.Vector3(0, parent.clientHeight * scale, 0),
-        new THREE.Vector3(-parent.clientWidth * scale, -parent.clientHeight * scale, 0),
-        new THREE.Vector3(parent.clientWidth * scale, -parent.clientHeight * scale, 0)
+        new THREE.Vector3(0, parent.clientHeight * scaleY, 0),
+        new THREE.Vector3(-parent.clientWidth * scaleX, -parent.clientHeight * scaleX, 0),
+        new THREE.Vector3(parent.clientWidth * scaleX, -parent.clientHeight * scaleX, 0)
     );
 
     geometry.faces.push(new THREE.Face3(0, 1, 2));
@@ -126,11 +127,16 @@ export function Triangle(parent, scene) {
         transparent: true
     }));
     mesh.position.z = 0;
+
+    mesh.scale.setY(parent.clientHeight/parent.clientWidth)
     scene.add(mesh);
 
-    const dateText = new Text(scene);
-    const fullmoonText = new Text(scene, 20,100);
-    const hourText = new Text(scene,50, -100);
+    let w = parent.clientWidth;
+    let h = parent.clientHeight;
+
+    const dateText = new Text(scene, w * 0.03, h * 0.3, w*0.35, w*0.3 );
+    const fullmoonText = new Text(scene,  w * 0.01, 0.,  w*0.35, w*0.4);
+    const hourText = new Text(scene, w * 0.08, -h * 0.32, w*0.35, w*0.3);
 
 
     this.setDate = function(newText) {
