@@ -328,7 +328,15 @@ domEvents.bind(prevMoonBtn, 'click', () => {
     groupMoons.prev();
 }, false)
 
+document.querySelector("#prevMoonBtn").addEventListener('click', () => {
+    let currentMoon = moonPhaseAdmin.prevMoon();
+    groupMoons.prev();
+}, false)
 
+document.querySelector("#nextMoonBtn").addEventListener('click', () => {
+    let currentMoon = moonPhaseAdmin.prevMoon();
+    groupMoons.prev();
+}, false)
 
 // ******** animation loop *******
 const render = function() {
