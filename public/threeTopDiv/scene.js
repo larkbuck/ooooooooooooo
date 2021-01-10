@@ -171,6 +171,9 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         currentMoon.nextquarter = days[idx].nextquarter;
         currentMoon.prevquarter = days[idx].prevquarter;
 
+        // lark
+        document.querySelector("#date").innerHTML = currentMoon.date;
+
         let intensity = getLightIntensity();
 
         tide.setLight(intensity);
