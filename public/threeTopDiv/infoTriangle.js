@@ -103,7 +103,6 @@ export function Text(scene, x, y, width,height,fontSize) {
 
   this.generateText = function(text) {
       context.clearRect(0, 0, canvas.width, canvas.height);
-      console.log(width)
       context.font = "Bold "+fontSize+"px Courier";
       context.fillStyle = "#FFFFFF";
       context.maxWidth = width;
@@ -123,8 +122,8 @@ export function Text(scene, x, y, width,height,fontSize) {
     new THREE.PlaneGeometry(canvas.width, canvas.height),
     material
   );
-    mesh.position.set(x,y, 0);
-    scene.add(mesh);
+   mesh.position.set(x,y, 0);
+   scene.add(mesh);
 
   this.update = function(newText) {
     this.generateText(newText);
