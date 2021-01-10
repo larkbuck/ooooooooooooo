@@ -154,7 +154,7 @@ vec3 color = vec3(length(vUv*20.-1.),.4*vUv.y,b);
     let plane = new THREE.Mesh(geo, material);
     plane.rotation.x = -Math.PI / 3.1;
     plane.position.y = -height*0.15;
-    plane.position.z = -width*0.3;
+    plane.position.z = -width*0.5;
     plane.scale.set(width*.163,width*0.0625,width*.163);
 
     scene.add(plane);

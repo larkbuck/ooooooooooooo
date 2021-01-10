@@ -223,6 +223,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         }
 
         this.updateMoon(newidx);
+        groupMoons.scaleCenterOnNextEvent();
         tidePredictor.update(newidx);
 
         loadFirst();
@@ -242,7 +243,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         var days = all_data[current_phase_idx].data[3].days
         var newidx = (currentMoon.idx - 1)
 
-        if( newidx > days.length - 1 && current_phase_idx > 0){
+        if( newidx < 0 && current_phase_idx > 0){
             current_phase_idx --;
             days = all_data[current_phase_idx].data[3].days;
             newidx = days.length - 1;
@@ -250,6 +251,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
 
         this.updateMoon(newidx);
+        groupMoons.scaleCenterOnPrevEvent();
         tidePredictor.update(newidx);
 
         loadLast();
@@ -259,6 +261,9 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Loads phase data
+    const pad = function(d) {
+        return (parseInt(d) < 10) ? '0' + d.toString() : d.toString();
+    }
 
     this.loadPhase= function(){
         var days = all_data[current_phase_idx].data[3].days;
@@ -267,13 +272,13 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
         // Get full moon index in array of days
         fullmoon_idx = all_data[current_phase_idx].data[2]["fullmoon"].idx;
-        fullmoon_hour = all_data[current_phase_idx].data[2]["fullmoon"].hour+":"
-            + all_data[current_phase_idx].data[2]["fullmoon"].min +":"
-            + all_data[current_phase_idx].data[2]["fullmoon"].sec;
+        fullmoon_hour = pad(all_data[current_phase_idx].data[2]["fullmoon"].hour)+":"
+            + pad(all_data[current_phase_idx].data[2]["fullmoon"].min) +":"
+            + pad(all_data[current_phase_idx].data[2]["fullmoon"].sec);
 
-        newmoon_hour = all_data[current_phase_idx].data[0]["newmoon 0"].hour+":"
-            + all_data[current_phase_idx].data[0]["newmoon 0"].min +":"
-            + all_data[current_phase_idx].data[0]["newmoon 0"].sec;
+        newmoon_hour = pad(all_data[current_phase_idx].data[0]["newmoon 0"].hour)+":"
+            + pad(all_data[current_phase_idx].data[0]["newmoon 0"].min) +":"
+            + pad(all_data[current_phase_idx].data[0]["newmoon 0"].sec);
 
     }
 }
@@ -287,7 +292,7 @@ let height = parent.clientWidth * 1.2;
 
 const scene = new THREE.Scene();
 
-let camera = new THREE.PerspectiveCamera(75, 1 / 1.2, 0.1, 2000);
+let camera = new THREE.PerspectiveCamera(75, width/height, 0.1, 2000);
 camera.position.z = width;
 
 const renderer = new THREE.WebGLRenderer({
@@ -297,7 +302,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 // renderer.setSize(parent.clientWidth, parent.clientHeight);
 // renderer.setSize(parent.clientWidth, parent.clientWidth * .66); // set to be movie-screen ratio 1.33
-renderer.setSize(parent.clientWidth, parent.clientWidth * 1.2); // set to be mobile friendly narrow
+renderer.setSize(width, height); // set to be mobile friendly narrow
 parent.append(renderer.domElement);
 
 
@@ -306,13 +311,13 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 const sky = new Sky(scene);
 
-const triangle = new Triangle(parent,scene,domEvents);
-const nextMoonBtn = new Button(scene, width*0.25, width*0.32, height*0.3,width*0.05);
-const prevMoonBtn = new Button(scene, -width*0.25, -width*0.32, height*0.3,width*0.05, true);
+const triangle = new Triangle(scene, width, height);
+const nextMoonBtn = new Button(scene, width*0.32, width*0.38, height*0.2,width*0.05);
+const prevMoonBtn = new Button(scene, -width*0.32, -width*0.38, height*0.2,width*0.05, true);
 
 const background = new Background(scene,width, height);
 const tide = new Tide(scene,width, height);
-const groupMoons = new GroupMoons(parent, scene);
+const groupMoons = new GroupMoons(scene,width,height);
 
 const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle,sky);
 
@@ -335,7 +340,7 @@ document.querySelector("#prevMoonBtn").addEventListener('click', () => {
 
 document.querySelector("#nextMoonBtn").addEventListener('click', () => {
     let currentMoon = moonPhaseAdmin.prevMoon();
-    groupMoons.prev();
+    groupMoons.next();
 }, false)
 
 // ******** animation loop *******
@@ -386,4 +391,5 @@ render();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
-//const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
+//console.log(width,height)

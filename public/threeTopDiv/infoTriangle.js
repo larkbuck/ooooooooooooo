@@ -91,12 +91,13 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
         context.font = " Bold "+fontSize+"px Courier";
         context.fillStyle = "#FFFFFF";
         context.maxHeight= height;
-        context.fillText(l1, width * scaleFactorM, height * 0.140);
-        context.fillText(l2, width * scaleFactorM, height * 0.1975);
-        context.fillText(l3, width * scaleFactorM, height * 0.275625);
-        context.fillText(l4, width * scaleFactorM, height * 0.3537);
-        context.fillText(l5, width * scaleFactorM, height * 0.431);
-        context.fillText(l6, width * scaleFactorM, height * 0.47875);
+        let f = 2
+        context.fillText(l1, width * scaleFactorM,f* height * 0.140);
+        context.fillText(l2, width * scaleFactorM,f* height * 0.1975);
+        context.fillText(l3, width * scaleFactorM,f* height * 0.275625);
+        context.fillText(l4, width * scaleFactorM,f* height * 0.3537);
+        context.fillText(l5, width * scaleFactorM,f* height * 0.431);
+        context.fillText(l6, width * scaleFactorM,f* height * 0.47875);
 
         texture.needsUpdate = true;
     }
@@ -137,14 +138,14 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
 
 }
 
-export function Triangle(parent, scene) {
+export function Triangle(scene,width,height) {
     const geometry = new THREE.Geometry();
-    let scaleX = 1.5;
-    let scaleY = 1.8
+    let scaleX = .6;
+    let scaleY = .53;
     geometry.vertices.push(
-        new THREE.Vector3(0, parent.clientHeight * scaleY, 0),
-        new THREE.Vector3(-parent.clientWidth * scaleX, -parent.clientHeight * scaleX, 0),
-        new THREE.Vector3(parent.clientWidth * scaleX, -parent.clientHeight * scaleX, 0)
+        new THREE.Vector3(0, height * scaleY, 0),
+        new THREE.Vector3(-width * scaleX, -height*0.2, 0.),
+        new THREE.Vector3(width * scaleX, -height*0.2, 0.)
     );
 
     geometry.faces.push(new THREE.Face3(0, 1, 2));
@@ -156,17 +157,17 @@ export function Triangle(parent, scene) {
     }));
     mesh.position.z = 0;
 
-    mesh.scale.setY(parent.clientHeight/parent.clientWidth)
+    mesh.scale.setY(height/width)
     scene.add(mesh);
 
-    let w = parent.clientWidth;
-    let h = parent.clientHeight;
+    let w = width;
+    let h = height;
     let fontSize = w*0.0625, fontSizeC = w*0.0925;
 
-    const dateText = new Text(scene, w * 0.03, h * 0.3, w*0.35, w*0.3,fontSize, fontSizeC);
-    const fullmoonText = new Text(scene,  w * 0.01, 0.,  w*0.35, w*0.4,w*0.0375);
-    const quarterTextHelper =new Text(scene, w * 0.03, -h * 0.15, w*0.35, w*0.3,fontSize, fontSizeC);
-    const hourText = new Text(scene, w * 0.03, -h * 0.32, w*0.28, w*0.3,fontSize, fontSizeC);
+    const dateText = new Text(scene, w * 0.01, h * 0.2, w*0.35, w*0.3,fontSize, fontSizeC);
+    const fullmoonText = new Text(scene,  w*0.02, h*0.1 ,  w*0.35, w*0.3,w*0.03);
+    const quarterTextHelper =new Text(scene, w * 0.03, -h*0.08, w*0.35, w*0.3,fontSize, fontSizeC);
+    const hourText = new Text(scene, w * 0.03, -h * 0.18, w*0.28, w*0.3,fontSize, fontSizeC);
 
 
     this.setDate = function(newText) {
