@@ -74,6 +74,12 @@ main {
  * Limit the container in
  * width for big screens
  */
+.width-max800 {
+    width: 800px;
+    max-width: 100%;
+    margin: 1rem auto;
+}
+
 .width-max1000 {
   width: 1000px;
   max-width: 100%;
@@ -179,15 +185,16 @@ main {
   /* border: .1 solid #eeeeee; */
 }
 
-#threeContainer {
-  min-height: 66vh;
 
-}
 
 #threejsDiv {
   /* border-top: 2px solid #1f1f1f;
   border-right: 2px solid #1f1f1f;
   border-left: 2px solid #1f1f1f; */
+}
+
+#threeTopContainer {
+    min-height: 120vh;
 }
 
 #threejsDivBottom {
