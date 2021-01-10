@@ -70,12 +70,14 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
     canvas.height = height;
     var scaleFactorM=0.0357;
     var scaleFactorT=-0.02;
+    var f = 2;
 
   var context = canvas.getContext('2d');
     if (isMobile.any()) {
-        scaleFactorM = 0.7
-        scaleFactorT = 0.4
+        scaleFactorM = 0.9
+        scaleFactorT = 0.5
         fontSize = fontSizeC
+        f = 1.5
     }
 
     this.generateMoon = function(){
@@ -91,7 +93,7 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
         context.font = " Bold "+fontSize+"px Courier";
         context.fillStyle = "#FFFFFF";
         context.maxHeight= height;
-        let f = 2
+
         context.fillText(l1, width * scaleFactorM,f* height * 0.140);
         context.fillText(l2, width * scaleFactorM,f* height * 0.1975);
         context.fillText(l3, width * scaleFactorM,f* height * 0.275625);
@@ -162,10 +164,10 @@ export function Triangle(scene,width,height) {
 
     let w = width;
     let h = height;
-    let fontSize = w*0.0625, fontSizeC = w*0.0925;
+    let fontSize = w*0.0625, fontSizeC = w*0.0875;
 
     const dateText = new Text(scene, w * 0.01, h * 0.2, w*0.35, w*0.3,fontSize, fontSizeC);
-    const fullmoonText = new Text(scene,  w*0.02, h*0.1 ,  w*0.35, w*0.3,w*0.03);
+    const fullmoonText = new Text(scene,  w*0.02, h*0.05 ,  w*0.35, w*0.3,w*0.03);
     const quarterTextHelper =new Text(scene, w * 0.03, -h*0.08, w*0.35, w*0.3,fontSize, fontSizeC);
     const hourText = new Text(scene, w * 0.03, -h * 0.18, w*0.28, w*0.3,fontSize, fontSizeC);
 
@@ -175,7 +177,7 @@ export function Triangle(scene,width,height) {
     }
 
     this.setFullMoonText = function(hour){
-       fullmoonText.generateMoon();
+        fullmoonText.generateMoon();
        this.setQuarterText(2);
        hourText.update(` `+hour);
     }
@@ -197,8 +199,8 @@ export function Triangle(scene,width,height) {
         let quarterTexts = [
             `.*･｡ﾟ🌑 `,
             ` .*･🌓｡ﾟ`,
-            `full moon`,
-            `  .🌗｡ﾟ.*`,
+            `ﾟ*.🌕.*.`,
+            ` .🌗｡ﾟ.*`,
         ]
 
         quarterTextHelper.update(quarterTexts[quarter])
