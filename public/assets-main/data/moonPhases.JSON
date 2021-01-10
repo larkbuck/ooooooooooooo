@@ -60,7 +60,9 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 8,
+            "prevquarter": 0
           },
           {
             "date": "2020-12-15",
@@ -83,7 +85,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 7,
+            "prevquarter": -1
           },
           {
             "date": "2020-12-16",
@@ -106,7 +110,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2020-12-17",
@@ -129,7 +135,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2020-12-18",
@@ -152,7 +160,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2020-12-19",
@@ -175,7 +185,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2020-12-20",
@@ -198,7 +210,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2020-12-21",
@@ -213,7 +227,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2020-12-22",
@@ -243,7 +259,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2020-12-23",
@@ -266,7 +284,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 7,
+            "prevquarter": -9
           },
           {
             "date": "2020-12-24",
@@ -289,7 +309,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2020-12-25",
@@ -312,7 +334,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2020-12-26",
@@ -335,7 +359,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2020-12-27",
@@ -358,7 +384,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2020-12-28",
@@ -381,7 +409,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2020-12-29",
@@ -404,7 +434,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2020-12-30",
@@ -435,7 +467,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2020-12-31",
@@ -458,7 +492,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-01-01",
@@ -481,7 +517,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-01-02",
@@ -504,7 +542,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-01-03",
@@ -527,7 +567,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-01-04",
@@ -550,7 +592,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-01-05",
@@ -565,7 +609,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-01-06",
@@ -595,7 +641,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-01-07",
@@ -618,7 +666,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-01-08",
@@ -641,7 +691,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-01-09",
@@ -664,7 +716,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-01-10",
@@ -687,7 +741,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-01-11",
@@ -710,7 +766,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-01-12",
@@ -733,7 +791,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/29.png"
+            "image": "/assets-main/images/moon-fuzzy/29.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-01-13",
@@ -763,9 +823,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/30.png"
+            "image": "/assets-main/images/moon-fuzzy/30.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 8
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 23
+        }
       }
     ]
   },
@@ -775,13 +847,21 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "utctime": "2021-01-13T05:00:07",
+          "hour": 6,
+          "min": 0,
+          "sec": 7
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "utctime": "2021-02-11T19:05:39",
           "hour": 20,
           "min": 5,
           "sec": 39
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -815,7 +895,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 6,
+            "prevquarter": -7
           },
           {
             "date": "2021-01-15",
@@ -838,7 +920,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 5,
+            "prevquarter": -8
           },
           {
             "date": "2021-01-16",
@@ -861,7 +945,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 4,
+            "prevquarter": -9
           },
           {
             "date": "2021-01-17",
@@ -884,7 +970,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 3,
+            "prevquarter": -10
           },
           {
             "date": "2021-01-18",
@@ -907,7 +995,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 2,
+            "prevquarter": -11
           },
           {
             "date": "2021-01-19",
@@ -922,7 +1012,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 1,
+            "prevquarter": -12
           },
           {
             "date": "2021-01-20",
@@ -952,7 +1044,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 0,
+            "prevquarter": -13
           },
           {
             "date": "2021-01-21",
@@ -975,7 +1069,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 7,
+            "prevquarter": -7
           },
           {
             "date": "2021-01-22",
@@ -998,7 +1094,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-01-23",
@@ -1021,7 +1119,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-01-24",
@@ -1044,7 +1144,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-01-25",
@@ -1067,7 +1169,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-01-26",
@@ -1090,7 +1194,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-01-27",
@@ -1113,7 +1219,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-01-28",
@@ -1144,7 +1252,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-01-29",
@@ -1167,7 +1277,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-01-30",
@@ -1190,7 +1302,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-01-31",
@@ -1213,7 +1327,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-02-01",
@@ -1236,7 +1352,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-02-02",
@@ -1259,7 +1377,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-02-03",
@@ -1274,7 +1394,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-02-04",
@@ -1304,7 +1426,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-02-05",
@@ -1327,7 +1451,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-02-06",
@@ -1350,7 +1476,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-02-07",
@@ -1373,7 +1501,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-02-08",
@@ -1396,7 +1526,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-02-09",
@@ -1419,7 +1551,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-02-10",
@@ -1442,7 +1576,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-02-11",
@@ -1472,9 +1608,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 6
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 21
+        }
       }
     ]
   },
@@ -1484,13 +1632,21 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "utctime": "2021-02-11T19:05:39",
+          "hour": 20,
+          "min": 5,
+          "sec": 39
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "utctime": "2021-03-13T10:21:07",
           "hour": 11,
           "min": 21,
           "sec": 7
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -1524,7 +1680,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 7,
+            "prevquarter": -7
           },
           {
             "date": "2021-02-13",
@@ -1547,7 +1705,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-02-14",
@@ -1570,7 +1730,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 5,
+            "prevquarter": -9
           },
           {
             "date": "2021-02-15",
@@ -1593,7 +1755,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 4,
+            "prevquarter": -10
           },
           {
             "date": "2021-02-16",
@@ -1616,7 +1780,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 3,
+            "prevquarter": -11
           },
           {
             "date": "2021-02-17",
@@ -1631,7 +1797,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 2,
+            "prevquarter": -12
           },
           {
             "date": "2021-02-18",
@@ -1654,7 +1822,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 1,
+            "prevquarter": -13
           },
           {
             "date": "2021-02-19",
@@ -1684,7 +1854,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 0,
+            "prevquarter": -14
           },
           {
             "date": "2021-02-20",
@@ -1707,7 +1879,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-02-21",
@@ -1730,7 +1904,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-02-22",
@@ -1753,7 +1929,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-02-23",
@@ -1776,7 +1954,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-02-24",
@@ -1799,7 +1979,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-02-25",
@@ -1822,7 +2004,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-02-26",
@@ -1845,7 +2029,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-02-27",
@@ -1876,7 +2062,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-02-28",
@@ -1899,7 +2087,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-03-01",
@@ -1922,7 +2112,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-03-02",
@@ -1945,7 +2137,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-03-03",
@@ -1960,7 +2154,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-03-04",
@@ -1983,7 +2179,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-03-05",
@@ -2006,7 +2204,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-03-06",
@@ -2036,7 +2236,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-03-07",
@@ -2059,7 +2261,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-03-08",
@@ -2082,7 +2286,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-03-09",
@@ -2105,7 +2311,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-03-10",
@@ -2128,7 +2336,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-03-11",
@@ -2151,7 +2361,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-03-12",
@@ -2174,7 +2386,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-03-13",
@@ -2204,9 +2418,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/29.png"
+            "image": "/assets-main/images/moon-fuzzy/29.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 7
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 22
+        }
       }
     ]
   },
@@ -2216,13 +2442,21 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "utctime": "2021-03-13T10:21:07",
+          "hour": 11,
+          "min": 21,
+          "sec": 7
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "utctime": "2021-04-12T02:30:49",
           "hour": 4,
           "min": 30,
           "sec": 49
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -2256,7 +2490,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 7,
+            "prevquarter": -7
           },
           {
             "date": "2021-03-15",
@@ -2279,7 +2515,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-03-16",
@@ -2302,7 +2540,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 5,
+            "prevquarter": -9
           },
           {
             "date": "2021-03-17",
@@ -2325,7 +2565,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 4,
+            "prevquarter": -10
           },
           {
             "date": "2021-03-18",
@@ -2340,7 +2582,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 3,
+            "prevquarter": -11
           },
           {
             "date": "2021-03-19",
@@ -2363,7 +2607,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 2,
+            "prevquarter": -12
           },
           {
             "date": "2021-03-20",
@@ -2386,7 +2632,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 1,
+            "prevquarter": -13
           },
           {
             "date": "2021-03-21",
@@ -2416,7 +2664,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 0,
+            "prevquarter": -14
           },
           {
             "date": "2021-03-22",
@@ -2439,7 +2689,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-03-23",
@@ -2462,7 +2714,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-03-24",
@@ -2485,7 +2739,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-03-25",
@@ -2508,7 +2764,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-03-26",
@@ -2531,7 +2789,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-03-27",
@@ -2554,7 +2814,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-03-28",
@@ -2585,7 +2847,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-03-29",
@@ -2608,7 +2872,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-03-30",
@@ -2631,7 +2897,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-03-31",
@@ -2646,7 +2914,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-04-01",
@@ -2669,7 +2939,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-04-02",
@@ -2692,7 +2964,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-04-03",
@@ -2715,7 +2989,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-04-04",
@@ -2745,7 +3021,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-04-05",
@@ -2768,7 +3046,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-04-06",
@@ -2791,7 +3071,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-04-07",
@@ -2814,7 +3096,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-04-08",
@@ -2837,7 +3121,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-04-09",
@@ -2860,7 +3146,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-04-10",
@@ -2883,7 +3171,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-04-11",
@@ -2906,7 +3196,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-04-12",
@@ -2936,9 +3228,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/29.png"
+            "image": "/assets-main/images/moon-fuzzy/29.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 7
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 21
+        }
       }
     ]
   },
@@ -2948,13 +3252,21 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "utctime": "2021-04-12T02:30:49",
+          "hour": 4,
+          "min": 30,
+          "sec": 49
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "utctime": "2021-05-11T18:59:47",
           "hour": 20,
           "min": 59,
           "sec": 47
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -2988,7 +3300,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-04-14",
@@ -3011,7 +3325,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-04-15",
@@ -3026,7 +3342,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 5,
+            "prevquarter": -10
           },
           {
             "date": "2021-04-16",
@@ -3049,7 +3367,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 4,
+            "prevquarter": -11
           },
           {
             "date": "2021-04-17",
@@ -3072,7 +3392,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 3,
+            "prevquarter": -12
           },
           {
             "date": "2021-04-18",
@@ -3095,7 +3417,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 2,
+            "prevquarter": -13
           },
           {
             "date": "2021-04-19",
@@ -3118,7 +3442,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 1,
+            "prevquarter": -14
           },
           {
             "date": "2021-04-20",
@@ -3148,7 +3474,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 0,
+            "prevquarter": -15
           },
           {
             "date": "2021-04-21",
@@ -3171,7 +3499,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-04-22",
@@ -3194,7 +3524,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-04-23",
@@ -3217,7 +3549,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-04-24",
@@ -3240,7 +3574,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-04-25",
@@ -3263,7 +3599,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-04-26",
@@ -3286,7 +3624,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-04-27",
@@ -3317,7 +3657,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-04-28",
@@ -3340,7 +3682,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 5,
+            "prevquarter": -8
           },
           {
             "date": "2021-04-29",
@@ -3355,7 +3699,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 4,
+            "prevquarter": -2
           },
           {
             "date": "2021-04-30",
@@ -3378,7 +3724,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 3,
+            "prevquarter": -3
           },
           {
             "date": "2021-05-01",
@@ -3401,7 +3749,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 2,
+            "prevquarter": -4
           },
           {
             "date": "2021-05-02",
@@ -3424,7 +3774,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 1,
+            "prevquarter": -5
           },
           {
             "date": "2021-05-03",
@@ -3454,7 +3806,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 0,
+            "prevquarter": -6
           },
           {
             "date": "2021-05-04",
@@ -3477,7 +3831,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 7,
+            "prevquarter": -7
           },
           {
             "date": "2021-05-05",
@@ -3500,7 +3856,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-05-06",
@@ -3523,7 +3881,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-05-07",
@@ -3546,7 +3906,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-05-08",
@@ -3569,7 +3931,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-05-09",
@@ -3592,7 +3956,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-05-10",
@@ -3615,7 +3981,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-05-11",
@@ -3645,9 +4013,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 7
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 20
+        }
       }
     ]
   },
@@ -3657,12 +4037,20 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "utctime": "2021-05-11T18:59:47",
+          "hour": 20,
+          "min": 59,
+          "sec": 47
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "hour": 12,
           "min": 52,
           "sec": 38
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -3693,7 +4081,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-05-13",
@@ -3714,7 +4104,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-05-14",
@@ -3728,7 +4120,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 5,
+            "prevquarter": -10
           },
           {
             "date": "2021-05-15",
@@ -3749,7 +4143,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 4,
+            "prevquarter": -11
           },
           {
             "date": "2021-05-16",
@@ -3770,7 +4166,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 3,
+            "prevquarter": -12
           },
           {
             "date": "2021-05-17",
@@ -3791,7 +4189,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 2,
+            "prevquarter": -13
           },
           {
             "date": "2021-05-18",
@@ -3812,7 +4212,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 1,
+            "prevquarter": -14
           },
           {
             "date": "2021-05-19",
@@ -3839,7 +4241,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 0,
+            "prevquarter": -15
           },
           {
             "date": "2021-05-20",
@@ -3860,7 +4264,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-05-21",
@@ -3881,7 +4287,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-05-22",
@@ -3902,7 +4310,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-05-23",
@@ -3923,7 +4333,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-05-24",
@@ -3944,7 +4356,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-05-25",
@@ -3965,7 +4379,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-05-26",
@@ -3993,7 +4409,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-05-27",
@@ -4014,7 +4432,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-05-28",
@@ -4028,7 +4448,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-05-29",
@@ -4049,7 +4471,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-05-30",
@@ -4070,7 +4494,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-05-31",
@@ -4091,7 +4517,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-06-01",
@@ -4112,7 +4540,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-06-02",
@@ -4139,7 +4569,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-06-03",
@@ -4160,7 +4592,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-06-04",
@@ -4181,7 +4615,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-06-05",
@@ -4202,7 +4638,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-06-06",
@@ -4223,7 +4661,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-06-07",
@@ -4244,7 +4684,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-06-08",
@@ -4265,7 +4707,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-06-09",
@@ -4286,7 +4730,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-06-10",
@@ -4313,9 +4759,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/29.png"
+            "image": "/assets-main/images/moon-fuzzy/29.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 7
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 21
+        }
       }
     ]
   },
@@ -4325,12 +4783,19 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "hour": 12,
+          "min": 52,
+          "sec": 38
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "hour": 3,
           "min": 16,
           "sec": 36
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -4361,7 +4826,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-06-12",
@@ -4375,7 +4842,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-06-13",
@@ -4396,7 +4865,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 5,
+            "prevquarter": -10
           },
           {
             "date": "2021-06-14",
@@ -4417,7 +4888,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 4,
+            "prevquarter": -11
           },
           {
             "date": "2021-06-15",
@@ -4438,7 +4911,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 3,
+            "prevquarter": -12
           },
           {
             "date": "2021-06-16",
@@ -4459,7 +4934,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 2,
+            "prevquarter": -13
           },
           {
             "date": "2021-06-17",
@@ -4480,7 +4957,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 1,
+            "prevquarter": -14
           },
           {
             "date": "2021-06-18",
@@ -4507,7 +4986,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 0,
+            "prevquarter": -15
           },
           {
             "date": "2021-06-19",
@@ -4528,7 +5009,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 5,
+            "prevquarter": -8
           },
           {
             "date": "2021-06-20",
@@ -4549,7 +5032,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 4,
+            "prevquarter": -2
           },
           {
             "date": "2021-06-21",
@@ -4570,7 +5055,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 3,
+            "prevquarter": -3
           },
           {
             "date": "2021-06-22",
@@ -4591,7 +5078,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 2,
+            "prevquarter": -4
           },
           {
             "date": "2021-06-23",
@@ -4612,7 +5101,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 1,
+            "prevquarter": -5
           },
           {
             "date": "2021-06-24",
@@ -4640,7 +5131,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 0,
+            "prevquarter": -6
           },
           {
             "date": "2021-06-25",
@@ -4661,7 +5154,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 6,
+            "prevquarter": -7
           },
           {
             "date": "2021-06-26",
@@ -4675,7 +5170,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-06-27",
@@ -4696,7 +5193,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-06-28",
@@ -4717,7 +5216,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-06-29",
@@ -4738,7 +5239,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-06-30",
@@ -4759,7 +5262,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-07-01",
@@ -4786,7 +5291,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-07-02",
@@ -4807,7 +5314,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 8,
+            "prevquarter": -8
           },
           {
             "date": "2021-07-03",
@@ -4828,7 +5337,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 7,
+            "prevquarter": -2
           },
           {
             "date": "2021-07-04",
@@ -4849,7 +5360,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 6,
+            "prevquarter": -3
           },
           {
             "date": "2021-07-05",
@@ -4870,7 +5383,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 5,
+            "prevquarter": -4
           },
           {
             "date": "2021-07-06",
@@ -4891,7 +5406,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 4,
+            "prevquarter": -5
           },
           {
             "date": "2021-07-07",
@@ -4912,7 +5429,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 3,
+            "prevquarter": -6
           },
           {
             "date": "2021-07-08",
@@ -4933,7 +5452,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 2,
+            "prevquarter": -7
           },
           {
             "date": "2021-07-09",
@@ -4954,7 +5475,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 1,
+            "prevquarter": -8
           },
           {
             "date": "2021-07-10",
@@ -4981,9 +5504,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/29.png"
+            "image": "/assets-main/images/moon-fuzzy/29.png",
+            "nextquarter": 0,
+            "prevquarter": -9
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 7
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 20
+        }
       }
     ]
   },
@@ -4993,12 +5528,19 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "hour": 3,
+          "min": 16,
+          "sec": 36
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "hour": 15,
           "min": 50,
           "sec": 7
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -5029,7 +5571,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-07-12",
@@ -5050,7 +5594,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 5,
+            "prevquarter": -10
           },
           {
             "date": "2021-07-13",
@@ -5064,7 +5610,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 4,
+            "prevquarter": -11
           },
           {
             "date": "2021-07-14",
@@ -5085,7 +5633,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 3,
+            "prevquarter": -12
           },
           {
             "date": "2021-07-15",
@@ -5106,7 +5656,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 2,
+            "prevquarter": -13
           },
           {
             "date": "2021-07-16",
@@ -5127,7 +5679,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 1,
+            "prevquarter": -14
           },
           {
             "date": "2021-07-17",
@@ -5154,7 +5708,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 0,
+            "prevquarter": -15
           },
           {
             "date": "2021-07-18",
@@ -5175,7 +5731,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 6,
+            "prevquarter": -7
           },
           {
             "date": "2021-07-19",
@@ -5196,7 +5754,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-07-20",
@@ -5217,7 +5777,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-07-21",
@@ -5238,7 +5800,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-07-22",
@@ -5259,7 +5823,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-07-23",
@@ -5280,7 +5846,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-07-24",
@@ -5308,7 +5876,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-07-25",
@@ -5329,7 +5899,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-07-26",
@@ -5350,7 +5922,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-07-27",
@@ -5371,7 +5945,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-07-28",
@@ -5392,7 +5968,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-07-29",
@@ -5406,7 +5984,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-07-30",
@@ -5427,7 +6007,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-07-31",
@@ -5454,7 +6036,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-08-01",
@@ -5475,7 +6059,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-08-02",
@@ -5496,7 +6082,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-08-03",
@@ -5517,7 +6105,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-08-04",
@@ -5538,7 +6128,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-08-05",
@@ -5559,7 +6151,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-08-06",
@@ -5580,7 +6174,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-08-07",
@@ -5601,7 +6197,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-08-08",
@@ -5628,9 +6226,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 6
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 20
+        }
       }
     ]
   },
@@ -5640,12 +6250,19 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "hour": 15,
+          "min": 50,
+          "sec": 7
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "hour": 2,
           "min": 51,
           "sec": 44
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -5676,7 +6293,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 6,
+            "prevquarter": -8
           },
           {
             "date": "2021-08-10",
@@ -5697,7 +6316,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 5,
+            "prevquarter": -9
           },
           {
             "date": "2021-08-11",
@@ -5718,7 +6339,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 4,
+            "prevquarter": -10
           },
           {
             "date": "2021-08-12",
@@ -5739,7 +6362,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 3,
+            "prevquarter": -11
           },
           {
             "date": "2021-08-13",
@@ -5760,7 +6385,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 2,
+            "prevquarter": -12
           },
           {
             "date": "2021-08-14",
@@ -5781,7 +6408,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 1,
+            "prevquarter": -13
           },
           {
             "date": "2021-08-15",
@@ -5808,7 +6437,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 0,
+            "prevquarter": -14
           },
           {
             "date": "2021-08-16",
@@ -5822,7 +6453,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 6,
+            "prevquarter": -7
           },
           {
             "date": "2021-08-17",
@@ -5843,7 +6476,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-08-18",
@@ -5864,7 +6499,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-08-19",
@@ -5885,7 +6522,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-08-20",
@@ -5906,7 +6545,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-08-21",
@@ -5927,7 +6568,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-08-22",
@@ -5955,7 +6598,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-08-23",
@@ -5976,7 +6621,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-08-24",
@@ -5997,7 +6644,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-08-25",
@@ -6018,7 +6667,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-08-26",
@@ -6039,7 +6690,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-08-27",
@@ -6060,7 +6713,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-08-28",
@@ -6081,7 +6736,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-08-29",
@@ -6102,7 +6759,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-08-30",
@@ -6129,7 +6788,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-08-31",
@@ -6143,7 +6804,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 7,
+            "prevquarter": -9
           },
           {
             "date": "2021-09-01",
@@ -6164,7 +6827,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-09-02",
@@ -6185,7 +6850,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-09-03",
@@ -6206,7 +6873,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-09-04",
@@ -6227,7 +6896,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-09-05",
@@ -6248,7 +6919,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-09-06",
@@ -6269,7 +6942,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-09-07",
@@ -6296,9 +6971,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/29.png"
+            "image": "/assets-main/images/moon-fuzzy/29.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 6
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 21
+        }
       }
     ]
   },
@@ -6308,12 +6995,19 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "hour": 2,
+          "min": 51,
+          "sec": 44
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "hour": 13,
           "min": 5,
           "sec": 23
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -6344,7 +7038,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 5,
+            "prevquarter": -8
           },
           {
             "date": "2021-09-09",
@@ -6365,7 +7061,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 4,
+            "prevquarter": -9
           },
           {
             "date": "2021-09-10",
@@ -6386,7 +7084,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 3,
+            "prevquarter": -10
           },
           {
             "date": "2021-09-11",
@@ -6407,7 +7107,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 2,
+            "prevquarter": -11
           },
           {
             "date": "2021-09-12",
@@ -6428,7 +7130,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 1,
+            "prevquarter": -12
           },
           {
             "date": "2021-09-13",
@@ -6455,7 +7159,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 0,
+            "prevquarter": -13
           },
           {
             "date": "2021-09-14",
@@ -6476,7 +7182,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 7,
+            "prevquarter": -6
           },
           {
             "date": "2021-09-15",
@@ -6490,7 +7198,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-09-16",
@@ -6511,7 +7221,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-09-17",
@@ -6532,7 +7244,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-09-18",
@@ -6553,7 +7267,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-09-19",
@@ -6574,7 +7290,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-09-20",
@@ -6595,7 +7313,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-09-21",
@@ -6623,7 +7343,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-09-22",
@@ -6644,7 +7366,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 7,
+            "prevquarter": -9
           },
           {
             "date": "2021-09-23",
@@ -6665,7 +7389,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-09-24",
@@ -6686,7 +7412,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-09-25",
@@ -6707,7 +7435,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-09-26",
@@ -6728,7 +7458,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-09-27",
@@ -6749,7 +7481,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-09-28",
@@ -6770,7 +7504,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-09-29",
@@ -6797,7 +7533,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-09-30",
@@ -6811,7 +7549,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-10-01",
@@ -6832,7 +7572,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-10-02",
@@ -6853,7 +7595,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-10-03",
@@ -6874,7 +7618,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-10-04",
@@ -6895,7 +7641,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-10-05",
@@ -6916,7 +7664,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-10-06",
@@ -6943,9 +7693,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 5
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 21
+        }
       }
     ]
   },
@@ -6955,12 +7717,19 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "hour": 13,
+          "min": 5,
+          "sec": 23
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "hour": 22,
           "min": 14,
           "sec": 38
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -6991,7 +7760,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 6,
+            "prevquarter": -7
           },
           {
             "date": "2021-10-08",
@@ -7012,7 +7783,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 5,
+            "prevquarter": -8
           },
           {
             "date": "2021-10-09",
@@ -7033,7 +7806,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 4,
+            "prevquarter": -9
           },
           {
             "date": "2021-10-10",
@@ -7054,7 +7829,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 3,
+            "prevquarter": -10
           },
           {
             "date": "2021-10-11",
@@ -7075,7 +7852,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 2,
+            "prevquarter": -11
           },
           {
             "date": "2021-10-12",
@@ -7096,7 +7875,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 1,
+            "prevquarter": -12
           },
           {
             "date": "2021-10-13",
@@ -7116,7 +7897,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 0,
+            "prevquarter": -13
           },
           {
             "date": "2021-10-14",
@@ -7137,7 +7920,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 6,
+            "prevquarter": -7
           },
           {
             "date": "2021-10-15",
@@ -7158,7 +7943,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-10-16",
@@ -7179,7 +7966,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-10-17",
@@ -7200,7 +7989,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-10-18",
@@ -7221,7 +8012,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-10-19",
@@ -7242,7 +8035,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-10-20",
@@ -7270,7 +8065,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           },
           {
             "date": "2021-10-21",
@@ -7291,7 +8088,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 7,
+            "prevquarter": -8
           },
           {
             "date": "2021-10-22",
@@ -7312,7 +8111,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-10-23",
@@ -7333,7 +8134,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-10-24",
@@ -7354,7 +8157,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-10-25",
@@ -7375,7 +8180,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-10-26",
@@ -7396,7 +8203,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-10-27",
@@ -7417,7 +8226,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-10-28",
@@ -7444,7 +8255,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-10-29",
@@ -7458,7 +8271,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-10-30",
@@ -7479,7 +8294,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-10-31",
@@ -7500,7 +8317,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-11-01",
@@ -7521,7 +8340,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-11-02",
@@ -7542,7 +8363,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-11-03",
@@ -7563,7 +8386,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-11-04",
@@ -7590,9 +8415,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 6
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 21
+        }
       }
     ]
   },
@@ -7602,12 +8439,19 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "hour": 22,
+          "min": 14,
+          "sec": 38
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "hour": 8,
           "min": 43,
           "sec": 2
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -7638,7 +8482,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 6,
+            "prevquarter": -7
           },
           {
             "date": "2021-11-06",
@@ -7659,7 +8505,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 5,
+            "prevquarter": -8
           },
           {
             "date": "2021-11-07",
@@ -7680,7 +8528,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 4,
+            "prevquarter": -9
           },
           {
             "date": "2021-11-08",
@@ -7701,7 +8551,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 3,
+            "prevquarter": -10
           },
           {
             "date": "2021-11-09",
@@ -7722,7 +8574,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 2,
+            "prevquarter": -11
           },
           {
             "date": "2021-11-10",
@@ -7743,7 +8597,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 1,
+            "prevquarter": -12
           },
           {
             "date": "2021-11-11",
@@ -7770,7 +8626,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 0,
+            "prevquarter": -13
           },
           {
             "date": "2021-11-12",
@@ -7784,7 +8642,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 7,
+            "prevquarter": -7
           },
           {
             "date": "2021-11-13",
@@ -7805,7 +8665,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-11-14",
@@ -7826,7 +8688,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-11-15",
@@ -7847,7 +8711,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-11-16",
@@ -7868,7 +8734,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-11-17",
@@ -7889,7 +8757,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-11-18",
@@ -7910,7 +8780,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-11-19",
@@ -7938,7 +8810,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-11-20",
@@ -7959,7 +8833,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 7,
+            "prevquarter": -9
           },
           {
             "date": "2021-11-21",
@@ -7980,7 +8856,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-11-22",
@@ -8001,7 +8879,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-11-23",
@@ -8022,7 +8902,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-11-24",
@@ -8043,7 +8925,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-11-25",
@@ -8064,7 +8948,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-11-26",
@@ -8085,7 +8971,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-11-27",
@@ -8105,7 +8993,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-11-28",
@@ -8126,7 +9016,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 6,
+            "prevquarter": -9
           },
           {
             "date": "2021-11-29",
@@ -8147,7 +9039,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 5,
+            "prevquarter": -2
           },
           {
             "date": "2021-11-30",
@@ -8168,7 +9062,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 4,
+            "prevquarter": -3
           },
           {
             "date": "2021-12-01",
@@ -8189,7 +9085,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 3,
+            "prevquarter": -4
           },
           {
             "date": "2021-12-02",
@@ -8210,7 +9108,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 2,
+            "prevquarter": -5
           },
           {
             "date": "2021-12-03",
@@ -8231,7 +9131,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 1,
+            "prevquarter": -6
           },
           {
             "date": "2021-12-04",
@@ -8258,9 +9160,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/29.png"
+            "image": "/assets-main/images/moon-fuzzy/29.png",
+            "nextquarter": 0,
+            "prevquarter": -7
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 6
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 22
+        }
       }
     ]
   },
@@ -8270,12 +9184,19 @@
       {
         "newmoon 0": {
           "type": "newmoon",
+          "hour": 8,
+          "min": 43,
+          "sec": 2
+        }
+      },
+      {
+        "newmoon 30": {
+          "type": "newmoon",
           "hour": 19,
           "min": 33,
           "sec": 31
         }
       },
-      "",
       {
         "fullmoon": {
           "type": "fullmoon",
@@ -8306,7 +9227,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/0.png"
+            "image": "/assets-main/images/moon-fuzzy/0.png",
+            "nextquarter": 6,
+            "prevquarter": -7
           },
           {
             "date": "2021-12-06",
@@ -8327,7 +9250,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/1.png"
+            "image": "/assets-main/images/moon-fuzzy/1.png",
+            "nextquarter": 5,
+            "prevquarter": -8
           },
           {
             "date": "2021-12-07",
@@ -8348,7 +9273,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/2.png"
+            "image": "/assets-main/images/moon-fuzzy/2.png",
+            "nextquarter": 4,
+            "prevquarter": -9
           },
           {
             "date": "2021-12-08",
@@ -8369,7 +9296,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/3.png"
+            "image": "/assets-main/images/moon-fuzzy/3.png",
+            "nextquarter": 3,
+            "prevquarter": -10
           },
           {
             "date": "2021-12-09",
@@ -8390,7 +9319,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/4.png"
+            "image": "/assets-main/images/moon-fuzzy/4.png",
+            "nextquarter": 2,
+            "prevquarter": -11
           },
           {
             "date": "2021-12-10",
@@ -8411,7 +9342,9 @@
               }
             ],
             "moonphase": "waxingcrescent",
-            "image": "/assets-main/images/moon-fuzzy/5.png"
+            "image": "/assets-main/images/moon-fuzzy/5.png",
+            "nextquarter": 1,
+            "prevquarter": -12
           },
           {
             "date": "2021-12-11",
@@ -8431,7 +9364,9 @@
               }
             ],
             "moonphase": "firstquarter",
-            "image": "/assets-main/images/moon-fuzzy/6.png"
+            "image": "/assets-main/images/moon-fuzzy/6.png",
+            "nextquarter": 0,
+            "prevquarter": -13
           },
           {
             "date": "2021-12-12",
@@ -8452,7 +9387,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/7.png"
+            "image": "/assets-main/images/moon-fuzzy/7.png",
+            "nextquarter": 7,
+            "prevquarter": -7
           },
           {
             "date": "2021-12-13",
@@ -8473,7 +9410,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/8.png"
+            "image": "/assets-main/images/moon-fuzzy/8.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-12-14",
@@ -8494,7 +9433,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/9.png"
+            "image": "/assets-main/images/moon-fuzzy/9.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-12-15",
@@ -8515,7 +9456,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/10.png"
+            "image": "/assets-main/images/moon-fuzzy/10.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-12-16",
@@ -8536,7 +9479,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/11.png"
+            "image": "/assets-main/images/moon-fuzzy/11.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-12-17",
@@ -8557,7 +9502,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/12.png"
+            "image": "/assets-main/images/moon-fuzzy/12.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-12-18",
@@ -8578,7 +9525,9 @@
               }
             ],
             "moonphase": "waxinggibbous",
-            "image": "/assets-main/images/moon-fuzzy/13.png"
+            "image": "/assets-main/images/moon-fuzzy/13.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-12-19",
@@ -8606,7 +9555,9 @@
               }
             ],
             "moonphase": "fullmoon",
-            "image": "/assets-main/images/moon-fuzzy/14.png"
+            "image": "/assets-main/images/moon-fuzzy/14.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-12-20",
@@ -8627,7 +9578,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/15.png"
+            "image": "/assets-main/images/moon-fuzzy/15.png",
+            "nextquarter": 7,
+            "prevquarter": -9
           },
           {
             "date": "2021-12-21",
@@ -8648,7 +9601,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/16.png"
+            "image": "/assets-main/images/moon-fuzzy/16.png",
+            "nextquarter": 6,
+            "prevquarter": -2
           },
           {
             "date": "2021-12-22",
@@ -8669,7 +9624,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/17.png"
+            "image": "/assets-main/images/moon-fuzzy/17.png",
+            "nextquarter": 5,
+            "prevquarter": -3
           },
           {
             "date": "2021-12-23",
@@ -8690,7 +9647,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/18.png"
+            "image": "/assets-main/images/moon-fuzzy/18.png",
+            "nextquarter": 4,
+            "prevquarter": -4
           },
           {
             "date": "2021-12-24",
@@ -8711,7 +9670,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/19.png"
+            "image": "/assets-main/images/moon-fuzzy/19.png",
+            "nextquarter": 3,
+            "prevquarter": -5
           },
           {
             "date": "2021-12-25",
@@ -8732,7 +9693,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/20.png"
+            "image": "/assets-main/images/moon-fuzzy/20.png",
+            "nextquarter": 2,
+            "prevquarter": -6
           },
           {
             "date": "2021-12-26",
@@ -8746,7 +9709,9 @@
               }
             ],
             "moonphase": "waninggibbous",
-            "image": "/assets-main/images/moon-fuzzy/21.png"
+            "image": "/assets-main/images/moon-fuzzy/21.png",
+            "nextquarter": 1,
+            "prevquarter": -7
           },
           {
             "date": "2021-12-27",
@@ -8773,7 +9738,9 @@
               }
             ],
             "moonphase": "thirdquarter",
-            "image": "/assets-main/images/moon-fuzzy/22.png"
+            "image": "/assets-main/images/moon-fuzzy/22.png",
+            "nextquarter": 0,
+            "prevquarter": -8
           },
           {
             "date": "2021-12-28",
@@ -8794,7 +9761,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/23.png"
+            "image": "/assets-main/images/moon-fuzzy/23.png",
+            "nextquarter": 5,
+            "prevquarter": -9
           },
           {
             "date": "2021-12-29",
@@ -8815,7 +9784,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/24.png"
+            "image": "/assets-main/images/moon-fuzzy/24.png",
+            "nextquarter": 4,
+            "prevquarter": -2
           },
           {
             "date": "2021-12-30",
@@ -8836,7 +9807,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/25.png"
+            "image": "/assets-main/images/moon-fuzzy/25.png",
+            "nextquarter": 3,
+            "prevquarter": -3
           },
           {
             "date": "2021-12-31",
@@ -8857,7 +9830,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/26.png"
+            "image": "/assets-main/images/moon-fuzzy/26.png",
+            "nextquarter": 2,
+            "prevquarter": -4
           },
           {
             "date": "2022-01-01",
@@ -8878,7 +9853,9 @@
               }
             ],
             "moonphase": "waningcrescent",
-            "image": "/assets-main/images/moon-fuzzy/27.png"
+            "image": "/assets-main/images/moon-fuzzy/27.png",
+            "nextquarter": 1,
+            "prevquarter": -5
           },
           {
             "date": "2022-01-02",
@@ -8905,9 +9882,21 @@
               }
             ],
             "moonphase": "newmoon",
-            "image": "/assets-main/images/moon-fuzzy/28.png"
+            "image": "/assets-main/images/moon-fuzzy/28.png",
+            "nextquarter": 0,
+            "prevquarter": -6
           }
         ]
+      },
+      {
+        "firstquarter": {
+          "idx": 6
+        }
+      },
+      {
+        "thirdquarter": {
+          "idx": 22
+        }
       }
     ]
   }

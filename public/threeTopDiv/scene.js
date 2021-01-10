@@ -42,7 +42,12 @@ function TidePredictor(tide) {
 
 
 function MoonPhaseAdmin(background, tide, triangle,sky) {
-    let all_data; let current_phase_idx = null; let fullmoon_idx, fullmoon_hour;
+    let all_data; let current_phase_idx = null;
+
+    let newmoon_hour, fullmoon_hour;
+    let newmoon_idx = 0;
+    let fullmoon_idx, thirdquarter_idx, firstquarter_idx;
+
     const tidePredictor = new TidePredictor(tide);
     let firstPhaseIdx, firstMoonIdx;
     let lastPhaseIdx, lastMoonIdx;
@@ -58,6 +63,8 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       moonphase: null,
       img: null,
       moonAge: null,
+      nextquarter: null,
+      prevquarter:null,
   };
 
     const  getLightIntensity = function(){
@@ -86,33 +93,45 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         lastMoonIdx = idx;
     }
 
+
   this.init = function(json) {
       var obj = JSON.parse(json);
       //Store locally all data
       all_data = obj;
 
       const day = Date.now();
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Look for current phase
       var idx = obj.findIndex(({data}) =>
                               (Date.parse(data[0]["newmoon 0"]["utctime"]) <= day &&
                                day <= Date.parse(data[1]["newmoon 30"]["utctime"])))
-
-     // console.log("fullmon",all_data[idx].data[2]["fullmoon"]["utctime"])
       current_phase_idx = idx; //Starts in 0
+      //console.log("Phase Idx: ", current_phase_idx)
 
-      //Get full moon index in array of days
-      fullmoon_idx = all_data[idx].data[2]["fullmoon"].idx;
-      fullmoon_hour = all_data[idx].data[2]["fullmoon"].hour+":"
-          + all_data[idx].data[2]["fullmoon"].min +":"
-          + all_data[idx].data[2]["fullmoon"].sec;
-
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Look for current day
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
       idx --;
 
       this.updateMoon(idx);
-      //console.log("Phase Idx: ", current_phase_idx)
       //console.log("Day idx:", idx)
+
+      //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      //Load quarters and time of current phase
+      var days = all_data[current_phase_idx].data[3].days;
+      firstquarter_idx = all_data[current_phase_idx].data[4].firstquarter.idx;
+      thirdquarter_idx = all_data[current_phase_idx].data[5].thirdquarter.idx;
+
+      // Get full moon index in array of days
+      /*fullmoon_idx = all_data[idx].data[2]["fullmoon"].idx;
+      fullmoon_hour = all_data[idx].data[2]["fullmoon"].hour+":"
+          + all_data[idx].data[2]["fullmoon"].min +":"
+          + all_data[idx].data[2]["fullmoon"].sec;
+
+      newmoon_hour = all_data[idx].data[2]["newmoon 0"].hour+":"
+          + all_data[idx].data[2]["newmoon 0"].min +":"
+          + all_data[idx].data[2]["newmoon 0"].sec;
+      */
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       // Load all Moon images
@@ -128,39 +147,41 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       var centralIdx = 7;
       groupMoons.loadNewTexture(all_data, centralIdx, current_phase_idx, idx);
 
-        // Fill left mid - anticlockwise
+      // Fill left mid - anticlockwise
       for (var i = centralIdx + 1 ; i < 22; i++) {
           updateLast();
           groupMoons.loadNewTexture(all_data, i, lastPhaseIdx, lastMoonIdx);
       }
 
-        // Fill upper right quater
+      // Fill upper right quater
       for (var i = centralIdx - 1; i >= 0; i--) {
           updateFirst();
           groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
-
       }
 
-        // Fill lower right quater
-        for (var i = 29; i > 21; i--) {
-           updateFirst();
-           groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
-        }
+      // Fill lower right quater
+      for (var i = 29; i > 21; i--) {
+          updateFirst();
+          groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
+      }
       groupMoons.showChild(22);
-
       tidePredictor.update(idx);
   }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Update Current Moon
 
     this.updateMoon = function(idx) {
         var days = all_data[current_phase_idx].data[3].days;
         currentMoon.idx= idx;
-
         currentMoon.date = days[idx].date;
 
         currentMoon.events = days[idx].events;
         currentMoon.moonphase = days[idx].moonphase;
         currentMoon.img =days[idx].image;
         currentMoon.moonAge = idx/fullmoon_idx;
+
+        currentMoon.nextquarter = days[idx].nextquarter;
+        currentMoon.prevquarter = days[idx].prevquarter;
 
         let intensity = getLightIntensity();
 
@@ -193,10 +214,6 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         }
 
         this.updateMoon(newidx);
-        //TODO;
-        //i- maybe show popup/warning for first?
-        //ii- assets 29|30 days
-
         tidePredictor.update(newidx);
 
         loadFirst();
@@ -330,4 +347,4 @@ render();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
-const controls = new OrbitControls(camera, renderer.domElement);
+//const controls = new OrbitControls(camera, renderer.domElement);
