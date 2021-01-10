@@ -13,7 +13,7 @@ export function GroupMoons(parent, scene) {
 
   const centerWheel = {
     x: -imageRadius*0.8, //temporal fix for display moon in center of triangle
-    y: -parent.clientHeight * 2.8 - imageRadius
+    y: -parent.clientHeight * 2.8 - imageRadius*0.8
   }
  //Geometric Structure
   const group = new THREE.Group();
@@ -31,7 +31,7 @@ export function GroupMoons(parent, scene) {
     // Initialize moons with empty texture
     for (let i = 0; i < (numberImages+1); i++) {
         material = new THREE.MeshBasicMaterial({
-
+            color: 0x000000,
         });
 
         circle = new THREE.CircleGeometry(imageRadius, 100);
@@ -51,44 +51,51 @@ export function GroupMoons(parent, scene) {
 
     //----------------------------------------------------------------
     //Add moons veil
-    /*
+
     const shape  = new THREE.Shape()
           .moveTo(0,-200)
-		  .lineTo(-800, -200 )
-		  .lineTo(-800,400)
-          .lineTo(800,400)
-          .lineTo(800,-200)
-
+		  .lineTo(-parent.clientWidth , -parent.clientWidth *0.25 )
+		  .lineTo(-parent.clientWidth ,parent.clientWidth *0.5)
+          .lineTo(parent.clientWidth ,parent.clientWidth *0.5)
+          .lineTo(parent.clientWidth ,-parent.clientWidth *0.25)
+    /*
     //Maybe usefull for other veil?
       const moonEye = new THREE.Path()
 		  .moveTo( 0, -100 )
 		  .absellipse( 0, 250, 55, 55, 0, Math.PI * 2, true );
 
     shape.holes.push(moonEye)
+  */
     const triangle  = new THREE.Shape()
-          .moveTo(-430,-200)
-          .lineTo(0, 380)
-          .lineTo(430,-200)
+          .moveTo(parent.clientWidth *0.64,-parent.clientWidth *0.25)
+          .lineTo(0, parent.clientHeight *.6)
+          .lineTo(-parent.clientWidth *0.64,-parent.clientWidth *0.25)
     shape.holes.push(triangle)
 
     loader = new THREE.TextureLoader();
     texture = loader.load('/assets-main/images/veil.jpg');
 
+	texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
-    var material2 = new THREE.MeshBasicMaterial({
+    texture.repeat.set( 0.0006, 0.0006 );
+    texture.center = new THREE.Vector2(0.,0.5);
+
+
+    var veilMaterial = new THREE.MeshBasicMaterial({
         map: texture,
         transparent: true,
         side: THREE.DoubleSide,
-        opacity: .3
+        opacity:.3
     });
-    //material2.side = THREE.BackSide
-    const veilGeom = new THREE.ShapeBufferGeometry(shape);
-    mesh = new THREE.Mesh( veilGeom, material2);
 
-    mesh.position.set( 0, 0, 0);
+    const veilGeom = new THREE.ShapeBufferGeometry(shape);
+
+    mesh = new THREE.Mesh( veilGeom, veilMaterial);
+
+    mesh.position.set( 0, 0, 5);
     mesh.scale.set(2,2,2)
     scene.add(mesh)
-    */
+
     //-------------------------------------------------------------------
 
     this.loadNewTexture = function(all_data, idx, phaseIdx, dataIdx) {

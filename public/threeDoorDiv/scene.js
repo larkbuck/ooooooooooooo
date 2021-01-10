@@ -3,8 +3,6 @@ import { OrbitControls } from '/jsm/controls/OrbitControls.js';
 import { Door }  from '/threeDoorDiv/Door.js';
 import { Water }  from '/threeDoorDiv/Water.js';
 
-// ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ DEFINE SCENE HELPERS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE,CAMERA,RENDERER AND DOMEVENTS  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
 const parent = document.querySelector('#threejsDivBottom');
@@ -33,7 +31,6 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 const door = new Door(scene,domEvents)
 const water = new Water(scene,domEvents)
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ EVENTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-
 
 
 // ******** animation loop *******
