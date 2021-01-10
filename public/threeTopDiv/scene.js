@@ -113,25 +113,10 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
       idx --;
 
-      this.updateMoon(idx);
-      //console.log("Day idx:", idx)
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Load quarters and time of current phase
-      var days = all_data[current_phase_idx].data[3].days;
-      firstquarter_idx = all_data[current_phase_idx].data[4].firstquarter.idx;
-      thirdquarter_idx = all_data[current_phase_idx].data[5].thirdquarter.idx;
-
-      // Get full moon index in array of days
-      /*fullmoon_idx = all_data[idx].data[2]["fullmoon"].idx;
-      fullmoon_hour = all_data[idx].data[2]["fullmoon"].hour+":"
-          + all_data[idx].data[2]["fullmoon"].min +":"
-          + all_data[idx].data[2]["fullmoon"].sec;
-
-      newmoon_hour = all_data[idx].data[2]["newmoon 0"].hour+":"
-          + all_data[idx].data[2]["newmoon 0"].min +":"
-          + all_data[idx].data[2]["newmoon 0"].sec;
-      */
+      this.loadPhase();
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       // Load all Moon images
@@ -166,6 +151,9 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       }
       groupMoons.showChild(22);
       tidePredictor.update(idx);
+      this.updateMoon(idx);
+      //console.log("Day idx:", idx)
+
   }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Update Current Moon
@@ -187,20 +175,35 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
         tide.setLight(intensity);
         background.setLight(intensity);
+
+        triangle.clear();
         triangle.setDate(currentMoon.date);
 
-        // lark
-            document.querySelector("#date").innerHTML = currentMoon.date;
-
-        (idx == fullmoon_idx ?
-         triangle.setFullMoonText(fullmoon_hour) :
-         triangle.clearFullMoonText() )
+        switch (idx){
+        case 0:
+            triangle.setNewMoonText(newmoon_hour)
+            break;
+        case firstquarter_idx:
+            triangle.setQuarterText(1);
+            break;
+        case fullmoon_idx:
+            triangle.setFullMoonText(fullmoon_hour)
+            break;
+        case thirdquarter_idx:
+            triangle.setQuarterText(3);
+            break;
+        default:
+            break;
+        }
 
         sky.setLight(intensity);
     }
 
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Resolves next and prev `events`
+
    const loadFirst = function(){
-        //Fill first Moon
+        //pre-loads `first` Moon
         var idx = 22;
         updateFirst();
         groupMoons.loadNewTexture(all_data, idx, current_phase_idx, idx);
@@ -212,6 +215,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         if( newidx > days.length - 1 && current_phase_idx < 13){
             current_phase_idx ++;
             days = all_data[current_phase_idx].data[3].days;
+            this.loadPhase();
             newidx = 0;
         }
 
@@ -225,7 +229,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
 
     const loadLast = function(){
-        //Fill last Moon
+        //pre-loads `last` Moon
         var idx = 21;
         updateLast();
         groupMoons.loadNewTexture(all_data, idx, current_phase_idx, idx);
@@ -248,6 +252,26 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         loadLast();
 
         return currentMoon
+    }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Loads phase data
+
+    this.loadPhase= function(){
+        var days = all_data[current_phase_idx].data[3].days;
+        firstquarter_idx = all_data[current_phase_idx].data[4].firstquarter.idx;
+        thirdquarter_idx = all_data[current_phase_idx].data[5].thirdquarter.idx;
+
+        // Get full moon index in array of days
+        fullmoon_idx = all_data[current_phase_idx].data[2]["fullmoon"].idx;
+        fullmoon_hour = all_data[current_phase_idx].data[2]["fullmoon"].hour+":"
+            + all_data[current_phase_idx].data[2]["fullmoon"].min +":"
+            + all_data[current_phase_idx].data[2]["fullmoon"].sec;
+
+        newmoon_hour = all_data[current_phase_idx].data[0]["newmoon 0"].hour+":"
+            + all_data[current_phase_idx].data[0]["newmoon 0"].min +":"
+            + all_data[current_phase_idx].data[0]["newmoon 0"].sec;
+
     }
 }
 
