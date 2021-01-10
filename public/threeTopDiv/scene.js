@@ -189,6 +189,8 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         background.setLight(intensity);
         triangle.setDate(currentMoon.date);
 
+        // lark
+            document.querySelector("#date").innerHTML = currentMoon.date;
 
         (idx == fullmoon_idx ?
          triangle.setFullMoonText(fullmoon_hour) :
