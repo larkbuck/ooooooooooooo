@@ -287,7 +287,7 @@ let height = parent.clientWidth * 1.2;
 
 const scene = new THREE.Scene();
 
-let camera = new THREE.PerspectiveCamera(75, 1 / .66, 0.1, 2000);
+let camera = new THREE.PerspectiveCamera(75, 1 / 1.2, 0.1, 2000);
 camera.position.z = width;
 
 const renderer = new THREE.WebGLRenderer({
@@ -296,7 +296,8 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true
 });
 // renderer.setSize(parent.clientWidth, parent.clientHeight);
-renderer.setSize(parent.clientWidth, parent.clientWidth * .66); // set to be movie-screen ratio 1.33
+// renderer.setSize(parent.clientWidth, parent.clientWidth * .66); // set to be movie-screen ratio 1.33
+renderer.setSize(parent.clientWidth, parent.clientWidth * 1.2); // set to be mobile friendly narrow
 parent.append(renderer.domElement);
 
 
@@ -326,6 +327,7 @@ domEvents.bind(prevMoonBtn, 'click', () => {
     let currentMoon = moonPhaseAdmin.prevMoon();
     groupMoons.prev();
 }, false)
+
 
 
 // ******** animation loop *******
