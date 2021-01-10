@@ -65,15 +65,17 @@ export function Button(scene, x1, x2, y, delta, invert = false,path="button") {
 }
 
 
-export function Text(scene, x, y, width,height,fontSize) {
+export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
     var canvas = document.createElement('canvas');
     canvas.height = height;
     var scaleFactorM=0.0357;
-    var scaleFactorT=-0.01;
+    var scaleFactorT=-0.02;
+
   var context = canvas.getContext('2d');
     if (isMobile.any()) {
         scaleFactorM = 0.7
-        scaleFactorT = 0.7
+        scaleFactorT = 0.4
+        fontSize = fontSizeC
     }
 
     this.generateMoon = function(){
@@ -95,8 +97,6 @@ export function Text(scene, x, y, width,height,fontSize) {
         context.fillText(l4, width * scaleFactorM, height * 0.3537);
         context.fillText(l5, width * scaleFactorM, height * 0.431);
         context.fillText(l6, width * scaleFactorM, height * 0.47875);
-        context.font = " Bold "+fontSize*1.2+"px Courier";
-        context.fillText(`*~.full moon.°`, scaleFactorT*width,  width * 0.85);
 
         texture.needsUpdate = true;
     }
@@ -122,8 +122,8 @@ export function Text(scene, x, y, width,height,fontSize) {
     new THREE.PlaneGeometry(canvas.width, canvas.height),
     material
   );
-   mesh.position.set(x,y, 0);
-   scene.add(mesh);
+    mesh.position.set(x,y, 0);
+    scene.add(mesh);
 
   this.update = function(newText) {
     this.generateText(newText);
@@ -161,24 +161,46 @@ export function Triangle(parent, scene) {
 
     let w = parent.clientWidth;
     let h = parent.clientHeight;
+    let fontSize = w*0.0625, fontSizeC = w*0.0925;
 
-    const dateText = new Text(scene, w * 0.03, h * 0.3, w*0.35, w*0.3,w*0.0625);
+    const dateText = new Text(scene, w * 0.03, h * 0.3, w*0.35, w*0.3,fontSize, fontSizeC);
     const fullmoonText = new Text(scene,  w * 0.01, 0.,  w*0.35, w*0.4,w*0.0375);
-    const hourText = new Text(scene, w * 0.08, -h * 0.32, w*0.35, w*0.3,w*0.0625);
+    const quarterTextHelper =new Text(scene, w * 0.03, -h * 0.15, w*0.35, w*0.3,fontSize, fontSizeC);
+    const hourText = new Text(scene, w * 0.03, -h * 0.32, w*0.28, w*0.3,fontSize, fontSizeC);
+
 
     this.setDate = function(newText) {
       dateText.update(newText);
     }
 
-
     this.setFullMoonText = function(hour){
-       fullmoonText.clear();
        fullmoonText.generateMoon();
-       hourText.update(hour);
+       this.setQuarterText(2);
+       hourText.update(` `+hour);
     }
 
-    this.clearFullMoonText = function(){
-        fullmoonText.clear();
-        hourText.clear();
+    this.setNewMoonText = function(hour){
+        quarterTextHelper.clear();
+        this.setQuarterText(0);
+        hourText.update(hour);
     }
+
+    this.clear = function(){
+       dateText.clear();
+       fullmoonText.clear();
+       quarterTextHelper.clear();
+       hourText.clear();
+    }
+
+    this.setQuarterText = function(quarter){
+        let quarterTexts = [
+            `.*･｡ﾟ🌑 `,
+            ` .*･🌓｡ﾟ`,
+            `full moon`,
+            `  .🌗｡ﾟ.*`,
+        ]
+
+        quarterTextHelper.update(quarterTexts[quarter])
+    }
+
 }
