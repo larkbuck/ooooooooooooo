@@ -113,8 +113,6 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
       idx --;
 
-      this.updateMoon(idx);
-      //console.log("Day idx:", idx)
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Load quarters and time of current phase
@@ -153,7 +151,10 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       }
       groupMoons.showChild(22);
       tidePredictor.update(idx);
-    }
+      this.updateMoon(idx);
+      //console.log("Day idx:", idx)
+
+  }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Update Current Moon
 
