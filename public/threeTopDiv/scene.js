@@ -301,7 +301,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         let step = currentMoon.prevquarter;
         if (onQuarter){
             this.prevMoon()
-            step = currentMoon.prevquarter
+            step = currentMoon.prevquarter 
         }
 
         let newidx = currentMoon.idx + step;
@@ -346,6 +346,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
             + pad(all_data[current_phase_idx].data[0]["newmoon 0"].sec);
 
     }
+    this.onQuarter = function(){return onQuarter};
 }
 
 
@@ -409,13 +410,15 @@ document.querySelector("#nextMoonBtn").addEventListener('click', () => {
 }, false)
 
 document.querySelector("#prevQuarterBtn").addEventListener('click', () => {
+    let init = (moonPhaseAdmin.onQuarter() ? -1 : 0);
     let step = moonPhaseAdmin.prevQuarter();
-    groupMoons.prevQuarter(step);
+    groupMoons.prevQuarter(step+init);
 }, false)
 
 document.querySelector("#nextQuarterBtn").addEventListener('click', () => {
+    let init = (moonPhaseAdmin.onQuarter() ? 1 : 0);
     let step = moonPhaseAdmin.nextQuarter();
-    groupMoons.nextQuarter(step);
+    groupMoons.nextQuarter(step+init);
 }, false)
 
 // ******** animation loop *******
