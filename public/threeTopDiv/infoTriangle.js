@@ -70,7 +70,7 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
     canvas.height = height;
     var scaleFactorM=0.0357;
     var scaleFactorT=-0.02;
-    var f = 2;
+    var f = 1.8;
 
   var context = canvas.getContext('2d');
     if (isMobile.any()) {
@@ -83,12 +83,12 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
     this.generateMoon = function(){
         context.clearRect(0, 0, canvas.width, canvas.height);
         let l1,l2,l3,l4,l5,l6;
-        l1=`    . :*・°☆     `
-        l2=`  °☆ ☆.:.: °☆  `
-        l3=` °☆.。.::*・° ☆ `
-        l4=` °☆.。.:...・°☆ `
-        l5=`  °☆.。.: * °☆  `
-        l6=`    °☆ .。*☆    `
+        l1=`    .°:*・°☆     `
+        l2=`  ☆.☆.:.:°☆  `
+        l3=` °☆.。.::*・°☆ `
+        l4=` °☆. .:...・°☆ `
+        l5=`  °☆.。.:* °☆  `
+        l6=`    °☆.。*☆    `
 
         context.font = " Bold "+fontSize+"px Courier";
         context.fillStyle = "#FFFFFF";
@@ -99,7 +99,7 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
         context.fillText(l3, width * scaleFactorM,f* height * 0.275625);
         context.fillText(l4, width * scaleFactorM,f* height * 0.3537);
         context.fillText(l5, width * scaleFactorM,f* height * 0.431);
-        context.fillText(l6, width * scaleFactorM,f* height * 0.47875);
+        context.fillText(l6, width * scaleFactorM,f* height * 0.4875);
 
         texture.needsUpdate = true;
     }
@@ -167,8 +167,8 @@ export function Triangle(scene,width,height) {
     let fontSize = w*0.0625, fontSizeC = w*0.0875;
 
     const dateText = new Text(scene, w * 0.01, h * 0.2, w*0.35, w*0.3,fontSize, fontSizeC);
-    const fullmoonText = new Text(scene,  w*0.02, h*0.05 ,  w*0.35, w*0.3,w*0.03);
-    const quarterTextHelper =new Text(scene, w * 0.03, -h*0.08, w*0.35, w*0.3,fontSize, fontSizeC);
+    const fullmoonText = new Text(scene,  w*0.02, h*0.07 ,  w*0.35, w*0.3,w*0.03);
+    const quarterTextHelper =new Text(scene, w * 0.03, -h*0.095, w*0.35, w*0.3,fontSize, fontSizeC);
     const hourText = new Text(scene, w * 0.03, -h * 0.18, w*0.28, w*0.3,fontSize, fontSizeC);
 
 

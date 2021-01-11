@@ -86,7 +86,8 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
     const updateLast = function(){
         let idx = lastMoonIdx - 1;
-        if (idx < 0){
+
+        if (idx < 0 && lastPhaseIdx > 0){
             lastPhaseIdx --;
             idx = all_data[lastPhaseIdx].data[3].days.length - 1;
         }
@@ -391,5 +392,5 @@ render();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
-const controls = new OrbitControls(camera, renderer.domElement);
+//const controls = new OrbitControls(camera, renderer.domElement);
 //console.log(width,height)
