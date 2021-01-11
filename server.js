@@ -41,12 +41,7 @@ var app = express();
 
 // default user list
 var users = [{
-    "firstName": "💻",
-    "lastName": "🌸"
-  },
-  {
-    "firstName": "+",
-    "lastName": "-"
+    "firstName": "💻"
   }
 ];
 
@@ -77,7 +72,8 @@ app.get("/users", function(request, response) {
   var dbUsers = [];
   db.find({}, function(err, users) { // Find all users in the collection
     users.forEach(function(user) {
-      dbUsers.push([user.firstName, user.lastName]); // adds their info to the dbUsers value
+      dbUsers.push([user.firstName]); // adds their info to the dbUsers value
+      // dbUsers.push([user.firstName, user.lastName]); // adds their info to the dbUsers value
     });
     response.send(dbUsers); // sends dbUsers back to the page
   });
@@ -86,8 +82,9 @@ app.get("/users", function(request, response) {
 // creates a new entry in the users collection with the submitted values
 app.post("/users", function(request, response) {
   db.insert({
-    firstName: request.query.fName,
-    lastName: request.query.lName
+    firstName: request.query.fName
+    // firstName: request.query.fName,
+    // lastName: request.query.lName
   }, function(err, userAdded) {
     if (err) console.log("There's a problem with the database: ", err);
     else if (userAdded) console.log("New user inserted in the database");

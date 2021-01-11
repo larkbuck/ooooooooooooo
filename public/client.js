@@ -16,14 +16,16 @@ $(function() {
   $('form').submit(function(event) {
     event.preventDefault();
     var fName = $('input#fName').val();
-    var lName = $('input#lName').val();
+    // var lName = $('input#lName').val();
     // $.post('/users?' + $.param({fName:fName, lName:lName}), function() {
     //   $('#users').append(fName + " " + lName);
     // });
-    $.post('/users?' + $.param({fName:fName, lName:lName}), function() {
-      $('<li></li>').text(fName + " " + lName).appendTo('ul#users');
+    $.post('/users?' + $.param({fName:fName}), function() {
+    // $.post('/users?' + $.param({fName:fName, lName:lName}), function() {
+      $('<li></li>').text(fName + " ").appendTo('ul#users');
+      // $('<li></li>').text(fName + " " + lName).appendTo('ul#users');
       $('input#fName').val('');
-      $('input#lName').val('');
+      // $('input#lName').val('');
       $('input').focus();
     });
   });
