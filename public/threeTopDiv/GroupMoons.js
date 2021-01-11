@@ -212,7 +212,7 @@ export function GroupMoons(scene,width, height) {
           current = 0
       }
       current = current - step;
-        console.log(current)
+
       if (current > 29 && quarter){
           current = current - 29;
       }
