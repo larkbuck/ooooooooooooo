@@ -68,35 +68,38 @@ export function Button(scene, x1, x2, y, delta, invert = false,path="button") {
 export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
     var canvas = document.createElement('canvas');
     canvas.height = height;
-    var scaleFactorM=0.0357;
+    var scaleFactorM=0.1;
     var scaleFactorT=-0.02;
+    var f = 1.8;
 
   var context = canvas.getContext('2d');
     if (isMobile.any()) {
-        scaleFactorM = 0.7
-        scaleFactorT = 0.4
+        scaleFactorM = 0.9
+        scaleFactorT = 0.5
         fontSize = fontSizeC
+        f = 1.5
     }
 
     this.generateMoon = function(){
         context.clearRect(0, 0, canvas.width, canvas.height);
         let l1,l2,l3,l4,l5,l6;
-        l1=`    . :*・°☆     `
-        l2=`  °☆ ☆.:.: °☆  `
-        l3=` °☆.。.::*・° ☆ `
-        l4=` °☆.。.:...・°☆ `
-        l5=`  °☆.。.: * °☆  `
-        l6=`    °☆ .。*☆    `
+        l1=`    .°:*・°☆     `
+        l2=`  ☆.☆.:.:°☆  `
+        l3=` °☆.。.::*・°☆ `
+        l4=` °☆. .:...・°☆ `
+        l5=`  °☆.。.:* °☆  `
+        l6=`    °☆.。*☆    `
 
         context.font = " Bold "+fontSize+"px Courier";
         context.fillStyle = "#FFFFFF";
         context.maxHeight= height;
-        context.fillText(l1, width * scaleFactorM, height * 0.140);
-        context.fillText(l2, width * scaleFactorM, height * 0.1975);
-        context.fillText(l3, width * scaleFactorM, height * 0.275625);
-        context.fillText(l4, width * scaleFactorM, height * 0.3537);
-        context.fillText(l5, width * scaleFactorM, height * 0.431);
-        context.fillText(l6, width * scaleFactorM, height * 0.47875);
+
+        context.fillText(l1, width * scaleFactorM,f* height * 0.140);
+        context.fillText(l2, width * scaleFactorM,f* height * 0.1975);
+        context.fillText(l3, width * scaleFactorM,f* height * 0.275625);
+        context.fillText(l4, width * scaleFactorM,f* height * 0.3537);
+        context.fillText(l5, width * scaleFactorM,f* height * 0.431);
+        context.fillText(l6, width * scaleFactorM,f* height * 0.4875);
 
         texture.needsUpdate = true;
     }
@@ -137,14 +140,14 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
 
 }
 
-export function Triangle(parent, scene) {
+export function Triangle(scene,width,height) {
     const geometry = new THREE.Geometry();
-    let scaleX = 1.5;
-    let scaleY = 1.8
+    let scaleX = .6;
+    let scaleY = .53;
     geometry.vertices.push(
-        new THREE.Vector3(0, parent.clientHeight * scaleY, 0),
-        new THREE.Vector3(-parent.clientWidth * scaleX, -parent.clientHeight * scaleX, 0),
-        new THREE.Vector3(parent.clientWidth * scaleX, -parent.clientHeight * scaleX, 0)
+        new THREE.Vector3(0, height * scaleY, 0),
+        new THREE.Vector3(-width * scaleX, -height*0.2, 0.),
+        new THREE.Vector3(width * scaleX, -height*0.2, 0.)
     );
 
     geometry.faces.push(new THREE.Face3(0, 1, 2));
@@ -156,17 +159,17 @@ export function Triangle(parent, scene) {
     }));
     mesh.position.z = 0;
 
-    mesh.scale.setY(parent.clientHeight/parent.clientWidth)
+    mesh.scale.setY(height/width)
     scene.add(mesh);
 
-    let w = parent.clientWidth;
-    let h = parent.clientHeight;
-    let fontSize = w*0.0625, fontSizeC = w*0.0925;
+    let w = width;
+    let h = height;
+    let fontSize = w*0.0625, fontSizeC = w*0.0875;
 
-    const dateText = new Text(scene, w * 0.03, h * 0.3, w*0.35, w*0.3,fontSize, fontSizeC);
-    const fullmoonText = new Text(scene,  w * 0.01, 0.,  w*0.35, w*0.4,w*0.0375);
-    const quarterTextHelper =new Text(scene, w * 0.03, -h * 0.15, w*0.35, w*0.3,fontSize, fontSizeC);
-    const hourText = new Text(scene, w * 0.03, -h * 0.32, w*0.28, w*0.3,fontSize, fontSizeC);
+    const dateText = new Text(scene, w * 0.01, h * 0.2, w*0.35, w*0.3,fontSize, fontSizeC);
+    const fullmoonText = new Text(scene,  w*0.02, h*0.07 ,  w*0.35, w*0.3,w*0.03);
+    const quarterTextHelper =new Text(scene, w * 0.03, -h*0.095, w*0.35, w*0.3,fontSize, fontSizeC);
+    const hourText = new Text(scene, w * 0.03, -h * 0.18, w*0.28, w*0.3,fontSize, fontSizeC);
 
 
     this.setDate = function(newText) {
@@ -174,7 +177,7 @@ export function Triangle(parent, scene) {
     }
 
     this.setFullMoonText = function(hour){
-       fullmoonText.generateMoon();
+        fullmoonText.generateMoon();
        this.setQuarterText(2);
        hourText.update(` `+hour);
     }
@@ -196,8 +199,8 @@ export function Triangle(parent, scene) {
         let quarterTexts = [
             `.*･｡ﾟ🌑 `,
             ` .*･🌓｡ﾟ`,
-            `full moon`,
-            `  .🌗｡ﾟ.*`,
+            ` ﾟ*.🌕.*.`,
+            ` .🌗｡ﾟ.*`,
         ]
 
         quarterTextHelper.update(quarterTexts[quarter])

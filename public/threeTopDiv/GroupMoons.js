@@ -3,17 +3,16 @@
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ MOONS  ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
-export function GroupMoons(parent, scene) {
+export function GroupMoons(scene,width, height) {
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Initialization
-  let imageRadius = parent.clientWidth * .15;
+  let imageRadius = width* .1;
   const numberImages = 29;
   const radianInterval = (2.0 * Math.PI) / numberImages;
-
   const centerWheel = {
-    x: -imageRadius*0.8, //temporal fix for display moon in center of triangle
-    y: -parent.clientHeight * 2.8 - imageRadius*0.8
+    x: -imageRadius*0.7, //temporal fix for display moon in center of triangle
+    y: -height *0.7- imageRadius*0.6
   }
  //Geometric Structure
   const group = new THREE.Group();
@@ -23,9 +22,10 @@ export function GroupMoons(parent, scene) {
   let material = null;
   let circle = null;
   let mesh = null;
-  let radius = parent.clientWidth * 2.5;
+  let radius = width * 1.4;
  // Array showing current moons information
-  var groupData = new Array(29);
+    var groupData = new Array(29);
+    let current = 7;
 
     //-------------------------------------------------------------------
     // Initialize moons with empty texture
@@ -33,13 +33,14 @@ export function GroupMoons(parent, scene) {
         material = new THREE.MeshBasicMaterial({
             color: 0x000000,
         });
-
+        
         circle = new THREE.CircleGeometry(imageRadius, 100);
 
         mesh = new THREE.Mesh(circle, material);
-        mesh.scale.setY(parent.clientHeight/parent.clientWidth)
         mesh.name = "circle "+ i;
-
+        if (i==7){
+            mesh.scale.set(1.25,1.25,1.25)
+        }
         mesh.position.set(
             (Math.cos(radianInterval * i) * radius),
             (Math.sin(radianInterval * i) * radius),
@@ -53,11 +54,11 @@ export function GroupMoons(parent, scene) {
     //Add moons veil
 
     const shape  = new THREE.Shape()
-          .moveTo(0,-200)
-		  .lineTo(-parent.clientWidth , -parent.clientWidth *0.25 )
-		  .lineTo(-parent.clientWidth ,parent.clientWidth *0.5)
-          .lineTo(parent.clientWidth ,parent.clientWidth *0.5)
-          .lineTo(parent.clientWidth ,-parent.clientWidth *0.25)
+          .moveTo(0,-width*0.25)
+		  .lineTo(-width*0.5 , -width *0.25 )
+		  .lineTo(-width*0.5 ,width *0.5)
+          .lineTo(width *0.5,width *0.5)
+          .lineTo(width *0.5,-width *0.25)
     /*
     //Maybe usefull for other veil?
       const moonEye = new THREE.Path()
@@ -67,9 +68,9 @@ export function GroupMoons(parent, scene) {
     shape.holes.push(moonEye)
   */
     const triangle  = new THREE.Shape()
-          .moveTo(parent.clientWidth *0.64,-parent.clientWidth *0.25)
-          .lineTo(0, parent.clientHeight *.6)
-          .lineTo(-parent.clientWidth *0.64,-parent.clientWidth *0.25)
+          .moveTo(width*0.345,-width *0.25)
+          .lineTo(0, height*0.32)
+          .lineTo(-width*0.35,-width*0.25)
     shape.holes.push(triangle)
 
     loader = new THREE.TextureLoader();
@@ -85,7 +86,7 @@ export function GroupMoons(parent, scene) {
         map: texture,
         transparent: true,
         side: THREE.DoubleSide,
-        opacity:.3
+        opacity:.4
     });
 
     const veilGeom = new THREE.ShapeBufferGeometry(shape);
@@ -176,8 +177,15 @@ export function GroupMoons(parent, scene) {
     this.next = function(){
         this.spin();
     }
+    this.nextQuarter = function(val){
+        this.spin(val);
+    }
+
     this.prev = function(){
         this.spin(-1);
+    }
+    this.prevQuarter = function(val){
+        this.spin(val);
     }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -193,7 +201,41 @@ export function GroupMoons(parent, scene) {
     imageRadius = width * 0.08;
   }
 
-    this.group = function(){
-        return group;
-    }
+  this.group = function(){
+       return group;
+  }
+
+    this.scaleCenterOnPrevEvent = function(step=-1,quarter=false){
+    let moon = group.children[current]
+    moon.scale.set(1.,1.,1.);
+      if (current == 29){
+          current = 0
+      }
+      current = current - step;
+
+      if (current > 29 && quarter){
+          current = current - 29;
+      }
+
+      moon = group.children[current]
+      moon.scale.set(1.25,1.25,1.25)
+
+  }
+
+    this.scaleCenterOnNextEvent = function(step=1,quarter=false){
+
+    let moon = group.children[current]
+    moon.scale.set(1.,1.,1.);
+      if (current == 1){
+            current = 30
+      }
+       current = current - step;
+
+      if (current < 0 && quarter){
+          current = current + 29;
+      }
+
+      moon = group.children[current]
+      moon.scale.set(1.25,1.25,1.25)
+  }
 }
