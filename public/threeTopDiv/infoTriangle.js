@@ -68,7 +68,7 @@ export function Button(scene, x1, x2, y, delta, invert = false,path="button") {
 export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
     var canvas = document.createElement('canvas');
     canvas.height = height;
-    var scaleFactorM=0.0357;
+    var scaleFactorM=0.1;
     var scaleFactorT=-0.02;
     var f = 1.8;
 
@@ -199,7 +199,7 @@ export function Triangle(scene,width,height) {
         let quarterTexts = [
             `.*･｡ﾟ🌑 `,
             ` .*･🌓｡ﾟ`,
-            `ﾟ*.🌕.*.`,
+            ` ﾟ*.🌕.*.`,
             ` .🌗｡ﾟ.*`,
         ]
 
