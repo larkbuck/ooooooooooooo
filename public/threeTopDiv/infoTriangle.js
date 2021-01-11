@@ -173,8 +173,8 @@ export function Triangle(scene,width,height) {
     const hourText = new Text(scene, w * 0.03, -h * 0.18, w*0.28, w*0.3,fontSize, fontSizeC);
 
 
-    this.setDate = function(newText) {
-      dateText.update(newText);
+    this.setDate = function(newText){
+    // dateText.update(newText);
     }
 
     this.setFullMoonText = function(hour){
@@ -190,7 +190,7 @@ export function Triangle(scene,width,height) {
     }
 
     this.clear = function(){
-       dateText.clear();
+    // dateText.clear();
        fullmoonText.clear();
        quarterTextHelper.clear();
        hourText.clear();

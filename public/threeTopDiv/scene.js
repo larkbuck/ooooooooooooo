@@ -48,8 +48,8 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
     let newmoon_idx, fullmoon_idx, thirdquarter_idx, firstquarter_idx;
 
     const tidePredictor = new TidePredictor(tide);
-    let firstPhaseIdx, firstMoonIdx;
-    let lastPhaseIdx, lastMoonIdx;
+    let firstPhaseIdx, firstMoonDataIdx, firstMoonIdx;
+    let lastPhaseIdx, lastMoonDataIdx, lastMoonIdx;
 
     let onQuarter = false;
 
@@ -75,26 +75,6 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
                  currentMoon.moonAge);
       return res;
     }
-
-    const updateFirst = function(){
-        let idx = firstMoonIdx + 1;
-        if (idx > all_data[firstPhaseIdx].data[3].days.length - 1){ //TODO; check boundary
-            idx = 0;
-            firstPhaseIdx ++;
-        }
-        firstMoonIdx = idx;
-    }
-
-    const updateLast = function(){
-        let idx = lastMoonIdx - 1;
-
-        if (idx < 0 && lastPhaseIdx > 0){
-            lastPhaseIdx --;
-            idx = all_data[lastPhaseIdx].data[3].days.length - 1;
-        }
-        lastMoonIdx = idx;
-    }
-
 
   this.init = function(json) {
       var obj = JSON.parse(json);
@@ -126,9 +106,8 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       // Initialize pointers to `pre-load` moons
       firstPhaseIdx = current_phase_idx;
       lastPhaseIdx = current_phase_idx;
-      firstMoonIdx = idx;
-      lastMoonIdx = idx;
-
+      firstMoonDataIdx = idx;
+      lastMoonDataIdx = idx;
 
       //Fill Central Moon
       var centralIdx = 7;
@@ -137,19 +116,22 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       // Fill left mid - anticlockwise
       for (var i = centralIdx + 1 ; i < 22; i++) {
           updateLast();
-          groupMoons.loadNewTexture(all_data, i, lastPhaseIdx, lastMoonIdx);
+          groupMoons.loadNewTexture(all_data, i, lastPhaseIdx, lastMoonDataIdx);
+          lastMoonIdx = i;
       }
 
       // Fill upper right quater
       for (var i = centralIdx - 1; i >= 0; i--) {
           updateFirst();
-          groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
+          groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonDataIdx);
+          firstMoonIdx = i;
       }
 
       // Fill lower right quater
       for (var i = 29; i > 21; i--) {
           updateFirst();
-          groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
+          groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonDataIdx);
+          firstMoonIdx = i;
       }
 
       tidePredictor.update(idx);
@@ -159,6 +141,10 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
   }
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Update Current Moon
+
+    this.showCurrentMoon= function(){
+        console.log(currentMoon);
+    }
 
     this.updateMoon = function(idx) {
         var days = all_data[current_phase_idx].data[3].days;
@@ -212,11 +198,34 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Resolves next and prev `events`
 
+    const updateFirst = function(){
+        let idx = firstMoonDataIdx + 1;
+        if (idx > all_data[firstPhaseIdx].data[3].days.length - 1){ //TODO; check boundary
+            idx = 0;
+            firstPhaseIdx ++;
+        }
+
+        firstMoonDataIdx = idx;
+        firstMoonIdx --;
+        if (firstMoonIdx < 0){
+            firstMoonIdx = 29;
+        }
+    }
+
    const loadFirst = function(){
-        //pre-loads `first` Moon
-        var idx = 22;
-        updateFirst();
-        groupMoons.loadNewTexture(all_data, idx, current_phase_idx, idx);
+       //pre-loads `first` Moon
+       updateFirst();
+
+       //Update texture
+       groupMoons.loadNewTexture(all_data, firstMoonIdx, firstPhaseIdx, firstMoonDataIdx);
+
+       //Update New Last
+       lastMoonIdx --;
+       if (lastMoonIdx < 0){
+           lastMoonIdx = 29;
+       }
+       groupMoons.loadNewTexture(all_data, lastMoonIdx, lastPhaseIdx, lastMoonDataIdx);
+
    }
 
     this.nextMoon = function() {
@@ -239,12 +248,28 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         return currentMoon;
     }
 
+    const updateLast = function(){
+        let idx = lastMoonDataIdx - 1;
+
+        if (idx < 0){
+            lastPhaseIdx = Math.max(0, lastPhaseIdx - 1) ;
+            idx = all_data[lastPhaseIdx].data[3].days.length - 1;
+        }
+
+        lastMoonDataIdx = idx;
+        lastMoonIdx  =  (lastMoonIdx + 1) % 30;
+    }
 
     const loadLast = function(){
         //pre-loads `last` Moon
-        var idx = 21;
         updateLast();
-        groupMoons.loadNewTexture(all_data, idx, current_phase_idx, idx);
+        //Update texture
+        groupMoons.loadNewTexture(all_data, lastMoonIdx, lastPhaseIdx, lastMoonDataIdx);
+
+        //Update New First
+        firstMoonIdx  =  (firstMoonIdx+1)% 30;
+        groupMoons.loadNewTexture(all_data, firstMoonIdx, firstPhaseIdx, firstMoonDataIdx);
+
     }
 
 
@@ -272,10 +297,11 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
     this.nextQuarter = function() {
         var days = all_data[current_phase_idx].data[3].days;
         let step = currentMoon.nextquarter;
+        let init =0
         if (onQuarter){
             this.nextMoon()
             step = currentMoon.nextquarter
-
+            init = 1
         }
 
         let newidx = currentMoon.idx + step;
@@ -290,6 +316,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         this.updateMoon(newidx);
         groupMoons.scaleCenterOnNextEvent(step,true);
         tidePredictor.update(newidx);
+
         for (var i = 0; i < step + 1; i++) {
             loadLast();
         }
@@ -299,9 +326,11 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
     this.prevQuarter = function() {
         var days = all_data[current_phase_idx].data[3].days;
         let step = currentMoon.prevquarter;
+        let init = 0
         if (onQuarter){
             this.prevMoon()
             step = currentMoon.prevquarter
+            init = -1
         }
 
         let newidx = currentMoon.idx + step;
@@ -316,10 +345,12 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         this.updateMoon(newidx);
         groupMoons.scaleCenterOnPrevEvent(step,true);
         tidePredictor.update(newidx);
-        for (var i = 0; i < step + 1; i++) {
+
+        for (var i = 0; i < step + 1; i++) { //CHECK
             loadFirst();
         }
-        return step;
+
+        return step + init;
     }
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -404,23 +435,31 @@ domEvents.bind(prevMoonBtn, 'click', () => {
 document.querySelector("#prevMoonBtn").addEventListener('click', () => {
     let currentMoon = moonPhaseAdmin.prevMoon();
     groupMoons.prev();
+    groupMoons.showChild();
 }, false)
 
 document.querySelector("#nextMoonBtn").addEventListener('click', () => {
     let currentMoon = moonPhaseAdmin.nextMoon();
     groupMoons.next();
+    groupMoons.showChild();
+    moonPhaseAdmin.showCurrentMoon();
 }, false)
 
 document.querySelector("#prevQuarterBtn").addEventListener('click', () => {
     let init = (moonPhaseAdmin.onQuarter() ? -1 : 0);
     let step = moonPhaseAdmin.prevQuarter();
-    groupMoons.prevQuarter(step+init);
+    groupMoons.prevQuarter(step + init);
+    groupMoons.showChild();
+    moonPhaseAdmin.showCurrentMoon();
 }, false)
 
 document.querySelector("#nextQuarterBtn").addEventListener('click', () => {
     let init = (moonPhaseAdmin.onQuarter() ? 1 : 0);
+
     let step = moonPhaseAdmin.nextQuarter();
-    groupMoons.nextQuarter(step+init);
+    groupMoons.nextQuarter(step + init);
+    
+    //groupMoons.showChild();
 }, false)
 
 // ******** animation loop *******
@@ -471,5 +510,5 @@ render();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
-//const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
 //console.log(width,height)

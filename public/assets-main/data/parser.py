@@ -28,33 +28,41 @@ for filename in dirFiles:
         with open(DIRECTORY+filename) as json_file:
             data = json.load(json_file); new_data =[];
             days_data = data['locations'][0]['astronomy']['objects'][0]['days']
+
             days = []; newmoon_init = ''; fullmoon = ''; newmoon_fin = ''
             first_quarter = ''; thrid_quarter='';
             load_newmoon_init = True; load_newmoon_fin = False;
 
             idx = 0
 
-            for day in days_data:
-                img = {"image": IMG_PATH + str(idx)+'.png' }
+            if (len(days_data) == 29):
+                idx = 1
 
-                day.update(img)
-                days.append(day)
+            for day in days_data:
+                img = {"image": IMG_PATH + str(idx%len(days_data))+'.png' }
+
 
                 if (day["moonphase"] == "firstquarter"):
                     first_quarter = {
                         "firstquarter":
                         {"idx": idx }
                    }
+                    img = {"image": IMG_PATH + '8.png'}
+
 
                 if (day["moonphase"] == "thirdquarter"):
                    third_quarter = {
                        "thirdquarter":
                        {"idx": idx }
                    }
+                   img = {"image": IMG_PATH + '23.png' }
+
 
                 idx = idx + 1
 
                 if  (len(day["events"]) == 3 and day["events"][2]["type"] == "newmoon"):
+                    img = {"image": IMG_PATH + '0.png' }
+
                     if (phase == "1"):
                         if (load_newmoon_init):
                             newmoon_init = {"newmoon 0" : day["events"][2]}
@@ -71,6 +79,11 @@ for filename in dirFiles:
                         fullmoon_data = day["events"][2]
                         fullmoon_data.update({"idx": idx - 1})
                         fullmoon = {"fullmoon": fullmoon_data}
+                        img = {"image": IMG_PATH + '16.png' }
+
+
+                day.update(img)
+                days.append(day)
 
             #Update next and previous quarters in phase-days steps
             idx = 0
