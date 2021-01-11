@@ -8,11 +8,11 @@ export function GroupMoons(scene,width, height) {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Initialization
   let imageRadius = width* .1;
-  const numberImages = 29;
+  const numberImages = 30;
   const radianInterval = (2.0 * Math.PI) / numberImages;
   const centerWheel = {
-    x: -imageRadius*0.7, //temporal fix for display moon in center of triangle
-    y: -height *0.7- imageRadius*0.6
+    x:  - imageRadius*.5, //temporal fix for display moon in center of triangle
+      y: -height *0.7- imageRadius*.5,
   }
  //Geometric Structure
   const group = new THREE.Group();
@@ -29,7 +29,7 @@ export function GroupMoons(scene,width, height) {
 
     //-------------------------------------------------------------------
     // Initialize moons with empty texture
-    for (let i = 0; i < (numberImages+1); i++) {
+    for (let i = 0; i < numberImages; i++) {
         material = new THREE.MeshBasicMaterial({
             color: 0x000000,
         });
@@ -49,6 +49,25 @@ export function GroupMoons(scene,width, height) {
     }
 
     scene.add(group);
+    //Initial rotation to align moons
+    let val = 0.3;
+    new TWEEN.Tween(group.rotation)
+        .to({
+            z: group.rotation.z + (radianInterval * val)
+        }, 600)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start();
+
+    for (let i = 0; i < group.children.length; i++) {
+        // group.children[i].rotation.z += radianInterval;
+        // ^ animating with Tween
+        new TWEEN.Tween(group.children[i].rotation)
+            .to({
+                z: group.children[i].rotation.z - (radianInterval * val)
+            }, 600)
+            .easing(TWEEN.Easing.Cubic.InOut)
+            .start();
+    }
 
     //----------------------------------------------------------------
     //Add moons veil
@@ -107,6 +126,7 @@ export function GroupMoons(scene,width, height) {
         moonData = days[dataIdx];
         groupData[idx] = moonData;
 
+
         texture = loader.load(moonData.image);
         texture.minFilter = THREE.LinearFilter;
         newMaterial = new THREE.MeshBasicMaterial({
@@ -120,8 +140,13 @@ export function GroupMoons(scene,width, height) {
         moon.material.map.needsUpdate = true
 
     }
-    this.showChild = function(idx){
-        console.log(groupData[idx], group.children[idx])
+
+
+
+
+    this.showChild = function(idx=current){
+        console.log("---------------------------------------------------")
+        console.log("data", group.children[idx].material.map.image,"current", current)
     }
 
     this.debugMoon = function(all_data,idx,phaseIdx){
@@ -150,7 +175,9 @@ export function GroupMoons(scene,width, height) {
     y: 0,
     theta: 0.0
   }
-  // ******* circle-spin event - just a mouse click here ******
+    // ******* circle-spin event - just a mouse click here ******
+
+
     this.spin = function(val=1){
         // groupMoons.rotation.z += radianInterval;
         // ^ basically just doing this but using Tween to animate:
@@ -206,30 +233,33 @@ export function GroupMoons(scene,width, height) {
   }
 
     this.scaleCenterOnPrevEvent = function(step=-1,quarter=false){
-    let moon = group.children[current]
-    moon.scale.set(1.,1.,1.);
-      if (current == 29){
-          current = 0
-      }
-      current = current - step;
+        let moon = group.children[current]
+        moon.scale.set(1.,1.,1.);
 
-      if (current > 29 && quarter){
-          current = current - 29;
-      }
+        if (current == 29){
+            current = 0
+            step ++;
+        }
+        current = current - step;
 
-      moon = group.children[current]
-      moon.scale.set(1.25,1.25,1.25)
+        if (current > 29 && quarter){
+            current = current - 29;
+        }
 
-  }
+        moon = group.children[current]
+        moon.scale.set(1.25,1.25,1.25)
+
+    }
 
     this.scaleCenterOnNextEvent = function(step=1,quarter=false){
+        let moon = group.children[current]
 
-    let moon = group.children[current]
-    moon.scale.set(1.,1.,1.);
-      if (current == 1){
-            current = 30
+        moon.scale.set(1.,1.,1.);
+      if (current == 0){
+          current = 29
+          step --;
       }
-       current = current - step;
+      current = current - step;
 
       if (current < 0 && quarter){
           current = current + 29;
@@ -237,5 +267,8 @@ export function GroupMoons(scene,width, height) {
 
       moon = group.children[current]
       moon.scale.set(1.25,1.25,1.25)
-  }
+    }
+    this.getCurrent = function(){
+        return current
+    }
 }
