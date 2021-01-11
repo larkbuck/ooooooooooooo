@@ -340,7 +340,7 @@ document.querySelector("#prevMoonBtn").addEventListener('click', () => {
 }, false)
 
 document.querySelector("#nextMoonBtn").addEventListener('click', () => {
-    let currentMoon = moonPhaseAdmin.prevMoon();
+    let currentMoon = moonPhaseAdmin.nextMoon();
     groupMoons.next();
 }, false)
 
