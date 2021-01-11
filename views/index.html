@@ -67,9 +67,9 @@
               🌚&🌝 ➡ 💌
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#">🌚 12.14.20</a>
-          </li>
+          </li> -->
           <!-- <li>
             <a href="#">🌓 12.21.20</a>
           </li> -->
@@ -90,9 +90,8 @@
               <option value="audi">🌝 3.28.21</option>
             </select> -->
             <div class="dropdown">
-              <button class="dropbtn">🌝 12.30.20 ⬇</button>
+              <button class="dropbtn">🌚 1.13.21 ⬇</button>
               <div class="dropdown-content">
-                <a href="#">🌚 1.13.21</a>
                 <a href="#">🌝 1.28.21</a>
                 <a href="#">🌚 2.11.21</a>
                 <a href="#">🌝 2.27.21</a>
@@ -117,20 +116,17 @@
 
   <!-- Main Content -->
   <main>
-    <!-- for splitting content in browser w/ flexbox -->
-    <div class="flex-container width-max1200">
+    <!-- <div class="flex-container width-max1200">
       <section class="content">
         <div class="">
-          <!-- <p>🤩🌗🌚🌓🤩 </p> -->
           <p class="lg-font">🌊🌊 💤🎶 ⚖️ <span class="lg-font"> Øø°%†
               ∞⧝⧞⧜</span></p>
-          <!-- <p style="font-size: 2.3rem; color: #0053D0;">🌍🌏🌎¡!¡!¡ <span style="color: #eeeeee;">±¼</span></p> -->
           </p>
         </div>
       </section>
 
-      <aside class="sidebar-30 contribution">
-        <!-- <div style="text-align: center;">
+      <aside class="sidebar-30 contribution"> -->
+    <!-- <div style="text-align: center;">
           <p style="font-size: 1.2rem">💭&nbsp;&nbsp;&nbsp;&nbsp;💭💭&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;💭&nbsp;💭&nbsp;&nbsp;&nbsp;&nbsp;💭&nbsp;&nbsp;&nbsp;💭</p>
           <p style="font-size: 1.2rem">🐙🦑🦐🦞🦀🐡🐠🐟🐬🐳🐋🦈</p>
           <form>
@@ -145,23 +141,35 @@
           </div>
           <p><a href="/reset">♺</a> | <a href="/clear">⌫</a></p>
         </div> -->
-      </aside>
+    <!-- </aside> -->
 
     </div>
     <!-- Three JS Top -->
     <section class="width-full">
       <div class="width-max800" id="threeTopContainer">
 
-        <div id='threejsDiv' class="longShadow">
+        <div id='threejsDiv' class="longShadow" style="position: relative;">
+          <!-- <button id="prevQuarterBtn" type="button" name="button"><<</button>
+          <button id="prevMoonBtn" type="button" name="button"><</button>
+          <span id="date"></span>
+          <button id="nextMoonBtn" type="button" name="button">></button>
+          <button id="nextQuarterBtn" type="button" name="button">>></button> -->
+          <div id="buttonsThreejsTop" style="position: absolute; top: 30%; text-align: center; width: 100%;">
+            <button id="prevQuarterBtn" class="threeBtn" type="button" name="button"><<</button>
+            <button id="prevMoonBtn" class="threeBtn" type="button" name="button"><</button>
+            <span id="date"></span>
+            <button id="nextMoonBtn" class="threeBtn" type="button" name="button">></button>
+            <button id="nextQuarterBtn" class="threeBtn" type="button" name="button">>></button>
+          </div>
         </div>
         <!-- <div id='p5Div' class="longShadow"></div> -->
-        <div id="buttonsThreejsTop" class="">
+        <!-- <div id="buttonsThreejsTop" class="" style="position: fixed;">
           <button id="prevQuarterBtn" type="button" name="button"><<</button>
           <button id="prevMoonBtn" type="button" name="button"><</button>
           <span id="date"></span>
           <button id="nextMoonBtn" type="button" name="button">></button>
           <button id="nextQuarterBtn" type="button" name="button">>></button>
-        </div>
+        </div> -->
 
       </div>
 

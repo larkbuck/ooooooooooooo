@@ -19,7 +19,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lucida Console", "Courier New", monospace;
   font-size: 1rem;
   color: #eeeeee;
   background: #000;
@@ -301,6 +301,20 @@ main {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #000;
+}
+
+
+
+/* *************** 3 js scene buttons *********** */
+
+#buttonsThreejsTop {
+  font-size: 1.5rem;
+}
+.threeBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #eeeeee;
 }
 
 /* ********** media queries ********** */

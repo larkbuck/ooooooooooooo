@@ -301,7 +301,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         let step = currentMoon.prevquarter;
         if (onQuarter){
             this.prevMoon()
-            step = currentMoon.prevquarter 
+            step = currentMoon.prevquarter
         }
 
         let newidx = currentMoon.idx + step;
@@ -378,8 +378,10 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 const sky = new Sky(scene);
 
 const triangle = new Triangle(scene, width, height);
-const nextMoonBtn = new Button(scene, width*0.32, width*0.38, height*0.2,width*0.05);
-const prevMoonBtn = new Button(scene, -width*0.32, -width*0.38, height*0.2,width*0.05, true);
+
+// buttons in scene (not HTML)
+// const nextMoonBtn = new Button(scene, width*0.32, width*0.38, height*0.2,width*0.05);
+// const prevMoonBtn = new Button(scene, -width*0.32, -width*0.38, height*0.2,width*0.05, true);
 
 const background = new Background(scene,width, height);
 const tide = new Tide(scene,width, height);

@@ -166,7 +166,8 @@ export function Triangle(scene,width,height) {
     let h = height;
     let fontSize = w*0.0625, fontSizeC = w*0.0875;
 
-    const dateText = new Text(scene, w * 0.01, h * 0.2, w*0.35, w*0.3,fontSize, fontSizeC);
+    // lark - change new and full moon text to HTML here
+    // const dateText = new Text(scene, w * 0.01, h * 0.2, w*0.35, w*0.3,fontSize, fontSizeC);
     const fullmoonText = new Text(scene,  w*0.02, h*0.07 ,  w*0.35, w*0.3,w*0.03);
     const quarterTextHelper =new Text(scene, w * 0.03, -h*0.095, w*0.35, w*0.3,fontSize, fontSizeC);
     const hourText = new Text(scene, w * 0.03, -h * 0.18, w*0.28, w*0.3,fontSize, fontSizeC);
