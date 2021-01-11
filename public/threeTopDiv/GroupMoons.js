@@ -177,8 +177,15 @@ export function GroupMoons(scene,width, height) {
     this.next = function(){
         this.spin();
     }
+    this.nextQuarter = function(val){
+        this.spin(val);
+    }
+
     this.prev = function(){
         this.spin(-1);
+    }
+    this.prevQuarter = function(val){
+        this.spin(val);
     }
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -198,28 +205,35 @@ export function GroupMoons(scene,width, height) {
        return group;
   }
 
-  this.scaleCenterOnPrevEvent = function(){
+    this.scaleCenterOnPrevEvent = function(step=-1,quarter=false){
     let moon = group.children[current]
     moon.scale.set(1.,1.,1.);
       if (current == 29){
           current = 0
       }
-      current = current + 1;
-
+      current = current - step;
+        console.log(current)
+      if (current > 29 && quarter){
+          current = current - 29;
+      }
 
       moon = group.children[current]
       moon.scale.set(1.25,1.25,1.25)
 
   }
 
-  this.scaleCenterOnNextEvent = function(){
+    this.scaleCenterOnNextEvent = function(step=1,quarter=false){
+
     let moon = group.children[current]
     moon.scale.set(1.,1.,1.);
       if (current == 1){
             current = 30
       }
-      current = current - 1;
+       current = current - step;
 
+      if (current < 0 && quarter){
+          current = current + 29;
+      }
 
       moon = group.children[current]
       moon.scale.set(1.25,1.25,1.25)
