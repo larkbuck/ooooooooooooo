@@ -150,7 +150,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
           updateFirst();
           groupMoons.loadNewTexture(all_data, i, firstPhaseIdx, firstMoonIdx);
       }
-      groupMoons.showChild(22);
+
       tidePredictor.update(idx);
       this.updateMoon(idx);
       //console.log("Day idx:", idx)
