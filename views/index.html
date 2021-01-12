@@ -112,22 +112,28 @@
           </div>
         </div>
       </div>
-
     </section>
 
 
+    <!-- script to handle popup -->
+    <script type="text/javascript">
+      function toggleViz(_id){
+        document.querySelector(`#${_id}`).style.visibility = 'visible';
+      }
+    </script>
 
-    <!-- for splitting content in browser w/ flexbox -->
+    <!-- ovals with underwater videos -->
     <div class="flex-container width-max1200">
       <section class="content marginTop">
-        <div class="">
-          <!-- <p>🤩🌗🌚🌓🤩 </p> -->
-          <!-- <img class="img longShadowGreen marginTop" src="assets-main/images/tide4moon.jpg" alt="" style="border-radius:50%;"> -->
+        <!-- testing popup - parent div needs to have position: relative for position: absolute to work for popup child.  -->
+        <div class="" style="position: relative;">
+          <h1 id="testPopup" style="position:absolute; top: 20%; left: 5%; z-index:5; visibility:hidden;">🤩🌗🌚🌓🤩 </h1>
+          <a href="javascript:toggleViz('testPopup');">
           <video autoplay loop muted class="img longShadowGreen marginTop" width="640" style="border-radius:50%; max-width: 98vw;">
             <source src="assets-main/vid/waterVid-0.mp4" type="video/mp4">
             <source src="assets-main/vid/waterVid-0.webm" type="video/webm">
             Your browser doesn't support HTML5 video tag.
-          </video>
+          </video></a>
           <video autoplay loop muted class="img longShadowGreen " width="200" style="border-radius:50%;">
             <source src="assets-main/vid/waterVid-1.mp4" type="video/mp4">
             <source src="assets-main/vid/waterVid-1.webm" type="video/webm">
@@ -138,11 +144,6 @@
       </section>
 
       <aside class="sidebar-30 contribution">
-        <!-- <video autoplay loop muted class="img longShadowGreen marginTop" width="400" style="border-radius:50%; max-width: 98vw;">
-          <source src="assets-main/vid/waterVid-1.mp4" type="video/mp4">
-          <source src="assets-main/vid/waterVid-1.webm" type="video/webm">
-          Your browser doesn't support HTML5 video tag.
-        </video> -->
         <img class="img longShadowGreen marginTop" src="assets-main/images/tide4moon.jpg" alt="" style="border-radius:50%;">
       </aside>
 
@@ -156,7 +157,7 @@
       </video>
     </div>
 
-    <!-- for splitting content in browser w/ flexbox -->
+    <!-- talking underwater emoji -->
     <div class="flex-container width-max1200 marginTop">
       <div class="" style="text-align: center;">
         <!-- <p>🤩🌗🌚🌓🤩 </p> -->
@@ -164,20 +165,16 @@
         <p class="lg-font">🐙🦑🦐🦞🦀🐡🐠🐟🐬🐳🐋🦈</p>
       </div>
     </div>
-    <!-- for splitting content in browser w/ flexbox -->
-    <div class="flex-container width-max1200 marginTop">
 
-      <div class="">
+    <!-- tide animation video -->
+    <div class="flex-container width-max1200 marginTop">
+      <div class="marginTop">
         <img class="img" src="assets-main/images/tide-anim.gif" alt="" style="border: 1px solid #336CD7; width: 640px; max-width: 95vw;">
       </div>
       <section class="content ">
-
       </section>
 
       <aside class="sidebar-30 contribution">
-
-        <!-- <p class="md-font" style="color: #0053D0;">🌍🌏🌎¡!¡!¡</p> -->
-        <!-- <p style="font-size: 2.3rem; color: #0053D0;">🌍🌏🌎¡!¡!¡ <span style="color: #eeeeee;">±¼</span></p> -->
       </aside>
     </div>
 
