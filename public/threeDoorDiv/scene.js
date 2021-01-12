@@ -29,6 +29,7 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 const door = new Door(scene,domEvents)
+const water= new Water(scene,domEvents)
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ EVENTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
 
@@ -37,6 +38,7 @@ const render = function() {
   requestAnimationFrame(render);
     door.update()
     camera.lookAt(0.,0.,0.);
+    water.update();
     renderer.render(scene, camera);
 };
 

@@ -14,18 +14,22 @@ export function Door(scene,domEvents){
     });
 
     //Set up water like
-    const path = '/assets-main/images/cubemapFG/';
+    /*const path = '/assets-main/images/cubemapFG/';
 	const format = '.jpg';
     const urls = [
 	    path + 'front' + format, path + 'back' + format,
 		path + 'up' + format, path + 'down' + format,
         path + 'right' + format, path + 'left' + format,
 
-	];
+	]; */
 
-	const textureCube = new THREE.CubeTextureLoader().load( urls );
+   const  urls = [ '/assets-main/images/water22.jpg', '/assets-main/images/water22.jpg',
+             '/assets-main/images/water22.jpg', '/assets-main/images/water22.jpg',
+             '/assets-main/images/water22.jpg', '/assets-main/images/water22.jpg']
 
-	scene.background = textureCube;
+	const textureCube = new THREE.CubeTextureLoader().load(urls);
+
+//	scene.background = textureCube;
 
     const shader = FresnelShader;
 	const uniforms = THREE.UniformsUtils.clone( shader.uniforms );
@@ -40,15 +44,15 @@ export function Door(scene,domEvents){
 	} );
 
     const spheres = [];
-    const geometry_ = new THREE.SphereBufferGeometry( 40, 32, 16 );
+    const geometry_ = new THREE.SphereBufferGeometry( 5, 32, 16 );
 
-    for ( let i = 0; i < 150; i ++ ) {
+    for ( let i = 0; i < 20; i ++ ) {
 
 		const mesh = new THREE.Mesh( geometry_, materialFresnel );
 
-		mesh.position.x = Math.random() * 10000 - 5000;
-		mesh.position.y = Math.random() * 10000 - 5000;
-		mesh.position.z = Math.random() * 10000 - 5000;
+		mesh.position.x = Math.random() * 1000 - 500;
+		mesh.position.y = Math.random() * 1000 - 500;
+		mesh.position.z = Math.random() * 1000 - 500;
 
 		mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
 
