@@ -142,8 +142,8 @@ export function Text(scene, x, y, width,height,fontSize,fontSizeC) {
 
 export function Triangle(scene,width,height) {
     const geometry = new THREE.Geometry();
-    let scaleX = .6;
-    let scaleY = .53;
+    let scaleX = .7;
+    let scaleY = .535;
     geometry.vertices.push(
         new THREE.Vector3(0, height * scaleY, 0),
         new THREE.Vector3(-width * scaleX, -height*0.2, 0.),

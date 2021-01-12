@@ -86,9 +86,9 @@ export function GroupMoons(scene,width, height) {
     */
 
     const triangle  = new THREE.Shape()
-          .moveTo(width*0.345,-width *0.25)
+          .moveTo(width*0.41,-width *0.25)
           .lineTo(0, height*0.32)
-          .lineTo(-width*0.35,-width*0.25)
+          .lineTo(-width*0.41,-width*0.25)
     shape.holes.push(triangle)
 
     loader = new THREE.TextureLoader();

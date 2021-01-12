@@ -86,13 +86,14 @@ vec3 color = mix(vec3(r,g,b)/vec3(1./1.8), lines, 0.);
         },
 
     });
-
-    let geo = new THREE.PlaneBufferGeometry(20,20,20,20);
+    let planeSize = 23;
+    let scaleFactor = 0.0625;
+    let geo = new THREE.PlaneBufferGeometry(planeSize,planeSize,planeSize, planeSize);
     let plane = new THREE.Mesh(geo, material);
-    plane.rotation.x = -Math.PI / 2 -0.2;
-    plane.position.y = -height *0.1;
-    plane.position.z = width * 0.62;
-    plane.scale.set(width* 0.0625,width* 0.0625,width* 0.0625)
+    plane.rotation.x = -Math.PI / 2.5 - 0.1 ;
+    plane.position.y = -height *0.25;
+    plane.position.z = width * 0.4;
+    plane.scale.set(width*scaleFactor*1.5,width*scaleFactor*0.6,width*scaleFactor)
     scene.add(plane);
 
 
