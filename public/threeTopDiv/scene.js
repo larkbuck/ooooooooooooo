@@ -63,9 +63,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       events: null,
       moonphase: null,
       img: null,
-      moonAge: null,
-      nextquarter: null,
-      prevquarter:null,
+      moonAge: null
   };
 
     const  getLightIntensity = function(){
@@ -87,8 +85,10 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       var idx = obj.findIndex(({data}) =>
                               (Date.parse(data[0]["newmoon 0"]["utctime"]) <= day &&
                                day <= Date.parse(data[1]["newmoon 30"]["utctime"])))
-      current_phase_idx = idx; //Starts in 0
+
       //console.log("Phase Idx: ", current_phase_idx)
+      current_phase_idx = idx; //Starts in 0
+
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Look for current day
@@ -144,7 +144,6 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
     this.showCurrentMoon = function(){
         console.log(currentMoon);
-
     }
 
     this.updateMoon = function(idx) {
@@ -156,9 +155,6 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         currentMoon.moonphase = days[idx].moonphase;
         currentMoon.img =days[idx].image;
         currentMoon.moonAge = idx/fullmoon_idx;
-
-        currentMoon.nextquarter = days[idx].nextquarter;
-        currentMoon.prevquarter = days[idx].prevquarter;
 
         // lark
         document.querySelector("#date").innerHTML = currentMoon.date;
@@ -219,7 +215,6 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
        //Update texture
        groupMoons.loadNewTexture(all_data, firstMoonIdx, firstPhaseIdx, firstMoonDataIdx);
-
        //Update New Last
        lastMoonIdx --;
        if (lastMoonIdx < 0){
@@ -293,6 +288,8 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
         return currentMoon;
     }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    // Resolves next and prev quarters
 
     this.nextQuarter = function() {
         let step = 0;
@@ -352,13 +349,11 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
             + pad(all_data[current_phase_idx].data[2]["fullmoon"].sec);
 
         newmoon_idx = days.length -1;
-
         newmoon_hour = pad(all_data[current_phase_idx].data[0]["newmoon 0"].hour)+":"
             + pad(all_data[current_phase_idx].data[0]["newmoon 0"].min) +":"
             + pad(all_data[current_phase_idx].data[0]["newmoon 0"].sec);
 
     }
-    this.onQuarter = function(){return onQuarter};
 }
 
 
@@ -380,6 +375,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 // renderer.setSize(parent.clientWidth, parent.clientHeight);
 // renderer.setSize(parent.clientWidth, parent.clientWidth * .66); // set to be movie-screen ratio 1.33
+
 renderer.setSize(width, height); // set to be mobile friendly narrow
 parent.append(renderer.domElement);
 
@@ -390,11 +386,6 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 const sky = new Sky(scene);
 
 const triangle = new Triangle(scene, width, height);
-
-// buttons in scene (not HTML)
-// const nextMoonBtn = new Button(scene, width*0.32, width*0.38, height*0.2,width*0.05);
-// const prevMoonBtn = new Button(scene, -width*0.32, -width*0.38, height*0.2,width*0.05, true);
-
 const background = new Background(scene,width, height);
 const tide = new Tide(scene,width, height);
 const groupMoons = new GroupMoons(scene,width,height);
@@ -403,35 +394,21 @@ const moonPhaseAdmin = new MoonPhaseAdmin(background, tide, triangle,sky);
 
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ EVENTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
-domEvents.bind(nextMoonBtn, 'click', () => {
-    let currentMoon = moonPhaseAdmin.nextMoon();
-    groupMoons.next();
-}, false)
-
-domEvents.bind(prevMoonBtn, 'click', () => {
-    let currentMoon = moonPhaseAdmin.prevMoon();
-    groupMoons.prev();
-}, false)
-
 document.querySelector("#prevMoonBtn").addEventListener('click', () => {
     let currentMoon = moonPhaseAdmin.prevMoon();
     groupMoons.prev();
-    groupMoons.showChild();
+
 }, false)
 
 document.querySelector("#nextMoonBtn").addEventListener('click', () => {
     let currentMoon = moonPhaseAdmin.nextMoon();
     groupMoons.next();
-    groupMoons.showChild();
-    moonPhaseAdmin.showCurrentMoon();
+
 }, false)
 
 document.querySelector("#prevQuarterBtn").addEventListener('click', () => {
     let step = moonPhaseAdmin.prevQuarter();
     groupMoons.prevQuarter(step);
-    groupMoons.showChild();
-
-    moonPhaseAdmin.showCurrentMoon();
 }, false)
 
 document.querySelector("#nextQuarterBtn").addEventListener('click', () => {
@@ -488,5 +465,5 @@ render();
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //Add controls for debugging
-const controls = new OrbitControls(camera, renderer.domElement);
+//const controls = new OrbitControls(camera, renderer.domElement);
 //console.log(width,height)
