@@ -1,6 +1,6 @@
 import * as THREE from '/build/three.module.js';
 import { OrbitControls } from '/jsm/controls/OrbitControls.js';
-import { Triangle, Button, Text} from '/threeTopDiv/infoTriangle.js';
+import { Triangle } from '/threeTopDiv/infoTriangle.js';
 import { Tide } from '/threeTopDiv/Tide.js';
 import { Background } from '/threeTopDiv/Background.js';
 import { GroupMoons } from '/threeTopDiv/GroupMoons.js';
