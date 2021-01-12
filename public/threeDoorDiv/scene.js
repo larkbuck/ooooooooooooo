@@ -12,7 +12,7 @@ let height = parent.clientWidth * .66;
 const scene = new THREE.Scene();
 
 let camera = new THREE.PerspectiveCamera(90, 1 / .66, 0.1, 2000);
-camera.position.set(0, -250, 0);
+camera.position.set(0, -5, -100);
 //camera.rotation.y = Math.PI/3.
 
 const renderer = new THREE.WebGLRenderer({
@@ -29,7 +29,6 @@ const domEvents = new THREEx.DomEvents(camera, renderer.domElement);
 
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ INIT SCENE OBJECTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 const door = new Door(scene,domEvents)
-const water = new Water(scene,domEvents)
 // ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤ EVENTS ├┬┴┬┴┬┴┤•ᴥ•ʔ├┬┴┬┴┬┴┬┤
 
 
@@ -38,7 +37,6 @@ const render = function() {
   requestAnimationFrame(render);
     door.update()
     camera.lookAt(0.,0.,0.);
-    water.update()
     renderer.render(scene, camera);
 };
 

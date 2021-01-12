@@ -8,11 +8,11 @@ export function GroupMoons(scene,width, height) {
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // Initialization
   let imageRadius = width* .1;
-  const numberImages = 29;
+  const numberImages = 30;
   const radianInterval = (2.0 * Math.PI) / numberImages;
   const centerWheel = {
-    x: -imageRadius*0.7, //temporal fix for display moon in center of triangle
-    y: -height *0.7- imageRadius*0.6
+    x:  - imageRadius*.5,
+    y: -height *0.7- imageRadius*.5,
   }
  //Geometric Structure
   const group = new THREE.Group();
@@ -29,7 +29,7 @@ export function GroupMoons(scene,width, height) {
 
     //-------------------------------------------------------------------
     // Initialize moons with empty texture
-    for (let i = 0; i < (numberImages+1); i++) {
+    for (let i = 0; i < numberImages; i++) {
         material = new THREE.MeshBasicMaterial({
             color: 0x000000,
         });
@@ -50,6 +50,24 @@ export function GroupMoons(scene,width, height) {
 
     scene.add(group);
 
+    //Initial rotation to align moons
+    let amount = 0.3;
+    new TWEEN.Tween(group.rotation)
+        .to({
+            z: group.rotation.z + (radianInterval * amount)
+        }, 600)
+        .easing(TWEEN.Easing.Cubic.InOut)
+        .start();
+
+    for (let i = 0; i < group.children.length; i++) {
+        new TWEEN.Tween(group.children[i].rotation)
+            .to({
+                z: group.children[i].rotation.z - (radianInterval * amount)
+            }, 600)
+            .easing(TWEEN.Easing.Cubic.InOut)
+            .start();
+    }
+
     //----------------------------------------------------------------
     //Add moons veil
 
@@ -64,9 +82,9 @@ export function GroupMoons(scene,width, height) {
       const moonEye = new THREE.Path()
 		  .moveTo( 0, -100 )
 		  .absellipse( 0, 250, 55, 55, 0, Math.PI * 2, true );
-
     shape.holes.push(moonEye)
-  */
+    */
+
     const triangle  = new THREE.Shape()
           .moveTo(width*0.345,-width *0.25)
           .lineTo(0, height*0.32)
@@ -80,7 +98,6 @@ export function GroupMoons(scene,width, height) {
 
     texture.repeat.set( 0.0006, 0.0006 );
     texture.center = new THREE.Vector2(0.,0.5);
-
 
     var veilMaterial = new THREE.MeshBasicMaterial({
         map: texture,
@@ -98,6 +115,7 @@ export function GroupMoons(scene,width, height) {
     scene.add(mesh)
 
     //-------------------------------------------------------------------
+    // Use for updating texture of circles in group
 
     this.loadNewTexture = function(all_data, idx, phaseIdx, dataIdx) {
         let moon, days, moonData,newMaterial,texture;
@@ -106,6 +124,7 @@ export function GroupMoons(scene,width, height) {
         days = all_data[phaseIdx].data[3].days;
         moonData = days[dataIdx];
         groupData[idx] = moonData;
+
 
         texture = loader.load(moonData.image);
         texture.minFilter = THREE.LinearFilter;
@@ -120,11 +139,18 @@ export function GroupMoons(scene,width, height) {
         moon.material.map.needsUpdate = true
 
     }
-    this.showChild = function(idx){
-        console.log(groupData[idx], group.children[idx])
+
+
+
+    //-------------------------------------------------------------------
+    // Debugging auxiliars functions
+
+    this.showChild = function(idx=current){
+        console.log("data", group.children[idx].material.map.image,"current", current)
     }
 
     this.debugMoon = function(all_data,idx,phaseIdx){
+        //Colors moon red
         let moon =  group.children[idx];
         let old = moon.material;
         let days = all_data[phaseIdx].data[3].days;
@@ -138,10 +164,9 @@ export function GroupMoons(scene,width, height) {
         moon.material = newMat;
     }
 
-    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  // Event Listeners
-
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   // ***** snap back functionality ****
+
   let wheelTheta = 0.0; // keep track of where we’ve spun the wheel
   let spinInProgress = false; // keep track of when the wheel is spinning
   let snapInProgress = false; // keep track of when the wheel is automatically spinning to the snapping point
@@ -150,7 +175,9 @@ export function GroupMoons(scene,width, height) {
     y: 0,
     theta: 0.0
   }
-  // ******* circle-spin event - just a mouse click here ******
+    // ******* circle-spin event - just a mouse click here ******
+
+
     this.spin = function(val=1){
         // groupMoons.rotation.z += radianInterval;
         // ^ basically just doing this but using Tween to animate:
@@ -206,30 +233,33 @@ export function GroupMoons(scene,width, height) {
   }
 
     this.scaleCenterOnPrevEvent = function(step=-1,quarter=false){
-    let moon = group.children[current]
-    moon.scale.set(1.,1.,1.);
-      if (current == 29){
-          current = 0
-      }
-      current = current - step;
+        let moon = group.children[current]
+        moon.scale.set(1.,1.,1.);
 
-      if (current > 29 && quarter){
-          current = current - 29;
-      }
+        if (current == 29){
+            current = 0
+            step ++;
+        }
+        current = current - step;
 
-      moon = group.children[current]
-      moon.scale.set(1.25,1.25,1.25)
+        if (current > 29 && quarter){
+            current = current - 29;
+        }
 
-  }
+        moon = group.children[current]
+        moon.scale.set(1.25,1.25,1.25)
+
+    }
 
     this.scaleCenterOnNextEvent = function(step=1,quarter=false){
+        let moon = group.children[current]
 
-    let moon = group.children[current]
-    moon.scale.set(1.,1.,1.);
-      if (current == 1){
-            current = 30
+        moon.scale.set(1.,1.,1.);
+      if (current == 0){
+          current = 29
+          step --;
       }
-       current = current - step;
+      current = current - step;
 
       if (current < 0 && quarter){
           current = current + 29;
@@ -237,5 +267,11 @@ export function GroupMoons(scene,width, height) {
 
       moon = group.children[current]
       moon.scale.set(1.25,1.25,1.25)
-  }
+    }
+
+
+    this.getCurrent = function(){
+        //Returns idx on group of moon
+        return current
+    }
 }
