@@ -156,32 +156,47 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         currentMoon.img =days[idx].image;
         currentMoon.moonAge = idx/fullmoon_idx;
 
-        // lark
-        document.querySelector("#date").innerHTML = currentMoon.date;
 
         let intensity = getLightIntensity();
 
         tide.setLight(intensity);
         background.setLight(intensity);
 
-        triangle.clear();
-        triangle.setDate(currentMoon.date);
+        // Display text information
+        // lark
+        document.querySelector("#date").innerHTML = currentMoon.date;
+        document.querySelector("#asciiMoon").innerHTML = "";
+        document.querySelector("#moonText").innerHTML = "";
 
+        let quarterTexts = [
+            `.*･｡ﾟ🌑 `,
+            ` .*･🌓｡ﾟ`,
+            ` ﾟ*.🌕.*.`,
+            ` .🌗｡ﾟ.*`,
+        ]
         switch (idx){
         case newmoon_idx:
-            triangle.setNewMoonText(newmoon_hour)
+            document.querySelector("#hourText").innerHTML = newmoon_hour + " CET";
+            document.querySelector("#moonText").innerHTML = quarterTexts[0];
             onQuarter = true;
             break;
         case firstquarter_idx:
-            triangle.setQuarterText(1);
+            document.querySelector("#moonText").innerHTML = quarterTexts[1];
             onQuarter = true;
             break;
         case fullmoon_idx:
-            triangle.setFullMoonText(fullmoon_hour)
+            document.querySelector("#hourText").innerHTML = fullmoon_hour + " CET";
+            document.querySelector("#moonText").innerHTML = quarterTexts[2];
+            document.querySelector("#asciiMoon").innerHTML = ` .°:*・°☆   <br>
+               ☆.☆.:.:.°☆ <br>
+             °☆.。.::*・°☆<br>
+             °☆. .:...・°☆<br>
+              °☆.。.:* °☆ <br>
+                °☆.。*☆   <br>`
             onQuarter = true;
             break;
         case thirdquarter_idx:
-            triangle.setQuarterText(3);
+            document.querySelector("#moonText").innerHTML = quarterTexts[3];
             onQuarter = true;
             break;
         default:
