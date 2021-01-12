@@ -1,29 +1,77 @@
+
+import { FresnelShader } from '/jsm/shaders/FresnelShader.js';
+
 export function Door(scene,domEvents){
     let loader  = new THREE.TextureLoader()
     let texture = loader.load('/assets-main/images/door.png');
     texture.minFilter = THREE.LinearFilter;
 
 
-    let material = new THREE.MeshBasicMaterial({
+    let materialDoor = new THREE.MeshBasicMaterial({
         map:texture,
         opacity: 1,
         side: THREE.DoubleSide,
     });
 
-    let geometry = new THREE.PlaneBufferGeometry(30,30,30,20);
-    const sphereG = new THREE.SphereBufferGeometry(32);
+    //Set up water like
+    const path = '/assets-main/images/cubemapFG/';
+	const format = '.jpg';
+    const urls = [
+	    path + 'front' + format, path + 'back' + format,
+		path + 'up' + format, path + 'down' + format,
+        path + 'right' + format, path + 'left' + format,
 
-    const sphere = new THREE.Mesh( sphereG, new THREE.MeshBasicMaterial({
-        wireframe: true,
-        opacity: 1,
-        side: THREE.DoubleSide,
-        color: 0xfaff73
-    }) );
-    const door = new THREE.Mesh( geometry, material );
+	];
+
+	const textureCube = new THREE.CubeTextureLoader().load( urls );
+
+	scene.background = textureCube;
+
+    const shader = FresnelShader;
+	const uniforms = THREE.UniformsUtils.clone( shader.uniforms );
+
+	uniforms[ "tCube" ].value = textureCube;
+
+
+    const materialFresnel = new THREE.ShaderMaterial( {
+		uniforms: uniforms,
+		vertexShader: shader.vertexShader,
+		fragmentShader: shader.fragmentShader,
+	} );
+
+    const spheres = [];
+    const geometry_ = new THREE.SphereBufferGeometry( 40, 32, 16 );
+
+    for ( let i = 0; i < 150; i ++ ) {
+
+		const mesh = new THREE.Mesh( geometry_, materialFresnel );
+
+		mesh.position.x = Math.random() * 10000 - 5000;
+		mesh.position.y = Math.random() * 10000 - 5000;
+		mesh.position.z = Math.random() * 10000 - 5000;
+
+		mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
+
+		scene.add( mesh );
+
+		spheres.push( mesh );
+
+	}
+
+    let geometry = new THREE.PlaneBufferGeometry(30,30,30,20);
+    const sphereG = new THREE.SphereBufferGeometry(50,16);
+	const materialMagic = new THREE.ShaderMaterial( {
+		uniforms: uniforms,
+		vertexShader: shader.vertexShader,
+		fragmentShader: shader.fragmentShader,
+	} );
+    const sphere = new THREE.Mesh( sphereG, materialMagic);
+
+    const door = new THREE.Mesh( geometry, materialDoor );
 
     door.position.set(-200,-200,-200);
     sphere.position.set(-200,-200,-200);
-    door.rotation.x = Math.PI/4.
+   // door.rotation.x = Math.PI/4.
 
     this.update = function(){
 
@@ -32,11 +80,12 @@ export function Door(scene,domEvents){
 		sphere.position.y = Math.cos( time * 0.5 ) * 50;
 		sphere.position.z = Math.cos( time * 0.3 ) * 90;
 
+
         door.position.x = Math.sin( time * 0.7 ) * 40;
 		door.position.y = Math.cos( time * 0.5 ) * 50;
 		door.position.z = Math.cos( time * 0.3 ) * 90;
 
-        door.rotation.x += 0.02;
+
 
     }
 
@@ -51,11 +100,12 @@ export function Door(scene,domEvents){
 
     domEvents.addEventListener(sphere, 'mouseover', function (event) {
         door.visible = true;
-        sphere.material.color.setHex( 0x73ffce );
+        sphere.material.wireframe = true;
     }, false)
     domEvents.addEventListener(sphere, 'mouseout', function (event) {
         door.visible = false;
-        sphere.material.color.setHex( 0xfaff73);
+        sphere.material.wireframe = false;
+
     }, false)
 
 
