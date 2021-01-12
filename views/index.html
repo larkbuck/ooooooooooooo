@@ -10,7 +10,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.7.0/Tween.js"></script>
-  <script src="/lib/marquee.js"></script>
 
 
   <link rel="stylesheet" href="/style.css">
@@ -100,7 +99,6 @@
 
     <!-- offerings  -->
     <!-- older code appended to end of this file =) -->
-
     <section class="width-full">
       <div class="contribution" style="text-align: center;">
             <!-- <p style="font-size: 1.2rem">💭&nbsp;&nbsp;&nbsp;&nbsp;💭💭&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;💭&nbsp;💭&nbsp;&nbsp;&nbsp;&nbsp;💭&nbsp;&nbsp;&nbsp;💭</p>
@@ -112,22 +110,17 @@
               <p style="padding: .5rem;">+💭 💭+</p>
               <button class="speakButton" type="submit" style="font-size: 1.2rem; background-color: #eee; padding: .1rem;">..🎙🗣..</button>
             </form>
-            <div class="users" id="contributionMarquee">
-              <ul id="users" style="list-style: none;">
-              </ul>
+
+            <div class="users">
+              <marquee>
+                <ul id="users" style="list-style: none;">
+                </ul>
+              </marquee>
             </div>
             <p><a href="/reset">♺</a> | <a href="/clear">⌫</a></p>
           </div>
     </section>
-    <script>
-      new Marquee('contributionMarquee', {
-        speed: .3,
-        direction: 'rtl',
-        // bgcolor: 'tomato',
-        // textcolor: 'powder',
-        // opacity: .7,
-      });
-    </script>
+
 
     <!-- Three JS Top -->
     <section class="width-full">
@@ -293,9 +286,11 @@
   <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.4/Tween.min.js"></script> -->
 
-  <script src="/p5/sketch.js"></script>
+  <!-- <script src="/aframe.js"></script> -->
   <script src="/build/three.min.js"></script>
   <script src="/lib/threex.domevents.js"></script>
+
+  <!-- <script src="/sketch.js"></script> -->
   <script type="module" src="/threeTopDiv/scene.js"></script>
   <script type="module" src="/threeDoorDiv/scene.js"></script>
   <script src="/client.js"></script>
