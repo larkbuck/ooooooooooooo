@@ -353,13 +353,49 @@ main {
   }
 }
 
+/* *************** pop ups */
+
+.popupContainer{
+  height: 50%;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.popupText{
+  background-color: #000;
+  font-size: 1.5rem;
+}
+
+
+.textScrambleContainer{
+  height: 50%;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.text {
+  font-weight: 100;
+  font-size: 28px;
+  color: #FAFAFA;
+}
+.dud{
+  color: #757575;
+}
+
+
+
+
+/* ************** social media ********* */
 .media-icon{
  	background-color: white;
 	border-radius: 100%;
 	width: 50%;
 }
 
-/* __Translations__
+/************* __Translations__
 The idea here is that each langugage could be contained in its own file.
 */
 .localized:after {

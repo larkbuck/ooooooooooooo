@@ -58,7 +58,7 @@
           <li>
             <a href="#">ヽ｀☽ヽ｀</a>
           </li> -->
-             <li><a href="https://www.twitter.com/"><img style='border: 3px solid white;' class="media-icon" src="/assets-main/icons/twitter.png"></a></li>
+          <li><a href="https://www.twitter.com/"><img style='border: 3px solid white;' class="media-icon" src="/assets-main/icons/twitter.png"></a></li>
           <li>
             <a href="javascript:;" onclick="ml_account('webforms', '3216520', 'f1o8f0', 'show')">
               🌚&🌝 ➡ 💌
@@ -101,9 +101,9 @@
         <div id='threejsDiv' class="longShadow" style="position: relative;">
           <div id="buttonsThreejsTop" style="position: absolute; top: 30%; text-align: center; width: 100%;">
             <button id="prevQuarterBtn" class="threeBtn" type="button" name="button">
-              <<</button>
+              <<< /button>
                 <button id="prevMoonBtn" class="threeBtn" type="button" name="button">
-                  <</button>
+                  << /button>
                     <span id="date"></span>
                     <button id="nextMoonBtn" class="threeBtn" type="button" name="button">></button>
                     <button id="nextQuarterBtn" class="threeBtn" type="button" name="button">>></button>
@@ -111,9 +111,9 @@
           <div id="asciiMoon" style="position: absolute; top: 38%; text-align: center; width: 100%;font-size:0.8em">
             <span id="asciiMoon"></span>
           </div>
-            <div id="buttonsThreejsTop" style="position: absolute; top: 50%; text-align: center; width: 100%;">
-              <span id="moonText"></span>
-              <br>
+          <div id="buttonsThreejsTop" style="position: absolute; top: 50%; text-align: center; width: 100%;">
+            <span id="moonText"></span>
+            <br>
             <span id="hourText"></span>
           </div>
         </div>
@@ -123,7 +123,7 @@
 
     <!-- script to handle popup -->
     <script type="text/javascript">
-      function toggleViz(_id){
+      function toggleViz(_id) {
         document.querySelector(`#${_id}`).style.visibility = 'visible';
       }
     </script>
@@ -135,11 +135,11 @@
         <div class="" style="position: relative;">
           <h1 id="testPopup" style="position:absolute; top: 20%; left: 5%; z-index:5; visibility:hidden;">🤩🌗🌚🌓🤩 </h1>
           <a href="javascript:toggleViz('testPopup');">
-          <video autoplay loop muted class="img longShadowGreen marginTop" width="640" style="border-radius:50%; max-width: 98vw;">
-            <source src="assets-main/vid/waterVid-0.mp4" type="video/mp4">
-            <source src="assets-main/vid/waterVid-0.webm" type="video/webm">
-            Your browser doesn't support HTML5 video tag.
-          </video></a>
+            <video autoplay loop muted class="img longShadowGreen marginTop" width="640" style="border-radius:50%; max-width: 98vw;">
+              <source src="assets-main/vid/waterVid-0.mp4" type="video/mp4">
+              <source src="assets-main/vid/waterVid-0.webm" type="video/webm">
+              Your browser doesn't support HTML5 video tag.
+            </video></a>
           <video autoplay loop muted class="img longShadowGreen " width="200" style="border-radius:50%;">
             <source src="assets-main/vid/waterVid-1.mp4" type="video/mp4">
             <source src="assets-main/vid/waterVid-1.webm" type="video/webm">
@@ -155,12 +155,32 @@
 
     </div>
 
-    <div class="flex-container width-max1200 marginTop">
-      <video autoplay loop muted class="img longShadowGreen marginTop" width="500" style="border-radius:10%; max-width: 98vw;">
-        <source src="assets-main/vid/coral-1.mp4" type="video/mp4">
-        <source src="assets-main/vid/coral-1.webm" type="video/webm">
-        Your browser doesn't support HTML5 video tag.
-      </video>
+    <div class="flex-container width-max1200 marginTop" style="position: relative;">
+
+      <div class="popupContainer" id="coralPopup" style="border-radius: 10%; position:absolute; top: 20%; left: 5%; z-index:5; visibility: hidden;">
+        <img src="https://cdn.the-scientist.com/assets/articleNo/66397/iImg/33454/uploads/shlesinger%20original.jpg" alt="" style="width: 80%; height: auto; border-radius: 10%;">
+        <h1 class="popupText" >
+            Coral of outer Great Barrier Reef spawn after the full moon in November
+        </h1>
+      </div>
+
+      <!-- <div class="textScrambleContainer" style="position:absolute; top: 20%; left: 5%; z-index:5;">
+        <h1 id="coralPopup" class="text">
+          Coral of outer Great Barrier Reef spawn after the full moon in November
+        </h1>
+      </div> -->
+
+
+      <div class="">
+        <a href="javascript:toggleViz('coralPopup');"><video autoplay loop muted class="img longShadowGreen marginTop" width="500" style="border-radius:10%; max-width: 98vw;">
+            <source src="assets-main/vid/coral-1.mp4" type="video/mp4">
+            <source src="assets-main/vid/coral-1.webm" type="video/webm">
+            Your browser doesn't support HTML5 video tag.
+          </video></a>
+      </div>
+
+
+    </div>
     </div>
 
     <!-- empty div - add palolo worms or other moon-timed spawn event? -->
@@ -199,13 +219,13 @@
 
     <!-- Door portal Three JS Bottomn -->
     <section class="width-full" style="position: relative;">
-      <div id="langElement" lang="en" >
+      <div id="langElement" lang="en">
         <div style="z-index: 10; text-align: center;">
           <button onClick="setLang('en')">🗣 ️EN</button>
           <button onClick="setLang('es')">🗣 ️ES</button>
           <button onClick="setLang('pt')">🗣 ️PT</button>
         </div>
-        <div  style="z-index: 10; text-align: center;">
+        <div style="z-index: 10; text-align: center;">
           <span data-content="write intention" style="margin: 1em 0em 0em 0.5em;display: block;" class="localized"></span>
           <br>
           <input id="intention" type="text" class="textInput" maxlength="33" cols="15" rows="1" placeholder="✍️" style="text-align: center; max-width: 90%;"></input>
