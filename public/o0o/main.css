@@ -44,22 +44,15 @@
 }
 
 
-/* Images are now responsive */
-/* browser = circle w 90vh, mobile = 90vw  */
 img {
-  z-index: 140;
-  width: auto;
-  height: 70vh;
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  background-color: #000;
-
 }
 
 .rotateLoading{
   animation: rotation 33s infinite linear;
+  z-index: 140;
+  width: auto;
+  height: 70vh;
+  background-color: #000;
 }
 
 @keyframes rotation {
@@ -224,16 +217,12 @@ background-color: #288059;
 
 /* ********** media queries ********** */
 @media screen and (max-width: 600px) {
-  img {
+
+  .rotateLoading{
+    animation: rotation 33s infinite linear;
     z-index: 140;
     width: 70vw;
     height: auto;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
     background-color: #000;
-    animation: rotation 33s infinite linear;
-
   }
 }
