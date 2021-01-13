@@ -93,7 +93,12 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Look for current day
       idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
-      idx --;
+
+
+      //Check if it is last day
+      idx = (idx == -1 ?
+             all_data[current_phase_idx].data[3].days.length-1 :
+             idx --)
 
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
