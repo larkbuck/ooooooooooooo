@@ -353,6 +353,11 @@ main {
   }
 }
 
+.media-icon{
+ 	background-color: white;
+	border-radius: 100%;
+	width: 50%;
+}
 
 /* __Translations__
 The idea here is that each langugage could be contained in its own file.
