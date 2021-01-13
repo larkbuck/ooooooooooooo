@@ -12,6 +12,8 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
+
   <!-- <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script> -->
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
@@ -53,9 +55,10 @@
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('a-assets').addEventListener('loaded', function() {
       console.log('loaded')
-      document.querySelector("#buttonCoverDiv").style.display = "none";
+      // document.querySelector("#buttonCoverDiv").style.display = "none";
       // document.querySelector("#animationDiv").style.display = "none";
-      // document.querySelector("#button").style.display = "visible";
+      document.querySelector("#button").style.visibility = 'visible';
+      // document.querySelector("#button").style.display = "block";
 
     })
   });
@@ -83,11 +86,10 @@
 entity2.components.sound.playSound();'>
         🎬 <br />  ✨🚪✨<br /> 🕳
       </button>
+
     </div>
 
-    <head>
-      <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
-    </head>
+
 
   </div>
 

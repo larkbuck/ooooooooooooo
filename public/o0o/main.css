@@ -22,6 +22,8 @@
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 100;
+  visibility: hidden;
+  /* display: none; */
 }
 
 
@@ -37,6 +39,11 @@
   background-color: #000;
 }
 
+#button {
+  z-index: 200;
+}
+
+
 /* Images are now responsive */
 /* browser = circle w 90vh, mobile = 90vw  */
 img {
@@ -48,12 +55,11 @@ img {
   left: 50%;
   transform: translate(-50%, -50%); */
   background-color: #000;
-  animation: rotation 33s infinite linear;
 
 }
 
 .rotateLoading{
-  /* animation: rotation 33s infinite linear; */
+  animation: rotation 33s infinite linear;
 }
 
 @keyframes rotation {
