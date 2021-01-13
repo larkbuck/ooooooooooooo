@@ -23,6 +23,7 @@ body {
   font-size: 1rem;
   color: #eeeeee;
   background: #000;
+  line-height: 1.6;
 }
 
 /* Images are now responsive */
@@ -150,7 +151,7 @@ main {
   display: inline;
 }
 
-.main-nav a {
+.main-nav a, .link {
   display: inline-block;
   padding: .5em 1.5em;
   text-decoration: none;
@@ -166,8 +167,16 @@ main {
   font-size: 1.2rem;
 }
 
+.sm-font {
+  font-size: 1rem;
+}
+
 .marginTop{
   margin-top: 20rem;
+}
+
+.lilMarginTop{
+  margin-top: 2rem;
 }
 
 /* ******** Canvases ******** */
@@ -256,7 +265,7 @@ main {
   background-color: #000;
   color: #eeeeee;
   /* padding: 1rem; */
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: none;
   cursor: pointer;
 }
@@ -276,6 +285,7 @@ main {
   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   z-index: 1;
   padding: 0;
+  font-size: 1rem;
 }
 
 /* Links inside the dropdown */
@@ -317,41 +327,6 @@ main {
   color: #eeeeee;
 }
 
-/* ********** media queries ********** */
-@media screen and (max-width: 600px) {
-
-  /* @media screen and (min-width: 480px){ */
-  main {
-    padding: .2rem;
-  }
-
-  .flex-container {
-    flex-direction: column;
-  }
-
-  .sidebar-50 {
-    /* flex: 0 1 100px; */
-    border: 1px solid #000000;
-  }
-
-  /* ****** responsive font sizes ******* */
-  .lg-font {
-    font-size: 1.2rem;
-  }
-
-  .md-font {
-    font-size: 1rem;
-  }
-
-  .marginTop{
-    margin-top: 7rem;
-  }
-
-  #threeContainer {
-    min-height: 30vh;
-
-  }
-}
 
 /* *************** pop ups */
 
@@ -390,6 +365,50 @@ main {
 }
 
 
+/* ************* info page text ************* */
+
+/* .infoPage{
+  background-color: #eee;
+}
+
+.infoPage p {
+  color: #000;
+} */
+
+.whiteBorder {
+  border: .5px solid #aaa;
+}
+
+.infoPage {
+  padding: 2rem;
+}
+
+.infoPage a {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #777;
+}
+
+/* unvisited link */
+.infoPage a:link {
+  color: #eee;
+}
+
+/* visited link */
+.infoPage a:visited {
+  color: #eee;
+}
+
+/* mouse over link */
+.infoPage a:hover {
+  color: green;
+}
+
+/* selected link */
+.infoPage a:active {
+  color: pink;
+}
+
 
 
 /* ************** social media ********* */
@@ -415,4 +434,55 @@ The idea here is that each langugage could be contained in its own file.
 /* pt.css _______________________________________*/
 [lang="pt"] [data-content="write intention"]:after {
     content: "escreva intenção";
+}
+
+
+
+/* ********** media queries ********** */
+@media screen and (max-width: 600px) {
+
+  /* @media screen and (min-width: 480px){ */
+  main {
+    padding: .2rem;
+  }
+
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .sidebar-50 {
+    /* flex: 0 1 100px; */
+    border: 1px solid #000000;
+  }
+
+  /* ****** responsive font sizes ******* */
+  .lg-font {
+    font-size: 1.2rem;
+  }
+
+  .md-font {
+    font-size: 1rem;
+  }
+
+  .sm-font {
+    font-size: 1rem;
+  }
+
+  .marginTop{
+    margin-top: 7rem;
+  }
+
+  /* .lilMarginTop{
+    margin-top: 7rem;
+  } */
+
+
+  .infoPage {
+    padding: 1.2rem;
+  }
+
+  #threeContainer {
+    min-height: 30vh;
+
+  }
 }
