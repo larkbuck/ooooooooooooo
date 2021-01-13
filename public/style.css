@@ -363,9 +363,13 @@ main {
   display: flex;
 }
 
+.popupLink:hover{
+  border: 2px solid #fff;
+}
+
 .popupText{
   background-color: #000;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 
