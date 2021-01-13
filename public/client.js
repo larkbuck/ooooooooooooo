@@ -170,23 +170,23 @@ class TextScramble {
 // ——————————————————————————————————————————————————
 // Example scrambled text
 // ——————————————————————————————————————————————————
-
-const phrases = [
-  'Circalunar clocks',
-  'Mass spawning timed with moon',
-  // 'Coral of inner Great Barrier Reef spawn after the full moon in October',
-  'Coral of outer Great Barrier Reef spawn after the full moon in November'
-]
-
-const el = document.querySelector('.text')
-const fx = new TextScramble(el)
-
-let counter = 0
-const next = () => {
-  fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 800)
-  })
-  counter = (counter + 1) % phrases.length
-}
-
-next()
+//
+// const phrases = [
+//   'Circalunar clocks',
+//   'Mass spawning timed with moon',
+//   // 'Coral of inner Great Barrier Reef spawn after the full moon in October',
+//   'Coral of outer Great Barrier Reef spawn after the full moon in November'
+// ]
+//
+// const el = document.querySelector('.text')
+// const fx = new TextScramble(el)
+//
+// let counter = 0
+// const next = () => {
+//   fx.setText(phrases[counter]).then(() => {
+//     setTimeout(next, 800)
+//   })
+//   counter = (counter + 1) % phrases.length
+// }
+//
+// next()
