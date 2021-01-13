@@ -160,18 +160,13 @@
     <div class="flex-container width-max1200 marginTop" style="position: relative;">
       <div class="popupContainer" id="coralPopup" style="border-radius: 10%; position:absolute; top: 20%; left: 5%; z-index:5; visibility: hidden;">
         <img src="https://cdn.the-scientist.com/assets/articleNo/66397/iImg/33454/uploads/shlesinger%20original.jpg" alt="" style="width: 80%; height: auto; border-radius: 10%;">
-        <p class="popupText" >
-            mass spawning <br><br> ~400 species coral in Great Barrier Reef spawn after full moon in Oct+Nov <br><br>135,000 mi<sup>2</sup> <br><br>350,000 km<sup>2</sup>
+        <p class="popupText">
+          mass spawning <br><br> ~400 species coral in Great Barrier Reef spawn after full moon in Oct+Nov <br><br>135,000 mi<sup>2</sup> <br><br>350,000 km<sup>2</sup>
         </p>
       </div>
-      <!-- <div class="textScrambleContainer" style="position:absolute; top: 20%; left: 5%; z-index:5;">
-        <h1 id="coralPopup" class="text">
-          Coral of outer Great Barrier Reef spawn after the full moon in November
-        </h1>
-      </div> -->
       <div class="marginTop">
         <marquee>
-          <h1>🕐🌓🌕🌗  🗓  🌝⏰   ⏲📆  🌚🔔  </h1>
+          <h1>🕐🌓🌕🌗 🗓 🌝⏰ ⏲📆 🌚🔔 </h1>
         </marquee>
 
         <a href="javascript:toggleViz('coralPopup');"><video autoplay loop muted class="img longShadowGreen popupLink" width="500" style="border-radius:10%; max-width: 98vw;">
@@ -187,14 +182,25 @@
     <div class="flex-container width-max1200 marginTop" style="position: relative;">
       <div class="popupContainer" id="paloloPopup" style="border-radius: 10%; position:absolute; top: 20%; left: 5%; z-index:5; visibility: hidden;">
         <img src="assets-main/images/palolo.jpg" alt="" style="width: 80%; height: auto; border-radius: 10%;">
-        <p class="popupText" >
+        <p class="popupText">
           Palola viridis, Samoan palolo worm, wawo, nyale <br><br> mass spawn after last quarter moon in Oct/Nov
         </p>
+
+        <!-- language drop-down >> not completed -->
+        <!-- <div class="dropdown" style="">
+          <img src="assets-main/images/language-icon-wh-32px.png" alt="">
+          <button class="dropbtn">⬇</button>
+          <div class="dropdown-content-lng">
+            <a href="javascript:setLang('en')">EN</a>
+            <a href="javascript:setLang('es')">ES</a>
+            <a href="javascript:setLang('pt')">PT</a>
+          </div>
+        </div><span data-content="write intention" class="localized md-font popupText">  Palola viridis, Samoan palolo worm, wawo, nyale <br><br> mass spawning after third quarter moon in Oct/Nov</span> -->
       </div>
       <div class="marginTop">
         <a href="javascript:toggleViz('paloloPopup');">
-        <img class="img longShadowGreen popupLink" src="https://pbs.twimg.com/media/C5Qx7MJVMAAxyY3.jpg" alt="" style="border-radius:10%; max-width: 98vw;">
-      </a>
+          <img class="img longShadowGreen popupLink" src="https://pbs.twimg.com/media/C5Qx7MJVMAAxyY3.jpg" alt="" style="border-radius:10%; max-width: 98vw;">
+        </a>
       </div>
     </div>
 
@@ -234,32 +240,28 @@
 
     <!-- Door portal Three JS Bottomn -->
     <section class="width-full" style="position: relative;">
-      <div id="langElement" lang="en">
+      <div class="marginTop" id="langElement" lang="en">
         <div style="z-index: 10; text-align: center;">
-          <button onClick="setLang('en')">🗣 ️EN</button>
-          <button onClick="setLang('es')">🗣 ️ES</button>
-          <button onClick="setLang('pt')">🗣 ️PT</button>
-        </div>
-        <div style="z-index: 10; text-align: center;">
-          <span data-content="write intention" style="margin: 1em 0em 0em 0.5em;display: block;" class="localized"></span>
+          <div class="dropdown" style="">
+            <img src="assets-main/images/language-icon-wh-32px.png" alt="">
+            <button class="dropbtn">⬇</button>
+            <div class="dropdown-content-lng">
+              <a href="javascript:setLang('en')">EN</a>
+              <a href="javascript:setLang('es')">ES</a>
+              <a href="javascript:setLang('pt')">PT</a>
+            </div>
+          </div><span data-content="write intention" style="margin: 1em 0em 0em 0.5em;  display: block;" class="localized md-font"></span>
           <br>
-          <input id="intention" type="text" class="textInput" maxlength="33" cols="15" rows="1" placeholder="✍️" style="text-align: center; max-width: 90%;"></input>
-          <button id="intentionBtn" type="button" name="button">✔️💦</button>
+          <input id="intention" type="text" class="md-font" maxlength="100" cols="15" rows="1" placeholder="✍️ ✍️ ✍️ ✍️" style="text-align: center; max-width: 90%;"></input>
+          <button id="intentionBtn" type="button" name="button" style="padding: 0 1rem;">✔️</button>
         </div>
       </div>
-      <!-- <div class="" style="margin-top:5rem;text-align: center; position:absolute; width:100%; top:0">
-         <img class="img" id="waves" src="assets-main/images/wave.png" style="width: 100%;" alt=""></a>
-      </div> -->
 
-      <div class="marginTop" id='p5Div' style="position: absolute; top:0; z-index: -4;"></div>
+      <div class="marginTop" id='p5Div' style="position: absolute; top:30; z-index: -4;"></div>
 
-      <div class="width-max1000 marginTop" id="threeContainer" style="position: absolute; top:0;">
+      <div class="width-max800 marginTop" id="threeContainer" style="position: absolute; top:30;">
 
-        <div class="marginTop" style="text-align: center;">
-          <!-- <a href="o0o">
-            <p class="lg-font"> 🌊</p>
-          </a> -->
-        </div>
+
         <div class="" id="threejsDivBottomFrame"></div>
         <div id='threejsDivBottom' class="marginTop" style="">
         </div>

@@ -209,7 +209,7 @@ main {
 #threejsDivBottom {
 }
 
-#threejsDivBottom canvas{
+#threejsDivBottom canvas {
   border-radius: 47%;
 }
 
@@ -258,7 +258,7 @@ main {
   color: #00ff00;
 }
 
-/* ************* Dropdown (moon phases) *************  */
+/* ************* Dropdown (moon phases + language selection) *************  */
 /* https://www.w3schools.com/css/css_dropdowns.asp */
 /* Style The Dropdown Button */
 .dropbtn {
@@ -277,6 +277,8 @@ main {
 }
 
 /* Dropdown Content (Hidden by Default) */
+
+/* ****** n/f moon dropdown ******* */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -305,6 +307,43 @@ main {
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #000;
+}
+
+/* ****** language dropdown ******* */
+.dropdown-content-lng {
+  display: none;
+  position: absolute;
+  background-color: #000;
+  /* min-width: 160px; */
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+  padding: 0;
+  font-size: 1rem;
+}
+
+/* Links inside the dropdown */
+.dropdown-content-lng a {
+  color: #eeeeee;
+  /* padding: 1rem; */
+  text-decoration: none;
+  display: block;
+  padding: .5rem 2rem .5rem .5rem;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content-lng a:hover {
+  background-color: #eeeeee;
+  color: #000;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content-lng {
   display: block;
 }
 
@@ -344,36 +383,11 @@ main {
 
 .popupText{
   background-color: #000;
-  font-size: 1.3rem;
-}
-
-
-.textScrambleContainer{
-  height: 50%;
-  width: 80%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-.text {
-  font-weight: 100;
-  font-size: 28px;
-  color: #FAFAFA;
-}
-.dud{
-  color: #757575;
+  font-size: 1.2rem;
 }
 
 
 /* ************* info page text ************* */
-
-/* .infoPage{
-  background-color: #eee;
-}
-
-.infoPage p {
-  color: #000;
-} */
 
 .whiteBorder {
   border: .5px solid #aaa;

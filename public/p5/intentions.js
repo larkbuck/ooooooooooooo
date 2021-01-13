@@ -1,9 +1,9 @@
 class Intention {
   constructor(_intentionTxt) {
     this.intentionTxt = _intentionTxt;
-    this.x = random(width * .3, width * .7);
+    this.x = random(0, width * .4);
     this.y = -30;
-    this.speedX = random(-.1, .1);
+    this.speedX = random(-.03, .03);
     this.speedY = 3;
     this.accelX = 0;
     this.accelY = random(-0.0080, -0.0010);
@@ -12,7 +12,7 @@ class Intention {
   displayIntention() {
     fill(255, 128, 128);
     // fill(245, 245, 115);
-    text(this.intentionTxt, this.x, this.y);
+    text(this.intentionTxt, this.x, this.y, this.x + width * .2, this.y + 500);
   }
 
   moveIntention() {
