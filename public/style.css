@@ -352,3 +352,27 @@ main {
 
   }
 }
+
+.media-icon{
+ 	background-color: white;
+	border-radius: 100%;
+	width: 50%;
+}
+
+/* __Translations__
+The idea here is that each langugage could be contained in its own file.
+*/
+.localized:after {
+    content: attr(data-content);
+}
+
+/* es.css ____________________________________*/
+
+[lang="es"] [data-content="write intention"]:after {
+    content: "escriba intención";
+}
+
+/* pt.css _______________________________________*/
+[lang="pt"] [data-content="write intention"]:after {
+    content: "escreva intenção";
+}

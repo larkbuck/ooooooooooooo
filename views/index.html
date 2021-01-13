@@ -10,8 +10,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.7.0/Tween.js"></script>
-
-
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/mailform.css">
   <!-- MailerLite Universal -->
@@ -40,8 +38,6 @@
     var ml_account = ml('accounts', '2600831', 'p3a0y9j7q3', 'load');
   </script>
   <!-- End MailerLite Universal -->
-
-
 </head>
 
 <body>
@@ -62,11 +58,13 @@
           <li>
             <a href="#">ヽ｀☽ヽ｀</a>
           </li> -->
+             <li><a href="https://www.twitter.com/"><img style='border: 3px solid white;' class="media-icon" src="/assets-main/icons/twitter.png"></a></li>
           <li>
             <a href="javascript:;" onclick="ml_account('webforms', '3216520', 'f1o8f0', 'show')">
               🌚&🌝 ➡ 💌
             </a>
           </li>
+          <li><a href="https://www.instagram.com/"><img class="media-icon" src="/assets-main/icons/instagram.png"></a></li>
           <li class="select">
             <div class="dropdown">
               <button class="dropbtn">🌚 1.13.21 ⬇</button>
@@ -109,6 +107,14 @@
                     <span id="date"></span>
                     <button id="nextMoonBtn" class="threeBtn" type="button" name="button">></button>
                     <button id="nextQuarterBtn" class="threeBtn" type="button" name="button">>></button>
+          </div>
+          <div id="asciiMoon" style="position: absolute; top: 38%; text-align: center; width: 100%;font-size:0.8em">
+            <span id="asciiMoon"></span>
+          </div>
+            <div id="buttonsThreejsTop" style="position: absolute; top: 50%; text-align: center; width: 100%;">
+              <span id="moonText"></span>
+              <br>
+            <span id="hourText"></span>
           </div>
         </div>
       </div>
@@ -157,6 +163,15 @@
       </video>
     </div>
 
+    <!-- empty div - add palolo worms or other moon-timed spawn event? -->
+    <div class="flex-container width-max1200 marginTop">
+      <section class="content">
+      </section>
+      <aside class="sidebar-50 contribution">
+        <!-- <video controls loop class="img longShadowGreen marginTop" style="border-radius:50%;"> -->
+      </aside>
+    </div>
+
     <!-- talking underwater emoji -->
     <div class="flex-container width-max1200 marginTop">
       <div class="" style="text-align: center;">
@@ -171,26 +186,9 @@
       <div class="marginTop">
         <img class="img" src="assets-main/images/tide-anim.gif" alt="" style="border: 1px solid #336CD7; width: 640px; max-width: 95vw;">
       </div>
-      <section class="content ">
-      </section>
-
-      <aside class="sidebar-30 contribution">
-      </aside>
     </div>
 
-    <div class="flex-container width-max1200 marginTop">
-
-      <section class="content">
-
-      </section>
-
-      <aside class="sidebar-50 contribution">
-        <!-- <video controls loop class="img longShadowGreen marginTop" style="border-radius:50%;"> -->
-
-      </aside>
-
-    </div>
-
+    <!-- images of moon phases -->
     <section class="width-full" style="position: relative;">
       <div class="marginTop width-max1200">
         <!-- <img class="img" src="assets-main/images/moons-3.jpg" alt="" \> -->
@@ -199,22 +197,28 @@
       </div>
     </section>
 
-    <!-- Three JS Bottomn -->
+    <!-- Door portal Three JS Bottomn -->
     <section class="width-full" style="position: relative;">
-      <div class="" style="z-index: 10; text-align: center;">
-        <p>write intention and place in water</p>
-        <br>
-        <input id="intention" type="text" class="textInput" maxlength="33" cols="15" rows="1" placeholder="type here ✍️" style="text-align: center; max-width: 90%;"></input>
-        <button id="intentionBtn" type="button" name="button">✔️💦</button>
+      <div id="langElement" lang="en" >
+        <div style="z-index: 10; text-align: center;">
+          <button onClick="setLang('en')">🗣 ️EN</button>
+          <button onClick="setLang('es')">🗣 ️ES</button>
+          <button onClick="setLang('pt')">🗣 ️PT</button>
+        </div>
+        <div  style="z-index: 10; text-align: center;">
+          <span data-content="write intention" style="margin: 1em 0em 0em 0.5em;display: block;" class="localized"></span>
+          <br>
+          <input id="intention" type="text" class="textInput" maxlength="33" cols="15" rows="1" placeholder="✍️" style="text-align: center; max-width: 90%;"></input>
+          <button id="intentionBtn" type="button" name="button">✔️💦</button>
+        </div>
       </div>
-
-      <div class="" style="margin-top:5rem;text-align: center; position:absolute; width:100%; top:0">
+      <!-- <div class="" style="margin-top:5rem;text-align: center; position:absolute; width:100%; top:0">
          <img class="img" id="waves" src="assets-main/images/wave.png" style="width: 100%;" alt=""></a>
-      </div>
+      </div> -->
 
       <div class="marginTop" id='p5Div' style="position: absolute; top:0; z-index: -4;"></div>
 
-      <div class="marginTop"  id="threeContainer" style="position: absolute; top:0; width:100%;">
+      <div class="width-max1000 marginTop" id="threeContainer" style="position: absolute; top:0;">
 
         <div class="marginTop" style="text-align: center;">
           <a href="o0o">
@@ -222,11 +226,11 @@
           </a>
         </div>
         <div class="" id="threejsDivBottomFrame"></div>
-        <div id='threejsDivBottom' class="width-max1000 marginTop" style="">
+        <div id='threejsDivBottom' class="marginTop" style="">
         </div>
-         <!-- <div class="marginTop" style="text-align: center;">
+        <div class="marginTop" style="text-align: center;">
           <a href="o0o"> <img class="img" src="assets-main/images/door.png" style="max-width: 50px;" alt=""></a>
-        </div> -->
+        </div>
       </div>
     </section>
 
@@ -234,7 +238,6 @@
 
   <!-- div for bgCanvas is used in three demo from lynda -->
   <div class="" id="bgCanvas">
-
   </div>
   <canvas id="canvas-background"></canvas>
 
