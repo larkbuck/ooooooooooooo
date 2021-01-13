@@ -92,14 +92,32 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Look for current day
-      idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
 
+      let today = new Date();
+      idx = all_data[idx].data[3].days.findIndex(
+          element => {
+              let vec = element.date.split("-")
+              let sameYear = (parseInt(vec[0])%100) == (today.getYear()%100)
+              //console.log("same Year", sameYear)
+              let sameMonth = parseInt(vec[1]) == (today.getMonth() + 1);
+              //console.log("sameMonth", sameMonth)
 
-      //Check if it is last day
-      idx = (idx == -1 ?
-             all_data[current_phase_idx].data[3].days.length-1 :
-             idx --)
+              let sameDay = parseInt(vec[2]) ==  today.getDate();
+              //console.log("sameDay", sameDay)
 
+              let res;
+              if (!sameYear){
+                   res = ((parseInt(vec[0])%100) > (today.getYear()%100))
+              } else if (!sameMonth){
+                   res = (parseInt(vec[1]) > (today.getMonth() + 1))
+              } else if (!sameDay) {
+                    res = (parseInt(vec[2]) > today.getDate());
+              }else {
+                  res = true;
+              }
+
+              return res;
+         })
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Load quarters and time of current phase
