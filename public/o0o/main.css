@@ -1,4 +1,6 @@
 
+
+
 #loadingDiv {
 
   position: absolute;
@@ -33,6 +35,34 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #000;
+}
+
+/* Images are now responsive */
+/* browser = circle w 90vh, mobile = 90vw  */
+img {
+  z-index: 140;
+  width: auto;
+  height: 70vh;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  background-color: #000;
+  animation: rotation 33s infinite linear;
+
+}
+
+.rotateLoading{
+  /* animation: rotation 33s infinite linear; */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 button {
@@ -184,4 +214,20 @@ background-color: #288059;
   right: 12px;
   transform: rotate(-48deg);
   -webkit-transform: rotate(-48deg);
+}
+
+/* ********** media queries ********** */
+@media screen and (max-width: 600px) {
+  img {
+    z-index: 140;
+    width: 70vw;
+    height: auto;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    background-color: #000;
+    animation: rotation 33s infinite linear;
+
+  }
 }
