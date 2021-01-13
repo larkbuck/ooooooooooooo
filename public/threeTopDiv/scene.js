@@ -80,26 +80,57 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       all_data = obj;
 
       const day = Date.now();
+
+
+      const oldschool_compare = function(year1,month1,day1,year2,month2,day2){
+          let sameYear = (year1%100) == (year2%100);
+          let sameMonth = month1 == month2;
+          let sameDay = day1 == day2;
+
+          console.log((year1%100) > (year2%100),(month1 > month2),(day1 > day2))
+          let res;
+          if (!sameYear){
+              res = (year1%100) > (year2%100);
+          } else if (!sameMonth){
+              res = (month1 > month2);
+          } else if (!sameDay) {
+              res = (day1 > day2);
+          }else {
+              res = true;
+          }
+
+          return res;
+      }
+
+      let today = new Date();
+
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Look for current phase
-      var idx = obj.findIndex(({data}) =>
-                              (Date.parse(data[0]["newmoon 0"]["utctime"]) <= day &&
-                               day <= Date.parse(data[1]["newmoon 30"]["utctime"])))
+      var idx = obj.findIndex(({data}) => {
+          let firstnewmoon = data[0]["newmoon 0"]["utctime"].split("T")[0].split("-");
+          let lastnewmoon = data[1]["newmoon 30"]["utctime"].split("T")[0].split("-");
 
-      //console.log("Phase Idx: ", current_phase_idx)
+          let bound1 = oldschool_compare( today.getYear(), today.getMonth() + 1, today.getDate(),
+                                          firstnewmoon[0], firstnewmoon[1], firstnewmoon[2]);
+          let bound2 = oldschool_compare( lastnewmoon[0], lastnewmoon[1], lastnewmoon[2],
+                                          today.getYear(), today.getMonth() + 1, today.getDate());
+
+          return (bound1 && bound2);
+      })
+
+
       current_phase_idx = idx; //Starts in 0
-
+     // console.log("Phase Idx: ", current_phase_idx)
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Look for current day
-      idx = all_data[idx].data[3].days.findIndex(element => Date.parse(element.date) > day)
-
-
-      //Check if it is last day
-      idx = (idx == -1 ?
-             all_data[current_phase_idx].data[3].days.length-1 :
-             idx --)
-
+      idx = all_data[idx].data[3].days.findIndex(
+          element => {
+              let vec = element.date.split("-")
+              console.log(today, vec);
+              return oldschool_compare(parseInt(vec[0]),parseInt(vec[1]),parseInt(vec[2]),
+                                today.getYear(), today.getMonth() + 1, today.getDate())
+          })
 
       //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       //Load quarters and time of current phase
