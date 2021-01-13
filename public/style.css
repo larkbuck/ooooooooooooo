@@ -23,6 +23,7 @@ body {
   font-size: 1rem;
   color: #eeeeee;
   background: #000;
+  line-height: 1.6;
 }
 
 /* Images are now responsive */
@@ -150,7 +151,7 @@ main {
   display: inline;
 }
 
-.main-nav a {
+.main-nav a, .link {
   display: inline-block;
   padding: .5em 1.5em;
   text-decoration: none;
@@ -166,8 +167,16 @@ main {
   font-size: 1.2rem;
 }
 
+.sm-font {
+  font-size: 1rem;
+}
+
 .marginTop{
   margin-top: 20rem;
+}
+
+.lilMarginTop{
+  margin-top: 2rem;
 }
 
 /* ******** Canvases ******** */
@@ -200,7 +209,7 @@ main {
 #threejsDivBottom {
 }
 
-#threejsDivBottom canvas{
+#threejsDivBottom canvas {
   border-radius: 47%;
 }
 
@@ -249,14 +258,14 @@ main {
   color: #00ff00;
 }
 
-/* ************* Dropdown (moon phases) *************  */
+/* ************* Dropdown (moon phases + language selection) *************  */
 /* https://www.w3schools.com/css/css_dropdowns.asp */
 /* Style The Dropdown Button */
 .dropbtn {
   background-color: #000;
   color: #eeeeee;
   /* padding: 1rem; */
-  font-size: 1rem;
+  font-size: 1.2rem;
   border: none;
   cursor: pointer;
 }
@@ -268,6 +277,8 @@ main {
 }
 
 /* Dropdown Content (Hidden by Default) */
+
+/* ****** n/f moon dropdown ******* */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -276,6 +287,7 @@ main {
   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
   z-index: 1;
   padding: 0;
+  font-size: 1rem;
 }
 
 /* Links inside the dropdown */
@@ -303,6 +315,43 @@ main {
   background-color: #000;
 }
 
+/* ****** language dropdown ******* */
+.dropdown-content-lng {
+  display: none;
+  position: absolute;
+  background-color: #000;
+  /* min-width: 160px; */
+  /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+  z-index: 1;
+  padding: 0;
+  font-size: 1rem;
+}
+
+/* Links inside the dropdown */
+.dropdown-content-lng a {
+  color: #eeeeee;
+  /* padding: 1rem; */
+  text-decoration: none;
+  display: block;
+  padding: .5rem 2rem .5rem .5rem;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content-lng a:hover {
+  background-color: #eeeeee;
+  color: #000;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content-lng {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #000;
+}
+
 
 
 /* *************** 3 js scene buttons *********** */
@@ -316,6 +365,92 @@ main {
   font-size: 1.5rem;
   color: #eeeeee;
 }
+
+
+/* *************** pop ups */
+
+.popupContainer{
+  height: 50%;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.popupLink:hover{
+  border: 2px solid #fff;
+}
+
+.popupText{
+  background-color: #000;
+  font-size: 1.2rem;
+}
+
+
+/* ************* info page text ************* */
+
+.whiteBorder {
+  border: .5px solid #aaa;
+}
+
+.infoPage {
+  padding: 2rem;
+}
+
+.infoPage a {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #777;
+}
+
+/* unvisited link */
+.infoPage a:link {
+  color: #eee;
+}
+
+/* visited link */
+.infoPage a:visited {
+  color: #eee;
+}
+
+/* mouse over link */
+.infoPage a:hover {
+  color: green;
+}
+
+/* selected link */
+.infoPage a:active {
+  color: pink;
+}
+
+
+
+/* ************** social media ********* */
+.media-icon{
+ 	background-color: white;
+	border-radius: 100%;
+	width: 50%;
+}
+
+/************* __Translations__
+The idea here is that each langugage could be contained in its own file.
+*/
+.localized:after {
+    content: attr(data-content);
+}
+
+/* es.css ____________________________________*/
+
+[lang="es"] [data-content="write intention"]:after {
+    content: "escriba intención";
+}
+
+/* pt.css _______________________________________*/
+[lang="pt"] [data-content="write intention"]:after {
+    content: "escreva intenção";
+}
+
+
 
 /* ********** media queries ********** */
 @media screen and (max-width: 600px) {
@@ -343,36 +478,25 @@ main {
     font-size: 1rem;
   }
 
+  .sm-font {
+    font-size: 1rem;
+  }
+
   .marginTop{
     margin-top: 7rem;
+  }
+
+  /* .lilMarginTop{
+    margin-top: 7rem;
+  } */
+
+
+  .infoPage {
+    padding: 1.2rem;
   }
 
   #threeContainer {
     min-height: 30vh;
 
   }
-}
-
-.media-icon{
- 	background-color: white;
-	border-radius: 100%;
-	width: 50%;
-}
-
-/* __Translations__
-The idea here is that each langugage could be contained in its own file.
-*/
-.localized:after {
-    content: attr(data-content);
-}
-
-/* es.css ____________________________________*/
-
-[lang="es"] [data-content="write intention"]:after {
-    content: "escriba intención";
-}
-
-/* pt.css _______________________________________*/
-[lang="pt"] [data-content="write intention"]:after {
-    content: "escreva intenção";
 }

@@ -11,6 +11,11 @@ let startCol;
 let endCol;
 let colIncr;
 let intentionArray = [];
+let waves;
+
+function preload() {
+  waves = loadImage('../assets-main/images/waves.png');
+}
 
 function setup() {
   threeContainer = document.querySelector("#threeContainer");
@@ -26,7 +31,7 @@ function setup() {
   //water
   numLayers = 150;
   layerHeight = height / numLayers;
-  startCol = color(67, 217, 194);
+  startCol = color(57, 191, 171);
   endCol = color(26, 33, 68);
   colIncr = 1 / numLayers;
 
@@ -47,10 +52,6 @@ function windowResized() {
 }
 
 function draw() {
-  // background(0, 255, 0);
-  // stroke(0, 255, 0);
-  // noFill();
-  // ellipse(width / 2, height / 2, 80, 80);
 
   clear();
 
@@ -67,10 +68,18 @@ function draw() {
 
   for (let i = 0; i < intentionArray.length; i++) {
     intentionArray[i].displayIntention();
-
     intentionArray[i].moveIntention();
-
   }
+
+
+  for (let i = -1; i < 16; i++) {
+    image(waves, i * 128 + frameCount % 128, -20 + sin(frameCount * 0.08)*2);
+  }
+
+  // for (let i = 0; i < 16; i++){
+  //   image(waves, i * 128 + frameCount, -33);
+  // }
+
 }
 
 
