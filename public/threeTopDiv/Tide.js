@@ -70,7 +70,7 @@ vec2 uv = vUv*2.-1.;
 vec3 lines =vec3(sin(uv.y*200.))/.1;//Currently not using
 vec3 color = mix(vec3(r,g,b)/vec3(1./1.8), lines, 0.);
  float light = 1.5-length(vUv*2.-vec2(1.));
-  gl_FragColor = vec4(color, 1.)*vec4(light/1.8)*(lightIntensity+0.01);
+  gl_FragColor = vec4(color, 1.)*vec4(light/1.2)*(lightIntensity+0.01);
 }`
 
     let material = new THREE.ShaderMaterial({
