@@ -203,6 +203,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         document.querySelector("#date").innerHTML = currentMoon.date;
         document.querySelector("#asciiMoon").innerHTML = "";
         document.querySelector("#moonText").innerHTML = "";
+        document.querySelector("#hourText").innerHTML = "";
 
         let quarterTexts = [
             `.*･｡ﾟ🌑 `,
