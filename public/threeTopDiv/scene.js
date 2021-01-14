@@ -87,7 +87,6 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
           let sameMonth = month1 == month2;
           let sameDay = day1 == day2;
 
-          console.log((year1%100) > (year2%100),(month1 > month2),(day1 > day2))
           let res;
           if (!sameYear){
               res = (year1%100) > (year2%100);
@@ -127,7 +126,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
       idx = all_data[idx].data[3].days.findIndex(
           element => {
               let vec = element.date.split("-")
-              console.log(today, vec);
+
               return oldschool_compare(parseInt(vec[0]),parseInt(vec[1]),parseInt(vec[2]),
                                 today.getYear(), today.getMonth() + 1, today.getDate())
           })
@@ -203,6 +202,7 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
         document.querySelector("#date").innerHTML = currentMoon.date;
         document.querySelector("#asciiMoon").innerHTML = "";
         document.querySelector("#moonText").innerHTML = "";
+        document.querySelector("#hourText").innerHTML = "";
 
         let quarterTexts = [
             `.*･｡ﾟ🌑 `,
