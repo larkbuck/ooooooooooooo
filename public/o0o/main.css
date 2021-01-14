@@ -1,8 +1,4 @@
-
-
-
 #loadingDiv {
-
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -58,9 +54,6 @@ img {
 .rotateHourglass{
   animation: rotation 24s infinite linear;
   z-index: 140;
-  /* width: auto;
-  height: 70vh; */
-  /* background-color: #000; */
 }
 
 @keyframes rotation {
