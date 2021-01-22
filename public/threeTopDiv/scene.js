@@ -390,11 +390,21 @@ function MoonPhaseAdmin(background, tide, triangle,sky) {
 
     this.loadPhase= function(){
         var days = all_data[current_phase_idx].data[3].days;
-        firstquarter_idx = all_data[current_phase_idx].data[4].firstquarter.idx;
-        thirdquarter_idx = all_data[current_phase_idx].data[5].thirdquarter.idx;
+        // Get quarters index in array of days (current phase)
+        for (var i = 0; i < days.length ; i++) {
+            let day = days[i];
+            if (day.moonphase == 'firstquarter'){
+                firstquarter_idx = i
+            }
+            if (day.moonphase == 'thirdquarter'){
+                thirdquarter_idx = i
+            }
+            if (day.moonphase == 'fullmoon'){
+                fullmoon_idx = i
+            }
+        }
 
-        // Get full moon index in array of days
-        fullmoon_idx = all_data[current_phase_idx].data[2]["fullmoon"].idx;
+
         fullmoon_hour = pad(all_data[current_phase_idx].data[2]["fullmoon"].hour)+":"
             + pad(all_data[current_phase_idx].data[2]["fullmoon"].min) +":"
             + pad(all_data[current_phase_idx].data[2]["fullmoon"].sec);
