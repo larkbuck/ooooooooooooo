@@ -445,6 +445,22 @@ The idea here is that each langugage could be contained in its own file.
     content: "escriba intención";
 }
 
+[lang="es"] [data-content="mass spawning"]:after {
+    content: "desove masivo";
+}
+
+[lang="es"] [data-content="~400 species coral in Great Barrier Reef spawn after full moon in Oct+Nov"]:after {
+    content: "~400 especies de corales en la Gran Barrera de Arrecifes externa se desovan justo después de la luna llena en Oct+Nov";
+}
+
+[lang="es"] [data-content="Palola viridis, Samoan palolo worm, wawo, nyale"]:after {
+    content: "Palola viridis, gusano Samoan palolo, wawo, nyale";
+}
+
+[lang="es"] [data-content="mass spawn after last quarter moon in Oct/Nov"]:after {
+    content: "desove masivo después del último cuarto lunar en Oct / Nov";
+}
+
 /* pt.css _______________________________________*/
 [lang="pt"] [data-content="write intention"]:after {
     content: "escreva intenção";
